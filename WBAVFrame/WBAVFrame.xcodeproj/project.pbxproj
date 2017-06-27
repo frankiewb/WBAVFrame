@@ -9,12 +9,17 @@
 /* Begin PBXBuildFile section */
 		2D9B28191F01F61600D3EAEB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B28181F01F61600D3EAEB /* main.m */; };
 		2D9B281C1F01F61600D3EAEB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B281B1F01F61600D3EAEB /* AppDelegate.m */; };
-		2D9B281F1F01F61600D3EAEB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B281E1F01F61600D3EAEB /* ViewController.m */; };
-		2D9B28221F01F61600D3EAEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D9B28201F01F61600D3EAEB /* Main.storyboard */; };
 		2D9B28241F01F61600D3EAEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D9B28231F01F61600D3EAEB /* Assets.xcassets */; };
 		2D9B28271F01F61600D3EAEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D9B28251F01F61600D3EAEB /* LaunchScreen.storyboard */; };
 		2D9B28321F01F61600D3EAEB /* WBAVFrameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B28311F01F61600D3EAEB /* WBAVFrameTests.m */; };
 		2D9B283D1F01F61600D3EAEB /* WBAVFrameUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B283C1F01F61600D3EAEB /* WBAVFrameUITests.m */; };
+		2DE9E4641F023A0A001255F4 /* WBAVRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E4631F023A0A001255F4 /* WBAVRootViewController.m */; };
+		2DE9E4671F023B44001255F4 /* WBVideoPlayerSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E4661F023B44001255F4 /* WBVideoPlayerSettingViewController.m */; };
+		2DE9E46A1F023B60001255F4 /* WBVideoRecorderSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E4691F023B60001255F4 /* WBVideoRecorderSettingViewController.m */; };
+		2DE9E46D1F023B79001255F4 /* WBLivePlayerSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E46C1F023B79001255F4 /* WBLivePlayerSettingViewController.m */; };
+		2DE9E4701F023B92001255F4 /* WBLiveRecorderSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E46F1F023B92001255F4 /* WBLiveRecorderSettingViewController.m */; };
+		2DE9E4731F025042001255F4 /* WBAVRootBottomButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E4721F025042001255F4 /* WBAVRootBottomButtonView.m */; };
+		D7FDE783BCAC39F6A4C2E202 /* libPods-WBAVFrame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0535D5CF285357CA7D0102A /* libPods-WBAVFrame.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,10 +44,7 @@
 		2D9B28181F01F61600D3EAEB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2D9B281A1F01F61600D3EAEB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2D9B281B1F01F61600D3EAEB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2D9B281D1F01F61600D3EAEB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2D9B281E1F01F61600D3EAEB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		2D9B28211F01F61600D3EAEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2D9B28231F01F61600D3EAEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2D9B28231F01F61600D3EAEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = WBAVFrame/Assets.xcassets; sourceTree = "<group>"; };
 		2D9B28261F01F61600D3EAEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D9B28281F01F61600D3EAEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D9B282D1F01F61600D3EAEB /* WBAVFrameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WBAVFrameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +53,22 @@
 		2D9B28381F01F61600D3EAEB /* WBAVFrameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WBAVFrameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D9B283C1F01F61600D3EAEB /* WBAVFrameUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBAVFrameUITests.m; sourceTree = "<group>"; };
 		2D9B283E1F01F61600D3EAEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DE9E4621F023A06001255F4 /* WBAVRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBAVRootViewController.h; sourceTree = "<group>"; };
+		2DE9E4631F023A0A001255F4 /* WBAVRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBAVRootViewController.m; sourceTree = "<group>"; };
+		2DE9E4651F023B44001255F4 /* WBVideoPlayerSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBVideoPlayerSettingViewController.h; sourceTree = "<group>"; };
+		2DE9E4661F023B44001255F4 /* WBVideoPlayerSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBVideoPlayerSettingViewController.m; sourceTree = "<group>"; };
+		2DE9E4681F023B60001255F4 /* WBVideoRecorderSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBVideoRecorderSettingViewController.h; sourceTree = "<group>"; };
+		2DE9E4691F023B60001255F4 /* WBVideoRecorderSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBVideoRecorderSettingViewController.m; sourceTree = "<group>"; };
+		2DE9E46B1F023B79001255F4 /* WBLivePlayerSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBLivePlayerSettingViewController.h; sourceTree = "<group>"; };
+		2DE9E46C1F023B79001255F4 /* WBLivePlayerSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBLivePlayerSettingViewController.m; sourceTree = "<group>"; };
+		2DE9E46E1F023B92001255F4 /* WBLiveRecorderSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBLiveRecorderSettingViewController.h; sourceTree = "<group>"; };
+		2DE9E46F1F023B92001255F4 /* WBLiveRecorderSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBLiveRecorderSettingViewController.m; sourceTree = "<group>"; };
+		2DE9E4711F025042001255F4 /* WBAVRootBottomButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBAVRootBottomButtonView.h; sourceTree = "<group>"; };
+		2DE9E4721F025042001255F4 /* WBAVRootBottomButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBAVRootBottomButtonView.m; sourceTree = "<group>"; };
+		2DE9E47A1F02579F001255F4 /* WBAVFrame_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBAVFrame_Prefix.pch; sourceTree = "<group>"; };
+		564080BCB324572E9BC9BEC9 /* Pods-WBAVFrame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBAVFrame.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WBAVFrame/Pods-WBAVFrame.release.xcconfig"; sourceTree = "<group>"; };
+		A0535D5CF285357CA7D0102A /* libPods-WBAVFrame.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WBAVFrame.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E51F6B0169463C936A37BD35 /* Pods-WBAVFrame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBAVFrame.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WBAVFrame/Pods-WBAVFrame.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7FDE783BCAC39F6A4C2E202 /* libPods-WBAVFrame.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,10 +100,15 @@
 		2D9B280B1F01F61600D3EAEB = {
 			isa = PBXGroup;
 			children = (
-				2D9B28161F01F61600D3EAEB /* WBAVFrame */,
+				2DE9E4611F0239F5001255F4 /* WBAVFrameRootViewController */,
+				2DE9E47F1F026C74001255F4 /* WBAVFrame */,
+				2D9B28171F01F61600D3EAEB /* Supporting Files */,
+				2DE9E4401F023338001255F4 /* Resource */,
 				2D9B28301F01F61600D3EAEB /* WBAVFrameTests */,
 				2D9B283B1F01F61600D3EAEB /* WBAVFrameUITests */,
 				2D9B28151F01F61600D3EAEB /* Products */,
+				6EADB12981D51892E15EA9F5 /* Pods */,
+				DF3B252ECF10013123CBD0F2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,28 +122,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2D9B28161F01F61600D3EAEB /* WBAVFrame */ = {
-			isa = PBXGroup;
-			children = (
-				2D9B281A1F01F61600D3EAEB /* AppDelegate.h */,
-				2D9B281B1F01F61600D3EAEB /* AppDelegate.m */,
-				2D9B281D1F01F61600D3EAEB /* ViewController.h */,
-				2D9B281E1F01F61600D3EAEB /* ViewController.m */,
-				2D9B28201F01F61600D3EAEB /* Main.storyboard */,
-				2D9B28231F01F61600D3EAEB /* Assets.xcassets */,
-				2D9B28251F01F61600D3EAEB /* LaunchScreen.storyboard */,
-				2D9B28281F01F61600D3EAEB /* Info.plist */,
-				2D9B28171F01F61600D3EAEB /* Supporting Files */,
-			);
-			path = WBAVFrame;
-			sourceTree = "<group>";
-		};
 		2D9B28171F01F61600D3EAEB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2D9B281B1F01F61600D3EAEB /* AppDelegate.m */,
+				2D9B281A1F01F61600D3EAEB /* AppDelegate.h */,
 				2D9B28181F01F61600D3EAEB /* main.m */,
+				2D9B28251F01F61600D3EAEB /* LaunchScreen.storyboard */,
+				2D9B28281F01F61600D3EAEB /* Info.plist */,
+				2DE9E47A1F02579F001255F4 /* WBAVFrame_Prefix.pch */,
 			);
 			name = "Supporting Files";
+			path = WBAVFrame;
 			sourceTree = "<group>";
 		};
 		2D9B28301F01F61600D3EAEB /* WBAVFrameTests */ = {
@@ -140,6 +154,94 @@
 			path = WBAVFrameUITests;
 			sourceTree = "<group>";
 		};
+		2DE9E4401F023338001255F4 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				2D9B28231F01F61600D3EAEB /* Assets.xcassets */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		2DE9E45D1F0239AF001255F4 /* WBLiveRecorderSettingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2DE9E46E1F023B92001255F4 /* WBLiveRecorderSettingViewController.h */,
+				2DE9E46F1F023B92001255F4 /* WBLiveRecorderSettingViewController.m */,
+			);
+			name = WBLiveRecorderSettingViewController;
+			path = WBAVFrame/WBLiveRecorderSettingViewController;
+			sourceTree = "<group>";
+		};
+		2DE9E45E1F0239B6001255F4 /* WBLivePlayerSettingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2DE9E46B1F023B79001255F4 /* WBLivePlayerSettingViewController.h */,
+				2DE9E46C1F023B79001255F4 /* WBLivePlayerSettingViewController.m */,
+			);
+			name = WBLivePlayerSettingViewController;
+			path = WBAVFrame/WBLivePlayerSettingViewController;
+			sourceTree = "<group>";
+		};
+		2DE9E45F1F0239BA001255F4 /* WBVideoRecorderSettingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2DE9E4681F023B60001255F4 /* WBVideoRecorderSettingViewController.h */,
+				2DE9E4691F023B60001255F4 /* WBVideoRecorderSettingViewController.m */,
+			);
+			name = WBVideoRecorderSettingViewController;
+			path = WBAVFrame/WBVideoRecorderSettingViewController;
+			sourceTree = "<group>";
+		};
+		2DE9E4601F0239BC001255F4 /* WBVideoPlayerSettingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2DE9E4651F023B44001255F4 /* WBVideoPlayerSettingViewController.h */,
+				2DE9E4661F023B44001255F4 /* WBVideoPlayerSettingViewController.m */,
+			);
+			name = WBVideoPlayerSettingViewController;
+			path = WBAVFrame/WBVideoPlayerSettingViewController;
+			sourceTree = "<group>";
+		};
+		2DE9E4611F0239F5001255F4 /* WBAVFrameRootViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2DE9E4621F023A06001255F4 /* WBAVRootViewController.h */,
+				2DE9E4631F023A0A001255F4 /* WBAVRootViewController.m */,
+				2DE9E4711F025042001255F4 /* WBAVRootBottomButtonView.h */,
+				2DE9E4721F025042001255F4 /* WBAVRootBottomButtonView.m */,
+			);
+			name = WBAVFrameRootViewController;
+			path = WBAVFrame/WBAVFrameRootViewController;
+			sourceTree = "<group>";
+		};
+		2DE9E47F1F026C74001255F4 /* WBAVFrame */ = {
+			isa = PBXGroup;
+			children = (
+				2DE9E45D1F0239AF001255F4 /* WBLiveRecorderSettingViewController */,
+				2DE9E45E1F0239B6001255F4 /* WBLivePlayerSettingViewController */,
+				2DE9E45F1F0239BA001255F4 /* WBVideoRecorderSettingViewController */,
+				2DE9E4601F0239BC001255F4 /* WBVideoPlayerSettingViewController */,
+			);
+			name = WBAVFrame;
+			sourceTree = "<group>";
+		};
+		6EADB12981D51892E15EA9F5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E51F6B0169463C936A37BD35 /* Pods-WBAVFrame.debug.xcconfig */,
+				564080BCB324572E9BC9BEC9 /* Pods-WBAVFrame.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DF3B252ECF10013123CBD0F2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A0535D5CF285357CA7D0102A /* libPods-WBAVFrame.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +249,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D9B28411F01F61600D3EAEB /* Build configuration list for PBXNativeTarget "WBAVFrame" */;
 			buildPhases = (
+				5626DF8CF6D1C6D9D9E52436 /* [CP] Check Pods Manifest.lock */,
 				2D9B28101F01F61600D3EAEB /* Sources */,
 				2D9B28111F01F61600D3EAEB /* Frameworks */,
 				2D9B28121F01F61600D3EAEB /* Resources */,
+				EA25288DE102ACC984514D5F /* [CP] Embed Pods Frameworks */,
+				9F18E845E3FFFE16AC6C8C49 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -251,7 +356,6 @@
 			files = (
 				2D9B28271F01F61600D3EAEB /* LaunchScreen.storyboard in Resources */,
 				2D9B28241F01F61600D3EAEB /* Assets.xcassets in Resources */,
-				2D9B28221F01F61600D3EAEB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,14 +375,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5626DF8CF6D1C6D9D9E52436 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9F18E845E3FFFE16AC6C8C49 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-WBAVFrame/Pods-WBAVFrame-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA25288DE102ACC984514D5F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-WBAVFrame/Pods-WBAVFrame-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2D9B28101F01F61600D3EAEB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D9B281F1F01F61600D3EAEB /* ViewController.m in Sources */,
 				2D9B281C1F01F61600D3EAEB /* AppDelegate.m in Sources */,
+				2DE9E4701F023B92001255F4 /* WBLiveRecorderSettingViewController.m in Sources */,
+				2DE9E4671F023B44001255F4 /* WBVideoPlayerSettingViewController.m in Sources */,
+				2DE9E46A1F023B60001255F4 /* WBVideoRecorderSettingViewController.m in Sources */,
+				2DE9E46D1F023B79001255F4 /* WBLivePlayerSettingViewController.m in Sources */,
+				2DE9E4731F025042001255F4 /* WBAVRootBottomButtonView.m in Sources */,
 				2D9B28191F01F61600D3EAEB /* main.m in Sources */,
+				2DE9E4641F023A0A001255F4 /* WBAVRootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,14 +471,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2D9B28201F01F61600D3EAEB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2D9B28211F01F61600D3EAEB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2D9B28251F01F61600D3EAEB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -427,25 +576,65 @@
 		};
 		2D9B28421F01F61600D3EAEB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E51F6B0169463C936A37BD35 /* Pods-WBAVFrame.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8D7826FKHD;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/WBAVFrame/WBAVFrame_prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/MJExtension\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"$(SRCROOT)/../WBUtils/WBUtils/**",
+				);
 				INFOPLIST_FILE = WBAVFrame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/AFNetworking\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MJExtension\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MJRefresh\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SDWebImage\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = WB.WBAVFrame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		2D9B28431F01F61600D3EAEB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 564080BCB324572E9BC9BEC9 /* Pods-WBAVFrame.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8D7826FKHD;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/WBAVFrame/WBAVFrame_prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/MJExtension\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"$(SRCROOT)/../WBUtils/WBUtils/**",
+				);
 				INFOPLIST_FILE = WBAVFrame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/AFNetworking\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MJExtension\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MJRefresh\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SDWebImage\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = WB.WBAVFrame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -518,6 +707,7 @@
 				2D9B28431F01F61600D3EAEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2D9B28441F01F61600D3EAEB /* Build configuration list for PBXNativeTarget "WBAVFrameTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +716,7 @@
 				2D9B28461F01F61600D3EAEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2D9B28471F01F61600D3EAEB /* Build configuration list for PBXNativeTarget "WBAVFrameUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +725,7 @@
 				2D9B28491F01F61600D3EAEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

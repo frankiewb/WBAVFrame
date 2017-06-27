@@ -1,0 +1,15 @@
+//
+//  PrefixHeader.pch
+//  WBAVFrame
+//
+//  Created by WangBo on 2017/6/27.
+//  Copyright © 2017年 WangBo. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "WBMacros.h"
+#import "UIColor+Utils.h"
+
+#endif /* PrefixHeader_pch */

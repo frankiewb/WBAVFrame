@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:WBService/WBService.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:WBUtils/WBUtils.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:WBRtmpHandler/WBRtmpHandler.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:WBAVLocalRecorder/WBAVLocalRecorder.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:WBAVLocalPlayer/WBAVLocalPlayer.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:WBAVLivePlayer/WBAVLivePlayer.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:WBAVLiveRecorder/WBAVLiveRecorder.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:WBAVFrame/WBAVFrame.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+</Workspace>
