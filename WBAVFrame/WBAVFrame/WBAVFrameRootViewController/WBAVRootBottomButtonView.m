@@ -76,8 +76,7 @@
         [functionButton setImage:[UIImage imageNamed:self.functionButtonSelectedImageNameArray[buttonIndex]] forState:UIControlStateNormal];
         [functionButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
         functionButton.titleLabel.font = [UIFont systemFontOfSize:10*WBDeviceScale6];
-        //[functionButton setTitleColor:[UIColor colorWithHexString:@"757575"] forState:UIControlStateNormal];
-        [functionButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [functionButton setTitleColor:[UIColor colorWithHexString:@"897AEB"] forState:UIControlStateNormal];
         
         if (functionButton.tag != 2)
         {
@@ -89,6 +88,10 @@
         [self.functionButtonArray addObject:functionButton];
         [self addSubview:functionButton];
     }
+    
+    UIView *seperatorLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 3)];
+    seperatorLine.backgroundColor = [UIColor colorWithRed:159/255.0 green:211/255.0 blue:149/255.0 alpha:1];
+    [self addSubview:seperatorLine];
 }
 
 

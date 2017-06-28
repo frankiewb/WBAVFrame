@@ -2,25 +2,28 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:WBService/WBService.xcodeproj">
+      location = "group:WBUtils/WBUtils.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:WBUtils/WBUtils.xcodeproj">
+      location = "group:WBService/WBService.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:WBRtmpHandler/WBRtmpHandler.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:WBAVLocalRecorder/WBAVLocalRecorder.xcodeproj">
+      location = "group:WBCodec/WBCodec.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:WBAVLocalPlayer/WBAVLocalPlayer.xcodeproj">
+      location = "group:WBAVNativePlayer/WBAVNativePlayer.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:WBAVLivePlayer/WBAVLivePlayer.xcodeproj">
+      location = "group:WBAVIJKPlayer/WBAVIJKPlayer.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:WBAVLiveRecorder/WBAVLiveRecorder.xcodeproj">
+      location = "group:WBAVNativeRecorder/WBAVNativeRecorder.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:WBAVBeautyRecorder/WBAVBeautyRecorder.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:WBAVFrame/WBAVFrame.xcodeproj">

@@ -13,6 +13,14 @@
 		2D9B28271F01F61600D3EAEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D9B28251F01F61600D3EAEB /* LaunchScreen.storyboard */; };
 		2D9B28321F01F61600D3EAEB /* WBAVFrameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B28311F01F61600D3EAEB /* WBAVFrameTests.m */; };
 		2D9B283D1F01F61600D3EAEB /* WBAVFrameUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B283C1F01F61600D3EAEB /* WBAVFrameUITests.m */; };
+		2DDB32921F03A88E00DBA59B /* libWBAVNativeRecorder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDB32911F03A88E00DBA59B /* libWBAVNativeRecorder.a */; };
+		2DDB32941F03A97A00DBA59B /* libWBUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDB32931F03A97A00DBA59B /* libWBUtils.a */; };
+		2DDB32A51F03B46800DBA59B /* libWBAVBeautyRecorder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDB32A41F03B46800DBA59B /* libWBAVBeautyRecorder.a */; };
+		2DDB32AB1F03B47300DBA59B /* libWBAVIJKPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDB32A61F03B47300DBA59B /* libWBAVIJKPlayer.a */; };
+		2DDB32AC1F03B47300DBA59B /* libWBAVNativePlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDB32A71F03B47300DBA59B /* libWBAVNativePlayer.a */; };
+		2DDB32AD1F03B47300DBA59B /* libWBCodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDB32A81F03B47300DBA59B /* libWBCodec.a */; };
+		2DDB32AE1F03B47300DBA59B /* libWBRtmpHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDB32A91F03B47300DBA59B /* libWBRtmpHandler.a */; };
+		2DDB32AF1F03B47300DBA59B /* libWBService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDB32AA1F03B47300DBA59B /* libWBService.a */; };
 		2DE9E4641F023A0A001255F4 /* WBAVRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E4631F023A0A001255F4 /* WBAVRootViewController.m */; };
 		2DE9E4671F023B44001255F4 /* WBVideoPlayerSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E4661F023B44001255F4 /* WBVideoPlayerSettingViewController.m */; };
 		2DE9E46A1F023B60001255F4 /* WBVideoRecorderSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E4691F023B60001255F4 /* WBVideoRecorderSettingViewController.m */; };
@@ -53,6 +61,14 @@
 		2D9B28381F01F61600D3EAEB /* WBAVFrameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WBAVFrameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D9B283C1F01F61600D3EAEB /* WBAVFrameUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBAVFrameUITests.m; sourceTree = "<group>"; };
 		2D9B283E1F01F61600D3EAEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DDB32911F03A88E00DBA59B /* libWBAVNativeRecorder.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWBAVNativeRecorder.a; path = "../WBAVNativeRecorder/build/Debug-iphoneos/libWBAVNativeRecorder.a"; sourceTree = "<group>"; };
+		2DDB32931F03A97A00DBA59B /* libWBUtils.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWBUtils.a; path = "../WBUtils/build/Debug-iphoneos/libWBUtils.a"; sourceTree = "<group>"; };
+		2DDB32A41F03B46800DBA59B /* libWBAVBeautyRecorder.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWBAVBeautyRecorder.a; path = "../WBAVBeautyRecorder/build/Debug-iphoneos/libWBAVBeautyRecorder.a"; sourceTree = "<group>"; };
+		2DDB32A61F03B47300DBA59B /* libWBAVIJKPlayer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWBAVIJKPlayer.a; path = "../WBAVIJKPlayer/build/Debug-iphoneos/libWBAVIJKPlayer.a"; sourceTree = "<group>"; };
+		2DDB32A71F03B47300DBA59B /* libWBAVNativePlayer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWBAVNativePlayer.a; path = "../WBAVNativePlayer/build/Debug-iphoneos/libWBAVNativePlayer.a"; sourceTree = "<group>"; };
+		2DDB32A81F03B47300DBA59B /* libWBCodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWBCodec.a; path = "../WBCodec/build/Debug-iphoneos/libWBCodec.a"; sourceTree = "<group>"; };
+		2DDB32A91F03B47300DBA59B /* libWBRtmpHandler.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWBRtmpHandler.a; path = "../WBRtmpHandler/build/Debug-iphoneos/libWBRtmpHandler.a"; sourceTree = "<group>"; };
+		2DDB32AA1F03B47300DBA59B /* libWBService.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWBService.a; path = "../WBService/build/Debug-iphoneos/libWBService.a"; sourceTree = "<group>"; };
 		2DE9E4621F023A06001255F4 /* WBAVRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBAVRootViewController.h; sourceTree = "<group>"; };
 		2DE9E4631F023A0A001255F4 /* WBAVRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBAVRootViewController.m; sourceTree = "<group>"; };
 		2DE9E4651F023B44001255F4 /* WBVideoPlayerSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBVideoPlayerSettingViewController.h; sourceTree = "<group>"; };
@@ -76,6 +92,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DDB32AB1F03B47300DBA59B /* libWBAVIJKPlayer.a in Frameworks */,
+				2DDB32AC1F03B47300DBA59B /* libWBAVNativePlayer.a in Frameworks */,
+				2DDB32AD1F03B47300DBA59B /* libWBCodec.a in Frameworks */,
+				2DDB32AE1F03B47300DBA59B /* libWBRtmpHandler.a in Frameworks */,
+				2DDB32AF1F03B47300DBA59B /* libWBService.a in Frameworks */,
+				2DDB32A51F03B46800DBA59B /* libWBAVBeautyRecorder.a in Frameworks */,
+				2DDB32941F03A97A00DBA59B /* libWBUtils.a in Frameworks */,
+				2DDB32921F03A88E00DBA59B /* libWBAVNativeRecorder.a in Frameworks */,
 				D7FDE783BCAC39F6A4C2E202 /* libPods-WBAVFrame.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,6 +261,14 @@
 		DF3B252ECF10013123CBD0F2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2DDB32A61F03B47300DBA59B /* libWBAVIJKPlayer.a */,
+				2DDB32A71F03B47300DBA59B /* libWBAVNativePlayer.a */,
+				2DDB32A81F03B47300DBA59B /* libWBCodec.a */,
+				2DDB32A91F03B47300DBA59B /* libWBRtmpHandler.a */,
+				2DDB32AA1F03B47300DBA59B /* libWBService.a */,
+				2DDB32A41F03B46800DBA59B /* libWBAVBeautyRecorder.a */,
+				2DDB32931F03A97A00DBA59B /* libWBUtils.a */,
+				2DDB32911F03A88E00DBA59B /* libWBAVNativeRecorder.a */,
 				A0535D5CF285357CA7D0102A /* libPods-WBAVFrame.a */,
 			);
 			name = Frameworks;
@@ -526,6 +558,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -568,6 +604,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -590,6 +630,10 @@
 					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
 					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
 					"$(SRCROOT)/../WBUtils/WBUtils/**",
+					"$(SRCROOT)/../WBAVNativeRecorder/WBAVNativeRecorder/**",
+					"$(SRCROOT)/../WBAVBeautyRecorder/WBAVBeautyRecorder/**",
+					"$(SRCROOT)/../WBAVIJKPlayer/WBAVIJKPlayer/**",
+					"$(SRCROOT)/../WBAVNativePlayer/WBAVNativePlayer/**",
 				);
 				INFOPLIST_FILE = WBAVFrame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -599,6 +643,24 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MJExtension\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MJRefresh\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/SDWebImage\"",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"MJExtension\"",
+					"-l\"MJRefresh\"",
+					"-l\"SDWebImage\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = WB.WBAVFrame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -622,6 +684,10 @@
 					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
 					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
 					"$(SRCROOT)/../WBUtils/WBUtils/**",
+					"$(SRCROOT)/../WBAVNativeRecorder/WBAVNativeRecorder/**",
+					"$(SRCROOT)/../WBAVBeautyRecorder/WBAVBeautyRecorder/**",
+					"$(SRCROOT)/../WBAVIJKPlayer/WBAVIJKPlayer/**",
+					"$(SRCROOT)/../WBAVNativePlayer/WBAVNativePlayer/**",
 				);
 				INFOPLIST_FILE = WBAVFrame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -631,6 +697,24 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MJExtension\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MJRefresh\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/SDWebImage\"",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"MJExtension\"",
+					"-l\"MJRefresh\"",
+					"-l\"SDWebImage\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = WB.WBAVFrame;
 				PRODUCT_NAME = "$(TARGET_NAME)";

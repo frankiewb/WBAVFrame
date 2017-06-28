@@ -7,36 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2DE9E3CF1F022FEC001255F4 /* WBAVLivePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E3CE1F022FEC001255F4 /* WBAVLivePlayer.m */; };
-		2DE9E3D01F022FEC001255F4 /* WBAVLivePlayer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DE9E3CD1F022FEC001255F4 /* WBAVLivePlayer.h */; };
-		2DE9E4461F023554001255F4 /* WBAVLivePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E4451F023554001255F4 /* WBAVLivePlayerViewController.m */; };
-		2DE9E4541F023667001255F4 /* WBAVLivePlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DE9E3CD1F022FEC001255F4 /* WBAVLivePlayer.h */; };
-		2DE9E4551F02366C001255F4 /* WBAVLivePlayerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DE9E4441F023554001255F4 /* WBAVLivePlayerViewController.h */; };
+		2DDB32A31F03B0E800DBA59B /* WBNativePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDB32A21F03B0E800DBA59B /* WBNativePlayerViewController.m */; };
+		2DDB32B81F03BAEE00DBA59B /* WBNativePlayerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DDB32A11F03B0E800DBA59B /* WBNativePlayerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2DE9E4B81F039724001255F4 /* WBAVNativePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E4B71F039724001255F4 /* WBAVNativePlayer.m */; };
+		2DE9E4B91F039724001255F4 /* WBAVNativePlayer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DE9E4B61F039724001255F4 /* WBAVNativePlayer.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		2DE9E3C81F022FEC001255F4 /* CopyFiles */ = {
+		2DE9E4B11F039724001255F4 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				2DE9E3D01F022FEC001255F4 /* WBAVLivePlayer.h in CopyFiles */,
+				2DE9E4B91F039724001255F4 /* WBAVNativePlayer.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2DE9E3CA1F022FEC001255F4 /* libWBAVLivePlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWBAVLivePlayer.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2DE9E3CD1F022FEC001255F4 /* WBAVLivePlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBAVLivePlayer.h; sourceTree = "<group>"; };
-		2DE9E3CE1F022FEC001255F4 /* WBAVLivePlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBAVLivePlayer.m; sourceTree = "<group>"; };
-		2DE9E4441F023554001255F4 /* WBAVLivePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBAVLivePlayerViewController.h; sourceTree = "<group>"; };
-		2DE9E4451F023554001255F4 /* WBAVLivePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBAVLivePlayerViewController.m; sourceTree = "<group>"; };
+		2DDB32A11F03B0E800DBA59B /* WBNativePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNativePlayerViewController.h; sourceTree = "<group>"; };
+		2DDB32A21F03B0E800DBA59B /* WBNativePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNativePlayerViewController.m; sourceTree = "<group>"; };
+		2DE9E4B31F039724001255F4 /* libWBAVNativePlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWBAVNativePlayer.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DE9E4B61F039724001255F4 /* WBAVNativePlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBAVNativePlayer.h; sourceTree = "<group>"; };
+		2DE9E4B71F039724001255F4 /* WBAVNativePlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBAVNativePlayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2DE9E3C71F022FEC001255F4 /* Frameworks */ = {
+		2DE9E4B01F039724001255F4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -46,113 +45,112 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2DE9E3C11F022FEC001255F4 = {
+		2DE9E4AA1F039724001255F4 = {
 			isa = PBXGroup;
 			children = (
-				2DE9E3CC1F022FEC001255F4 /* WBAVLivePlayer */,
-				2DE9E3CB1F022FEC001255F4 /* Products */,
+				2DE9E4B51F039724001255F4 /* WBAVNativePlayer */,
+				2DE9E4B41F039724001255F4 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		2DE9E3CB1F022FEC001255F4 /* Products */ = {
+		2DE9E4B41F039724001255F4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2DE9E3CA1F022FEC001255F4 /* libWBAVLivePlayer.a */,
+				2DE9E4B31F039724001255F4 /* libWBAVNativePlayer.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2DE9E3CC1F022FEC001255F4 /* WBAVLivePlayer */ = {
+		2DE9E4B51F039724001255F4 /* WBAVNativePlayer */ = {
 			isa = PBXGroup;
 			children = (
-				2DE9E3CD1F022FEC001255F4 /* WBAVLivePlayer.h */,
-				2DE9E3CE1F022FEC001255F4 /* WBAVLivePlayer.m */,
-				2DE9E4441F023554001255F4 /* WBAVLivePlayerViewController.h */,
-				2DE9E4451F023554001255F4 /* WBAVLivePlayerViewController.m */,
+				2DE9E4B61F039724001255F4 /* WBAVNativePlayer.h */,
+				2DE9E4B71F039724001255F4 /* WBAVNativePlayer.m */,
+				2DDB32A11F03B0E800DBA59B /* WBNativePlayerViewController.h */,
+				2DDB32A21F03B0E800DBA59B /* WBNativePlayerViewController.m */,
 			);
-			path = WBAVLivePlayer;
+			path = WBAVNativePlayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		2DE9E4531F023661001255F4 /* Headers */ = {
+		2DDB32B71F03BAE900DBA59B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DE9E4551F02366C001255F4 /* WBAVLivePlayerViewController.h in Headers */,
-				2DE9E4541F023667001255F4 /* WBAVLivePlayer.h in Headers */,
+				2DDB32B81F03BAEE00DBA59B /* WBNativePlayerViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		2DE9E3C91F022FEC001255F4 /* WBAVLivePlayer */ = {
+		2DE9E4B21F039724001255F4 /* WBAVNativePlayer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2DE9E3D31F022FEC001255F4 /* Build configuration list for PBXNativeTarget "WBAVLivePlayer" */;
+			buildConfigurationList = 2DE9E4BC1F039724001255F4 /* Build configuration list for PBXNativeTarget "WBAVNativePlayer" */;
 			buildPhases = (
-				2DE9E3C61F022FEC001255F4 /* Sources */,
-				2DE9E3C71F022FEC001255F4 /* Frameworks */,
-				2DE9E3C81F022FEC001255F4 /* CopyFiles */,
-				2DE9E4531F023661001255F4 /* Headers */,
+				2DE9E4AF1F039724001255F4 /* Sources */,
+				2DE9E4B01F039724001255F4 /* Frameworks */,
+				2DE9E4B11F039724001255F4 /* CopyFiles */,
+				2DDB32B71F03BAE900DBA59B /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = WBAVLivePlayer;
-			productName = WBAVLivePlayer;
-			productReference = 2DE9E3CA1F022FEC001255F4 /* libWBAVLivePlayer.a */;
+			name = WBAVNativePlayer;
+			productName = WBAVNativePlayer;
+			productReference = 2DE9E4B31F039724001255F4 /* libWBAVNativePlayer.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		2DE9E3C21F022FEC001255F4 /* Project object */ = {
+		2DE9E4AB1F039724001255F4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "王博";
 				TargetAttributes = {
-					2DE9E3C91F022FEC001255F4 = {
+					2DE9E4B21F039724001255F4 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 8D7826FKHD;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 2DE9E3C51F022FEC001255F4 /* Build configuration list for PBXProject "WBAVLivePlayer" */;
+			buildConfigurationList = 2DE9E4AE1F039724001255F4 /* Build configuration list for PBXProject "WBAVNativePlayer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 2DE9E3C11F022FEC001255F4;
-			productRefGroup = 2DE9E3CB1F022FEC001255F4 /* Products */;
+			mainGroup = 2DE9E4AA1F039724001255F4;
+			productRefGroup = 2DE9E4B41F039724001255F4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2DE9E3C91F022FEC001255F4 /* WBAVLivePlayer */,
+				2DE9E4B21F039724001255F4 /* WBAVNativePlayer */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2DE9E3C61F022FEC001255F4 /* Sources */ = {
+		2DE9E4AF1F039724001255F4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DE9E3CF1F022FEC001255F4 /* WBAVLivePlayer.m in Sources */,
-				2DE9E4461F023554001255F4 /* WBAVLivePlayerViewController.m in Sources */,
+				2DE9E4B81F039724001255F4 /* WBAVNativePlayer.m in Sources */,
+				2DDB32A31F03B0E800DBA59B /* WBNativePlayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		2DE9E3D11F022FEC001255F4 /* Debug */ = {
+		2DE9E4BA1F039724001255F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -200,7 +198,7 @@
 			};
 			name = Debug;
 		};
-		2DE9E3D21F022FEC001255F4 /* Release */ = {
+		2DE9E4BB1F039724001255F4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -242,7 +240,7 @@
 			};
 			name = Release;
 		};
-		2DE9E3D41F022FEC001255F4 /* Debug */ = {
+		2DE9E4BD1F039724001255F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
@@ -252,7 +250,7 @@
 			};
 			name = Debug;
 		};
-		2DE9E3D51F022FEC001255F4 /* Release */ = {
+		2DE9E4BE1F039724001255F4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
@@ -265,24 +263,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2DE9E3C51F022FEC001255F4 /* Build configuration list for PBXProject "WBAVLivePlayer" */ = {
+		2DE9E4AE1F039724001255F4 /* Build configuration list for PBXProject "WBAVNativePlayer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2DE9E3D11F022FEC001255F4 /* Debug */,
-				2DE9E3D21F022FEC001255F4 /* Release */,
+				2DE9E4BA1F039724001255F4 /* Debug */,
+				2DE9E4BB1F039724001255F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2DE9E3D31F022FEC001255F4 /* Build configuration list for PBXNativeTarget "WBAVLivePlayer" */ = {
+		2DE9E4BC1F039724001255F4 /* Build configuration list for PBXNativeTarget "WBAVNativePlayer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2DE9E3D41F022FEC001255F4 /* Debug */,
-				2DE9E3D51F022FEC001255F4 /* Release */,
+				2DE9E4BD1F039724001255F4 /* Debug */,
+				2DE9E4BE1F039724001255F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 2DE9E3C21F022FEC001255F4 /* Project object */;
+	rootObject = 2DE9E4AB1F039724001255F4 /* Project object */;
 }

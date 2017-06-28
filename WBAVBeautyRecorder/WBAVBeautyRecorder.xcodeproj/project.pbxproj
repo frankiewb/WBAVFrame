@@ -7,36 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2DE9E3BA1F021092001255F4 /* WBAVLiveRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E3B91F021092001255F4 /* WBAVLiveRecorder.m */; };
-		2DE9E3BB1F021092001255F4 /* WBAVLiveRecorder.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DE9E3B81F021092001255F4 /* WBAVLiveRecorder.h */; };
-		2DE9E4431F023495001255F4 /* WBAVLiveRecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E4421F023495001255F4 /* WBAVLiveRecorderViewController.m */; };
-		2DE9E4571F02367C001255F4 /* WBAVLiveRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DE9E3B81F021092001255F4 /* WBAVLiveRecorder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2DE9E4581F023680001255F4 /* WBAVLiveRecorderViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DE9E4411F023495001255F4 /* WBAVLiveRecorderViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2DDB329A1F03B07400DBA59B /* WBBeautyVideoRecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDB32991F03B07400DBA59B /* WBBeautyVideoRecorderViewController.m */; };
+		2DDB329D1F03B08F00DBA59B /* WBBeautyLiveRecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDB329C1F03B08F00DBA59B /* WBBeautyLiveRecorderViewController.m */; };
+		2DDB32B11F03B48500DBA59B /* WBBeautyVideoRecorderViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DDB32981F03B07400DBA59B /* WBBeautyVideoRecorderViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2DDB32B21F03B48800DBA59B /* WBBeautyLiveRecorderViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DDB329B1F03B08F00DBA59B /* WBBeautyLiveRecorderViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2DDB32B31F03B49500DBA59B /* WBBeautyVideoRecorderViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DDB32981F03B07400DBA59B /* WBBeautyVideoRecorderViewController.h */; };
+		2DDB32B41F03B49800DBA59B /* WBBeautyLiveRecorderViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DDB329B1F03B08F00DBA59B /* WBBeautyLiveRecorderViewController.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		2DE9E3B31F021092001255F4 /* CopyFiles */ = {
+		2DE9E4C61F039769001255F4 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				2DE9E3BB1F021092001255F4 /* WBAVLiveRecorder.h in CopyFiles */,
+				2DDB32B41F03B49800DBA59B /* WBBeautyLiveRecorderViewController.h in CopyFiles */,
+				2DDB32B31F03B49500DBA59B /* WBBeautyVideoRecorderViewController.h in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2DE9E3B51F021092001255F4 /* libWBAVLiveRecorder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWBAVLiveRecorder.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2DE9E3B81F021092001255F4 /* WBAVLiveRecorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBAVLiveRecorder.h; sourceTree = "<group>"; };
-		2DE9E3B91F021092001255F4 /* WBAVLiveRecorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBAVLiveRecorder.m; sourceTree = "<group>"; };
-		2DE9E4411F023495001255F4 /* WBAVLiveRecorderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBAVLiveRecorderViewController.h; sourceTree = "<group>"; };
-		2DE9E4421F023495001255F4 /* WBAVLiveRecorderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBAVLiveRecorderViewController.m; sourceTree = "<group>"; };
+		2DDB32981F03B07400DBA59B /* WBBeautyVideoRecorderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBBeautyVideoRecorderViewController.h; sourceTree = "<group>"; };
+		2DDB32991F03B07400DBA59B /* WBBeautyVideoRecorderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBBeautyVideoRecorderViewController.m; sourceTree = "<group>"; };
+		2DDB329B1F03B08F00DBA59B /* WBBeautyLiveRecorderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBBeautyLiveRecorderViewController.h; sourceTree = "<group>"; };
+		2DDB329C1F03B08F00DBA59B /* WBBeautyLiveRecorderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBBeautyLiveRecorderViewController.m; sourceTree = "<group>"; };
+		2DE9E4C81F039769001255F4 /* libWBAVBeautyRecorder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWBAVBeautyRecorder.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2DE9E3B21F021092001255F4 /* Frameworks */ = {
+		2DE9E4C51F039769001255F4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -46,113 +48,137 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2DE9E3AC1F021092001255F4 = {
+		2DDB32951F03AFC900DBA59B /* WBBeautyRecorder */ = {
 			isa = PBXGroup;
 			children = (
-				2DE9E3B71F021092001255F4 /* WBAVLiveRecorder */,
-				2DE9E3B61F021092001255F4 /* Products */,
+			);
+			name = WBBeautyRecorder;
+			sourceTree = "<group>";
+		};
+		2DDB32961F03AFE200DBA59B /* WBBeautyLiveRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				2DDB329B1F03B08F00DBA59B /* WBBeautyLiveRecorderViewController.h */,
+				2DDB329C1F03B08F00DBA59B /* WBBeautyLiveRecorderViewController.m */,
+			);
+			name = WBBeautyLiveRecorder;
+			sourceTree = "<group>";
+		};
+		2DDB32971F03B04500DBA59B /* WBBeautyVideoRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				2DDB32981F03B07400DBA59B /* WBBeautyVideoRecorderViewController.h */,
+				2DDB32991F03B07400DBA59B /* WBBeautyVideoRecorderViewController.m */,
+			);
+			name = WBBeautyVideoRecorder;
+			sourceTree = "<group>";
+		};
+		2DE9E4BF1F039769001255F4 = {
+			isa = PBXGroup;
+			children = (
+				2DE9E4CA1F039769001255F4 /* WBAVBeautyRecorder */,
+				2DE9E4C91F039769001255F4 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		2DE9E3B61F021092001255F4 /* Products */ = {
+		2DE9E4C91F039769001255F4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2DE9E3B51F021092001255F4 /* libWBAVLiveRecorder.a */,
+				2DE9E4C81F039769001255F4 /* libWBAVBeautyRecorder.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2DE9E3B71F021092001255F4 /* WBAVLiveRecorder */ = {
+		2DE9E4CA1F039769001255F4 /* WBAVBeautyRecorder */ = {
 			isa = PBXGroup;
 			children = (
-				2DE9E3B81F021092001255F4 /* WBAVLiveRecorder.h */,
-				2DE9E3B91F021092001255F4 /* WBAVLiveRecorder.m */,
-				2DE9E4411F023495001255F4 /* WBAVLiveRecorderViewController.h */,
-				2DE9E4421F023495001255F4 /* WBAVLiveRecorderViewController.m */,
+				2DDB32971F03B04500DBA59B /* WBBeautyVideoRecorder */,
+				2DDB32961F03AFE200DBA59B /* WBBeautyLiveRecorder */,
+				2DDB32951F03AFC900DBA59B /* WBBeautyRecorder */,
 			);
-			path = WBAVLiveRecorder;
+			path = WBAVBeautyRecorder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		2DE9E4561F023676001255F4 /* Headers */ = {
+		2DDB32B01F03B47F00DBA59B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DE9E4581F023680001255F4 /* WBAVLiveRecorderViewController.h in Headers */,
-				2DE9E4571F02367C001255F4 /* WBAVLiveRecorder.h in Headers */,
+				2DDB32B21F03B48800DBA59B /* WBBeautyLiveRecorderViewController.h in Headers */,
+				2DDB32B11F03B48500DBA59B /* WBBeautyVideoRecorderViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		2DE9E3B41F021092001255F4 /* WBAVLiveRecorder */ = {
+		2DE9E4C71F039769001255F4 /* WBAVBeautyRecorder */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2DE9E3BE1F021092001255F4 /* Build configuration list for PBXNativeTarget "WBAVLiveRecorder" */;
+			buildConfigurationList = 2DE9E4D11F039769001255F4 /* Build configuration list for PBXNativeTarget "WBAVBeautyRecorder" */;
 			buildPhases = (
-				2DE9E3B11F021092001255F4 /* Sources */,
-				2DE9E3B21F021092001255F4 /* Frameworks */,
-				2DE9E3B31F021092001255F4 /* CopyFiles */,
-				2DE9E4561F023676001255F4 /* Headers */,
+				2DE9E4C41F039769001255F4 /* Sources */,
+				2DE9E4C51F039769001255F4 /* Frameworks */,
+				2DE9E4C61F039769001255F4 /* CopyFiles */,
+				2DDB32B01F03B47F00DBA59B /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = WBAVLiveRecorder;
-			productName = WBAVLiveRecorder;
-			productReference = 2DE9E3B51F021092001255F4 /* libWBAVLiveRecorder.a */;
+			name = WBAVBeautyRecorder;
+			productName = WBAVBeautyRecorder;
+			productReference = 2DE9E4C81F039769001255F4 /* libWBAVBeautyRecorder.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		2DE9E3AD1F021092001255F4 /* Project object */ = {
+		2DE9E4C01F039769001255F4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "王博";
 				TargetAttributes = {
-					2DE9E3B41F021092001255F4 = {
+					2DE9E4C71F039769001255F4 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 8D7826FKHD;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 2DE9E3B01F021092001255F4 /* Build configuration list for PBXProject "WBAVLiveRecorder" */;
+			buildConfigurationList = 2DE9E4C31F039769001255F4 /* Build configuration list for PBXProject "WBAVBeautyRecorder" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 2DE9E3AC1F021092001255F4;
-			productRefGroup = 2DE9E3B61F021092001255F4 /* Products */;
+			mainGroup = 2DE9E4BF1F039769001255F4;
+			productRefGroup = 2DE9E4C91F039769001255F4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2DE9E3B41F021092001255F4 /* WBAVLiveRecorder */,
+				2DE9E4C71F039769001255F4 /* WBAVBeautyRecorder */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2DE9E3B11F021092001255F4 /* Sources */ = {
+		2DE9E4C41F039769001255F4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DE9E4431F023495001255F4 /* WBAVLiveRecorderViewController.m in Sources */,
-				2DE9E3BA1F021092001255F4 /* WBAVLiveRecorder.m in Sources */,
+				2DDB329A1F03B07400DBA59B /* WBBeautyVideoRecorderViewController.m in Sources */,
+				2DDB329D1F03B08F00DBA59B /* WBBeautyLiveRecorderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		2DE9E3BC1F021092001255F4 /* Debug */ = {
+		2DE9E4CF1F039769001255F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -200,7 +226,7 @@
 			};
 			name = Debug;
 		};
-		2DE9E3BD1F021092001255F4 /* Release */ = {
+		2DE9E4D01F039769001255F4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -242,7 +268,7 @@
 			};
 			name = Release;
 		};
-		2DE9E3BF1F021092001255F4 /* Debug */ = {
+		2DE9E4D21F039769001255F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
@@ -252,7 +278,7 @@
 			};
 			name = Debug;
 		};
-		2DE9E3C01F021092001255F4 /* Release */ = {
+		2DE9E4D31F039769001255F4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
@@ -265,24 +291,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2DE9E3B01F021092001255F4 /* Build configuration list for PBXProject "WBAVLiveRecorder" */ = {
+		2DE9E4C31F039769001255F4 /* Build configuration list for PBXProject "WBAVBeautyRecorder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2DE9E3BC1F021092001255F4 /* Debug */,
-				2DE9E3BD1F021092001255F4 /* Release */,
+				2DE9E4CF1F039769001255F4 /* Debug */,
+				2DE9E4D01F039769001255F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2DE9E3BE1F021092001255F4 /* Build configuration list for PBXNativeTarget "WBAVLiveRecorder" */ = {
+		2DE9E4D11F039769001255F4 /* Build configuration list for PBXNativeTarget "WBAVBeautyRecorder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2DE9E3BF1F021092001255F4 /* Debug */,
-				2DE9E3C01F021092001255F4 /* Release */,
+				2DE9E4D21F039769001255F4 /* Debug */,
+				2DE9E4D31F039769001255F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 2DE9E3AD1F021092001255F4 /* Project object */;
+	rootObject = 2DE9E4C01F039769001255F4 /* Project object */;
 }

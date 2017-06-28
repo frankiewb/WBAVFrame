@@ -7,36 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2DE9E3F91F023216001255F4 /* WBAVLocalRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E3F81F023216001255F4 /* WBAVLocalRecorder.m */; };
-		2DE9E3FA1F023216001255F4 /* WBAVLocalRecorder.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DE9E3F71F023216001255F4 /* WBAVLocalRecorder.h */; };
-		2DE9E44C1F02358D001255F4 /* WBAVLocalRecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E44B1F02358D001255F4 /* WBAVLocalRecorderViewController.m */; };
-		2DE9E44E1F02360F001255F4 /* WBAVLocalRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DE9E3F71F023216001255F4 /* WBAVLocalRecorder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2DE9E44F1F02361A001255F4 /* WBAVLocalRecorderViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DE9E44A1F02358D001255F4 /* WBAVLocalRecorderViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2DE9E48E1F039580001255F4 /* WBCodec.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E48D1F039580001255F4 /* WBCodec.m */; };
+		2DE9E48F1F039580001255F4 /* WBCodec.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DE9E48C1F039580001255F4 /* WBCodec.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		2DE9E3F21F023216001255F4 /* CopyFiles */ = {
+		2DE9E4871F039580001255F4 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				2DE9E3FA1F023216001255F4 /* WBAVLocalRecorder.h in CopyFiles */,
+				2DE9E48F1F039580001255F4 /* WBCodec.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2DE9E3F41F023216001255F4 /* libWBAVLocalRecorder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWBAVLocalRecorder.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2DE9E3F71F023216001255F4 /* WBAVLocalRecorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBAVLocalRecorder.h; sourceTree = "<group>"; };
-		2DE9E3F81F023216001255F4 /* WBAVLocalRecorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBAVLocalRecorder.m; sourceTree = "<group>"; };
-		2DE9E44A1F02358D001255F4 /* WBAVLocalRecorderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBAVLocalRecorderViewController.h; sourceTree = "<group>"; };
-		2DE9E44B1F02358D001255F4 /* WBAVLocalRecorderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBAVLocalRecorderViewController.m; sourceTree = "<group>"; };
+		2DE9E4891F039580001255F4 /* libWBCodec.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWBCodec.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DE9E48C1F039580001255F4 /* WBCodec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBCodec.h; sourceTree = "<group>"; };
+		2DE9E48D1F039580001255F4 /* WBCodec.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBCodec.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2DE9E3F11F023216001255F4 /* Frameworks */ = {
+		2DE9E4861F039580001255F4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -46,113 +41,97 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2DE9E3EB1F023216001255F4 = {
+		2DE9E4801F039580001255F4 = {
 			isa = PBXGroup;
 			children = (
-				2DE9E3F61F023216001255F4 /* WBAVLocalRecorder */,
-				2DE9E3F51F023216001255F4 /* Products */,
+				2DE9E48B1F039580001255F4 /* WBCodec */,
+				2DE9E48A1F039580001255F4 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		2DE9E3F51F023216001255F4 /* Products */ = {
+		2DE9E48A1F039580001255F4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2DE9E3F41F023216001255F4 /* libWBAVLocalRecorder.a */,
+				2DE9E4891F039580001255F4 /* libWBCodec.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2DE9E3F61F023216001255F4 /* WBAVLocalRecorder */ = {
+		2DE9E48B1F039580001255F4 /* WBCodec */ = {
 			isa = PBXGroup;
 			children = (
-				2DE9E3F71F023216001255F4 /* WBAVLocalRecorder.h */,
-				2DE9E3F81F023216001255F4 /* WBAVLocalRecorder.m */,
-				2DE9E44A1F02358D001255F4 /* WBAVLocalRecorderViewController.h */,
-				2DE9E44B1F02358D001255F4 /* WBAVLocalRecorderViewController.m */,
+				2DE9E48C1F039580001255F4 /* WBCodec.h */,
+				2DE9E48D1F039580001255F4 /* WBCodec.m */,
 			);
-			path = WBAVLocalRecorder;
+			path = WBCodec;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		2DE9E44D1F0235F9001255F4 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2DE9E44E1F02360F001255F4 /* WBAVLocalRecorder.h in Headers */,
-				2DE9E44F1F02361A001255F4 /* WBAVLocalRecorderViewController.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
-		2DE9E3F31F023216001255F4 /* WBAVLocalRecorder */ = {
+		2DE9E4881F039580001255F4 /* WBCodec */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2DE9E3FD1F023216001255F4 /* Build configuration list for PBXNativeTarget "WBAVLocalRecorder" */;
+			buildConfigurationList = 2DE9E4921F039580001255F4 /* Build configuration list for PBXNativeTarget "WBCodec" */;
 			buildPhases = (
-				2DE9E3F01F023216001255F4 /* Sources */,
-				2DE9E3F11F023216001255F4 /* Frameworks */,
-				2DE9E3F21F023216001255F4 /* CopyFiles */,
-				2DE9E44D1F0235F9001255F4 /* Headers */,
+				2DE9E4851F039580001255F4 /* Sources */,
+				2DE9E4861F039580001255F4 /* Frameworks */,
+				2DE9E4871F039580001255F4 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = WBAVLocalRecorder;
-			productName = WBAVLocalRecorder;
-			productReference = 2DE9E3F41F023216001255F4 /* libWBAVLocalRecorder.a */;
+			name = WBCodec;
+			productName = WBCodec;
+			productReference = 2DE9E4891F039580001255F4 /* libWBCodec.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		2DE9E3EC1F023216001255F4 /* Project object */ = {
+		2DE9E4811F039580001255F4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "王博";
 				TargetAttributes = {
-					2DE9E3F31F023216001255F4 = {
+					2DE9E4881F039580001255F4 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 8D7826FKHD;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 2DE9E3EF1F023216001255F4 /* Build configuration list for PBXProject "WBAVLocalRecorder" */;
+			buildConfigurationList = 2DE9E4841F039580001255F4 /* Build configuration list for PBXProject "WBCodec" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 2DE9E3EB1F023216001255F4;
-			productRefGroup = 2DE9E3F51F023216001255F4 /* Products */;
+			mainGroup = 2DE9E4801F039580001255F4;
+			productRefGroup = 2DE9E48A1F039580001255F4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2DE9E3F31F023216001255F4 /* WBAVLocalRecorder */,
+				2DE9E4881F039580001255F4 /* WBCodec */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2DE9E3F01F023216001255F4 /* Sources */ = {
+		2DE9E4851F039580001255F4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DE9E44C1F02358D001255F4 /* WBAVLocalRecorderViewController.m in Sources */,
-				2DE9E3F91F023216001255F4 /* WBAVLocalRecorder.m in Sources */,
+				2DE9E48E1F039580001255F4 /* WBCodec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		2DE9E3FB1F023216001255F4 /* Debug */ = {
+		2DE9E4901F039580001255F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -200,7 +179,7 @@
 			};
 			name = Debug;
 		};
-		2DE9E3FC1F023216001255F4 /* Release */ = {
+		2DE9E4911F039580001255F4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -242,7 +221,7 @@
 			};
 			name = Release;
 		};
-		2DE9E3FE1F023216001255F4 /* Debug */ = {
+		2DE9E4931F039580001255F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
@@ -252,7 +231,7 @@
 			};
 			name = Debug;
 		};
-		2DE9E3FF1F023216001255F4 /* Release */ = {
+		2DE9E4941F039580001255F4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
@@ -265,24 +244,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2DE9E3EF1F023216001255F4 /* Build configuration list for PBXProject "WBAVLocalRecorder" */ = {
+		2DE9E4841F039580001255F4 /* Build configuration list for PBXProject "WBCodec" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2DE9E3FB1F023216001255F4 /* Debug */,
-				2DE9E3FC1F023216001255F4 /* Release */,
+				2DE9E4901F039580001255F4 /* Debug */,
+				2DE9E4911F039580001255F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2DE9E3FD1F023216001255F4 /* Build configuration list for PBXNativeTarget "WBAVLocalRecorder" */ = {
+		2DE9E4921F039580001255F4 /* Build configuration list for PBXNativeTarget "WBCodec" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2DE9E3FE1F023216001255F4 /* Debug */,
-				2DE9E3FF1F023216001255F4 /* Release */,
+				2DE9E4931F039580001255F4 /* Debug */,
+				2DE9E4941F039580001255F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 2DE9E3EC1F023216001255F4 /* Project object */;
+	rootObject = 2DE9E4811F039580001255F4 /* Project object */;
 }
