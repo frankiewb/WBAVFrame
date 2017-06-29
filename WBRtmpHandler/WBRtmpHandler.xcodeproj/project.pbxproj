@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		082D90E7AD94B649F0A6ADEC /* libPods-WBRtmpHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 408DFB1FAEF907777A3F2405 /* libPods-WBRtmpHandler.a */; };
 		2DE9E40E1F02325E001255F4 /* WBRtmpHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E40D1F02325E001255F4 /* WBRtmpHandler.m */; };
 		2DE9E40F1F02325E001255F4 /* WBRtmpHandler.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DE9E40C1F02325E001255F4 /* WBRtmpHandler.h */; };
 /* End PBXBuildFile section */
@@ -28,6 +29,9 @@
 		2DE9E4091F02325E001255F4 /* libWBRtmpHandler.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWBRtmpHandler.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DE9E40C1F02325E001255F4 /* WBRtmpHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBRtmpHandler.h; sourceTree = "<group>"; };
 		2DE9E40D1F02325E001255F4 /* WBRtmpHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBRtmpHandler.m; sourceTree = "<group>"; };
+		408DFB1FAEF907777A3F2405 /* libPods-WBRtmpHandler.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WBRtmpHandler.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CFC5CB5E1DB1EA263CCE0D9 /* Pods-WBRtmpHandler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBRtmpHandler.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WBRtmpHandler/Pods-WBRtmpHandler.debug.xcconfig"; sourceTree = "<group>"; };
+		A3A4376B91CFD8FC4A7229E3 /* Pods-WBRtmpHandler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBRtmpHandler.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WBRtmpHandler/Pods-WBRtmpHandler.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				082D90E7AD94B649F0A6ADEC /* libPods-WBRtmpHandler.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +51,8 @@
 			children = (
 				2DE9E40B1F02325E001255F4 /* WBRtmpHandler */,
 				2DE9E40A1F02325E001255F4 /* Products */,
+				70DC7CD2C65DC6A07C1F72BA /* Pods */,
+				554E84960C3BEB43F29EA063 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,6 +73,23 @@
 			path = WBRtmpHandler;
 			sourceTree = "<group>";
 		};
+		554E84960C3BEB43F29EA063 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				408DFB1FAEF907777A3F2405 /* libPods-WBRtmpHandler.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		70DC7CD2C65DC6A07C1F72BA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5CFC5CB5E1DB1EA263CCE0D9 /* Pods-WBRtmpHandler.debug.xcconfig */,
+				A3A4376B91CFD8FC4A7229E3 /* Pods-WBRtmpHandler.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -73,9 +97,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2DE9E4121F02325E001255F4 /* Build configuration list for PBXNativeTarget "WBRtmpHandler" */;
 			buildPhases = (
+				C93EE8060602153C4FA9DF56 /* [CP] Check Pods Manifest.lock */,
 				2DE9E4051F02325E001255F4 /* Sources */,
 				2DE9E4061F02325E001255F4 /* Frameworks */,
 				2DE9E4071F02325E001255F4 /* CopyFiles */,
+				8B98F61B05E2E95E55835BE8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -118,6 +144,39 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8B98F61B05E2E95E55835BE8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-WBRtmpHandler/Pods-WBRtmpHandler-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C93EE8060602153C4FA9DF56 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2DE9E4051F02325E001255F4 /* Sources */ = {
@@ -223,9 +282,10 @@
 		};
 		2DE9E4131F02325E001255F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CFC5CB5E1DB1EA263CCE0D9 /* Pods-WBRtmpHandler.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -233,9 +293,10 @@
 		};
 		2DE9E4141F02325E001255F4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3A4376B91CFD8FC4A7229E3 /* Pods-WBRtmpHandler.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -260,6 +321,7 @@
 				2DE9E4141F02325E001255F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

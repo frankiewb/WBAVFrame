@@ -11,6 +11,7 @@
 		2DDB32B61F03BAD300DBA59B /* WBIJKPlayerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DDB329E1F03B0CD00DBA59B /* WBIJKPlayerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2DE9E4E21F0397B6001255F4 /* WBAVIJKPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E4E11F0397B6001255F4 /* WBAVIJKPlayer.m */; };
 		2DE9E4E31F0397B6001255F4 /* WBAVIJKPlayer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DE9E4E01F0397B6001255F4 /* WBAVIJKPlayer.h */; };
+		B1EC1F8651288216DCAB7158 /* libPods-WBAVIJKPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D3467E422E37A602B2D5DC /* libPods-WBAVIJKPlayer.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,11 +28,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		02D3467E422E37A602B2D5DC /* libPods-WBAVIJKPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WBAVIJKPlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DDB329E1F03B0CD00DBA59B /* WBIJKPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBIJKPlayerViewController.h; sourceTree = "<group>"; };
 		2DDB329F1F03B0CD00DBA59B /* WBIJKPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBIJKPlayerViewController.m; sourceTree = "<group>"; };
 		2DE9E4DD1F0397B6001255F4 /* libWBAVIJKPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWBAVIJKPlayer.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DE9E4E01F0397B6001255F4 /* WBAVIJKPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBAVIJKPlayer.h; sourceTree = "<group>"; };
 		2DE9E4E11F0397B6001255F4 /* WBAVIJKPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBAVIJKPlayer.m; sourceTree = "<group>"; };
+		4E8A38D0058757AD54299DEF /* Pods-WBAVIJKPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBAVIJKPlayer.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WBAVIJKPlayer/Pods-WBAVIJKPlayer.debug.xcconfig"; sourceTree = "<group>"; };
+		6B86AAF55E58E0B1A33D46CF /* Pods-WBAVIJKPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBAVIJKPlayer.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WBAVIJKPlayer/Pods-WBAVIJKPlayer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1EC1F8651288216DCAB7158 /* libPods-WBAVIJKPlayer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +55,8 @@
 			children = (
 				2DE9E4DF1F0397B6001255F4 /* WBAVIJKPlayer */,
 				2DE9E4DE1F0397B6001255F4 /* Products */,
+				ED2E01AF032824B82FC20497 /* Pods */,
+				5D043D0ABCCB89F8F20AF7F5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +79,23 @@
 			path = WBAVIJKPlayer;
 			sourceTree = "<group>";
 		};
+		5D043D0ABCCB89F8F20AF7F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				02D3467E422E37A602B2D5DC /* libPods-WBAVIJKPlayer.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ED2E01AF032824B82FC20497 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4E8A38D0058757AD54299DEF /* Pods-WBAVIJKPlayer.debug.xcconfig */,
+				6B86AAF55E58E0B1A33D46CF /* Pods-WBAVIJKPlayer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -90,10 +114,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2DE9E4E61F0397B6001255F4 /* Build configuration list for PBXNativeTarget "WBAVIJKPlayer" */;
 			buildPhases = (
+				5A414BC5F1691A2713F9B049 /* [CP] Check Pods Manifest.lock */,
 				2DE9E4D91F0397B6001255F4 /* Sources */,
 				2DE9E4DA1F0397B6001255F4 /* Frameworks */,
 				2DE9E4DB1F0397B6001255F4 /* CopyFiles */,
 				2DDB32B51F03BACD00DBA59B /* Headers */,
+				F3A8DB0D6222078F239D56DB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -136,6 +162,39 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5A414BC5F1691A2713F9B049 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F3A8DB0D6222078F239D56DB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-WBAVIJKPlayer/Pods-WBAVIJKPlayer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2DE9E4D91F0397B6001255F4 /* Sources */ = {
@@ -242,9 +301,10 @@
 		};
 		2DE9E4E71F0397B6001255F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E8A38D0058757AD54299DEF /* Pods-WBAVIJKPlayer.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -252,9 +312,10 @@
 		};
 		2DE9E4E81F0397B6001255F4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B86AAF55E58E0B1A33D46CF /* Pods-WBAVIJKPlayer.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};

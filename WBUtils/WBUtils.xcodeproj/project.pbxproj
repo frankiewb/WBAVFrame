@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		272ACAAC5F61EFDBCA478D27 /* libPods-WBUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B7768CCDC077A2A15C5D2DFF /* libPods-WBUtils.a */; };
 		2DE9E4231F02328B001255F4 /* WBUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E4221F02328B001255F4 /* WBUtils.m */; };
 		2DE9E4241F02328B001255F4 /* WBUtils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DE9E4211F02328B001255F4 /* WBUtils.h */; };
 		2DE9E4781F025778001255F4 /* WBMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DE9E4741F0256F9001255F4 /* WBMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -35,6 +36,9 @@
 		2DE9E4741F0256F9001255F4 /* WBMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBMacros.h; sourceTree = "<group>"; };
 		2DE9E47B1F0267AA001255F4 /* UIColor+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Utils.h"; sourceTree = "<group>"; };
 		2DE9E47C1F0267AA001255F4 /* UIColor+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Utils.m"; sourceTree = "<group>"; };
+		84AF6B73E19F93139588FA45 /* Pods-WBUtils.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBUtils.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WBUtils/Pods-WBUtils.debug.xcconfig"; sourceTree = "<group>"; };
+		8E438354F5AA655426A2D60E /* Pods-WBUtils.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBUtils.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WBUtils/Pods-WBUtils.release.xcconfig"; sourceTree = "<group>"; };
+		B7768CCDC077A2A15C5D2DFF /* libPods-WBUtils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WBUtils.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,17 +46,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				272ACAAC5F61EFDBCA478D27 /* libPods-WBUtils.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		042F0B8BDD0325DB7EA708B1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				84AF6B73E19F93139588FA45 /* Pods-WBUtils.debug.xcconfig */,
+				8E438354F5AA655426A2D60E /* Pods-WBUtils.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		2DE9E4151F02328B001255F4 = {
 			isa = PBXGroup;
 			children = (
 				2DE9E4201F02328B001255F4 /* WBUtils */,
 				2DE9E41F1F02328B001255F4 /* Products */,
+				042F0B8BDD0325DB7EA708B1 /* Pods */,
+				B55CB60330D7ED1053196C94 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,6 +92,14 @@
 			path = WBUtils;
 			sourceTree = "<group>";
 		};
+		B55CB60330D7ED1053196C94 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B7768CCDC077A2A15C5D2DFF /* libPods-WBUtils.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -96,10 +120,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2DE9E4271F02328B001255F4 /* Build configuration list for PBXNativeTarget "WBUtils" */;
 			buildPhases = (
+				89E9C61FBB98F5DCAB894D10 /* [CP] Check Pods Manifest.lock */,
 				2DE9E41A1F02328B001255F4 /* Sources */,
 				2DE9E41B1F02328B001255F4 /* Frameworks */,
 				2DE9E41C1F02328B001255F4 /* CopyFiles */,
 				2DE9E4771F025772001255F4 /* Headers */,
+				44F60BF3E9DCDECE6F5B2DF9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -142,6 +168,39 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		44F60BF3E9DCDECE6F5B2DF9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-WBUtils/Pods-WBUtils-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		89E9C61FBB98F5DCAB894D10 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2DE9E41A1F02328B001255F4 /* Sources */ = {
@@ -256,11 +315,12 @@
 		};
 		2DE9E4281F02328B001255F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84AF6B73E19F93139588FA45 /* Pods-WBUtils.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
-				HEADER_SEARCH_PATHS = "";
-				OTHER_LDFLAGS = "-ObjC";
-				OTHER_LIBTOOLFLAGS = "-ObjC";
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -268,11 +328,12 @@
 		};
 		2DE9E4291F02328B001255F4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E438354F5AA655426A2D60E /* Pods-WBUtils.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
-				HEADER_SEARCH_PATHS = "";
-				OTHER_LDFLAGS = "-ObjC";
-				OTHER_LIBTOOLFLAGS = "-ObjC";
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};

@@ -9,10 +9,16 @@
 /* Begin PBXBuildFile section */
 		2DDB328F1F03A47B00DBA59B /* WBNativeVideoRecorderViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DE9E4EC1F039881001255F4 /* WBNativeVideoRecorderViewController.h */; };
 		2DDB32901F03A47F00DBA59B /* WBNativeLiveRecorderViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DE9E4E91F039860001255F4 /* WBNativeLiveRecorderViewController.h */; };
+		2DDF0A731F03C7FD002C032C /* WBNativeLiveRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DDF0A711F03C7FD002C032C /* WBNativeLiveRecorder.h */; };
+		2DDF0A741F03C7FD002C032C /* WBNativeLiveRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDF0A721F03C7FD002C032C /* WBNativeLiveRecorder.m */; };
+		2DDF0A771F03C826002C032C /* WBNativeVideoRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DDF0A751F03C826002C032C /* WBNativeVideoRecorder.h */; };
+		2DDF0A781F03C826002C032C /* WBNativeVideoRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDF0A761F03C826002C032C /* WBNativeVideoRecorder.m */; };
+		2DDF0A901F04D4C2002C032C /* WBAVNativeRecorder_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 2DDF0A8F1F04D4C2002C032C /* WBAVNativeRecorder_Prefix.pch */; };
 		2DE9E4EB1F039860001255F4 /* WBNativeLiveRecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E4EA1F039860001255F4 /* WBNativeLiveRecorderViewController.m */; };
 		2DE9E4EE1F039881001255F4 /* WBNativeVideoRecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E4ED1F039881001255F4 /* WBNativeVideoRecorderViewController.m */; };
 		2DE9E4F31F0399B4001255F4 /* WBNativeVideoRecorderViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DE9E4EC1F039881001255F4 /* WBNativeVideoRecorderViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2DE9E4F41F0399B9001255F4 /* WBNativeLiveRecorderViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DE9E4E91F039860001255F4 /* WBNativeLiveRecorderViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B42DA9E0A9B6296F63822C45 /* libPods-WBAVNativeRecorder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C447FA7833B57AFF10EC12E7 /* libPods-WBAVNativeRecorder.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,11 +36,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2794677F8912918BBB6B98C8 /* Pods-WBAVNativeRecorder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBAVNativeRecorder.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WBAVNativeRecorder/Pods-WBAVNativeRecorder.release.xcconfig"; sourceTree = "<group>"; };
+		2DDF0A711F03C7FD002C032C /* WBNativeLiveRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNativeLiveRecorder.h; sourceTree = "<group>"; };
+		2DDF0A721F03C7FD002C032C /* WBNativeLiveRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNativeLiveRecorder.m; sourceTree = "<group>"; };
+		2DDF0A751F03C826002C032C /* WBNativeVideoRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNativeVideoRecorder.h; sourceTree = "<group>"; };
+		2DDF0A761F03C826002C032C /* WBNativeVideoRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNativeVideoRecorder.m; sourceTree = "<group>"; };
+		2DDF0A821F04A65C002C032C /* libMBProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMBProgressHUD.a; path = "/Users/wangbo/workspace/WBAVFrame/Pods/../build/Debug-iphoneos/MBProgressHUD/libMBProgressHUD.a"; sourceTree = "<absolute>"; };
+		2DDF0A8F1F04D4C2002C032C /* WBAVNativeRecorder_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBAVNativeRecorder_Prefix.pch; sourceTree = "<group>"; };
 		2DE9E49E1F0396E6001255F4 /* libWBAVNativeRecorder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWBAVNativeRecorder.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DE9E4E91F039860001255F4 /* WBNativeLiveRecorderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNativeLiveRecorderViewController.h; sourceTree = "<group>"; };
 		2DE9E4EA1F039860001255F4 /* WBNativeLiveRecorderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNativeLiveRecorderViewController.m; sourceTree = "<group>"; };
 		2DE9E4EC1F039881001255F4 /* WBNativeVideoRecorderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNativeVideoRecorderViewController.h; sourceTree = "<group>"; };
 		2DE9E4ED1F039881001255F4 /* WBNativeVideoRecorderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNativeVideoRecorderViewController.m; sourceTree = "<group>"; };
+		8BFFFDBEF823666ED885F366 /* Pods-WBAVNativeRecorder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBAVNativeRecorder.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WBAVNativeRecorder/Pods-WBAVNativeRecorder.debug.xcconfig"; sourceTree = "<group>"; };
+		C447FA7833B57AFF10EC12E7 /* libPods-WBAVNativeRecorder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WBAVNativeRecorder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,17 +57,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B42DA9E0A9B6296F63822C45 /* libPods-WBAVNativeRecorder.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DDF0A811F04A65C002C032C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2DDF0A821F04A65C002C032C /* libMBProgressHUD.a */,
+				C447FA7833B57AFF10EC12E7 /* libPods-WBAVNativeRecorder.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2DDF0A8E1F04D4A0002C032C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2DDF0A8F1F04D4C2002C032C /* WBAVNativeRecorder_Prefix.pch */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		2DE9E4951F0396E6001255F4 = {
 			isa = PBXGroup;
 			children = (
 				2DE9E4A01F0396E6001255F4 /* WBAVNativeRecorder */,
 				2DE9E49F1F0396E6001255F4 /* Products */,
+				2DDF0A8E1F04D4A0002C032C /* Supporting Files */,
+				2DDF0A811F04A65C002C032C /* Frameworks */,
+				E14D2E44FB889E138822F681 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,7 +103,6 @@
 		2DE9E4A01F0396E6001255F4 /* WBAVNativeRecorder */ = {
 			isa = PBXGroup;
 			children = (
-				2DE9E4F11F0398EA001255F4 /* WBNativeRecorder */,
 				2DE9E4F01F0398A0001255F4 /* WBNativeVideoRecorder */,
 				2DE9E4EF1F039886001255F4 /* WBNativeLiveRecorder */,
 			);
@@ -79,6 +114,8 @@
 			children = (
 				2DE9E4E91F039860001255F4 /* WBNativeLiveRecorderViewController.h */,
 				2DE9E4EA1F039860001255F4 /* WBNativeLiveRecorderViewController.m */,
+				2DDF0A711F03C7FD002C032C /* WBNativeLiveRecorder.h */,
+				2DDF0A721F03C7FD002C032C /* WBNativeLiveRecorder.m */,
 			);
 			name = WBNativeLiveRecorder;
 			sourceTree = "<group>";
@@ -88,15 +125,19 @@
 			children = (
 				2DE9E4EC1F039881001255F4 /* WBNativeVideoRecorderViewController.h */,
 				2DE9E4ED1F039881001255F4 /* WBNativeVideoRecorderViewController.m */,
+				2DDF0A751F03C826002C032C /* WBNativeVideoRecorder.h */,
+				2DDF0A761F03C826002C032C /* WBNativeVideoRecorder.m */,
 			);
 			name = WBNativeVideoRecorder;
 			sourceTree = "<group>";
 		};
-		2DE9E4F11F0398EA001255F4 /* WBNativeRecorder */ = {
+		E14D2E44FB889E138822F681 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				8BFFFDBEF823666ED885F366 /* Pods-WBAVNativeRecorder.debug.xcconfig */,
+				2794677F8912918BBB6B98C8 /* Pods-WBAVNativeRecorder.release.xcconfig */,
 			);
-			name = WBNativeRecorder;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -106,7 +147,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DDF0A901F04D4C2002C032C /* WBAVNativeRecorder_Prefix.pch in Headers */,
+				2DDF0A731F03C7FD002C032C /* WBNativeLiveRecorder.h in Headers */,
 				2DE9E4F41F0399B9001255F4 /* WBNativeLiveRecorderViewController.h in Headers */,
+				2DDF0A771F03C826002C032C /* WBNativeVideoRecorder.h in Headers */,
 				2DE9E4F31F0399B4001255F4 /* WBNativeVideoRecorderViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,10 +162,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2DE9E4A71F0396E6001255F4 /* Build configuration list for PBXNativeTarget "WBAVNativeRecorder" */;
 			buildPhases = (
+				951E901EA5EF6779D3FF8610 /* [CP] Check Pods Manifest.lock */,
 				2DE9E49A1F0396E6001255F4 /* Sources */,
 				2DE9E49B1F0396E6001255F4 /* Frameworks */,
 				2DE9E49C1F0396E6001255F4 /* CopyFiles */,
 				2DE9E4F21F0399AE001255F4 /* Headers */,
+				C0226500D291DD01D3D04C31 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -148,7 +194,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2DE9E4991F0396E6001255F4 /* Build configuration list for PBXProject "WBAVNativeRecorder" */;
+			buildConfigurationList = 2DE9E4991F0396E6001255F4 /* Build configuration list for PBXProject "WBAVNAtiveRecorder" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -165,13 +211,48 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		951E901EA5EF6779D3FF8610 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C0226500D291DD01D3D04C31 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-WBAVNativeRecorder/Pods-WBAVNativeRecorder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2DE9E49A1F0396E6001255F4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				2DE9E4EE1F039881001255F4 /* WBNativeVideoRecorderViewController.m in Sources */,
+				2DDF0A741F03C7FD002C032C /* WBNativeLiveRecorder.m in Sources */,
 				2DE9E4EB1F039860001255F4 /* WBNativeLiveRecorderViewController.m in Sources */,
+				2DDF0A781F03C826002C032C /* WBNativeVideoRecorder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +303,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -263,6 +345,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -270,9 +353,12 @@
 		};
 		2DE9E4A81F0396E6001255F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BFFFDBEF823666ED885F366 /* Pods-WBAVNativeRecorder.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
-				OTHER_LDFLAGS = "-ObjC";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Supporting Files/WBAVNativeRecorder_prefix.pch";
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				VALID_ARCHS = "arm64 armv7 armv7s x86_64";
@@ -281,9 +367,12 @@
 		};
 		2DE9E4A91F0396E6001255F4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2794677F8912918BBB6B98C8 /* Pods-WBAVNativeRecorder.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
-				OTHER_LDFLAGS = "-ObjC";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Supporting Files/WBAVNativeRecorder_prefix.pch";
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				VALID_ARCHS = "arm64 armv7 armv7s x86_64";
@@ -293,7 +382,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2DE9E4991F0396E6001255F4 /* Build configuration list for PBXProject "WBAVNativeRecorder" */ = {
+		2DE9E4991F0396E6001255F4 /* Build configuration list for PBXProject "WBAVNAtiveRecorder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2DE9E4A51F0396E6001255F4 /* Debug */,

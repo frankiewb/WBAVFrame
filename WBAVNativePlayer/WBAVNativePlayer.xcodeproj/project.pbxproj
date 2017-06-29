@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10F3C536D578798CC771231D /* libPods-WBAVNativePlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C68CAA29B1B94A0329856896 /* libPods-WBAVNativePlayer.a */; };
 		2DDB32A31F03B0E800DBA59B /* WBNativePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDB32A21F03B0E800DBA59B /* WBNativePlayerViewController.m */; };
 		2DDB32B81F03BAEE00DBA59B /* WBNativePlayerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DDB32A11F03B0E800DBA59B /* WBNativePlayerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2DE9E4B81F039724001255F4 /* WBAVNativePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E4B71F039724001255F4 /* WBAVNativePlayer.m */; };
@@ -32,6 +33,9 @@
 		2DE9E4B31F039724001255F4 /* libWBAVNativePlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWBAVNativePlayer.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DE9E4B61F039724001255F4 /* WBAVNativePlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBAVNativePlayer.h; sourceTree = "<group>"; };
 		2DE9E4B71F039724001255F4 /* WBAVNativePlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBAVNativePlayer.m; sourceTree = "<group>"; };
+		C0AD6C6CC43DF702768815D4 /* Pods-WBAVNativePlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBAVNativePlayer.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WBAVNativePlayer/Pods-WBAVNativePlayer.debug.xcconfig"; sourceTree = "<group>"; };
+		C68CAA29B1B94A0329856896 /* libPods-WBAVNativePlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WBAVNativePlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F682E1060C4943F2D4D03489 /* Pods-WBAVNativePlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBAVNativePlayer.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WBAVNativePlayer/Pods-WBAVNativePlayer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,17 +43,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10F3C536D578798CC771231D /* libPods-WBAVNativePlayer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F0C0466D4D2BE116AE020A6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C0AD6C6CC43DF702768815D4 /* Pods-WBAVNativePlayer.debug.xcconfig */,
+				F682E1060C4943F2D4D03489 /* Pods-WBAVNativePlayer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		2DE9E4AA1F039724001255F4 = {
 			isa = PBXGroup;
 			children = (
 				2DE9E4B51F039724001255F4 /* WBAVNativePlayer */,
 				2DE9E4B41F039724001255F4 /* Products */,
+				0F0C0466D4D2BE116AE020A6 /* Pods */,
+				F602B922ACA8B19CD9598BAA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +88,14 @@
 			path = WBAVNativePlayer;
 			sourceTree = "<group>";
 		};
+		F602B922ACA8B19CD9598BAA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C68CAA29B1B94A0329856896 /* libPods-WBAVNativePlayer.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -90,10 +114,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2DE9E4BC1F039724001255F4 /* Build configuration list for PBXNativeTarget "WBAVNativePlayer" */;
 			buildPhases = (
+				DB98BD0E6A9D46D086826D59 /* [CP] Check Pods Manifest.lock */,
 				2DE9E4AF1F039724001255F4 /* Sources */,
 				2DE9E4B01F039724001255F4 /* Frameworks */,
 				2DE9E4B11F039724001255F4 /* CopyFiles */,
 				2DDB32B71F03BAE900DBA59B /* Headers */,
+				2596F91CA4486FFA180CC588 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -136,6 +162,39 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2596F91CA4486FFA180CC588 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-WBAVNativePlayer/Pods-WBAVNativePlayer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB98BD0E6A9D46D086826D59 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2DE9E4AF1F039724001255F4 /* Sources */ = {
@@ -242,9 +301,10 @@
 		};
 		2DE9E4BD1F039724001255F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0AD6C6CC43DF702768815D4 /* Pods-WBAVNativePlayer.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -252,9 +312,10 @@
 		};
 		2DE9E4BE1F039724001255F4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F682E1060C4943F2D4D03489 /* Pods-WBAVNativePlayer.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};

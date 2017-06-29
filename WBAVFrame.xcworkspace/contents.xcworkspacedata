@@ -20,10 +20,10 @@
       location = "group:WBAVIJKPlayer/WBAVIJKPlayer.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:WBAVNativeRecorder/WBAVNativeRecorder.xcodeproj">
+      location = "group:WBAVBeautyRecorder/WBAVBeautyRecorder.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:WBAVBeautyRecorder/WBAVBeautyRecorder.xcodeproj">
+      location = "group:WBAVNativeRecorder/WBAVNAtiveRecorder.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:WBAVFrame/WBAVFrame.xcodeproj">

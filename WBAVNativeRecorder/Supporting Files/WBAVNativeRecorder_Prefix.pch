@@ -1,0 +1,13 @@
+//
+//  WBAVNativeRecorder_Prefix.pch
+//  WBAVNAtiveRecorder
+//
+//  Created by 王博 on 2017/6/29.
+//  Copyright © 2017年 王博. All rights reserved.
+//
+
+#ifndef WBAVNativeRecorder_Prefix_pch
+#define WBAVNativeRecorder_Prefix_pch
+
+
+#endif /* WBAVNativeRecorder_Prefix_pch */

@@ -13,6 +13,7 @@
 		2DDB32B21F03B48800DBA59B /* WBBeautyLiveRecorderViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DDB329B1F03B08F00DBA59B /* WBBeautyLiveRecorderViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2DDB32B31F03B49500DBA59B /* WBBeautyVideoRecorderViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DDB32981F03B07400DBA59B /* WBBeautyVideoRecorderViewController.h */; };
 		2DDB32B41F03B49800DBA59B /* WBBeautyLiveRecorderViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DDB329B1F03B08F00DBA59B /* WBBeautyLiveRecorderViewController.h */; };
+		2FFAF7DB563CDAA2CC290A23 /* libPods-WBAVBeautyRecorder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8885EAF3A0425713BB79D314 /* libPods-WBAVBeautyRecorder.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +36,9 @@
 		2DDB329B1F03B08F00DBA59B /* WBBeautyLiveRecorderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBBeautyLiveRecorderViewController.h; sourceTree = "<group>"; };
 		2DDB329C1F03B08F00DBA59B /* WBBeautyLiveRecorderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBBeautyLiveRecorderViewController.m; sourceTree = "<group>"; };
 		2DE9E4C81F039769001255F4 /* libWBAVBeautyRecorder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWBAVBeautyRecorder.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		44DF89D72F4EAFE3311F68F0 /* Pods-WBAVBeautyRecorder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBAVBeautyRecorder.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WBAVBeautyRecorder/Pods-WBAVBeautyRecorder.release.xcconfig"; sourceTree = "<group>"; };
+		589E28980F8065BD4D6B00E6 /* Pods-WBAVBeautyRecorder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBAVBeautyRecorder.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WBAVBeautyRecorder/Pods-WBAVBeautyRecorder.debug.xcconfig"; sourceTree = "<group>"; };
+		8885EAF3A0425713BB79D314 /* libPods-WBAVBeautyRecorder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WBAVBeautyRecorder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FFAF7DB563CDAA2CC290A23 /* libPods-WBAVBeautyRecorder.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,8 @@
 			children = (
 				2DE9E4CA1F039769001255F4 /* WBAVBeautyRecorder */,
 				2DE9E4C91F039769001255F4 /* Products */,
+				E4DC58C3D0F0403C69F24485 /* Pods */,
+				351A91E3ED476B74637D4F5A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +106,23 @@
 			path = WBAVBeautyRecorder;
 			sourceTree = "<group>";
 		};
+		351A91E3ED476B74637D4F5A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8885EAF3A0425713BB79D314 /* libPods-WBAVBeautyRecorder.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E4DC58C3D0F0403C69F24485 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				589E28980F8065BD4D6B00E6 /* Pods-WBAVBeautyRecorder.debug.xcconfig */,
+				44DF89D72F4EAFE3311F68F0 /* Pods-WBAVBeautyRecorder.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -118,10 +142,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2DE9E4D11F039769001255F4 /* Build configuration list for PBXNativeTarget "WBAVBeautyRecorder" */;
 			buildPhases = (
+				34FDCA6FCF6A9DD03CA52141 /* [CP] Check Pods Manifest.lock */,
 				2DE9E4C41F039769001255F4 /* Sources */,
 				2DE9E4C51F039769001255F4 /* Frameworks */,
 				2DE9E4C61F039769001255F4 /* CopyFiles */,
 				2DDB32B01F03B47F00DBA59B /* Headers */,
+				9F0C2BCC350CD5875194C0F0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -164,6 +190,39 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		34FDCA6FCF6A9DD03CA52141 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9F0C2BCC350CD5875194C0F0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-WBAVBeautyRecorder/Pods-WBAVBeautyRecorder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2DE9E4C41F039769001255F4 /* Sources */ = {
@@ -270,9 +329,10 @@
 		};
 		2DE9E4D21F039769001255F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 589E28980F8065BD4D6B00E6 /* Pods-WBAVBeautyRecorder.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -280,9 +340,10 @@
 		};
 		2DE9E4D31F039769001255F4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44DF89D72F4EAFE3311F68F0 /* Pods-WBAVBeautyRecorder.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};

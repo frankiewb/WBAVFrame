@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2DE9E48E1F039580001255F4 /* WBCodec.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E48D1F039580001255F4 /* WBCodec.m */; };
-		2DE9E48F1F039580001255F4 /* WBCodec.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DE9E48C1F039580001255F4 /* WBCodec.h */; };
+		2DDF0A7D1F03C98F002C032C /* WBAACEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDF0A7C1F03C98F002C032C /* WBAACEncoder.m */; };
+		2DDF0A801F03C9C8002C032C /* WBH264Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDF0A7F1F03C9C8002C032C /* WBH264Encoder.m */; };
+		D766A38ABD56CF61792BE9C3 /* libPods-WBCodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EC345DFA9698BF3F2ED9231 /* libPods-WBCodec.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -18,16 +19,20 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				2DE9E48F1F039580001255F4 /* WBCodec.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2DDF0A7B1F03C98F002C032C /* WBAACEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBAACEncoder.h; path = WBCodec/WBAACEncoder.h; sourceTree = "<group>"; };
+		2DDF0A7C1F03C98F002C032C /* WBAACEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBAACEncoder.m; path = WBCodec/WBAACEncoder.m; sourceTree = "<group>"; };
+		2DDF0A7E1F03C9C8002C032C /* WBH264Encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBH264Encoder.h; path = WBCodec/WBH264Encoder.h; sourceTree = "<group>"; };
+		2DDF0A7F1F03C9C8002C032C /* WBH264Encoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBH264Encoder.m; path = WBCodec/WBH264Encoder.m; sourceTree = "<group>"; };
 		2DE9E4891F039580001255F4 /* libWBCodec.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWBCodec.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2DE9E48C1F039580001255F4 /* WBCodec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBCodec.h; sourceTree = "<group>"; };
-		2DE9E48D1F039580001255F4 /* WBCodec.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBCodec.m; sourceTree = "<group>"; };
+		2E49BB076543B137713536C7 /* Pods-WBCodec.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBCodec.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WBCodec/Pods-WBCodec.debug.xcconfig"; sourceTree = "<group>"; };
+		5EC345DFA9698BF3F2ED9231 /* libPods-WBCodec.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WBCodec.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9190B8D2399D0A0EE4CD7E8 /* Pods-WBCodec.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBCodec.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WBCodec/Pods-WBCodec.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +40,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D766A38ABD56CF61792BE9C3 /* libPods-WBCodec.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DDF0A791F03C942002C032C /* WBH264Encoder */ = {
+			isa = PBXGroup;
+			children = (
+				2DDF0A7E1F03C9C8002C032C /* WBH264Encoder.h */,
+				2DDF0A7F1F03C9C8002C032C /* WBH264Encoder.m */,
+			);
+			name = WBH264Encoder;
+			sourceTree = "<group>";
+		};
+		2DDF0A7A1F03C95A002C032C /* WBAACEncoder */ = {
+			isa = PBXGroup;
+			children = (
+				2DDF0A7B1F03C98F002C032C /* WBAACEncoder.h */,
+				2DDF0A7C1F03C98F002C032C /* WBAACEncoder.m */,
+			);
+			name = WBAACEncoder;
+			sourceTree = "<group>";
+		};
 		2DE9E4801F039580001255F4 = {
 			isa = PBXGroup;
 			children = (
-				2DE9E48B1F039580001255F4 /* WBCodec */,
+				2DDF0A7A1F03C95A002C032C /* WBAACEncoder */,
+				2DDF0A791F03C942002C032C /* WBH264Encoder */,
 				2DE9E48A1F039580001255F4 /* Products */,
+				34B203FB68797F33B5A683AC /* Pods */,
+				45B6778C5CECFA52D3B36EE4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,13 +84,21 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2DE9E48B1F039580001255F4 /* WBCodec */ = {
+		34B203FB68797F33B5A683AC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2DE9E48C1F039580001255F4 /* WBCodec.h */,
-				2DE9E48D1F039580001255F4 /* WBCodec.m */,
+				2E49BB076543B137713536C7 /* Pods-WBCodec.debug.xcconfig */,
+				C9190B8D2399D0A0EE4CD7E8 /* Pods-WBCodec.release.xcconfig */,
 			);
-			path = WBCodec;
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		45B6778C5CECFA52D3B36EE4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5EC345DFA9698BF3F2ED9231 /* libPods-WBCodec.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -73,9 +108,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2DE9E4921F039580001255F4 /* Build configuration list for PBXNativeTarget "WBCodec" */;
 			buildPhases = (
+				90A31D770077103D146D2F50 /* [CP] Check Pods Manifest.lock */,
 				2DE9E4851F039580001255F4 /* Sources */,
 				2DE9E4861F039580001255F4 /* Frameworks */,
 				2DE9E4871F039580001255F4 /* CopyFiles */,
+				E9C593AB4D07EA6DDE69B0E2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -119,12 +156,46 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		90A31D770077103D146D2F50 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E9C593AB4D07EA6DDE69B0E2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-WBCodec/Pods-WBCodec-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2DE9E4851F039580001255F4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DE9E48E1F039580001255F4 /* WBCodec.m in Sources */,
+				2DDF0A7D1F03C98F002C032C /* WBAACEncoder.m in Sources */,
+				2DDF0A801F03C9C8002C032C /* WBH264Encoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,9 +294,10 @@
 		};
 		2DE9E4931F039580001255F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E49BB076543B137713536C7 /* Pods-WBCodec.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -233,9 +305,10 @@
 		};
 		2DE9E4941F039580001255F4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9190B8D2399D0A0EE4CD7E8 /* Pods-WBCodec.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -260,6 +333,7 @@
 				2DE9E4941F039580001255F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

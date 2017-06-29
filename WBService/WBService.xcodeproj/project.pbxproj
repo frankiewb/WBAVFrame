@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2DE9E4381F0232DA001255F4 /* WBService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E4371F0232DA001255F4 /* WBService.m */; };
 		2DE9E4391F0232DA001255F4 /* WBService.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DE9E4361F0232DA001255F4 /* WBService.h */; };
+		46F261D8639178F938FC486B /* libPods-WBService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D3200A425F19D86240AA5E /* libPods-WBService.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,9 @@
 		2DE9E4331F0232DA001255F4 /* libWBService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWBService.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DE9E4361F0232DA001255F4 /* WBService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBService.h; sourceTree = "<group>"; };
 		2DE9E4371F0232DA001255F4 /* WBService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBService.m; sourceTree = "<group>"; };
+		31D3200A425F19D86240AA5E /* libPods-WBService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WBService.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7072222239687AB3AE0FDD26 /* Pods-WBService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBService.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WBService/Pods-WBService.debug.xcconfig"; sourceTree = "<group>"; };
+		A732BE6B82F07F66A0A2275D /* Pods-WBService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBService.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WBService/Pods-WBService.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46F261D8639178F938FC486B /* libPods-WBService.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +51,8 @@
 			children = (
 				2DE9E4351F0232DA001255F4 /* WBService */,
 				2DE9E4341F0232DA001255F4 /* Products */,
+				CA776A68A3C80FBEC0EFCBE6 /* Pods */,
+				C81EF06D781E4179181CB51A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,6 +73,23 @@
 			path = WBService;
 			sourceTree = "<group>";
 		};
+		C81EF06D781E4179181CB51A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				31D3200A425F19D86240AA5E /* libPods-WBService.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CA776A68A3C80FBEC0EFCBE6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7072222239687AB3AE0FDD26 /* Pods-WBService.debug.xcconfig */,
+				A732BE6B82F07F66A0A2275D /* Pods-WBService.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -73,9 +97,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2DE9E43C1F0232DA001255F4 /* Build configuration list for PBXNativeTarget "WBService" */;
 			buildPhases = (
+				4F2E25B0B23C4E1B1E6A26C3 /* [CP] Check Pods Manifest.lock */,
 				2DE9E42F1F0232DA001255F4 /* Sources */,
 				2DE9E4301F0232DA001255F4 /* Frameworks */,
 				2DE9E4311F0232DA001255F4 /* CopyFiles */,
+				FFF8861B8C10BC9606D265DA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -118,6 +144,39 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4F2E25B0B23C4E1B1E6A26C3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FFF8861B8C10BC9606D265DA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-WBService/Pods-WBService-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2DE9E42F1F0232DA001255F4 /* Sources */ = {
@@ -223,9 +282,10 @@
 		};
 		2DE9E43D1F0232DA001255F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7072222239687AB3AE0FDD26 /* Pods-WBService.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -233,9 +293,10 @@
 		};
 		2DE9E43E1F0232DA001255F4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A732BE6B82F07F66A0A2275D /* Pods-WBService.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -260,6 +321,7 @@
 				2DE9E43E1F0232DA001255F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
