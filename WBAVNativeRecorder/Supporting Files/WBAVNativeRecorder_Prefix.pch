@@ -10,4 +10,7 @@
 #define WBAVNativeRecorder_Prefix_pch
 
 
+#import "MBProgressHUD+Utils.h"
+
+
 #endif /* WBAVNativeRecorder_Prefix_pch */

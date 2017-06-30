@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		272ACAAC5F61EFDBCA478D27 /* libPods-WBUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B7768CCDC077A2A15C5D2DFF /* libPods-WBUtils.a */; };
+		2DDF0A941F0627A1002C032C /* MBProgressHUD+Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DDF0A921F0627A1002C032C /* MBProgressHUD+Utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2DDF0A951F0627A1002C032C /* MBProgressHUD+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDF0A931F0627A1002C032C /* MBProgressHUD+Utils.m */; };
 		2DE9E4231F02328B001255F4 /* WBUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E4221F02328B001255F4 /* WBUtils.m */; };
 		2DE9E4241F02328B001255F4 /* WBUtils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DE9E4211F02328B001255F4 /* WBUtils.h */; };
 		2DE9E4781F025778001255F4 /* WBMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DE9E4741F0256F9001255F4 /* WBMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -30,6 +32,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2DDF0A921F0627A1002C032C /* MBProgressHUD+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Utils.h"; sourceTree = "<group>"; };
+		2DDF0A931F0627A1002C032C /* MBProgressHUD+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Utils.m"; sourceTree = "<group>"; };
 		2DE9E41E1F02328B001255F4 /* libWBUtils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWBUtils.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DE9E4211F02328B001255F4 /* WBUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBUtils.h; sourceTree = "<group>"; };
 		2DE9E4221F02328B001255F4 /* WBUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBUtils.m; sourceTree = "<group>"; };
@@ -88,6 +92,8 @@
 				2DE9E4741F0256F9001255F4 /* WBMacros.h */,
 				2DE9E47B1F0267AA001255F4 /* UIColor+Utils.h */,
 				2DE9E47C1F0267AA001255F4 /* UIColor+Utils.m */,
+				2DDF0A921F0627A1002C032C /* MBProgressHUD+Utils.h */,
+				2DDF0A931F0627A1002C032C /* MBProgressHUD+Utils.m */,
 			);
 			path = WBUtils;
 			sourceTree = "<group>";
@@ -109,6 +115,7 @@
 			files = (
 				2DE9E4791F02577B001255F4 /* WBUtils.h in Headers */,
 				2DE9E47D1F0267AA001255F4 /* UIColor+Utils.h in Headers */,
+				2DDF0A941F0627A1002C032C /* MBProgressHUD+Utils.h in Headers */,
 				2DE9E4781F025778001255F4 /* WBMacros.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DDF0A951F0627A1002C032C /* MBProgressHUD+Utils.m in Sources */,
 				2DE9E4231F02328B001255F4 /* WBUtils.m in Sources */,
 				2DE9E47E1F0267AA001255F4 /* UIColor+Utils.m in Sources */,
 			);
@@ -256,7 +264,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -302,7 +310,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
