@@ -11,6 +11,8 @@
 
 
 #import "MBProgressHUD+Utils.h"
+#import "WBSettingMacros.h"
+#import "WBMacros.h"
 
 
 #endif /* WBAVNativeRecorder_Prefix_pch */

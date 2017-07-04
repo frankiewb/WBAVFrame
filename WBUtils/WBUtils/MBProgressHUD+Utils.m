@@ -53,12 +53,19 @@
 
 + (void)showSuccess:(NSString *)success
 {
-    [self showSuccess:success toView:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self showSuccess:success toView:nil];
+    });
+    
 }
 
 + (void)showError:(NSString *)error
 {
-    [self showError:error toView:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self showError:error toView:nil];
+    });
+    
+    
 }
 
 + (MBProgressHUD *)showMessage:(NSString *)message

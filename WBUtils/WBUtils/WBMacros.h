@@ -19,3 +19,5 @@
 
 #define WEAK_SELF __weak typeof(self)weakSelf = self
 #define STRONG_SELF typeof(self) strongSelf = weakSelf;
+
+#define LOG_METHOD NSLog(@"%s", __func__);

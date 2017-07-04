@@ -344,7 +344,7 @@
 				TargetAttributes = {
 					2D9B28131F01F61600D3EAEB = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 8D7826FKHD;
+						DevelopmentTeam = EUAD94LG2W;
 						ProvisioningStyle = Automatic;
 					};
 					2D9B282C1F01F61600D3EAEB = {
@@ -619,7 +619,7 @@
 			baseConfigurationReference = E51F6B0169463C936A37BD35 /* Pods-WBAVFrame.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8D7826FKHD;
+				DEVELOPMENT_TEAM = EUAD94LG2W;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WBAVFrame/WBAVFrame_prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -673,7 +673,7 @@
 			baseConfigurationReference = 564080BCB324572E9BC9BEC9 /* Pods-WBAVFrame.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8D7826FKHD;
+				DEVELOPMENT_TEAM = EUAD94LG2W;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WBAVFrame/WBAVFrame_prefix.pch";
 				HEADER_SEARCH_PATHS = (

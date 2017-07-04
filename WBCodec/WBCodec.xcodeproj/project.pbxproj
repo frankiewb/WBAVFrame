@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2DDF0A7D1F03C98F002C032C /* WBAACEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDF0A7C1F03C98F002C032C /* WBAACEncoder.m */; };
 		2DDF0A801F03C9C8002C032C /* WBH264Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDF0A7F1F03C9C8002C032C /* WBH264Encoder.m */; };
+		2DDF0AA01F0BA5A0002C032C /* WBVideoFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDF0A9F1F0BA5A0002C032C /* WBVideoFrame.m */; };
+		2DDF0AA31F0BA5B3002C032C /* WBAudioFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDF0AA21F0BA5B3002C032C /* WBAudioFrame.m */; };
 		D766A38ABD56CF61792BE9C3 /* libPods-WBCodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EC345DFA9698BF3F2ED9231 /* libPods-WBCodec.a */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +31,10 @@
 		2DDF0A7C1F03C98F002C032C /* WBAACEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBAACEncoder.m; path = WBCodec/WBAACEncoder.m; sourceTree = "<group>"; };
 		2DDF0A7E1F03C9C8002C032C /* WBH264Encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBH264Encoder.h; path = WBCodec/WBH264Encoder.h; sourceTree = "<group>"; };
 		2DDF0A7F1F03C9C8002C032C /* WBH264Encoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBH264Encoder.m; path = WBCodec/WBH264Encoder.m; sourceTree = "<group>"; };
+		2DDF0A9E1F0BA5A0002C032C /* WBVideoFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBVideoFrame.h; path = WBCodec/WBVideoFrame.h; sourceTree = "<group>"; };
+		2DDF0A9F1F0BA5A0002C032C /* WBVideoFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBVideoFrame.m; path = WBCodec/WBVideoFrame.m; sourceTree = "<group>"; };
+		2DDF0AA11F0BA5B3002C032C /* WBAudioFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBAudioFrame.h; path = WBCodec/WBAudioFrame.h; sourceTree = "<group>"; };
+		2DDF0AA21F0BA5B3002C032C /* WBAudioFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBAudioFrame.m; path = WBCodec/WBAudioFrame.m; sourceTree = "<group>"; };
 		2DE9E4891F039580001255F4 /* libWBCodec.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWBCodec.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E49BB076543B137713536C7 /* Pods-WBCodec.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBCodec.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WBCodec/Pods-WBCodec.debug.xcconfig"; sourceTree = "<group>"; };
 		5EC345DFA9698BF3F2ED9231 /* libPods-WBCodec.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WBCodec.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +58,8 @@
 			children = (
 				2DDF0A7E1F03C9C8002C032C /* WBH264Encoder.h */,
 				2DDF0A7F1F03C9C8002C032C /* WBH264Encoder.m */,
+				2DDF0A9E1F0BA5A0002C032C /* WBVideoFrame.h */,
+				2DDF0A9F1F0BA5A0002C032C /* WBVideoFrame.m */,
 			);
 			name = WBH264Encoder;
 			sourceTree = "<group>";
@@ -61,6 +69,8 @@
 			children = (
 				2DDF0A7B1F03C98F002C032C /* WBAACEncoder.h */,
 				2DDF0A7C1F03C98F002C032C /* WBAACEncoder.m */,
+				2DDF0AA11F0BA5B3002C032C /* WBAudioFrame.h */,
+				2DDF0AA21F0BA5B3002C032C /* WBAudioFrame.m */,
 			);
 			name = WBAACEncoder;
 			sourceTree = "<group>";
@@ -195,7 +205,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DDF0A7D1F03C98F002C032C /* WBAACEncoder.m in Sources */,
+				2DDF0AA01F0BA5A0002C032C /* WBVideoFrame.m in Sources */,
 				2DDF0A801F03C9C8002C032C /* WBH264Encoder.m in Sources */,
+				2DDF0AA31F0BA5B3002C032C /* WBAudioFrame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

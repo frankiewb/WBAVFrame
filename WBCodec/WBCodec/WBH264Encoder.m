@@ -8,6 +8,12 @@
 
 #import "WBH264Encoder.h"
 
+
+@interface WBH264Encoder ()
+
+@end
+
+
 @implementation WBH264Encoder
 
 @end

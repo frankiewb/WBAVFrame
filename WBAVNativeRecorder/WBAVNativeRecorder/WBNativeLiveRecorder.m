@@ -7,13 +7,8 @@
 //
 
 #import "WBNativeLiveRecorder.h"
-#import <AVFoundation/AVFoundation.h>
-
-
-
 
 @interface WBNativeLiveRecorder () <AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate>
-
 
 //音视频输入输出设备及数据管理器
 @property (nonatomic, strong) AVCaptureSession *avSession;
@@ -37,23 +32,35 @@
 //音频采集输出数据处理队列
 @property (nonatomic, strong) dispatch_queue_t audioProcessingQueue;
 
+//预渲染界面
+@property (nonatomic, weak) UIView *livePreViewLayer;
+
 
 @end
 
 @implementation WBNativeLiveRecorder
 
 
-- (instancetype)init
+- (instancetype)initWithLivePreViewLayer:(UIView *)preViewLayer
 {
     self = [super init];
     if (self)
     {
+        self.livePreViewLayer = preViewLayer;
         [self initVariousData];
         [self checkAVDeviceAuthorization];
-        [self initPreViewLayer];
     }
     
     return self;
+}
+
+
+- (void)dealloc
+{
+    [self stopLiveRecord];
+    [self.videoOutput setSampleBufferDelegate:nil queue:dispatch_get_main_queue()];
+    [self.videoOutput setSampleBufferDelegate:nil queue:dispatch_get_main_queue()];
+    LOG_METHOD;
 }
 
 //初始化基本数据
@@ -72,7 +79,7 @@
     switch (avDeviceStatusType)
     {
         case AVAuthorizationStatusAuthorized:
-            [MBProgressHUD showSuccess:@"已授权"];
+            //[MBProgressHUD showSuccess:@"已授权"];
             [self initAVCaptureSession];
             break;
         case AVAuthorizationStatusNotDetermined:
@@ -107,7 +114,7 @@
     //开始配置AVSession
     [self.avSession beginConfiguration];
     //1.设置分辨率
-    [self initAVCaptureSession];
+    [self initAVSessionResolution];
     //2.设置合适的摄像头，iOS一共有前后俩个，考虑直播场景优先使用前置摄像头
     [self initVideoDevice];
     //3.初始化视频输入输出
@@ -116,8 +123,15 @@
     [self initAudioDevice];
     //5.初始化音频输入输出
     [self initAudioInputAndOutput];
-    //结束配置AVSession
+    //6.结束配置AVSession
     [self.avSession commitConfiguration];
+    //7.初始化预览界面
+    [self initPreViewLayer];
+    //8.开启预览图
+    if (![self.avSession isRunning])
+    {
+        [self.avSession startRunning];
+    }
 }
 
 
@@ -293,6 +307,19 @@
     {
         return;
     }
+    
+    if (!self.videoPreViewLayer)
+    {
+        [self.livePreViewLayer layoutIfNeeded];
+        //初始化对象
+        self.videoPreViewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:_avSession];
+        self.videoPreViewLayer.connection.videoOrientation = [self.videoOutput connectionWithMediaType:AVMediaTypeVideo].videoOrientation;
+        self.videoPreViewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+        self.videoPreViewLayer.frame = self.livePreViewLayer.layer.frame;
+        self.videoPreViewLayer.position = CGPointMake(self.livePreViewLayer.frame.size.width *0.5, self.livePreViewLayer.frame.size.height*0.5);
+    }
+    
+    [self.livePreViewLayer.layer addSublayer:_videoPreViewLayer];
 }
 
 
@@ -309,6 +336,107 @@
 #pragma clang diagnostic pop
     
 #endif
+}
+
+- (void)turnCamera
+{
+    AVCaptureDevicePosition nowPosition = self.videoDevice.position;
+    AVCaptureDevicePosition targetPosition;
+    (nowPosition == AVCaptureDevicePositionFront) ? (targetPosition = AVCaptureDevicePositionBack) : (targetPosition = AVCaptureDevicePositionFront);
+    self.videoDevice = [self getCameraDeviceWithPosition:targetPosition];
+    NSError *videoInputError;
+    AVCaptureDeviceInput *newVideoInput = [[AVCaptureDeviceInput alloc] initWithDevice:_videoDevice error:&videoInputError];
+    if (videoInputError)
+    {
+        [MBProgressHUD showError:[NSString stringWithFormat:@"手机摄像设备输入错误：%@",videoInputError]];
+        return;
+    }
+    [self.avSession beginConfiguration];
+    [self.avSession removeInput:_videoInput];
+    if ([self.avSession canAddInput:newVideoInput])
+    {
+        [self.avSession addInput:newVideoInput];
+    }
+    self.videoInput = newVideoInput;
+    [self.avSession commitConfiguration];
+}
+
+-(AVCaptureDevice *)getCameraDeviceWithPosition:(AVCaptureDevicePosition )position
+{
+    NSArray *cameras= [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
+    for (AVCaptureDevice *camera in cameras)
+    {
+        if ([camera position] == position)
+        {
+            return camera;
+        }
+    }
+    return nil;
+}
+
+- (void)turnTorchModeStatus
+{
+    if ([self.videoDevice hasTorch])
+    {
+        [self.videoDevice lockForConfiguration:nil];
+        if (self.videoDevice.torchMode == AVCaptureTorchModeOff)
+        {
+            self.videoDevice.torchMode = AVCaptureTorchModeOn;
+        }
+        else if (self.videoDevice.torchMode == AVCaptureTorchModeOn)
+        {
+            self.videoDevice.torchMode = AVCaptureTorchModeOff;
+        }
+        [self.videoDevice unlockForConfiguration];
+    }
+    else
+    {
+        [MBProgressHUD showMsg:@"前置摄像头不支持手电" showTime:1.5f];
+    }
+}
+
+- (void)startLiveRecord
+{
+    //开启预览图
+    if (![self.avSession isRunning])
+    {
+        [self.avSession startRunning];
+    }
+    
+    
+    //相关RTMP_SOCKET推流准备工作
+    
+
+}
+
+- (void)stopLiveRecord
+{
+    //关闭预览图
+    if ([self.avSession isRunning])
+    {
+        [self.avSession stopRunning];
+    }
+    //暂停RTMP_SOCKET推流准备工作
+    
+
+}
+
+
+#pragma mark 音视频采集后输出处理代理
+
+- (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection
+{
+    //视频buffer帧处理
+    if (captureOutput == _videoOutput)
+    {
+        //视频硬编码
+        NSLog(@"视频编码处理");
+    }
+    else //音频buffer帧处理
+    {
+        //音频硬编码
+        NSLog(@"音频编码处理");
+    }
 }
 
 
