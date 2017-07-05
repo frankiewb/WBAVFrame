@@ -9,6 +9,7 @@ target 'WBAVFrame' do
   pod 'MJRefresh'
   pod 'SDWebImage'
   pod 'MBProgressHUD'
+  pod 'WMDebugAssistant' ,:git=>"https://github.com/roronoaxyz/WMDebugAssistant.git", :tag => '0.1.2'
 end
 
 target 'WBAVNativeRecorder' do

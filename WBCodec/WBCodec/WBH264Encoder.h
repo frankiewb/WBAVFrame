@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
-#import "WBVideoFrame.m"
+#import "WBVideoFrame.h"
 
 @protocol WBH264EncoderDelegate <NSObject>
 

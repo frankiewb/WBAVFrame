@@ -13,6 +13,7 @@
 #import "WBLiveRecorderSettingViewController.h"
 #import "WBAVRootBottomButtonView.h"
 
+
 @interface WBAVRootViewController ()
 
 @property (nonatomic, strong) WBAVRootBottomButtonView *rootBottomButtonView;
@@ -26,6 +27,8 @@
 @property (nonatomic, strong) WBVideoRecorderSettingViewController *videoRecorderSettingVC;//视频录制模块
 
 @property (nonatomic, strong) WBVideoPlayerSettingViewController *videoPlayerSettingVC;//视频播放模块
+
+@property (nonatomic, strong) WMAssistantBall *assistantBall;
 
 @end
 
@@ -46,6 +49,7 @@
     [self setAVFrameScrollBGView];
     [self setLiveRecorderSettingViewController];
     [self setRootBottomButtonView];
+    [self setDebugHelper];
     
 }
 
@@ -110,6 +114,21 @@
         [self.mainScrollBGView addSubview:_videoPlayerSettingVC.view];
         [self addChildViewController:_videoPlayerSettingVC];
     }
+}
+
+#pragma mark 设置辅助系统状态监控模块
+- (void)setDebugHelper
+{
+    self.assistantBall = [[WMAssistantBall alloc] init];
+    //self.assistantBall.addtionItems = @[@"暗门",@"接口数",@"网络",@"日志"];
+    self.assistantBall.ballColor = [UIColor colorWithHexString:@"897AEB"];
+    self.assistantBall.shapeColor = [UIColor colorWithHexString:@"897AEB"];
+    [self.assistantBall doWork];
+    //点击了额外的选项回调
+    self.assistantBall.selectBlock = ^(NSString *title, UIButton *button)
+    {
+        //暂时不添加额外接口
+    };
 }
 
 #pragma mark 底部选择按钮模块

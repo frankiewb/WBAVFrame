@@ -1,0 +1,22 @@
+{
+  "name": "WMDebugAssistant",
+  "version": "0.1.2",
+  "summary": "cpu,memory,network,fps oberver",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/roronoaxyz/WMDebugAssistant",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Thomas": "roronoa@foxmail.com"
+  },
+  "source": {
+    "git": "https://github.com/roronoaxyz/WMDebugAssistant.git",
+    "tag": "0.1.2"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "WMDebugAssistant/Classes/**/*"
+}

@@ -11,6 +11,10 @@
 		2DDF0A801F03C9C8002C032C /* WBH264Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDF0A7F1F03C9C8002C032C /* WBH264Encoder.m */; };
 		2DDF0AA01F0BA5A0002C032C /* WBVideoFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDF0A9F1F0BA5A0002C032C /* WBVideoFrame.m */; };
 		2DDF0AA31F0BA5B3002C032C /* WBAudioFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDF0AA21F0BA5B3002C032C /* WBAudioFrame.m */; };
+		2DDF0AA51F0BAA3E002C032C /* WBVideoFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DDF0A9E1F0BA5A0002C032C /* WBVideoFrame.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2DDF0AA61F0BAA44002C032C /* WBAudioFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DDF0AA11F0BA5B3002C032C /* WBAudioFrame.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2DDF0AA71F0BAA49002C032C /* WBH264Encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DDF0A7E1F03C9C8002C032C /* WBH264Encoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2DDF0AA81F0BAA4C002C032C /* WBAACEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DDF0A7B1F03C98F002C032C /* WBAACEncoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D766A38ABD56CF61792BE9C3 /* libPods-WBCodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EC345DFA9698BF3F2ED9231 /* libPods-WBCodec.a */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +117,20 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		2DDF0AA41F0BAA2D002C032C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DDF0AA81F0BAA4C002C032C /* WBAACEncoder.h in Headers */,
+				2DDF0AA71F0BAA49002C032C /* WBH264Encoder.h in Headers */,
+				2DDF0AA61F0BAA44002C032C /* WBAudioFrame.h in Headers */,
+				2DDF0AA51F0BAA3E002C032C /* WBVideoFrame.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		2DE9E4881F039580001255F4 /* WBCodec */ = {
 			isa = PBXNativeTarget;
@@ -123,6 +141,7 @@
 				2DE9E4861F039580001255F4 /* Frameworks */,
 				2DE9E4871F039580001255F4 /* CopyFiles */,
 				E9C593AB4D07EA6DDE69B0E2 /* [CP] Copy Pods Resources */,
+				2DDF0AA41F0BAA2D002C032C /* Headers */,
 			);
 			buildRules = (
 			);

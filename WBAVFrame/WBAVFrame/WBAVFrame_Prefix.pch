@@ -11,5 +11,6 @@
 
 #import "WBMacros.h"
 #import "UIColor+Utils.h"
+#import "WMAssistantBall.h"
 
 #endif /* PrefixHeader_pch */

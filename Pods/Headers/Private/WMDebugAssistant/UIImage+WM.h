@@ -1,0 +1,1 @@
+../../../WMDebugAssistant/WMDebugAssistant/Classes/UIImage+WM.h

@@ -20,6 +20,7 @@ PODS:
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
+  - WMDebugAssistant (0.1.2)
 
 DEPENDENCIES:
   - AFNetworking
@@ -27,6 +28,17 @@ DEPENDENCIES:
   - MJExtension
   - MJRefresh
   - SDWebImage
+  - WMDebugAssistant (from `https://github.com/roronoaxyz/WMDebugAssistant.git`, tag `0.1.2`)
+
+EXTERNAL SOURCES:
+  WMDebugAssistant:
+    :git: https://github.com/roronoaxyz/WMDebugAssistant.git
+    :tag: 0.1.2
+
+CHECKOUT OPTIONS:
+  WMDebugAssistant:
+    :git: https://github.com/roronoaxyz/WMDebugAssistant.git
+    :tag: 0.1.2
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -34,7 +46,8 @@ SPEC CHECKSUMS:
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  WMDebugAssistant: b27db1c2dfca4e8196c311c27d1d71bc470686e5
 
-PODFILE CHECKSUM: 6ce569fbbd01c41066a77aa9229f9314891b478c
+PODFILE CHECKSUM: 7256fa03b4a663454a87084e0759ea3d0c2a6606
 
 COCOAPODS: 1.2.0
