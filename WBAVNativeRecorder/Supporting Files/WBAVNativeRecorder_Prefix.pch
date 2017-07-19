@@ -13,6 +13,8 @@
 #import "MBProgressHUD+Utils.h"
 #import "WBSettingMacros.h"
 #import "WBMacros.h"
+#import "WBH264Encoder.h"
+#import "WBAACEncoder.h"
 
 
 #endif /* WBAVNativeRecorder_Prefix_pch */

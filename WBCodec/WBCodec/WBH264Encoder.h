@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
+#import <VideoToolbox/VideoToolbox.h>
 #import "WBVideoFrame.h"
 
 @protocol WBH264EncoderDelegate <NSObject>
@@ -23,6 +24,5 @@
 @property (nonatomic, weak) NSObject<WBH264EncoderDelegate> *delegate;
 
 - (void)encodeWithSampleBuffer:(CMSampleBufferRef )sampleBuffer timeStamp:(uint64_t)timeStamp;
-
 
 @end

@@ -8,7 +8,8 @@
 
 #import "WBNativeLiveRecorder.h"
 
-@interface WBNativeLiveRecorder () <AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate>
+
+@interface WBNativeLiveRecorder () <AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate,WBAACEncoderDelegate,WBH264EncoderDelegate>
 
 //音视频输入输出设备及数据管理器
 @property (nonatomic, strong) AVCaptureSession *avSession;
@@ -31,6 +32,20 @@
 @property (nonatomic, strong) dispatch_queue_t videoProcessingQueue;
 //音频采集输出数据处理队列
 @property (nonatomic, strong) dispatch_queue_t audioProcessingQueue;
+
+//视频编码器
+@property (nonatomic, strong) WBH264Encoder *videoEncoder;
+//音频编码器
+@property (nonatomic, strong) WBAACEncoder *audioEncoder;
+
+
+//杂
+@property (nonatomic, assign) uint64_t timeStamp;//时间戳
+@property (nonatomic, assign) BOOL isFirstFrame;//是否是第一帧
+@property (nonatomic, assign) BOOL isUploading;//是否在上传
+@property (nonatomic, assign) BOOL isStartingLive;//是否开始直播
+
+
 
 //预渲染界面
 @property (nonatomic, weak) UIView *livePreViewLayer;
@@ -68,6 +83,15 @@
 {
     self.videoProcessingQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
     self.audioProcessingQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0);
+    self.videoEncoder = [[WBH264Encoder alloc] init];
+    self.videoEncoder.delegate = self;
+    self.audioEncoder = [[WBAACEncoder alloc] init];
+    self.audioEncoder.delegate = self;
+    self.isStartingLive = NO;
+    self.isUploading = NO;
+    self.isFirstFrame = NO;
+    self.timeStamp = 0;
+    
 }
 
 
@@ -95,15 +119,12 @@
                     [MBProgressHUD showMessage:@"用户拒绝授权摄像头的使用, 返回上一页, 请打开--> 设置 -- > 隐私 --> 通用等权限设置"];
                 }
             }];
-
         }
             break;
         default:
             [MBProgressHUD showError:@"用户尚未授权使用摄像头"];
             break;
     }
-    
-    
 }
 
 
@@ -403,10 +424,10 @@
         [self.avSession startRunning];
     }
     
-    
-    //相关RTMP_SOCKET推流准备工作
-    
-
+    if (!self.isStartingLive)
+    {
+        self.isStartingLive = YES;
+    }
 }
 
 - (void)stopLiveRecord
@@ -416,9 +437,11 @@
     {
         [self.avSession stopRunning];
     }
-    //暂停RTMP_SOCKET推流准备工作
     
-
+    if (self.isStartingLive)
+    {
+        self.isStartingLive = NO;
+    }
 }
 
 
@@ -429,15 +452,61 @@
     //视频buffer帧处理
     if (captureOutput == _videoOutput)
     {
-        //视频硬编码
-        NSLog(@"视频编码处理");
+        //视频硬编码        
+        [self.videoEncoder encodeWithSampleBuffer:sampleBuffer timeStamp:[self getCurrentTimeStamp]];
     }
     else //音频buffer帧处理
     {
         //音频硬编码
-        NSLog(@"音频编码处理");
+        [self.audioEncoder encodeWithSampleBuffer:sampleBuffer timeStamp:[self getCurrentTimeStamp]];
     }
 }
+
+- (uint64_t)getCurrentTimeStamp
+{
+    @synchronized (self)
+    {
+        uint64_t currentTimeStamp = 0;
+        if (self.isFirstFrame)
+        {
+            self.timeStamp = NOW;
+            self.isFirstFrame = NO;
+        }
+        else
+        {
+            currentTimeStamp = NOW - _timeStamp;
+        }
+        
+        return currentTimeStamp;
+    }
+}
+
+#pragma mark WBH264Encoder代理
+- (void)wbH264EncoderDidFinishEncodeWithWBVideoFrame:(WBVideoFrame *)videoFrame
+{
+    
+    if(self.isStartingLive)
+    {
+        //视频编码处理后准备推流
+        NSLog(@"视频编码上传");
+        //相关RTMP_SOCKET推流准备工作
+    }
+
+}
+
+#pragma mark WBAACEncoder代理
+- (void)wbAACEncoderDidFinishEncodeWithWBAudioFrame:(WBAudioFrame *)audioFrame
+{
+    if(self.isStartingLive)
+    {
+        //音频编码处理后准备推流
+        NSLog(@"音频编码上传");
+        //相关RTMP_SOCKET推流准备工作
+    }
+    
+
+}
+
 
 
 

@@ -10,8 +10,10 @@
 
 @interface WBAudioFrame : NSObject
 
-@property (nonatomic, assign) BOOL isKeyFrame;//是否是关键帧
-@property (nonatomic, strong) NSData *sps;//Sequence Parameter Sets
-@property (nonatomic, strong) NSData *pps;//Picture Parameter Set
+@property (nonatomic, strong) NSData *audioFrameHeader;
+
+@property (nonatomic, strong) NSData *frameData;
+
+@property (nonatomic, assign) uint64_t timeStamp;
 
 @end

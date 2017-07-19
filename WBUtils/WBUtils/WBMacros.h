@@ -21,3 +21,5 @@
 #define STRONG_SELF typeof(self) strongSelf = weakSelf;
 
 #define LOG_METHOD NSLog(@"%s", __func__);
+
+#define NOW (CACurrentMediaTime()*1000)
