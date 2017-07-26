@@ -7,13 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WBFrame.h"
 
-@interface WBAudioFrame : NSObject
+@interface WBAudioFrame : WBFrame
 
-@property (nonatomic, strong) NSData *audioFrameHeader;
-
-@property (nonatomic, strong) NSData *frameData;
-
-@property (nonatomic, assign) uint64_t timeStamp;
+@property (nonatomic, strong) NSData *audioFrameInfo;
 
 @end

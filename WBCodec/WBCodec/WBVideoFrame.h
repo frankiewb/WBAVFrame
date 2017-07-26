@@ -7,19 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WBFrame.h"
 
-@interface WBVideoFrame : NSObject
+@interface WBVideoFrame : WBFrame
 
 @property (nonatomic, assign) BOOL isKeyFrame;//该帧是否为关键帧
 
 @property (nonatomic, strong) NSData *spsData;
 
 @property (nonatomic, strong) NSData *ppsData;
-
-@property (nonatomic, assign) uint64_t timeStamp;
-
-@property (nonatomic, strong) NSData *frameData;
-
-@property (nonatomic, strong) NSData *videoFrameHeader;
 
 @end

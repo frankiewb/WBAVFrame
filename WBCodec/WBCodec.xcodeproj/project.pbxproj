@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D371C221F26E45D0047EDF3 /* WBFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D371C201F26E45D0047EDF3 /* WBFrame.h */; };
+		2D371C231F26E45D0047EDF3 /* WBFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D371C211F26E45D0047EDF3 /* WBFrame.m */; };
 		2DDF0A7D1F03C98F002C032C /* WBAACEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDF0A7C1F03C98F002C032C /* WBAACEncoder.m */; };
 		2DDF0A801F03C9C8002C032C /* WBH264Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDF0A7F1F03C9C8002C032C /* WBH264Encoder.m */; };
 		2DDF0AA01F0BA5A0002C032C /* WBVideoFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDF0A9F1F0BA5A0002C032C /* WBVideoFrame.m */; };
@@ -31,6 +33,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2D371C201F26E45D0047EDF3 /* WBFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBFrame.h; path = WBCodec/WBFrame.h; sourceTree = "<group>"; };
+		2D371C211F26E45D0047EDF3 /* WBFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBFrame.m; path = WBCodec/WBFrame.m; sourceTree = "<group>"; };
 		2DDF0A7B1F03C98F002C032C /* WBAACEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBAACEncoder.h; path = WBCodec/WBAACEncoder.h; sourceTree = "<group>"; };
 		2DDF0A7C1F03C98F002C032C /* WBAACEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBAACEncoder.m; path = WBCodec/WBAACEncoder.m; sourceTree = "<group>"; };
 		2DDF0A7E1F03C9C8002C032C /* WBH264Encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBH264Encoder.h; path = WBCodec/WBH264Encoder.h; sourceTree = "<group>"; };
@@ -57,6 +61,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D371C1F1F26E43C0047EDF3 /* WBFrame */ = {
+			isa = PBXGroup;
+			children = (
+				2D371C201F26E45D0047EDF3 /* WBFrame.h */,
+				2D371C211F26E45D0047EDF3 /* WBFrame.m */,
+			);
+			name = WBFrame;
+			sourceTree = "<group>";
+		};
 		2DDF0A791F03C942002C032C /* WBH264Encoder */ = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +95,7 @@
 		2DE9E4801F039580001255F4 = {
 			isa = PBXGroup;
 			children = (
+				2D371C1F1F26E43C0047EDF3 /* WBFrame */,
 				2DDF0A7A1F03C95A002C032C /* WBAACEncoder */,
 				2DDF0A791F03C942002C032C /* WBH264Encoder */,
 				2DE9E48A1F039580001255F4 /* Products */,
@@ -122,6 +136,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D371C221F26E45D0047EDF3 /* WBFrame.h in Headers */,
 				2DDF0AA81F0BAA4C002C032C /* WBAACEncoder.h in Headers */,
 				2DDF0AA71F0BAA49002C032C /* WBH264Encoder.h in Headers */,
 				2DDF0AA61F0BAA44002C032C /* WBAudioFrame.h in Headers */,
@@ -223,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D371C231F26E45D0047EDF3 /* WBFrame.m in Sources */,
 				2DDF0A7D1F03C98F002C032C /* WBAACEncoder.m in Sources */,
 				2DDF0AA01F0BA5A0002C032C /* WBVideoFrame.m in Sources */,
 				2DDF0A801F03C9C8002C032C /* WBH264Encoder.m in Sources */,

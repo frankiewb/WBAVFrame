@@ -181,11 +181,11 @@
         audioFrame.timeStamp = timeStamp;
         audioFrame.frameData = [NSData dataWithBytes:_aacBuffer length:outAudioBufferList.mBuffers[0].mDataByteSize];
         
-//        // flv编码音频头 44100 为0x12 0x10
-//        char *asc = malloc(2);  // 开辟两个长度的字节
-//        asc[0] = 0x10 | ((4>>1) & 0x3);
-//        asc[1] = ((4 & 0x1)<<7) | ((1 & 0xF) << 3);
-//        audioFrame.audioInfo =  [NSData dataWithBytes:asc length:2];
+        // flv编码音频头 44100 为0x12 0x10
+        char *asc = malloc(2);  // 开辟两个长度的字节
+        asc[0] = 0x10 | ((4>>1) & 0x3);
+        asc[1] = ((4 & 0x1)<<7) | ((1 & 0xF) << 3);
+        audioFrame.audioFrameInfo =  [NSData dataWithBytes:asc length:2];
         
         if (self.delegate && [self.delegate respondsToSelector:@selector(wbAACEncoderDidFinishEncodeWithWBAudioFrame:)])
         {

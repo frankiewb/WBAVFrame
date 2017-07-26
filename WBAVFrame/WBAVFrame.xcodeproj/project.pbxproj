@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D81A9581F289C0000380F61 /* libbz2.1.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D81A9511F289B9100380F61 /* libbz2.1.0.tbd */; };
+		2D81A9591F289C0700380F61 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D81A9531F289B9C00380F61 /* libz.tbd */; };
 		2D9B28191F01F61600D3EAEB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B28181F01F61600D3EAEB /* main.m */; };
 		2D9B281C1F01F61600D3EAEB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B281B1F01F61600D3EAEB /* AppDelegate.m */; };
 		2D9B28241F01F61600D3EAEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D9B28231F01F61600D3EAEB /* Assets.xcassets */; };
@@ -48,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D81A9511F289B9100380F61 /* libbz2.1.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.1.0.tbd; path = usr/lib/libbz2.1.0.tbd; sourceTree = SDKROOT; };
+		2D81A9531F289B9C00380F61 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		2D9B28141F01F61600D3EAEB /* WBAVFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WBAVFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D9B28181F01F61600D3EAEB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2D9B281A1F01F61600D3EAEB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -92,6 +96,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D81A9591F289C0700380F61 /* libz.tbd in Frameworks */,
+				2D81A9581F289C0000380F61 /* libbz2.1.0.tbd in Frameworks */,
 				2DDB32AB1F03B47300DBA59B /* libWBAVIJKPlayer.a in Frameworks */,
 				2DDB32AC1F03B47300DBA59B /* libWBAVNativePlayer.a in Frameworks */,
 				2DDB32AD1F03B47300DBA59B /* libWBCodec.a in Frameworks */,
@@ -261,6 +267,8 @@
 		DF3B252ECF10013123CBD0F2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D81A9531F289B9C00380F61 /* libz.tbd */,
+				2D81A9511F289B9100380F61 /* libbz2.1.0.tbd */,
 				2DDB32A61F03B47300DBA59B /* libWBAVIJKPlayer.a */,
 				2DDB32A71F03B47300DBA59B /* libWBAVNativePlayer.a */,
 				2DDB32A81F03B47300DBA59B /* libWBCodec.a */,

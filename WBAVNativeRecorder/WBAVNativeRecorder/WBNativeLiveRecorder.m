@@ -9,7 +9,7 @@
 #import "WBNativeLiveRecorder.h"
 
 
-@interface WBNativeLiveRecorder () <AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate,WBAACEncoderDelegate,WBH264EncoderDelegate>
+@interface WBNativeLiveRecorder () <AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate,WBAACEncoderDelegate,WBH264EncoderDelegate,WBRtmpHandlerDelegate>
 
 //音视频输入输出设备及数据管理器
 @property (nonatomic, strong) AVCaptureSession *avSession;
@@ -37,12 +37,13 @@
 @property (nonatomic, strong) WBH264Encoder *videoEncoder;
 //音频编码器
 @property (nonatomic, strong) WBAACEncoder *audioEncoder;
-
+//RTMP连接器
+@property (nonatomic, strong) WBRtmpHandler *rtmpHandler;
 
 //杂
 @property (nonatomic, assign) uint64_t timeStamp;//时间戳
 @property (nonatomic, assign) BOOL isFirstFrame;//是否是第一帧
-@property (nonatomic, assign) BOOL isUploading;//是否在上传
+@property (nonatomic, assign) BOOL isConnecting;//是否RTMP连接
 @property (nonatomic, assign) BOOL isStartingLive;//是否开始直播
 
 
@@ -88,7 +89,7 @@
     self.audioEncoder = [[WBAACEncoder alloc] init];
     self.audioEncoder.delegate = self;
     self.isStartingLive = NO;
-    self.isUploading = NO;
+    self.isConnecting = NO;
     self.isFirstFrame = NO;
     self.timeStamp = 0;
     
@@ -489,6 +490,10 @@
     {
         //视频编码处理后准备推流
         NSLog(@"视频编码上传");
+        if (self.isConnecting)
+        {
+            
+        }
         //相关RTMP_SOCKET推流准备工作
     }
 
@@ -506,6 +511,43 @@
     
 
 }
+
+#pragma mark RTMPHandler代理
+- (void)socketStatus:(WBRtmpHandler *)rtmpHandler status:(WBLiveStateType)status
+{
+    switch (status)
+    {
+        case WBLiveStateTypeReady:
+            NSLog(@"RTMP准备");
+            break;
+        case WBLiveStateTypeConnecting:
+            NSLog(@"RTMP连接中");
+            break;
+        case WBLiveStateTypeConnected:
+        {
+            NSLog(@"RTMP已连接");
+            if (!self.isConnecting)
+            {
+                self.isFirstFrame = YES;
+                self.timeStamp = 0;
+                self.isConnecting = YES;
+            }
+            
+        }
+            break;
+        case WBLiveStateTypeStop:
+            NSLog(@"RTMP已断开");
+            break;
+        case WBLiveStateTypeError:
+        {
+            NSLog(@"RTMP连接错误");
+            self.isConnecting = NO;
+            self.isFirstFrame = NO;
+        }
+            break;
+    }
+}
+
 
 
 

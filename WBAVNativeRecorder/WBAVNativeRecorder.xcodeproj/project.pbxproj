@@ -361,6 +361,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../WBUtils/WBUtils",
 					"$(SRCROOT)/../WBCodec/WBCodec",
+					"$(SRCROOT)/../WBRtmpHandler/WBRtmpHandler",
 				);
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -379,6 +380,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../WBUtils/WBUtils",
 					"$(SRCROOT)/../WBCodec/WBCodec",
+					"$(SRCROOT)/../WBRtmpHandler/WBRtmpHandler",
 				);
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
