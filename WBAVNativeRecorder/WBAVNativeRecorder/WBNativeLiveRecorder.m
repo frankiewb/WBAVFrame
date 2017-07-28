@@ -9,7 +9,10 @@
 #import "WBNativeLiveRecorder.h"
 
 
-@interface WBNativeLiveRecorder () <AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate,WBAACEncoderDelegate,WBH264EncoderDelegate,WBRtmpHandlerDelegate>
+@interface WBNativeLiveRecorder () <AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate,
+WBAACEncoderDelegate,
+WBH264EncoderDelegate,
+WBRtmpHandlerDelegate>
 
 //音视频输入输出设备及数据管理器
 @property (nonatomic, strong) AVCaptureSession *avSession;
@@ -419,6 +422,7 @@
 
 - (void)startLiveRecord
 {
+    
     //开启预览图
     if (![self.avSession isRunning])
     {
@@ -429,6 +433,9 @@
     {
         self.isStartingLive = YES;
     }
+    
+    [self startRTMPSocketHandler];
+    
 }
 
 - (void)stopLiveRecord
@@ -442,6 +449,28 @@
     if (self.isStartingLive)
     {
         self.isStartingLive = NO;
+    }
+    
+    [self destroyRTMPSocketHandler];
+}
+
+- (void)startRTMPSocketHandler
+{
+    [self destroyRTMPSocketHandler];
+    if (!self.rtmpHandler)
+    {
+        self.rtmpHandler = [[WBRtmpHandler alloc] initWithPushStreamURL:DEFAULT_PUSH_RTMP_STREAM];
+        self.rtmpHandler.delegate = self;
+        [self.rtmpHandler start];
+    }
+}
+
+- (void)destroyRTMPSocketHandler
+{
+    if (self.rtmpHandler)
+    {
+        [self.rtmpHandler stop];
+        self.rtmpHandler = nil;
     }
 }
 
@@ -489,12 +518,12 @@
     if(self.isStartingLive)
     {
         //视频编码处理后准备推流
-        NSLog(@"视频编码上传");
+        //NSLog(@"视频编码上传");
         if (self.isConnecting)
-        {
-            
+        {   //相关RTMP_SOCKET推流准备工作
+            [self.rtmpHandler sendWBFrame:videoFrame];
         }
-        //相关RTMP_SOCKET推流准备工作
+        
     }
 
 }
@@ -505,8 +534,9 @@
     if(self.isStartingLive)
     {
         //音频编码处理后准备推流
-        NSLog(@"音频编码上传");
+        //NSLog(@"音频编码上传");
         //相关RTMP_SOCKET推流准备工作
+        [self.rtmpHandler sendWBFrame:audioFrame];
     }
     
 

@@ -55,17 +55,18 @@ static const NSUInteger defaultFrameListMaxCount = 10; ///< 排序10个内
 
 #pragma mark 初始化相关
 
-- (instancetype)initWithStreamInfo:(WBRtmpStreamInfo *)streamInfo
+- (instancetype)initWithPushStreamURL:(NSString *)pushStreamURL
 {
     self = [super init];
     if (self)
     {
-        self.streamInfo = streamInfo;
+        self.streamInfo = [[WBRtmpStreamInfo alloc] init];
+        self.streamInfo.url = pushStreamURL;
         self.rtmpSocketQueue = dispatch_queue_create("com.wangbo.rtmp.socketQueue", NULL);
         self.liveStatusType = WBLiveStateTypeReady;
         self.bufferPoolFrameList = [[NSMutableArray alloc] init];
     }
-
+    
     return self;
 }
 
@@ -175,9 +176,9 @@ static const NSUInteger defaultFrameListMaxCount = 10; ///< 排序10个内
 {
     dispatch_async(_rtmpSocketQueue, ^{
         
-        if (!_streamInfo || (_liveStatusType == WBLiveStateTypeConnecting) || !_rtmpHandler) return ;
+        if (!_streamInfo || (_liveStatusType == WBLiveStateTypeConnecting) || _rtmpHandler) return ;
         
-//        [self WB_RTMP264_Connect:(char *)[self.streamInfo.url cStringUsingEncoding:NSASCIIStringEncoding]];
+        [self createRTMPConnectWithPushURL:_streamInfo.url];
         
     });
 }

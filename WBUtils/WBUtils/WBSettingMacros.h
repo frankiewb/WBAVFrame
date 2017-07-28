@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 //默认推流路径
-#define DEFAULT_PUSH_RTMP_STREAM @""
+#define DEFAULT_PUSH_RTMP_STREAM @"rtmp://push.ksyun.kuwo.cn/voicelive/251495263?opstr=publish&tm=1501213654&uid=251495263&roomid=251495263&Md5=9c650b102fd0a37e53889ada4952dad3"
 //默认拉流路径
 #define DEFAULT_GET_RTMP_STREAM @""
 //默认视频存储路径

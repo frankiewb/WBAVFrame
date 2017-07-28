@@ -24,7 +24,7 @@
 
 @property (nonatomic, weak) id<WBRtmpHandlerDelegate>delegate;
 
-- (instancetype)initWithStreamInfo:(WBRtmpStreamInfo *)streamInfo;
+- (instancetype)initWithPushStreamURL:(NSString *)pushStreamURL;
 
 - (void)start;
 

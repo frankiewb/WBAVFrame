@@ -70,7 +70,7 @@
      */
     
     self.videoEncodeQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    self.videoSize = CGSizeMake(540, 960);
+    self.videoSize = CGSizeMake(720, 1280);
     self.videoFps = 24;
     self.videoBitRate = 1600 * 1000;
 }
