@@ -25,5 +25,8 @@
 //切换手电状态
 - (void)turnTorchModeStatus;
 
+//设置滤镜渲染参数
+- (void)setVideoImageFilterValueInfoDic:(NSMutableDictionary *)valueDic;
+
 
 @end

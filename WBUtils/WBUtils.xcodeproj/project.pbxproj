@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		272ACAAC5F61EFDBCA478D27 /* libPods-WBUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B7768CCDC077A2A15C5D2DFF /* libPods-WBUtils.a */; };
+		2D32361A1F31D75700AE340D /* WBSingletonDef.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D3236181F31D75700AE340D /* WBSingletonDef.h */; };
 		2DDF0A941F0627A1002C032C /* MBProgressHUD+Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DDF0A921F0627A1002C032C /* MBProgressHUD+Utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2DDF0A951F0627A1002C032C /* MBProgressHUD+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDF0A931F0627A1002C032C /* MBProgressHUD+Utils.m */; };
 		2DDF0A9C1F0B3000002C032C /* WBSettingMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DDF0A9A1F0B3000002C032C /* WBSettingMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -33,6 +34,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2D3236181F31D75700AE340D /* WBSingletonDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSingletonDef.h; sourceTree = "<group>"; };
 		2DDF0A921F0627A1002C032C /* MBProgressHUD+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Utils.h"; sourceTree = "<group>"; };
 		2DDF0A931F0627A1002C032C /* MBProgressHUD+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Utils.m"; sourceTree = "<group>"; };
 		2DDF0A9A1F0B3000002C032C /* WBSettingMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSettingMacros.h; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				2DE9E47C1F0267AA001255F4 /* UIColor+Utils.m */,
 				2DDF0A921F0627A1002C032C /* MBProgressHUD+Utils.h */,
 				2DDF0A931F0627A1002C032C /* MBProgressHUD+Utils.m */,
+				2D3236181F31D75700AE340D /* WBSingletonDef.h */,
 			);
 			path = WBUtils;
 			sourceTree = "<group>";
@@ -119,6 +122,7 @@
 				2DE9E4791F02577B001255F4 /* WBUtils.h in Headers */,
 				2DE9E47D1F0267AA001255F4 /* UIColor+Utils.h in Headers */,
 				2DDF0A941F0627A1002C032C /* MBProgressHUD+Utils.h in Headers */,
+				2D32361A1F31D75700AE340D /* WBSingletonDef.h in Headers */,
 				2DDF0A9C1F0B3000002C032C /* WBSettingMacros.h in Headers */,
 				2DE9E4781F025778001255F4 /* WBMacros.h in Headers */,
 			);

@@ -8,7 +8,6 @@
 
 #import "WBNativeLiveRecorder.h"
 
-
 @interface WBNativeLiveRecorder () <AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate,
 WBAACEncoderDelegate,
 WBH264EncoderDelegate,
@@ -28,8 +27,6 @@ WBRtmpHandlerDelegate>
 @property (nonatomic, strong) AVCaptureVideoDataOutput *videoOutput;
 //音频输出管理器
 @property (nonatomic, strong) AVCaptureAudioDataOutput *audioOutput;
-//预采集界面
-@property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreViewLayer;
 
 //视频采集输出数据处理队列
 @property (nonatomic, strong) dispatch_queue_t videoProcessingQueue;
@@ -48,6 +45,15 @@ WBRtmpHandlerDelegate>
 @property (nonatomic, assign) BOOL isFirstFrame;//是否是第一帧
 @property (nonatomic, assign) BOOL isConnecting;//是否RTMP连接
 @property (nonatomic, assign) BOOL isStartingLive;//是否开始直播
+
+//预采集界面
+#ifdef CIIMAGE_FILTER
+@property (nonatomic, strong) WBNativeRecorderBeautyPreView *videoPreViewLayer;
+@property (nonatomic, strong) NSMutableDictionary *videoImageFilterValueDic;//视频图像滤镜参数
+#else
+@property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreViewLayer;
+#endif
+
 
 
 
@@ -95,7 +101,6 @@ WBRtmpHandlerDelegate>
     self.isConnecting = NO;
     self.isFirstFrame = NO;
     self.timeStamp = 0;
-    
 }
 
 
@@ -332,7 +337,13 @@ WBRtmpHandlerDelegate>
     {
         return;
     }
-    
+#ifdef CIIMAGE_FILTER
+    if (!self.videoPreViewLayer)
+    {
+        self.videoPreViewLayer = [[WBNativeRecorderBeautyPreView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    }
+    [self.livePreViewLayer addSubview:_videoPreViewLayer];
+#else
     if (!self.videoPreViewLayer)
     {
         [self.livePreViewLayer layoutIfNeeded];
@@ -343,8 +354,10 @@ WBRtmpHandlerDelegate>
         self.videoPreViewLayer.frame = self.livePreViewLayer.layer.frame;
         self.videoPreViewLayer.position = CGPointMake(self.livePreViewLayer.frame.size.width *0.5, self.livePreViewLayer.frame.size.height*0.5);
     }
-    
     [self.livePreViewLayer.layer addSublayer:_videoPreViewLayer];
+#endif
+    
+    
 }
 
 
@@ -482,6 +495,10 @@ WBRtmpHandlerDelegate>
     //视频buffer帧处理
     if (captureOutput == _videoOutput)
     {
+#ifdef CIIMAGE_FILTER
+        //视频前处理:CIImage 滤镜渲染
+        [self processCIFilterWithSampleBuffer:sampleBuffer];
+#endif
         //视频硬编码        
         [self.videoEncoder encodeWithSampleBuffer:sampleBuffer timeStamp:[self getCurrentTimeStamp]];
     }
@@ -511,6 +528,36 @@ WBRtmpHandlerDelegate>
     }
 }
 
+
+
+#pragma mark 视频前处理-滤镜渲染
+#ifdef CIIMAGE_FILTER
+- (void)setVideoImageFilterValueInfoDic:(NSMutableDictionary *)valueDic
+{
+    self.videoImageFilterValueDic = valueDic;
+    //设置相关渲染参数
+    //shadowValue 阴影 : [-1 1]0~1之间较亮
+    //gammaValue 灰度 : [0.25 4] 1~0.25之间较亮 默认 0.75
+    //exposureValue 曝光 [-10 10] 默认 0.5
+    //saturation 饱和 [0,2] 默认为1
+    //contrastValue 对比度 [0,2] 默认为1
+    //brightnessValue 亮度 [-1,1] 默认为0
+    //gaussianBlurValue 高斯模糊 默认为10 [0,20]
+ 
+}
+
+- (void)processCIFilterWithSampleBuffer:(CMSampleBufferRef)sampleBuffer
+{
+    if (!self.videoImageFilterValueDic)
+    {
+        self.videoImageFilterValueDic = [[NSMutableDictionary alloc] init];
+    }
+    
+    CIImage * filteredImage = [WBNativeRecorderBeautyFilter getNativeBeautyFilterImageWithSmapleBuffer:sampleBuffer valueDic:_videoImageFilterValueDic];
+    [self.videoPreViewLayer displayPreViewWithUpdatedImage:filteredImage];
+}
+#endif
+
 #pragma mark WBH264Encoder代理
 - (void)wbH264EncoderDidFinishEncodeWithWBVideoFrame:(WBVideoFrame *)videoFrame
 {
@@ -523,9 +570,7 @@ WBRtmpHandlerDelegate>
         {   //相关RTMP_SOCKET推流准备工作
             [self.rtmpHandler sendWBFrame:videoFrame];
         }
-        
     }
-
 }
 
 #pragma mark WBAACEncoder代理
@@ -538,8 +583,6 @@ WBRtmpHandlerDelegate>
         //相关RTMP_SOCKET推流准备工作
         [self.rtmpHandler sendWBFrame:audioFrame];
     }
-    
-
 }
 
 #pragma mark RTMPHandler代理

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DC682F41F30315900D5E18C /* WBNativeRecorderBeautyFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DC682F21F30315900D5E18C /* WBNativeRecorderBeautyFilter.h */; };
+		2DC682F51F30315900D5E18C /* WBNativeRecorderBeautyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC682F31F30315900D5E18C /* WBNativeRecorderBeautyFilter.m */; };
+		2DC682F81F307B0900D5E18C /* WBNativeRecorderBeautyPreView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DC682F61F307B0900D5E18C /* WBNativeRecorderBeautyPreView.h */; };
+		2DC682F91F307B0900D5E18C /* WBNativeRecorderBeautyPreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC682F71F307B0900D5E18C /* WBNativeRecorderBeautyPreView.m */; };
 		2DDB328F1F03A47B00DBA59B /* WBNativeVideoRecorderViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DE9E4EC1F039881001255F4 /* WBNativeVideoRecorderViewController.h */; };
 		2DDB32901F03A47F00DBA59B /* WBNativeLiveRecorderViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DE9E4E91F039860001255F4 /* WBNativeLiveRecorderViewController.h */; };
 		2DDF0A731F03C7FD002C032C /* WBNativeLiveRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DDF0A711F03C7FD002C032C /* WBNativeLiveRecorder.h */; };
@@ -37,6 +41,10 @@
 
 /* Begin PBXFileReference section */
 		2794677F8912918BBB6B98C8 /* Pods-WBAVNativeRecorder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBAVNativeRecorder.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WBAVNativeRecorder/Pods-WBAVNativeRecorder.release.xcconfig"; sourceTree = "<group>"; };
+		2DC682F21F30315900D5E18C /* WBNativeRecorderBeautyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNativeRecorderBeautyFilter.h; sourceTree = "<group>"; };
+		2DC682F31F30315900D5E18C /* WBNativeRecorderBeautyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNativeRecorderBeautyFilter.m; sourceTree = "<group>"; };
+		2DC682F61F307B0900D5E18C /* WBNativeRecorderBeautyPreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNativeRecorderBeautyPreView.h; sourceTree = "<group>"; };
+		2DC682F71F307B0900D5E18C /* WBNativeRecorderBeautyPreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNativeRecorderBeautyPreView.m; sourceTree = "<group>"; };
 		2DDF0A711F03C7FD002C032C /* WBNativeLiveRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNativeLiveRecorder.h; sourceTree = "<group>"; };
 		2DDF0A721F03C7FD002C032C /* WBNativeLiveRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNativeLiveRecorder.m; sourceTree = "<group>"; };
 		2DDF0A751F03C826002C032C /* WBNativeVideoRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNativeVideoRecorder.h; sourceTree = "<group>"; };
@@ -64,6 +72,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DC682F11F30311C00D5E18C /* WBNativeRecorderBeautyFilter */ = {
+			isa = PBXGroup;
+			children = (
+				2DC682F21F30315900D5E18C /* WBNativeRecorderBeautyFilter.h */,
+				2DC682F31F30315900D5E18C /* WBNativeRecorderBeautyFilter.m */,
+				2DC682F61F307B0900D5E18C /* WBNativeRecorderBeautyPreView.h */,
+				2DC682F71F307B0900D5E18C /* WBNativeRecorderBeautyPreView.m */,
+			);
+			name = WBNativeRecorderBeautyFilter;
+			sourceTree = "<group>";
+		};
 		2DDF0A811F04A65C002C032C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +122,7 @@
 		2DE9E4A01F0396E6001255F4 /* WBAVNativeRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				2DC682F11F30311C00D5E18C /* WBNativeRecorderBeautyFilter */,
 				2DE9E4F01F0398A0001255F4 /* WBNativeVideoRecorder */,
 				2DE9E4EF1F039886001255F4 /* WBNativeLiveRecorder */,
 			);
@@ -149,7 +169,9 @@
 			files = (
 				2DDF0A901F04D4C2002C032C /* WBAVNativeRecorder_Prefix.pch in Headers */,
 				2DDF0A731F03C7FD002C032C /* WBNativeLiveRecorder.h in Headers */,
+				2DC682F41F30315900D5E18C /* WBNativeRecorderBeautyFilter.h in Headers */,
 				2DE9E4F41F0399B9001255F4 /* WBNativeLiveRecorderViewController.h in Headers */,
+				2DC682F81F307B0900D5E18C /* WBNativeRecorderBeautyPreView.h in Headers */,
 				2DDF0A771F03C826002C032C /* WBNativeVideoRecorder.h in Headers */,
 				2DE9E4F31F0399B4001255F4 /* WBNativeVideoRecorderViewController.h in Headers */,
 			);
@@ -253,6 +275,8 @@
 				2DDF0A741F03C7FD002C032C /* WBNativeLiveRecorder.m in Sources */,
 				2DE9E4EB1F039860001255F4 /* WBNativeLiveRecorderViewController.m in Sources */,
 				2DDF0A781F03C826002C032C /* WBNativeVideoRecorder.m in Sources */,
+				2DC682F91F307B0900D5E18C /* WBNativeRecorderBeautyPreView.m in Sources */,
+				2DC682F51F30315900D5E18C /* WBNativeRecorderBeautyFilter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

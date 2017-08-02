@@ -9,13 +9,16 @@
 #ifndef WBAVNativeRecorder_Prefix_pch
 #define WBAVNativeRecorder_Prefix_pch
 
-
 #import "MBProgressHUD+Utils.h"
 #import "WBSettingMacros.h"
+#import "WBSingletonDef.h"
 #import "WBMacros.h"
 #import "WBH264Encoder.h"
 #import "WBAACEncoder.h"
 #import "WBRtmpHandler.h"
+
+#import "WBNativeRecorderBeautyFilter.h"
+#import "WBNativeRecorderBeautyPreView.h"
 
 
 #endif /* WBAVNativeRecorder_Prefix_pch */

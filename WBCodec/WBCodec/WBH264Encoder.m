@@ -126,13 +126,17 @@
 }
 
 
-// 编码一帧图像，使用queue，防止阻塞系统摄像头采集线程
-
 - (void)encodeWithSampleBuffer:(CMSampleBufferRef)sampleBuffer timeStamp:(uint64_t)timeStamp
+{
+    CVImageBufferRef imageBuffer = (CVImageBufferRef)CMSampleBufferGetImageBuffer(sampleBuffer);
+    [self encodeWithCVImageBuffer:imageBuffer timeStamp:timeStamp];
+}
+
+// 编码一帧图像，使用queue，防止阻塞系统摄像头采集线程
+- (void)encodeWithCVImageBuffer:(CVImageBufferRef)imageBuffer timeStamp:(uint64_t)timeStamp
 {
     dispatch_sync(_videoEncodeQueue, ^{
         
-        CVImageBufferRef imageBuffer = (CVImageBufferRef)CMSampleBufferGetImageBuffer(sampleBuffer);
         self.videoFrameCount ++;
         CMTime pts = CMTimeMake(_videoFrameCount, 1000);
         CMTime duration = kCMTimeInvalid;
@@ -157,7 +161,10 @@
             return ;
         }
     });
+    
+    
 }
+
 
 
 // 编码回调, 系统每完成一帧编码后, 就会异步调用该方法, 该方法为c 语言

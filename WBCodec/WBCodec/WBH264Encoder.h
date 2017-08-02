@@ -25,4 +25,6 @@
 
 - (void)encodeWithSampleBuffer:(CMSampleBufferRef )sampleBuffer timeStamp:(uint64_t)timeStamp;
 
+- (void)encodeWithCVImageBuffer:(CVImageBufferRef) pixelBuffer timeStamp:(uint64_t)timeStamp;
+
 @end

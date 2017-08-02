@@ -23,6 +23,22 @@
 
 @property (nonatomic, strong) UIImageView *onLiveImageView;//直播中图标
 
+
+//可设置美颜参数
+@property (nonatomic, strong) NSMutableDictionary *videoImageFilterValueDic;//滤镜参数设置集合数组
+//美颜相关控件
+@property (nonatomic, strong) UILabel *saturationLabel;//饱和度
+@property (nonatomic, strong) UILabel *brightnessLabel;//亮度
+@property (nonatomic, strong) UILabel *contrastLabel;//对比度
+@property (nonatomic, strong) UILabel *gaussianBlurLabel;//高斯模糊
+
+@property (nonatomic, strong) UISlider *saturationSlider;
+@property (nonatomic, strong) UISlider *brightnessSlider;
+@property (nonatomic, strong) UISlider *contrastSlider;
+@property (nonatomic, strong) UISlider *gaussianBlurSlider;
+
+
+
 @end
 
 @implementation WBNativeLiveRecorderViewController
@@ -54,13 +70,28 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setFilterVarious];
     [self setLiveRecorder];
     [self setSubview];
+}
+
+- (void)setFilterVarious
+{
+#ifdef CIIMAGE_FILTER
+    self.videoImageFilterValueDic = [[NSMutableDictionary alloc] init];
+    [self.videoImageFilterValueDic setObject:@(1) forKey:@"saturationValue"];
+    [self.videoImageFilterValueDic setObject:@(0) forKey:@"brightnessValue"];
+    [self.videoImageFilterValueDic setObject:@(1) forKey:@"contrastValue"];
+    [self.videoImageFilterValueDic setObject:@(0) forKey:@"gaussianBlurValue"];
+#endif
 }
 
 - (void)setLiveRecorder
 {
     self.liveRecorder = [[WBNativeLiveRecorder alloc] initWithLivePreViewLayer:self.view];
+#ifdef CIIMAGE_FILTER
+    [self.liveRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
+#endif
 }
 
 
@@ -101,6 +132,57 @@
     self.onLiveImageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.view addSubview:_onLiveImageView];
     self.onLiveImageView.hidden = YES;
+    
+#ifdef CIIMAGE_FILTER
+    //饱和度设置 滑动条
+    self.saturationLabel = [[UILabel alloc] initWithFrame:CGRectMake(15*WBDeviceScale6, 60*WBDeviceScale6, 60*WBDeviceScale6, 30*WBDeviceScale6)];
+    self.saturationLabel.text = @"饱和度";
+    self.saturationLabel.font = [UIFont systemFontOfSize:18*WBDeviceScale6];
+    [self.view addSubview:_saturationLabel];
+    self.saturationSlider = [[UISlider alloc] initWithFrame:CGRectMake(85*WBDeviceScale6, 60*WBDeviceScale6, 230*WBDeviceScale6, 30*WBDeviceScale6)];
+    self.saturationSlider.minimumValue = 0;
+    self.saturationSlider.maximumValue = 2;
+    self.saturationSlider.value = 1;
+    [self.saturationSlider addTarget:self action:@selector(changeSaturation:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:_saturationSlider];
+    
+    //明亮度设置 滑动条
+    self.brightnessLabel = [[UILabel alloc] initWithFrame:CGRectMake(15*WBDeviceScale6, 110*WBDeviceScale6, 60*WBDeviceScale6, 30*WBDeviceScale6)];
+    self.brightnessLabel.text = @"明亮度";
+    self.brightnessLabel.font = [UIFont systemFontOfSize:18*WBDeviceScale6];
+    [self.view addSubview:_brightnessLabel];
+    self.brightnessSlider = [[UISlider alloc] initWithFrame:CGRectMake(85*WBDeviceScale6, 110*WBDeviceScale6, 230*WBDeviceScale6, 30*WBDeviceScale6)];
+    self.brightnessSlider.minimumValue = -1;
+    self.brightnessSlider.maximumValue = 1;
+    self.brightnessSlider.value = 0;
+    [self.brightnessSlider addTarget:self action:@selector(changeBrightness:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:_brightnessSlider];
+    
+    //对比度设置 滑动条
+    self.contrastLabel = [[UILabel alloc] initWithFrame:CGRectMake(15*WBDeviceScale6, 160*WBDeviceScale6, 60*WBDeviceScale6, 30*WBDeviceScale6)];
+    self.contrastLabel.text = @"对比度";
+    self.contrastLabel.font = [UIFont systemFontOfSize:18*WBDeviceScale6];
+    [self.view addSubview:_contrastLabel];
+    self.contrastSlider = [[UISlider alloc] initWithFrame:CGRectMake(85*WBDeviceScale6, 160*WBDeviceScale6, 230*WBDeviceScale6, 30*WBDeviceScale6)];
+    self.contrastSlider.minimumValue = 0;
+    self.contrastSlider.maximumValue = 2;
+    self.contrastSlider.value = 1;
+    [self.contrastSlider addTarget:self action:@selector(changeContrast:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:_contrastSlider];
+    
+    //高斯模糊设置 滑动条
+    self.gaussianBlurLabel = [[UILabel alloc] initWithFrame:CGRectMake(15*WBDeviceScale6, 210*WBDeviceScale6, 60*WBDeviceScale6, 30*WBDeviceScale6)];
+    self.gaussianBlurLabel.text = @"模糊度";
+    self.gaussianBlurLabel.font = [UIFont systemFontOfSize:18*WBDeviceScale6];
+    [self.view addSubview:_gaussianBlurLabel];
+    self.gaussianBlurSlider = [[UISlider alloc] initWithFrame:CGRectMake(85*WBDeviceScale6, 210*WBDeviceScale6, 230*WBDeviceScale6, 30*WBDeviceScale6)];
+    self.gaussianBlurSlider.minimumValue = 0;
+    self.gaussianBlurSlider.maximumValue = 3;
+    self.gaussianBlurSlider.value = 0;
+    [self.gaussianBlurSlider addTarget:self action:@selector(changeGaussianBlur:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:_gaussianBlurSlider];
+#endif
+    
 }
 
 - (void)backToParent
@@ -131,9 +213,20 @@
     {
         [self.liveRecorder startLiveRecord];
     }
-    
+
     self.startLiveButton.hidden = YES;
     self.onLiveImageView.hidden = NO;
+    
+#ifdef CIIMAGE_FILTER
+    self.saturationLabel.hidden = YES;
+    self.brightnessLabel.hidden = YES;
+    self.contrastLabel.hidden = YES;
+    self.gaussianBlurLabel.hidden = YES;
+    self.saturationSlider.hidden = YES;
+    self.brightnessSlider.hidden = YES;
+    self.contrastSlider.hidden = YES;
+    self.gaussianBlurSlider.hidden = YES;
+#endif
 }
 
 - (void)stopLiveRecord
@@ -143,6 +236,52 @@
         [self.liveRecorder stopLiveRecord];
     }
 }
+
+
+#ifdef CIIMAGE_FILTER
+- (void)changeSaturation:(UISlider *)slider
+{
+    //NSLog(@"饱和度数值变化: %f",slider.value);
+    @synchronized (self)
+    {
+        [self.videoImageFilterValueDic setObject:@(slider.value) forKey:@"saturationValue"];
+        [self.liveRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
+    }
+    
+}
+
+- (void)changeBrightness:(UISlider *)slider
+{
+    //NSLog(@"明亮度数值变化: %f",slider.value);
+    @synchronized (self)
+    {
+        [self.videoImageFilterValueDic setObject:@(slider.value) forKey:@"brightnessValue"];
+        [self.liveRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
+    }
+}
+
+- (void)changeContrast:(UISlider *)slider
+{
+    //NSLog(@"对比度数值变化: %f",slider.value);
+    @synchronized (self)
+    {
+        [self.videoImageFilterValueDic setObject:@(slider.value) forKey:@"contrastValue"];
+        [self.liveRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
+    }
+}
+
+- (void)changeGaussianBlur:(UISlider *)slider
+{
+    NSLog(@"高斯模糊数值变化: %f",slider.value);
+    @synchronized (self)
+    {
+        [self.videoImageFilterValueDic setObject:@(slider.value) forKey:@"gaussianBlurValue"];
+        [self.liveRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
+    }
+}
+#endif
+
+
 
 
 
