@@ -47,7 +47,7 @@ WBRtmpHandlerDelegate>
 @property (nonatomic, assign) BOOL isStartingLive;//是否开始直播
 
 //预采集界面
-#ifdef CIIMAGE_FILTER
+#ifdef IMAGE_FILTER_ENABLE
 @property (nonatomic, strong) WBNativeRecorderBeautyPreView *videoPreViewLayer;
 @property (nonatomic, strong) NSMutableDictionary *videoImageFilterValueDic;//视频图像滤镜参数
 #else
@@ -258,6 +258,7 @@ WBRtmpHandlerDelegate>
     }
     
     //根据是否支持YUV来设置输出对象的视频像素压缩格式
+#ifndef GPUIMAGE_FILTER  //如果不是采用GPUImage美颜则可以采用YUV格式进行采集
     if ([self supportsFastTextureUpload])
     {
         if (isSupportsFullYUVRange)
@@ -270,8 +271,9 @@ WBRtmpHandlerDelegate>
         }
     }
     else
+#endif //如果采用GPUImage美颜则必须采用RBG格式进行采集
     {
-            [self.videoOutput setVideoSettings:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kCVPixelFormatType_32BGRA] forKey:(id)kCVPixelBufferPixelFormatTypeKey]];
+        [self.videoOutput setVideoSettings:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kCVPixelFormatType_32BGRA] forKey:(id)kCVPixelBufferPixelFormatTypeKey]];
     }
     
     //设置视频输出代理
@@ -337,7 +339,7 @@ WBRtmpHandlerDelegate>
     {
         return;
     }
-#ifdef CIIMAGE_FILTER
+#ifdef IMAGE_FILTER_ENABLE
     if (!self.videoPreViewLayer)
     {
         self.videoPreViewLayer = [[WBNativeRecorderBeautyPreView alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -495,10 +497,10 @@ WBRtmpHandlerDelegate>
     //视频buffer帧处理
     if (captureOutput == _videoOutput)
     {
-#ifdef CIIMAGE_FILTER
-        //视频前处理:CIImage 滤镜渲染
+        #ifdef IMAGE_FILTER_ENABLE
+        //视频前处理滤镜渲染
         [self processCIFilterWithSampleBuffer:sampleBuffer];
-#endif
+        #endif
         //视频硬编码        
         [self.videoEncoder encodeWithSampleBuffer:sampleBuffer timeStamp:[self getCurrentTimeStamp]];
     }
@@ -531,10 +533,12 @@ WBRtmpHandlerDelegate>
 
 
 #pragma mark 视频前处理-滤镜渲染
-#ifdef CIIMAGE_FILTER
+#ifdef IMAGE_FILTER_ENABLE
 - (void)setVideoImageFilterValueInfoDic:(NSMutableDictionary *)valueDic
 {
     self.videoImageFilterValueDic = valueDic;
+
+#ifdef CIIMAGE_FILTER
     //设置相关渲染参数
     //shadowValue 阴影 : [-1 1]0~1之间较亮
     //gammaValue 灰度 : [0.25 4] 1~0.25之间较亮 默认 0.75
@@ -543,6 +547,13 @@ WBRtmpHandlerDelegate>
     //contrastValue 对比度 [0,2] 默认为1
     //brightnessValue 亮度 [-1,1] 默认为0
     //gaussianBlurValue 高斯模糊 默认为10 [0,20]
+#else
+    //美颜滤镜 beautifyFilterEnable
+    //锐化滤镜 sharpenFilterEnbale
+    //素描滤镜 sketchFilterEnable
+    //像素化滤镜 pixellateFilterEnbale
+    
+#endif
  
 }
 
@@ -552,8 +563,12 @@ WBRtmpHandlerDelegate>
     {
         self.videoImageFilterValueDic = [[NSMutableDictionary alloc] init];
     }
-    
-    CIImage * filteredImage = [WBNativeRecorderBeautyFilter getNativeBeautyFilterImageWithSmapleBuffer:sampleBuffer valueDic:_videoImageFilterValueDic];
+#ifdef CIIMAGE_FILTER
+     CIImage * filteredImage = [WBNativeRecorderBeautyFilter getNativeBeautyFilterImageWithSmapleBuffer:sampleBuffer valueDic:_videoImageFilterValueDic];
+#else
+     CIImage * filteredImage = [WBNativeRecorderGPUImageFilter getNativeGPUImageFilterWithSmapleBuffer:sampleBuffer valueDic:_videoImageFilterValueDic];
+#endif
+   
     [self.videoPreViewLayer displayPreViewWithUpdatedImage:filteredImage];
 }
 #endif

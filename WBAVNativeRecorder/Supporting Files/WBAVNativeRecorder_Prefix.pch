@@ -18,7 +18,10 @@
 #import "WBRtmpHandler.h"
 
 #import "WBNativeRecorderBeautyFilter.h"
+#import "WBNativeRecorderGPUImageFilter.h"
 #import "WBNativeRecorderBeautyPreView.h"
+
+#import "GPUImage.h"
 
 
 #endif /* WBAVNativeRecorder_Prefix_pch */

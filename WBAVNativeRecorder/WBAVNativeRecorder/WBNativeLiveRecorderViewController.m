@@ -26,6 +26,10 @@
 
 //可设置美颜参数
 @property (nonatomic, strong) NSMutableDictionary *videoImageFilterValueDic;//滤镜参数设置集合数组
+
+
+
+#ifdef CIIMAGE_FILTER
 //美颜相关控件
 @property (nonatomic, strong) UILabel *saturationLabel;//饱和度
 @property (nonatomic, strong) UILabel *brightnessLabel;//亮度
@@ -36,6 +40,21 @@
 @property (nonatomic, strong) UISlider *brightnessSlider;
 @property (nonatomic, strong) UISlider *contrastSlider;
 @property (nonatomic, strong) UISlider *gaussianBlurSlider;
+#endif
+
+#ifdef GPUIMAGE_FILTER
+@property (nonatomic, strong) UILabel *beautifyLabel;//美颜
+@property (nonatomic, strong) UILabel *toonLabel;//卡通
+@property (nonatomic, strong) UILabel *sketchLabel;//素描
+@property (nonatomic, strong) UILabel *pixellateLabel;//像素化
+
+@property (nonatomic, strong) UISwitch *beautifySwitch;
+@property (nonatomic, strong) UISwitch *toonSwitch;
+@property (nonatomic, strong) UISwitch *sketchSWitch;
+@property (nonatomic, strong) UISwitch *pixellateSwitch;
+
+
+#endif
 
 
 
@@ -77,19 +96,27 @@
 
 - (void)setFilterVarious
 {
-#ifdef CIIMAGE_FILTER
     self.videoImageFilterValueDic = [[NSMutableDictionary alloc] init];
+#ifdef CIIMAGE_FILTER
     [self.videoImageFilterValueDic setObject:@(1) forKey:@"saturationValue"];
     [self.videoImageFilterValueDic setObject:@(0) forKey:@"brightnessValue"];
     [self.videoImageFilterValueDic setObject:@(1) forKey:@"contrastValue"];
     [self.videoImageFilterValueDic setObject:@(0) forKey:@"gaussianBlurValue"];
 #endif
+#ifdef GPUIMAGE_FILTER
+    [self.videoImageFilterValueDic setObject:@(0) forKey:@"beautifyFilterEnable"];
+    [self.videoImageFilterValueDic setObject:@(0) forKey:@"toonFilterEnbale"];
+    [self.videoImageFilterValueDic setObject:@(0) forKey:@"sketchFilterEnable"];
+    [self.videoImageFilterValueDic setObject:@(0) forKey:@"pixellateFilterEnbale"];
+#endif
+
+
 }
 
 - (void)setLiveRecorder
 {
     self.liveRecorder = [[WBNativeLiveRecorder alloc] initWithLivePreViewLayer:self.view];
-#ifdef CIIMAGE_FILTER
+#ifdef IMAGE_FILTER_ENABLE
     [self.liveRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
 #endif
 }
@@ -132,6 +159,8 @@
     self.onLiveImageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.view addSubview:_onLiveImageView];
     self.onLiveImageView.hidden = YES;
+    
+    
     
 #ifdef CIIMAGE_FILTER
     //饱和度设置 滑动条
@@ -183,6 +212,52 @@
     [self.view addSubview:_gaussianBlurSlider];
 #endif
     
+    
+    
+#ifdef GPUIMAGE_FILTER
+
+    //美颜设置 开关
+    self.beautifyLabel = [[UILabel alloc] initWithFrame:CGRectMake(15*WBDeviceScale6, 60*WBDeviceScale6, 60*WBDeviceScale6, 30*WBDeviceScale6)];
+    self.beautifyLabel.text = @"美颜";
+    self.beautifyLabel.font = [UIFont systemFontOfSize:18*WBDeviceScale6];
+    [self.view addSubview:_beautifyLabel];
+    self.beautifySwitch = [[UISwitch alloc] initWithFrame:CGRectMake(85*WBDeviceScale6, 60*WBDeviceScale6, 50*WBDeviceScale6, 30*WBDeviceScale6)];
+    self.beautifySwitch.on = NO;
+    [self.beautifySwitch addTarget:self action:@selector(beautySwitchAction:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:_beautifySwitch];
+    
+    //锐化设置 开关
+    self.toonLabel = [[UILabel alloc] initWithFrame:CGRectMake(15*WBDeviceScale6, 110*WBDeviceScale6, 60*WBDeviceScale6, 30*WBDeviceScale6)];
+    self.toonLabel.text = @"卡通";
+    self.toonLabel.font = [UIFont systemFontOfSize:18*WBDeviceScale6];
+    [self.view addSubview:_toonLabel];
+    self.toonSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(85*WBDeviceScale6, 110*WBDeviceScale6, 50*WBDeviceScale6, 30*WBDeviceScale6)];
+    self.toonSwitch.on = NO;
+    [self.toonSwitch addTarget:self action:@selector(toonSwitchAction:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:_toonSwitch];
+    
+    //素描设置 开关
+    self.sketchLabel = [[UILabel alloc] initWithFrame:CGRectMake(15*WBDeviceScale6, 160*WBDeviceScale6, 60*WBDeviceScale6, 30*WBDeviceScale6)];
+    self.sketchLabel.text = @"素描";
+    self.sketchLabel.font = [UIFont systemFontOfSize:18*WBDeviceScale6];
+    [self.view addSubview:_sketchLabel];
+    self.sketchSWitch = [[UISwitch alloc] initWithFrame:CGRectMake(85*WBDeviceScale6, 160*WBDeviceScale6, 50*WBDeviceScale6, 30*WBDeviceScale6)];
+    self.sketchSWitch.on = NO;
+    [self.sketchSWitch addTarget:self action:@selector(sketchSwitchAction:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:_sketchSWitch];
+    
+    //像素化 开关
+    self.pixellateLabel = [[UILabel alloc] initWithFrame:CGRectMake(15*WBDeviceScale6, 210*WBDeviceScale6, 60*WBDeviceScale6, 30*WBDeviceScale6)];
+    self.pixellateLabel.text = @"像素";
+    self.pixellateLabel.font = [UIFont systemFontOfSize:18*WBDeviceScale6];
+    [self.view addSubview:_pixellateLabel];
+    self.pixellateSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(85*WBDeviceScale6, 210*WBDeviceScale6, 50*WBDeviceScale6, 30*WBDeviceScale6)];
+    self.pixellateSwitch.on = NO;
+    [self.pixellateSwitch addTarget:self action:@selector(pixellateSwitchAction:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:_pixellateSwitch];
+    
+#endif
+    
 }
 
 - (void)backToParent
@@ -227,6 +302,19 @@
     self.contrastSlider.hidden = YES;
     self.gaussianBlurSlider.hidden = YES;
 #endif
+    
+#ifdef GPUIMAGE_FILTER
+    self.beautifyLabel.hidden = YES;
+    self.beautifySwitch.hidden = YES;
+    self.toonLabel.hidden = YES;
+    self.toonSwitch.hidden = YES;
+    self.sketchLabel.hidden = YES;
+    self.sketchSWitch.hidden = YES;
+    self.pixellateLabel.hidden = YES;
+    self.pixellateSwitch.hidden = YES;
+#endif
+    
+    
 }
 
 - (void)stopLiveRecord
@@ -279,6 +367,66 @@
         [self.liveRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
     }
 }
+#endif
+
+
+#ifdef GPUIMAGE_FILTER
+
+- (void)beautySwitchAction:(UISwitch *)switchButton
+{
+    BOOL isFilterOn = [switchButton isOn];
+    NSNumber *filterValue = @(0);
+    if (isFilterOn)
+    {
+        filterValue = @(1);
+    }
+    
+    [self.videoImageFilterValueDic setObject:filterValue forKey:@"beautifyFilterEnable"];
+    [self.liveRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
+}
+
+
+- (void)toonSwitchAction:(UISwitch *)switchButton
+{
+    BOOL isFilterOn = [switchButton isOn];
+    NSNumber *filterValue = @(0);
+    if (isFilterOn)
+    {
+        filterValue = @(1);
+    }
+    
+    [self.videoImageFilterValueDic setObject:filterValue forKey:@"toonFilterEnbale"];
+    [self.liveRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
+}
+
+
+
+- (void)sketchSwitchAction:(UISwitch *)switchButton
+{
+    BOOL isFilterOn = [switchButton isOn];
+    NSNumber *filterValue = @(0);
+    if (isFilterOn)
+    {
+        filterValue = @(1);
+    }
+    
+    [self.videoImageFilterValueDic setObject:filterValue forKey:@"sketchFilterEnable"];
+    [self.liveRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
+}
+
+- (void)pixellateSwitchAction:(UISwitch *)switchButton
+{
+    BOOL isFilterOn = [switchButton isOn];
+    NSNumber *filterValue = @(0);
+    if (isFilterOn)
+    {
+        filterValue = @(1);
+    }
+    
+    [self.videoImageFilterValueDic setObject:filterValue forKey:@"pixellateFilterEnbale"];
+    [self.liveRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
+}
+
 #endif
 
 

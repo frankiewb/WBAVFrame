@@ -9,6 +9,7 @@ target 'WBAVFrame' do
   pod 'MJRefresh'
   pod 'SDWebImage'
   pod 'MBProgressHUD'
+  pod 'GPUImage'
   pod 'WMDebugAssistant' ,:git=>"https://github.com/roronoaxyz/WMDebugAssistant.git", :tag => '0.1.2'
 end
 
@@ -17,11 +18,14 @@ target 'WBAVNativeRecorder' do
   project 'WBAVNativeRecorder/WBAVNAtiveRecorder.project'
   inhibit_all_warnings!
   pod 'MBProgressHUD'
+  pod 'GPUImage'
 end
 
 target 'WBAVBeautyRecorder' do
   platform:ios, '8.0'
   project 'WBAVBeautyRecorder/WBAVBeautyRecorder.project'
+  inhibit_all_warnings!
+  pod ‘GPUImage’
 end
 
 target 'WBAVIJKPlayer' do

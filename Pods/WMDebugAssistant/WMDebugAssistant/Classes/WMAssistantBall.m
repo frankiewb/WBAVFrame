@@ -316,13 +316,9 @@
 }
 
 - (void)doDisplayNet:(u_int32_t)sendFlow receivedFlow:(u_int32_t)receivedFlow {
-    UIButton *flowReceiveButton = [self.contentView viewWithTag:0x999 + 2];
-    NSString *flowReceiveString = [NSString stringWithFormat:@"%.2fkb/s", receivedFlow / 1024.0f];
-    [flowReceiveButton setTitle:flowReceiveString forState:UIControlStateNormal];
-    
-    UIButton *flowSendButton = [self.contentView viewWithTag:0x999 + 3];
-    NSString *flowSendString = [NSString stringWithFormat:@"%.2fkb/s", sendFlow / 1024.0f];
-    [flowSendButton setTitle:flowSendString forState:UIControlStateNormal];
+    UIButton *flowButton = [self.contentView viewWithTag:0x999 + 2];
+    NSString *flowString = [NSString stringWithFormat:@"%.2fkb/s", receivedFlow / 1024.0f];
+    [flowButton setTitle:flowString forState:UIControlStateNormal];
 }
 
 #pragma mark  ------- fps ----------
@@ -336,9 +332,10 @@
 }
 
 - (void)doDisplayfps:(CGFloat)fps {
-    //UIButton *fpsButton = [self.contentView viewWithTag:0x999 + 3];
-    //NSString *fpsString = [NSString stringWithFormat:@"%.0ffps", fps];
-    //[fpsButton setTitle:fpsString forState:UIControlStateNormal];
+    UIButton *fpsButton = [self.contentView viewWithTag:0x999 + 3];
+    
+    NSString *fpsString = [NSString stringWithFormat:@"%.0ffps", fps];
+    [fpsButton setTitle:fpsString forState:UIControlStateNormal];
 }
 
 #pragma mark  ------- 按钮 ----------
