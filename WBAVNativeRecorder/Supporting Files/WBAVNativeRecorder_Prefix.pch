@@ -20,6 +20,7 @@
 #import "WBNativeRecorderBeautyFilter.h"
 #import "WBNativeRecorderGPUImageFilter.h"
 #import "WBNativeRecorderBeautyPreView.h"
+#import "WBNativeRecorderFaceDetector.h"
 
 #import "GPUImage.h"
 

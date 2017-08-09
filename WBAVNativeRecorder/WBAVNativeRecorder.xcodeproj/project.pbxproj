@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2D03BCE21F3844FC0074B0FD /* WBNativeRecorderGPUImageFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D03BCE01F3844FC0074B0FD /* WBNativeRecorderGPUImageFilter.h */; };
 		2D03BCE31F3844FC0074B0FD /* WBNativeRecorderGPUImageFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D03BCE11F3844FC0074B0FD /* WBNativeRecorderGPUImageFilter.m */; };
+		2D03BCEB1F39CCCD0074B0FD /* WBNativeRecorderFaceDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D03BCE91F39CCCD0074B0FD /* WBNativeRecorderFaceDetector.h */; };
+		2D03BCEC1F39CCCD0074B0FD /* WBNativeRecorderFaceDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D03BCEA1F39CCCD0074B0FD /* WBNativeRecorderFaceDetector.m */; };
 		2DC682F41F30315900D5E18C /* WBNativeRecorderBeautyFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DC682F21F30315900D5E18C /* WBNativeRecorderBeautyFilter.h */; };
 		2DC682F51F30315900D5E18C /* WBNativeRecorderBeautyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC682F31F30315900D5E18C /* WBNativeRecorderBeautyFilter.m */; };
 		2DC682F81F307B0900D5E18C /* WBNativeRecorderBeautyPreView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DC682F61F307B0900D5E18C /* WBNativeRecorderBeautyPreView.h */; };
@@ -45,6 +47,8 @@
 		2794677F8912918BBB6B98C8 /* Pods-WBAVNativeRecorder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBAVNativeRecorder.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WBAVNativeRecorder/Pods-WBAVNativeRecorder.release.xcconfig"; sourceTree = "<group>"; };
 		2D03BCE01F3844FC0074B0FD /* WBNativeRecorderGPUImageFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNativeRecorderGPUImageFilter.h; sourceTree = "<group>"; };
 		2D03BCE11F3844FC0074B0FD /* WBNativeRecorderGPUImageFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNativeRecorderGPUImageFilter.m; sourceTree = "<group>"; };
+		2D03BCE91F39CCCD0074B0FD /* WBNativeRecorderFaceDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNativeRecorderFaceDetector.h; sourceTree = "<group>"; };
+		2D03BCEA1F39CCCD0074B0FD /* WBNativeRecorderFaceDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNativeRecorderFaceDetector.m; sourceTree = "<group>"; };
 		2DC682F21F30315900D5E18C /* WBNativeRecorderBeautyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNativeRecorderBeautyFilter.h; sourceTree = "<group>"; };
 		2DC682F31F30315900D5E18C /* WBNativeRecorderBeautyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNativeRecorderBeautyFilter.m; sourceTree = "<group>"; };
 		2DC682F61F307B0900D5E18C /* WBNativeRecorderBeautyPreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNativeRecorderBeautyPreView.h; sourceTree = "<group>"; };
@@ -76,6 +80,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D03BCE81F39CC900074B0FD /* WBNativeRecorderFaceDetector */ = {
+			isa = PBXGroup;
+			children = (
+				2D03BCE91F39CCCD0074B0FD /* WBNativeRecorderFaceDetector.h */,
+				2D03BCEA1F39CCCD0074B0FD /* WBNativeRecorderFaceDetector.m */,
+			);
+			name = WBNativeRecorderFaceDetector;
+			sourceTree = "<group>";
+		};
 		2DC682F11F30311C00D5E18C /* WBNativeRecorderBeautyFilter */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +141,7 @@
 		2DE9E4A01F0396E6001255F4 /* WBAVNativeRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				2D03BCE81F39CC900074B0FD /* WBNativeRecorderFaceDetector */,
 				2DC682F11F30311C00D5E18C /* WBNativeRecorderBeautyFilter */,
 				2DE9E4F01F0398A0001255F4 /* WBNativeVideoRecorder */,
 				2DE9E4EF1F039886001255F4 /* WBNativeLiveRecorder */,
@@ -176,6 +190,7 @@
 				2DDF0A901F04D4C2002C032C /* WBAVNativeRecorder_Prefix.pch in Headers */,
 				2DDF0A731F03C7FD002C032C /* WBNativeLiveRecorder.h in Headers */,
 				2D03BCE21F3844FC0074B0FD /* WBNativeRecorderGPUImageFilter.h in Headers */,
+				2D03BCEB1F39CCCD0074B0FD /* WBNativeRecorderFaceDetector.h in Headers */,
 				2DC682F41F30315900D5E18C /* WBNativeRecorderBeautyFilter.h in Headers */,
 				2DE9E4F41F0399B9001255F4 /* WBNativeLiveRecorderViewController.h in Headers */,
 				2DC682F81F307B0900D5E18C /* WBNativeRecorderBeautyPreView.h in Headers */,
@@ -278,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D03BCEC1F39CCCD0074B0FD /* WBNativeRecorderFaceDetector.m in Sources */,
 				2DE9E4EE1F039881001255F4 /* WBNativeVideoRecorderViewController.m in Sources */,
 				2DDF0A741F03C7FD002C032C /* WBNativeLiveRecorder.m in Sources */,
 				2DE9E4EB1F039860001255F4 /* WBNativeLiveRecorderViewController.m in Sources */,

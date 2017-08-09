@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 //默认推流路径
-#define DEFAULT_PUSH_RTMP_STREAM @"rtmp://push.ksyun.kuwo.cn/voicelive/251495263?opstr=publish&tm=1502161017&uid=251495263&roomid=251495263&Md5=8cf0db7b7c1b56c397d3e99f5340f340"
+#define DEFAULT_PUSH_RTMP_STREAM @"rtmp://push.ksyun.kuwo.cn/voicelive/251495263?opstr=publish&tm=1502249159&uid=251495263&roomid=251495263&Md5=63470b08991389838c9e214107f38957"
 //默认拉流路径
 #define DEFAULT_GET_RTMP_STREAM @""
 //默认视频存储路径
@@ -23,6 +23,9 @@
 
 //启用CIImage美颜
 //#define CIIMAGE_BEAUTY_ENABLE
+
+//启用人脸检测
+//#define FACE_DETECTOR_ENABLE
 
 
 

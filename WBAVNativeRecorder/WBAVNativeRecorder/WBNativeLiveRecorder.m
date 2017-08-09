@@ -496,12 +496,12 @@ WBRtmpHandlerDelegate>
 {
     //视频buffer帧处理
     if (captureOutput == _videoOutput)
-    {
-        #ifdef IMAGE_FILTER_ENABLE
+    {       
+#ifdef IMAGE_FILTER_ENABLE
         //视频前处理滤镜渲染
         [self processCIFilterWithSampleBuffer:sampleBuffer];
-        #endif
-        //视频硬编码        
+#endif
+        //视频硬编码
         [self.videoEncoder encodeWithSampleBuffer:sampleBuffer timeStamp:[self getCurrentTimeStamp]];
     }
     else //音频buffer帧处理
@@ -563,13 +563,19 @@ WBRtmpHandlerDelegate>
     {
         self.videoImageFilterValueDic = [[NSMutableDictionary alloc] init];
     }
+    
+    CIImage *renderedImage = nil;
 #ifdef CIIMAGE_FILTER
-     CIImage * filteredImage = [WBNativeRecorderBeautyFilter getNativeBeautyFilterImageWithSmapleBuffer:sampleBuffer valueDic:_videoImageFilterValueDic];
-#else
-     CIImage * filteredImage = [WBNativeRecorderGPUImageFilter getNativeGPUImageFilterWithSmapleBuffer:sampleBuffer valueDic:_videoImageFilterValueDic];
+     renderedImage = [WBNativeRecorderBeautyFilter getNativeBeautyFilterImageWithSmapleBuffer:sampleBuffer valueDic:_videoImageFilterValueDic];
+#endif
+#ifdef GPUIMAGE_FILTER
+     renderedImage = [WBNativeRecorderGPUImageFilter getNativeGPUImageFilterWithSmapleBuffer:sampleBuffer valueDic:_videoImageFilterValueDic];
+#endif
+#ifdef FACE_DETECTOR_ENABLE
+     renderedImage = [WBNativeRecorderFaceDetector getNativeFaceDetectorRenderImageWithSmapleBuffer:sampleBuffer valueDic:nil];
 #endif
    
-    [self.videoPreViewLayer displayPreViewWithUpdatedImage:filteredImage];
+    [self.videoPreViewLayer displayPreViewWithUpdatedImage:renderedImage];
 }
 #endif
 
