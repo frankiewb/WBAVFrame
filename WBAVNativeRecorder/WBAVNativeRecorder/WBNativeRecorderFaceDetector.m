@@ -27,11 +27,9 @@ SingletonM(WBNativeRecorderFaceDetector)
     {
         EAGLContext *eaglContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
         self.faceDetectorContext = [CIContext contextWithEAGLContext:eaglContext];
-        NSDictionary *faceDetectorDic = @{CIDetectorAccuracyHigh:CIDetectorAccuracy,
-                                          @(YES):CIDetectorTracking,
-                                          @(0.15):CIDetectorMinFeatureSize};
+        //不许动这个配置，不要添加也不要更改，否则极大影响性能
+        NSDictionary *faceDetectorDic = [[NSDictionary alloc] initWithObjectsAndKeys:CIDetectorAccuracyLow, CIDetectorAccuracy, nil];
         self.faceDetector = [CIDetector detectorOfType:CIDetectorTypeFace context:_faceDetectorContext options:faceDetectorDic];
-      
     }
     
     return self;
@@ -46,8 +44,12 @@ SingletonM(WBNativeRecorderFaceDetector)
     CIImage *faceDetectImage = [CIImage imageWithCVPixelBuffer:(CVPixelBufferRef)imageBufferRef];
     
     //人脸检测
+    CFAbsoluteTime start = CFAbsoluteTimeGetCurrent();
     NSArray *faceDetectResult = [faceDetector featuresInImage:faceDetectImage];
+    CFAbsoluteTime end = CFAbsoluteTimeGetCurrent();
+    NSLog(@"WBFaceDetecttime cost: %0.3f秒", end - start);
     CIImage *faceDetectedImage = faceDetectImage;
+    UIImage *faceRenderedImage = nil;
     
     //人脸检测标识
     for (CIFaceFeature *faceFeature in faceDetectResult)
@@ -58,7 +60,8 @@ SingletonM(WBNativeRecorderFaceDetector)
         
         
         //开启CG图形上下文，展开画板
-        UIGraphicsBeginImageContextWithOptions(faceDrawImage.size, NO, [UIScreen mainScreen].scale);
+        //不许动这个配置，不要添加也不要更改，否则极大影响性能
+        UIGraphicsBeginImageContext(faceDrawImage.size);
         //将当前图像绘制在画板上
         [faceDrawImage drawInRect:CGRectMake(0, 0, faceDrawImage.size.width, faceDrawImage.size.height)];
         
@@ -66,7 +69,10 @@ SingletonM(WBNativeRecorderFaceDetector)
         
         //绘制脸框
         //检测到的人脸的位置同opencv一样，需要以纵向中线为中心轴镜像对称一下
-        UIBezierPath *facePath = [UIBezierPath bezierPathWithRect:CGRectMake(faceFeature.bounds.origin.x, faceFeature.bounds.origin.y, faceFeature.bounds.size.width,faceFeature.bounds.size.height)];
+        CGRect faceRect = CGContextConvertRectToUserSpace(UIGraphicsGetCurrentContext(), faceFeature.bounds);
+        UIBezierPath *facePath = [UIBezierPath bezierPathWithRect:faceRect];
+        
+        
         facePath.lineWidth = 5.0;
         facePath.lineCapStyle = kCGLineCapRound;//线条拐角
         facePath.lineJoinStyle = kCGLineCapRound;//终点处理
@@ -77,7 +83,11 @@ SingletonM(WBNativeRecorderFaceDetector)
         if (faceFeature.hasLeftEyePosition)
         {
             //检测到的人脸的位置同opencv一样，需要以纵向中线为中心轴镜像对称一下
-            UIBezierPath *leftEyePath = [UIBezierPath bezierPathWithRect:CGRectMake(faceFeature.leftEyePosition.x, faceDrawImage.size.height-faceFeature.leftEyePosition.y, 50, 50)];
+            
+           
+            UIBezierPath *leftEyePath = [UIBezierPath bezierPathWithRect:CGRectMake(faceFeature.leftEyePosition.x - faceFeature.bounds.size.width *0.03,
+                                                                                    faceDrawImage.size.height-faceFeature.leftEyePosition.y - faceFeature.bounds.size.width*0.08,
+                                                                                    50, 50)];
             leftEyePath.lineWidth = 5.0;
             leftEyePath.lineCapStyle = kCGLineCapRound;//线条拐角
             leftEyePath.lineJoinStyle = kCGLineCapRound;//终点处理
@@ -89,7 +99,9 @@ SingletonM(WBNativeRecorderFaceDetector)
         if (faceFeature.hasRightEyePosition)
         {
             //检测到的人脸的位置同opencv一样，需要以纵向中线为中心轴镜像对称一下
-            UIBezierPath *rightEyePath = [UIBezierPath bezierPathWithRect:CGRectMake(faceFeature.rightEyePosition.x, faceDrawImage.size.height-faceFeature.rightEyePosition.y, 50, 50)];
+            UIBezierPath *rightEyePath = [UIBezierPath bezierPathWithRect:CGRectMake(faceFeature.rightEyePosition.x - faceFeature.bounds.size.width*0.03,
+                                                                                     faceDrawImage.size.height-faceFeature.rightEyePosition.y - faceFeature.bounds.size.width*0.08,
+                                                                                     50, 50)];
             rightEyePath.lineWidth = 5.0;
             rightEyePath.lineCapStyle = kCGLineCapRound;//线条拐角
             rightEyePath.lineJoinStyle = kCGLineCapRound;//终点处理
@@ -101,7 +113,9 @@ SingletonM(WBNativeRecorderFaceDetector)
         if (faceFeature.hasMouthPosition)
         {
             //检测到的人脸的位置同opencv一样，需要以纵向中线为中心轴镜像对称一下
-            UIBezierPath *mouthPath = [UIBezierPath bezierPathWithRect:CGRectMake(faceFeature.mouthPosition.x, faceDrawImage.size.height-faceFeature.mouthPosition.y, 100, 50)];
+            UIBezierPath *mouthPath = [UIBezierPath bezierPathWithRect:CGRectMake(faceFeature.mouthPosition.x - faceFeature.bounds.size.width*0.12,
+                                                                                  faceDrawImage.size.height-faceFeature.mouthPosition.y - faceFeature.bounds.size.width*0.12,
+                                                                                  100, 50)];
             mouthPath.lineWidth = 5.0;
             mouthPath.lineCapStyle = kCGLineCapRound;//线条拐角
             mouthPath.lineJoinStyle = kCGLineCapRound;//终点处理
@@ -129,7 +143,7 @@ SingletonM(WBNativeRecorderFaceDetector)
         
 
         //渲染图像
-        UIImage *faceRenderedImage = UIGraphicsGetImageFromCurrentImageContext();
+        faceRenderedImage = UIGraphicsGetImageFromCurrentImageContext();
         //关闭CG图形上下文
         UIGraphicsEndImageContext();
         CIImage *faceRenderedCIImage = [[CIImage alloc] initWithImage:faceRenderedImage];
@@ -143,7 +157,6 @@ SingletonM(WBNativeRecorderFaceDetector)
     //渲染回frameBuffer
     CIContext *faceImageContext = [WBNativeRecorderFaceDetector sharedWBNativeRecorderFaceDetector].faceDetectorContext;
     [faceImageContext render:faceDetectedImage toCVPixelBuffer:imageBufferRef];
-    
     return faceDetectedImage;
 }
 

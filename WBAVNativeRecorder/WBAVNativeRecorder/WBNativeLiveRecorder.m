@@ -176,6 +176,7 @@ WBRtmpHandlerDelegate>
     if ([self.avSession canSetSessionPreset:AVCaptureSessionPreset1280x720])
     {
         self.avSession.sessionPreset = AVCaptureSessionPreset1280x720;
+        //self.avSession.sessionPreset = AVCaptureSessionPreset640x480;
     }
     else if ([self.avSession canSetSessionPreset:AVCaptureSessionPreset640x480])
     {
@@ -571,10 +572,9 @@ WBRtmpHandlerDelegate>
 #ifdef GPUIMAGE_FILTER
      renderedImage = [WBNativeRecorderGPUImageFilter getNativeGPUImageFilterWithSmapleBuffer:sampleBuffer valueDic:_videoImageFilterValueDic];
 #endif
-#ifdef FACE_DETECTOR_ENABLE
+#ifdef FACE_DETECTOR
      renderedImage = [WBNativeRecorderFaceDetector getNativeFaceDetectorRenderImageWithSmapleBuffer:sampleBuffer valueDic:nil];
 #endif
-   
     [self.videoPreViewLayer displayPreViewWithUpdatedImage:renderedImage];
 }
 #endif
