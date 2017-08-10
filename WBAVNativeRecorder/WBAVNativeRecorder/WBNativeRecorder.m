@@ -202,7 +202,21 @@ WBRtmpHandlerDelegate>
         if (videoDevice.position == AVCaptureDevicePositionFront)
         {
             self.videoDevice = videoDevice;
+            [self setVideoDeviceFeature];
         }
+    }
+}
+
+- (void)setVideoDeviceFeature
+{
+    if (self.videoDevice)
+    {
+        [self.videoDevice lockForConfiguration:nil];
+        //开启视频HDR (高动态范围图像)
+        self.videoDevice.automaticallyAdjustsVideoHDREnabled = YES;
+        //设置最大,最小帧率
+        self.videoDevice.activeVideoMinFrameDuration = CMTimeMake(1, 30);
+        [self.videoDevice unlockForConfiguration];
     }
 }
 
@@ -296,8 +310,6 @@ WBRtmpHandlerDelegate>
         connetction.preferredVideoStabilizationMode = AVCaptureVideoStabilizationModeAuto;
     }
     connetction.videoScaleAndCropFactor = connetction.videoMaxScaleAndCropFactor;
-    //镜像设置
-    connetction.automaticallyAdjustsVideoMirroring = YES;
     
 }
 
@@ -388,6 +400,7 @@ WBRtmpHandlerDelegate>
     AVCaptureDevicePosition targetPosition;
     (nowPosition == AVCaptureDevicePositionFront) ? (targetPosition = AVCaptureDevicePositionBack) : (targetPosition = AVCaptureDevicePositionFront);
     self.videoDevice = [self getCameraDeviceWithPosition:targetPosition];
+    [self setVideoDeviceFeature];
     NSError *videoInputError;
     AVCaptureDeviceInput *newVideoInput = [[AVCaptureDeviceInput alloc] initWithDevice:_videoDevice error:&videoInputError];
     if (videoInputError)
@@ -402,6 +415,21 @@ WBRtmpHandlerDelegate>
         [self.avSession addInput:newVideoInput];
     }
     self.videoInput = newVideoInput;
+    
+    //设置视频输出显示方向
+    AVCaptureConnection *connetction = [self.videoOutput connectionWithMediaType:AVMediaTypeVideo];
+    connetction.videoOrientation = AVCaptureVideoOrientationPortrait;
+    
+    //控制镜像采集与否
+    connetction.videoMirrored = YES;
+    
+    //视频稳定设置
+    if ([connetction isVideoStabilizationSupported])
+    {
+        connetction.preferredVideoStabilizationMode = AVCaptureVideoStabilizationModeAuto;
+    }
+    connetction.videoScaleAndCropFactor = connetction.videoMaxScaleAndCropFactor;
+    
     [self.avSession commitConfiguration];
 }
 
