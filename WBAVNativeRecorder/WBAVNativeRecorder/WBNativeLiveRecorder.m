@@ -112,7 +112,6 @@ WBRtmpHandlerDelegate>
     switch (avDeviceStatusType)
     {
         case AVAuthorizationStatusAuthorized:
-            //[MBProgressHUD showSuccess:@"已授权"];
             [self initAVCaptureSession];
             break;
         case AVAuthorizationStatusNotDetermined:
@@ -286,7 +285,13 @@ WBRtmpHandlerDelegate>
     }
     //设置视频输出显示方向
     AVCaptureConnection *connetction = [self.videoOutput connectionWithMediaType:AVMediaTypeVideo];
+    
+    
     connetction.videoOrientation = AVCaptureVideoOrientationPortrait;
+
+#pragma mark 控制镜像采集与否
+    connetction.videoMirrored = YES;
+    
     //视频稳定设置
     if ([connetction isVideoStabilizationSupported])
     {

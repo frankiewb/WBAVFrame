@@ -69,8 +69,8 @@ SingletonM(WBNativeRecorderFaceDetector)
         
         //绘制脸框
         //检测到的人脸的位置同opencv一样，需要以纵向中线为中心轴镜像对称一下
-        CGRect faceRect = CGContextConvertRectToUserSpace(UIGraphicsGetCurrentContext(), faceFeature.bounds);
-        UIBezierPath *facePath = [UIBezierPath bezierPathWithRect:faceRect];
+        UIBezierPath *facePath = [UIBezierPath bezierPathWithRect:CGRectMake(faceFeature.bounds.origin.x, faceDrawImage.size.height - faceFeature.bounds.origin.y - faceFeature.bounds.size.height, faceFeature.bounds.size.width,faceFeature.bounds.size.height)];
+
         
         
         facePath.lineWidth = 5.0;
