@@ -7,7 +7,7 @@
 //
 
 #import "WBVideoRecorderSettingViewController.h"
-#import "WBNativeVideoRecorderViewController.h"
+#import "WBNativeRecorderViewController.h"
 #import "WBBeautyVideoRecorderViewController.h"
 
 @interface WBVideoRecorderSettingViewController ()
@@ -53,9 +53,11 @@
     self.beautyVideoRecorderButton.tag = 2;
     [self.beautyVideoRecorderButton setImage:[UIImage imageNamed:@"wbVideoBeautiRecorder"] forState:UIControlStateNormal];
     [self.beautyVideoRecorderButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
-    self.beautyVideoRecorderButton.titleLabel.font = [UIFont systemFontOfSize:18*WBDeviceScale6];
+    self.beautyVideoRecorderButton.titleLabel.font = [UIFont systemFontOfSize:17*WBDeviceScale6];
     [self.beautyVideoRecorderButton setTitleColor:[UIColor colorWithHexString:@"9FD395"] forState:UIControlStateNormal];
-    [self.beautyVideoRecorderButton setTitle:@"美颜录制" forState:UIControlStateNormal];
+    [self.beautyVideoRecorderButton setTitle:@"GPUImage\n录制" forState:UIControlStateNormal];
+    self.beautyVideoRecorderButton.titleLabel.lineBreakMode = 0;
+    [self.beautyVideoRecorderButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
     self.beautyVideoRecorderButton.frame = CGRectMake(200*WBDeviceScale6, 100*WBDeviceScale6, 150*WBDeviceScale6, 200*WBDeviceScale6);
     self.beautyVideoRecorderButton.layer.borderWidth = 4*WBDeviceScale6;
     self.beautyVideoRecorderButton.layer.borderColor = [UIColor colorWithHexString:@"9FD395"].CGColor;
@@ -69,7 +71,7 @@
 {
     if (recorderButton.tag == 1)
     {
-        WBNativeVideoRecorderViewController *nativeRecorderVC = [[WBNativeVideoRecorderViewController alloc] init];
+        WBNativeRecorderViewController *nativeRecorderVC = [[WBNativeRecorderViewController alloc] initWithRecorderType:WBNativeRecorderTypeVideo];
         [self.navigationController pushViewController:nativeRecorderVC animated:YES];
     }
     else if (recorderButton.tag == 2)

@@ -26,7 +26,7 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     UILabel *desLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 200, 100)];
-    desLabel.text = @"美颜视频录制页面";
+    desLabel.text = @"GPUImage视频页面";
     desLabel.font = [UIFont systemFontOfSize:20];
     desLabel.textColor = [UIColor blackColor];
     [self.view addSubview:desLabel];

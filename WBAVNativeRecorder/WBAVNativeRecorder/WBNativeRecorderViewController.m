@@ -1,17 +1,19 @@
 //
-//  WBNativeLiveRecorderViewController.m
-//  WBAVNativeRecorder
+//  WBNativeRecorderViewController.m
+//  WBAVNAtiveRecorder
 //
-//  Created by 王博 on 2017/6/28.
+//  Created by 王博 on 2017/8/10.
 //  Copyright © 2017年 王博. All rights reserved.
 //
 
-#import "WBNativeLiveRecorderViewController.h"
-#import "WBNativeLiveRecorder.h"
+#import "WBNativeRecorderViewController.h"
 
-@interface WBNativeLiveRecorderViewController ()
 
-@property (nonatomic, strong) WBNativeLiveRecorder *liveRecorder;
+@interface WBNativeRecorderViewController ()
+
+@property (nonatomic, assign) WBNativeRecorderType recorderType;//播放器类型
+
+@property (nonatomic, strong) WBNativeRecorder *nativeRecorder;//播放器
 
 @property (nonatomic, strong) UIButton *backButton;//返回按钮
 
@@ -19,15 +21,11 @@
 
 @property (nonatomic, strong) UIButton *torchButton;//开启关闭闪光灯按钮
 
-@property (nonatomic, strong) UIButton *startLiveButton;//开始直播
+@property (nonatomic, strong) UIButton *startButton;//开始录制
 
 @property (nonatomic, strong) UIImageView *onLiveImageView;//直播中图标
 
-
-//可设置美颜参数
 @property (nonatomic, strong) NSMutableDictionary *videoImageFilterValueDic;//滤镜参数设置集合数组
-
-
 
 #ifdef CIIMAGE_FILTER
 //美颜相关控件
@@ -53,14 +51,23 @@
 @property (nonatomic, strong) UISwitch *sketchSWitch;
 @property (nonatomic, strong) UISwitch *pixellateSwitch;
 
-
 #endif
-
-
 
 @end
 
-@implementation WBNativeLiveRecorderViewController
+@implementation WBNativeRecorderViewController
+
+
+- (instancetype)initWithRecorderType:(WBNativeRecorderType)type
+{
+    self = [super init];
+    if (self)
+    {
+        self.recorderType = type;
+    }
+    
+    return self;
+}
 
 
 - (void)viewWillAppear:(BOOL)animated
@@ -109,15 +116,15 @@
     [self.videoImageFilterValueDic setObject:@(0) forKey:@"sketchFilterEnable"];
     [self.videoImageFilterValueDic setObject:@(0) forKey:@"pixellateFilterEnbale"];
 #endif
-
-
+    
+    
 }
 
 - (void)setLiveRecorder
 {
-    self.liveRecorder = [[WBNativeLiveRecorder alloc] initWithLivePreViewLayer:self.view];
+    self.nativeRecorder = [[WBNativeRecorder alloc] initWithLivePreViewLayer:self.view recorderType:_recorderType];
 #ifdef IMAGE_FILTER_ENABLE
-    [self.liveRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
+    [self.nativeRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
 #endif
 }
 
@@ -146,15 +153,23 @@
     [self.view addSubview:_torchButton];
     
     //startLiveButton
-    self.startLiveButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.startLiveButton setBackgroundImage:[UIImage imageNamed:@"beginRecord"] forState:UIControlStateNormal];
-    self.startLiveButton.frame = CGRectMake(WBScreenWidth/2 - 30*WBDeviceScale6, WBScreenHeight - 90*WBDeviceScale6, 60*WBDeviceScale6, 60*WBDeviceScale6);
-    [self.startLiveButton addTarget:self action:@selector(startLiveRecord) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_startLiveButton];
+    self.startButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.startButton setBackgroundImage:[UIImage imageNamed:@"beginRecord"] forState:UIControlStateNormal];
+    self.startButton.frame = CGRectMake(WBScreenWidth/2 - 30*WBDeviceScale6, WBScreenHeight - 90*WBDeviceScale6, 60*WBDeviceScale6, 60*WBDeviceScale6);
+    [self.startButton addTarget:self action:@selector(startRecord) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_startButton];
     
     //onLiveImageView
     self.onLiveImageView = [[UIImageView alloc] init];
-    [self.onLiveImageView setImage:[UIImage imageNamed:@"onLive"]];
+    if (self.recorderType == WBNativeRecorderTypeLive)
+    {
+        [self.onLiveImageView setImage:[UIImage imageNamed:@"onLive"]];
+    }
+    else if (self.recorderType == WBNativeRecorderTypeVideo)
+    {
+        [self.onLiveImageView setImage:[UIImage imageNamed:@"onRecord"]];
+    }
+    
     self.onLiveImageView.frame = CGRectMake(15*WBDeviceScale6, 80*WBDeviceScale6, 60*WBDeviceScale6, 30*WBDeviceScale6);
     self.onLiveImageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.view addSubview:_onLiveImageView];
@@ -215,7 +230,7 @@
     
     
 #ifdef GPUIMAGE_FILTER
-
+    
     //美颜设置 开关
     self.beautifyLabel = [[UILabel alloc] initWithFrame:CGRectMake(15*WBDeviceScale6, 60*WBDeviceScale6, 60*WBDeviceScale6, 30*WBDeviceScale6)];
     self.beautifyLabel.text = @"美颜";
@@ -262,36 +277,36 @@
 
 - (void)backToParent
 {
-    [self stopLiveRecord];
+    [self stopRecord];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)turnCameraHandler
 {
-    if (self.liveRecorder)
+    if (self.nativeRecorder)
     {
-        [self.liveRecorder turnCamera];
+        [self.nativeRecorder turnCamera];
     }
 }
 
 - (void)turnTorchModeStatus
 {
-    if (self.liveRecorder)
+    if (self.nativeRecorder)
     {
-        [self.liveRecorder turnTorchModeStatus];
+        [self.nativeRecorder turnTorchModeStatus];
     }
 }
 
-- (void)startLiveRecord
+- (void)startRecord
 {
-    if (self.liveRecorder)
+    if (self.nativeRecorder)
     {
-        [self.liveRecorder startLiveRecord];
+        [self.nativeRecorder startRecord];
     }
-
-    self.startLiveButton.hidden = YES;
-    self.onLiveImageView.hidden = NO;
     
+    self.startButton.hidden = YES;
+    self.onLiveImageView.hidden = NO;
+
 #ifdef CIIMAGE_FILTER
     self.saturationLabel.hidden = YES;
     self.brightnessLabel.hidden = YES;
@@ -317,11 +332,11 @@
     
 }
 
-- (void)stopLiveRecord
+- (void)stopRecord
 {
-    if (self.liveRecorder)
+    if (self.nativeRecorder)
     {
-        [self.liveRecorder stopLiveRecord];
+        [self.nativeRecorder stopRecord];
     }
 }
 
@@ -333,7 +348,7 @@
     @synchronized (self)
     {
         [self.videoImageFilterValueDic setObject:@(slider.value) forKey:@"saturationValue"];
-        [self.liveRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
+        [self.nativeRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
     }
     
 }
@@ -344,7 +359,7 @@
     @synchronized (self)
     {
         [self.videoImageFilterValueDic setObject:@(slider.value) forKey:@"brightnessValue"];
-        [self.liveRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
+        [self.nativeRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
     }
 }
 
@@ -354,7 +369,7 @@
     @synchronized (self)
     {
         [self.videoImageFilterValueDic setObject:@(slider.value) forKey:@"contrastValue"];
-        [self.liveRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
+        [self.nativeRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
     }
 }
 
@@ -364,7 +379,7 @@
     @synchronized (self)
     {
         [self.videoImageFilterValueDic setObject:@(slider.value) forKey:@"gaussianBlurValue"];
-        [self.liveRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
+        [self.nativeRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
     }
 }
 #endif
@@ -382,7 +397,7 @@
     }
     
     [self.videoImageFilterValueDic setObject:filterValue forKey:@"beautifyFilterEnable"];
-    [self.liveRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
+    [self.nativeRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
 }
 
 
@@ -396,7 +411,7 @@
     }
     
     [self.videoImageFilterValueDic setObject:filterValue forKey:@"toonFilterEnbale"];
-    [self.liveRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
+    [self.nativeRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
 }
 
 
@@ -411,7 +426,7 @@
     }
     
     [self.videoImageFilterValueDic setObject:filterValue forKey:@"sketchFilterEnable"];
-    [self.liveRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
+    [self.nativeRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
 }
 
 - (void)pixellateSwitchAction:(UISwitch *)switchButton
@@ -424,16 +439,10 @@
     }
     
     [self.videoImageFilterValueDic setObject:filterValue forKey:@"pixellateFilterEnbale"];
-    [self.liveRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
+    [self.nativeRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
 }
 
 #endif
-
-
-
-
-
-
 
 
 

@@ -1,18 +1,20 @@
 //
-//  WBNativeLiveRecorder.m
-//  WBAVNativeRecorder
+//  WBNativeRecorder.m
+//  WBAVNAtiveRecorder
 //
-//  Created by 王博 on 2017/6/28.
+//  Created by 王博 on 2017/8/10.
 //  Copyright © 2017年 王博. All rights reserved.
 //
 
-#import "WBNativeLiveRecorder.h"
+#import "WBNativeRecorder.h"
 
-@interface WBNativeLiveRecorder () <AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate,
+@interface WBNativeRecorder () <AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate,
 WBAACEncoderDelegate,
 WBH264EncoderDelegate,
 WBRtmpHandlerDelegate>
 
+//播放器类型:直播 or 本地录像
+@property (nonatomic, assign) WBNativeRecorderType recorderType;
 //音视频输入输出设备及数据管理器
 @property (nonatomic, strong) AVCaptureSession *avSession;
 //视频管理器：前后摄像头，闪光灯，聚焦，摄像头切换
@@ -54,23 +56,21 @@ WBRtmpHandlerDelegate>
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreViewLayer;
 #endif
 
-
-
-
 //预渲染界面
 @property (nonatomic, weak) UIView *livePreViewLayer;
 
 
 @end
 
-@implementation WBNativeLiveRecorder
 
+@implementation WBNativeRecorder
 
-- (instancetype)initWithLivePreViewLayer:(UIView *)preViewLayer
+- (instancetype)initWithLivePreViewLayer:(UIView *)preViewLayer recorderType:(WBNativeRecorderType)recorderType
 {
     self = [super init];
     if (self)
     {
+        self.recorderType = recorderType;
         self.livePreViewLayer = preViewLayer;
         [self initVariousData];
         [self checkAVDeviceAuthorization];
@@ -82,7 +82,7 @@ WBRtmpHandlerDelegate>
 
 - (void)dealloc
 {
-    [self stopLiveRecord];
+    [self stopRecord];
     [self.videoOutput setSampleBufferDelegate:nil queue:dispatch_get_main_queue()];
     [self.videoOutput setSampleBufferDelegate:nil queue:dispatch_get_main_queue()];
     LOG_METHOD;
@@ -263,7 +263,7 @@ WBRtmpHandlerDelegate>
     {
         if (isSupportsFullYUVRange)
         {
-             [self.videoOutput setVideoSettings:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kCVPixelFormatType_420YpCbCr8BiPlanarFullRange] forKey:(id)kCVPixelBufferPixelFormatTypeKey]];
+            [self.videoOutput setVideoSettings:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kCVPixelFormatType_420YpCbCr8BiPlanarFullRange] forKey:(id)kCVPixelBufferPixelFormatTypeKey]];
         }
         else
         {
@@ -285,11 +285,9 @@ WBRtmpHandlerDelegate>
     }
     //设置视频输出显示方向
     AVCaptureConnection *connetction = [self.videoOutput connectionWithMediaType:AVMediaTypeVideo];
-    
-    
     connetction.videoOrientation = AVCaptureVideoOrientationPortrait;
-
-#pragma mark 控制镜像采集与否
+    
+    //控制镜像采集与否
     connetction.videoMirrored = YES;
     
     //视频稳定设置
@@ -312,7 +310,7 @@ WBRtmpHandlerDelegate>
     }
     
     //音频输入设备
-     NSError *audioInputError;
+    NSError *audioInputError;
     self.audioInput = [[AVCaptureDeviceInput alloc] initWithDevice:self.audioDevice error:&audioInputError];
     if (audioInputError)
     {
@@ -335,7 +333,7 @@ WBRtmpHandlerDelegate>
     
     //设置代理
     [self.audioOutput setSampleBufferDelegate:self queue:_audioProcessingQueue];
-
+    
 }
 
 //初始化preViewlayer并绑定对应的session
@@ -441,7 +439,7 @@ WBRtmpHandlerDelegate>
     }
 }
 
-- (void)startLiveRecord
+- (void)startRecord
 {
     
     //开启预览图
@@ -450,16 +448,22 @@ WBRtmpHandlerDelegate>
         [self.avSession startRunning];
     }
     
-    if (!self.isStartingLive)
+    if (self.recorderType == WBNativeRecorderTypeLive)
     {
-        self.isStartingLive = YES;
+        if (!self.isStartingLive)
+        {
+            self.isStartingLive = YES;
+        }
+        //开始推流
+        [self startRTMPSocketHandler];
     }
-    
-    [self startRTMPSocketHandler];
-    
+    else if (self.recorderType == WBNativeRecorderTypeVideo)
+    {
+        //To Do 开始录像处理流程
+    }  
 }
 
-- (void)stopLiveRecord
+- (void)stopRecord
 {
     //关闭预览图
     if ([self.avSession isRunning])
@@ -467,12 +471,19 @@ WBRtmpHandlerDelegate>
         [self.avSession stopRunning];
     }
     
-    if (self.isStartingLive)
+    if (self.recorderType == WBNativeRecorderTypeLive)
     {
-        self.isStartingLive = NO;
+        if (self.isStartingLive)
+        {
+            self.isStartingLive = NO;
+        }
+        //停止推流
+        [self destroyRTMPSocketHandler];
     }
-    
-    [self destroyRTMPSocketHandler];
+    else if (self.recorderType == WBNativeRecorderTypeVideo)
+    {
+        //To Do 停止录像处理流程
+    }
 }
 
 - (void)startRTMPSocketHandler
@@ -502,18 +513,33 @@ WBRtmpHandlerDelegate>
 {
     //视频buffer帧处理
     if (captureOutput == _videoOutput)
-    {       
+    {
 #ifdef IMAGE_FILTER_ENABLE
         //视频前处理滤镜渲染
         [self processCIFilterWithSampleBuffer:sampleBuffer];
 #endif
-        //视频硬编码
-        [self.videoEncoder encodeWithSampleBuffer:sampleBuffer timeStamp:[self getCurrentTimeStamp]];
+    
+        if (self.recorderType == WBNativeRecorderTypeLive)
+        {
+            //视频硬编码
+            [self.videoEncoder encodeWithSampleBuffer:sampleBuffer timeStamp:[self getCurrentTimeStamp]];
+        }
+        else if (self.recorderType == WBNativeRecorderTypeVideo)
+        {
+            //本地视频合成并保存 TO DO ...
+        }
     }
     else //音频buffer帧处理
     {
-        //音频硬编码
-        [self.audioEncoder encodeWithSampleBuffer:sampleBuffer timeStamp:[self getCurrentTimeStamp]];
+        if (self.recorderType == WBNativeRecorderTypeLive)
+        {
+            //音频硬编码
+            [self.audioEncoder encodeWithSampleBuffer:sampleBuffer timeStamp:[self getCurrentTimeStamp]];
+        }
+        else if (self.recorderType == WBNativeRecorderTypeVideo)
+        {
+            //本地音频合成并保存 TO DO...
+        }
     }
 }
 
@@ -543,7 +569,7 @@ WBRtmpHandlerDelegate>
 - (void)setVideoImageFilterValueInfoDic:(NSMutableDictionary *)valueDic
 {
     self.videoImageFilterValueDic = valueDic;
-
+    
 #ifdef CIIMAGE_FILTER
     //设置相关渲染参数
     //shadowValue 阴影 : [-1 1]0~1之间较亮
@@ -560,7 +586,7 @@ WBRtmpHandlerDelegate>
     //像素化滤镜 pixellateFilterEnbale
     
 #endif
- 
+    
 }
 
 - (void)processCIFilterWithSampleBuffer:(CMSampleBufferRef)sampleBuffer
@@ -572,13 +598,13 @@ WBRtmpHandlerDelegate>
     
     CIImage *renderedImage = nil;
 #ifdef CIIMAGE_FILTER
-     renderedImage = [WBNativeRecorderBeautyFilter getNativeBeautyFilterImageWithSmapleBuffer:sampleBuffer valueDic:_videoImageFilterValueDic];
+    renderedImage = [WBNativeRecorderBeautyFilter getNativeBeautyFilterImageWithSmapleBuffer:sampleBuffer valueDic:_videoImageFilterValueDic];
 #endif
 #ifdef GPUIMAGE_FILTER
-     renderedImage = [WBNativeRecorderGPUImageFilter getNativeGPUImageFilterWithSmapleBuffer:sampleBuffer valueDic:_videoImageFilterValueDic];
+    renderedImage = [WBNativeRecorderGPUImageFilter getNativeGPUImageFilterWithSmapleBuffer:sampleBuffer valueDic:_videoImageFilterValueDic];
 #endif
 #ifdef FACE_DETECTOR
-     renderedImage = [WBNativeRecorderFaceDetector getNativeFaceDetectorRenderImageWithSmapleBuffer:sampleBuffer valueDic:nil];
+    renderedImage = [WBNativeRecorderFaceDetector getNativeFaceDetectorRenderImageWithSmapleBuffer:sampleBuffer valueDic:nil];
 #endif
     [self.videoPreViewLayer displayPreViewWithUpdatedImage:renderedImage];
 }
@@ -646,13 +672,6 @@ WBRtmpHandlerDelegate>
             break;
     }
 }
-
-
-
-
-
-
-
 
 
 @end
