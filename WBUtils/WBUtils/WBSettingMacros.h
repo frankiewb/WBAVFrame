@@ -18,14 +18,21 @@
 #define DEFAULT_VIDEO_PLAY_PATH @""
 
 
+
+//启用人脸检测
+#define FACE_DETECTOR_ENABLE
+
 //启用GPUImage美颜
 #define GPUIMAGE_BEAUTY_ENABLE
+
+//启用点击对焦自动调整对焦点白平衡功能
+#define FOCUS_EXPOSURE_AUTO_ADJUST_ENABLE
 
 //启用CIImage美颜
 //#define CIIMAGE_BEAUTY_ENABLE
 
-//启用人脸检测
-#define FACE_DETECTOR_ENABLE
+
+
 
 
 

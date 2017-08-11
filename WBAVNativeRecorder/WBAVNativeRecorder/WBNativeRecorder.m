@@ -13,6 +13,8 @@ WBAACEncoderDelegate,
 WBH264EncoderDelegate,
 WBRtmpHandlerDelegate>
 
+
+#pragma mark 通用属性
 //播放器类型:直播 or 本地录像
 @property (nonatomic, assign) WBNativeRecorderType recorderType;
 //音视频输入输出设备及数据管理器
@@ -29,25 +31,12 @@ WBRtmpHandlerDelegate>
 @property (nonatomic, strong) AVCaptureVideoDataOutput *videoOutput;
 //音频输出管理器
 @property (nonatomic, strong) AVCaptureAudioDataOutput *audioOutput;
-
 //视频采集输出数据处理队列
 @property (nonatomic, strong) dispatch_queue_t videoProcessingQueue;
 //音频采集输出数据处理队列
 @property (nonatomic, strong) dispatch_queue_t audioProcessingQueue;
-
-//视频编码器
-@property (nonatomic, strong) WBH264Encoder *videoEncoder;
-//音频编码器
-@property (nonatomic, strong) WBAACEncoder *audioEncoder;
-//RTMP连接器
-@property (nonatomic, strong) WBRtmpHandler *rtmpHandler;
-
-//杂
-@property (nonatomic, assign) uint64_t timeStamp;//时间戳
-@property (nonatomic, assign) BOOL isFirstFrame;//是否是第一帧
-@property (nonatomic, assign) BOOL isConnecting;//是否RTMP连接
-@property (nonatomic, assign) BOOL isStartingLive;//是否开始直播
-
+//预渲染界面
+@property (nonatomic, weak) UIView *livePreViewLayer;
 //预采集界面
 #ifdef IMAGE_FILTER_ENABLE
 @property (nonatomic, strong) WBNativeRecorderBeautyPreView *videoPreViewLayer;
@@ -56,8 +45,23 @@ WBRtmpHandlerDelegate>
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreViewLayer;
 #endif
 
-//预渲染界面
-@property (nonatomic, weak) UIView *livePreViewLayer;
+
+#pragma mark 直播模式属性
+//视频编码器
+@property (nonatomic, strong) WBH264Encoder *videoEncoder;
+//音频编码器
+@property (nonatomic, strong) WBAACEncoder *audioEncoder;
+//RTMP连接器
+@property (nonatomic, strong) WBRtmpHandler *rtmpHandler;
+//时间戳
+@property (nonatomic, assign) uint64_t timeStamp;
+//是否是第一帧
+@property (nonatomic, assign) BOOL isFirstFrame;
+//是否RTMP连接
+@property (nonatomic, assign) BOOL isConnecting;
+//是否开始直播
+@property (nonatomic, assign) BOOL isStartingLive;
+#pragma mark 录像模式属性
 
 
 @end
@@ -65,6 +69,7 @@ WBRtmpHandlerDelegate>
 
 @implementation WBNativeRecorder
 
+#pragma mark 构造相关函数
 - (instancetype)initWithLivePreViewLayer:(UIView *)preViewLayer recorderType:(WBNativeRecorderType)recorderType
 {
     self = [super init];
@@ -88,6 +93,9 @@ WBRtmpHandlerDelegate>
     LOG_METHOD;
 }
 
+
+
+#pragma mark 初始化相关函数
 //初始化基本数据
 - (void)initVariousData
 {
@@ -202,21 +210,15 @@ WBRtmpHandlerDelegate>
         if (videoDevice.position == AVCaptureDevicePositionFront)
         {
             self.videoDevice = videoDevice;
-            [self setVideoDeviceFeature];
+            
+            [self changeCaptureDeviceWithType:AVMediaTypeVideo CaptureProperty:^(AVCaptureDevice *captureDevice)
+            {
+                //开启视频HDR (高动态范围图像)
+                captureDevice.automaticallyAdjustsVideoHDREnabled = YES;
+                //设置最大,最小帧率
+                captureDevice.activeVideoMinFrameDuration = CMTimeMake(1, 30);
+            }];
         }
-    }
-}
-
-- (void)setVideoDeviceFeature
-{
-    if (self.videoDevice)
-    {
-        [self.videoDevice lockForConfiguration:nil];
-        //开启视频HDR (高动态范围图像)
-        self.videoDevice.automaticallyAdjustsVideoHDREnabled = YES;
-        //设置最大,最小帧率
-        self.videoDevice.activeVideoMinFrameDuration = CMTimeMake(1, 30);
-        [self.videoDevice unlockForConfiguration];
     }
 }
 
@@ -297,8 +299,16 @@ WBRtmpHandlerDelegate>
     {
         [self.avSession addOutput:_videoOutput];
     }
+    
+    [self initAVCaputureConnetctionWithVideoOutput:_videoOutput];
+    
+}
+
+
+- (void)initAVCaputureConnetctionWithVideoOutput:(AVCaptureVideoDataOutput *)outPut
+{
     //设置视频输出显示方向
-    AVCaptureConnection *connetction = [self.videoOutput connectionWithMediaType:AVMediaTypeVideo];
+    AVCaptureConnection *connetction = [outPut connectionWithMediaType:AVMediaTypeVideo];
     connetction.videoOrientation = AVCaptureVideoOrientationPortrait;
     
     //控制镜像采集与否
@@ -310,7 +320,6 @@ WBRtmpHandlerDelegate>
         connetction.preferredVideoStabilizationMode = AVCaptureVideoStabilizationModeAuto;
     }
     connetction.videoScaleAndCropFactor = connetction.videoMaxScaleAndCropFactor;
-    
 }
 
 //初始化音频输入输出
@@ -348,7 +357,7 @@ WBRtmpHandlerDelegate>
     
 }
 
-//初始化preViewlayer并绑定对应的session
+//初始化preViewlayer
 - (void)initPreViewLayer
 {
     if (!self.avSession)
@@ -379,93 +388,8 @@ WBRtmpHandlerDelegate>
 }
 
 
-// 是否支持快速纹理更新
-- (BOOL)supportsFastTextureUpload;
-{
-#if TARGET_IPHONE_SIMULATOR
-    return NO;
-#else
-    
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wtautological-pointer-compare"
-    return (CVOpenGLESTextureCacheCreate != NULL);
-#pragma clang diagnostic pop
-    
-#endif
-}
 
-- (void)turnCamera
-{
-    AVCaptureDevicePosition nowPosition = self.videoDevice.position;
-    AVCaptureDevicePosition targetPosition;
-    (nowPosition == AVCaptureDevicePositionFront) ? (targetPosition = AVCaptureDevicePositionBack) : (targetPosition = AVCaptureDevicePositionFront);
-    self.videoDevice = [self getCameraDeviceWithPosition:targetPosition];
-    [self setVideoDeviceFeature];
-    NSError *videoInputError;
-    AVCaptureDeviceInput *newVideoInput = [[AVCaptureDeviceInput alloc] initWithDevice:_videoDevice error:&videoInputError];
-    if (videoInputError)
-    {
-        [MBProgressHUD showError:[NSString stringWithFormat:@"手机摄像设备输入错误：%@",videoInputError]];
-        return;
-    }
-    [self.avSession beginConfiguration];
-    [self.avSession removeInput:_videoInput];
-    if ([self.avSession canAddInput:newVideoInput])
-    {
-        [self.avSession addInput:newVideoInput];
-    }
-    self.videoInput = newVideoInput;
-    
-    //设置视频输出显示方向
-    AVCaptureConnection *connetction = [self.videoOutput connectionWithMediaType:AVMediaTypeVideo];
-    connetction.videoOrientation = AVCaptureVideoOrientationPortrait;
-    
-    //控制镜像采集与否
-    connetction.videoMirrored = YES;
-    
-    //视频稳定设置
-    if ([connetction isVideoStabilizationSupported])
-    {
-        connetction.preferredVideoStabilizationMode = AVCaptureVideoStabilizationModeAuto;
-    }
-    connetction.videoScaleAndCropFactor = connetction.videoMaxScaleAndCropFactor;
-    
-    [self.avSession commitConfiguration];
-}
-
--(AVCaptureDevice *)getCameraDeviceWithPosition:(AVCaptureDevicePosition )position
-{
-    NSArray *cameras= [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
-    for (AVCaptureDevice *camera in cameras)
-    {
-        if ([camera position] == position)
-        {
-            return camera;
-        }
-    }
-    return nil;
-}
-
-- (void)turnTorchModeStatus
-{
-    if ([self.videoDevice hasTorch])
-    {
-        [self.videoDevice lockForConfiguration:nil];
-        if (self.videoDevice.torchMode == AVCaptureTorchModeOff)
-        {
-            self.videoDevice.torchMode = AVCaptureTorchModeOn;
-        }
-        else if (self.videoDevice.torchMode == AVCaptureTorchModeOn)
-        {
-            self.videoDevice.torchMode = AVCaptureTorchModeOff;
-        }
-        [self.videoDevice unlockForConfiguration];
-    }
-    else
-    {
-        [MBProgressHUD showMsg:@"前置摄像头不支持手电" showTime:1.5f];
-    }
-}
+#pragma mark 录像器操作相关函数
 
 - (void)startRecord
 {
@@ -488,7 +412,7 @@ WBRtmpHandlerDelegate>
     else if (self.recorderType == WBNativeRecorderTypeVideo)
     {
         //To Do 开始录像处理流程
-    }  
+    }
 }
 
 - (void)stopRecord
@@ -514,25 +438,154 @@ WBRtmpHandlerDelegate>
     }
 }
 
-- (void)startRTMPSocketHandler
+- (void)turnCamera
 {
-    [self destroyRTMPSocketHandler];
-    if (!self.rtmpHandler)
+    
+    //1.找寻待切换摄像头
+    AVCaptureDevicePosition nowPosition = self.videoDevice.position;
+    AVCaptureDevicePosition targetPosition;
+    (nowPosition == AVCaptureDevicePositionFront) ? (targetPosition = AVCaptureDevicePositionBack) : (targetPosition = AVCaptureDevicePositionFront);
+    self.videoDevice = [self getCameraDeviceWithPosition:targetPosition];
+    
+    
+    //2.设置待切换摄像头属性
+    [self changeCaptureDeviceWithType:AVMediaTypeVideo CaptureProperty:^(AVCaptureDevice *captureDevice)
+     {
+         //开启视频HDR (高动态范围图像)
+         captureDevice.automaticallyAdjustsVideoHDREnabled = YES;
+         //设置最大,最小帧率
+         captureDevice.activeVideoMinFrameDuration = CMTimeMake(1, 30);
+     }];
+    NSError *videoInputError;
+    AVCaptureDeviceInput *newVideoInput = [[AVCaptureDeviceInput alloc] initWithDevice:_videoDevice error:&videoInputError];
+    if (videoInputError)
     {
-        self.rtmpHandler = [[WBRtmpHandler alloc] initWithPushStreamURL:DEFAULT_PUSH_RTMP_STREAM];
-        self.rtmpHandler.delegate = self;
-        [self.rtmpHandler start];
+        [MBProgressHUD showError:[NSString stringWithFormat:@"手机摄像设备输入错误：%@",videoInputError]];
+        return;
+    }
+    
+    //3. 将待切换摄像头加入AVCaptureSession，并更新AVCaputureConnetction
+    [self.avSession beginConfiguration];
+    [self.avSession removeInput:_videoInput];
+    if ([self.avSession canAddInput:newVideoInput])
+    {
+        [self.avSession addInput:newVideoInput];
+    }
+    self.videoInput = newVideoInput;
+    [self initAVCaputureConnetctionWithVideoOutput:_videoOutput];
+    [self.avSession commitConfiguration];
+}
+
+-(AVCaptureDevice *)getCameraDeviceWithPosition:(AVCaptureDevicePosition )position
+{
+    NSArray *cameras= [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
+    for (AVCaptureDevice *camera in cameras)
+    {
+        if ([camera position] == position)
+        {
+            return camera;
+        }
+    }
+    return nil;
+}
+
+- (void)turnTorchModeStatus
+{
+    if ([self.videoDevice hasTorch])
+    {
+       [self changeCaptureDeviceWithType:AVMediaTypeVideo CaptureProperty:^(AVCaptureDevice *captureDevice)
+        {
+            if (captureDevice.torchMode == AVCaptureTorchModeOff)
+            {
+                captureDevice.torchMode = AVCaptureTorchModeOn;
+            }
+            else if (captureDevice.torchMode == AVCaptureTorchModeOn)
+            {
+                captureDevice.torchMode = AVCaptureTorchModeOff;
+            }
+       }];
+    }
+    else
+    {
+        [MBProgressHUD showError:@"前置摄像头不支持手电" toView:_videoPreViewLayer];
     }
 }
 
-- (void)destroyRTMPSocketHandler
+//设置当前采集设备聚焦点及对应聚焦点的聚焦模式及曝光模式
+- (void)setFocusWithMode:(AVCaptureFocusMode)focusMode exposureMode:(AVCaptureExposureMode)exposureMode atScreenPoint:(CGPoint)point
 {
-    if (self.rtmpHandler)
+#warning 遗留问题，自定义采集预览View如何正确转换坐标？？
+    //此处传来的坐标是屏幕坐标需要调整为合适的摄像头采集坐标
+    // point 需要转换为正确的CGPoint
+    
+    
+    [self changeCaptureDeviceWithType:AVMediaTypeVideo CaptureProperty:^(AVCaptureDevice *captureDevice)
     {
-        [self.rtmpHandler stop];
-        self.rtmpHandler = nil;
-    }
+        if ([captureDevice isFocusModeSupported:focusMode])
+        {
+            [captureDevice setFocusMode:AVCaptureFocusModeAutoFocus];
+        }
+        if ([captureDevice isFocusPointOfInterestSupported])
+        {
+            [captureDevice setFocusPointOfInterest:point];
+        }
+        if ([captureDevice isExposureModeSupported:exposureMode])
+        {
+            [captureDevice setExposureMode:AVCaptureExposureModeAutoExpose];
+        }
+        if ([captureDevice isExposurePointOfInterestSupported])
+        {
+            [captureDevice setExposurePointOfInterest:point];
+        }
+    }];
 }
+
+//更新音频或视频采集设备属性
+- (void)changeCaptureDeviceWithType:(NSString *)mediaType CaptureProperty:(void(^)(AVCaptureDevice *captureDevice))propertyChange
+{
+    AVCaptureDevice *captureDevice = nil;
+    
+    if (mediaType == AVMediaTypeVideo)
+    {
+        captureDevice = self.videoDevice;
+    }
+    else if (mediaType == AVMediaTypeAudio)
+    {
+        captureDevice = self.audioDevice;
+    }
+    
+    NSError *error;
+    //注意改变设备属性前一定要首先调用lockForConfiguration:调用完之后使用unlockForConfiguration方法解锁
+    if (captureDevice)
+    {
+        if ([captureDevice lockForConfiguration:&error])
+        {
+            propertyChange(captureDevice);
+            [captureDevice unlockForConfiguration];
+        }
+        else
+        {
+            NSLog(@"设置设备属性过程发生错误，错误信息：%@",error.localizedDescription);
+        }
+    }
+    NSLog(@"captureDeviceType 错误，无法找到对应的采集设备");
+}
+
+// 是否支持快速纹理更新
+- (BOOL)supportsFastTextureUpload;
+{
+#if TARGET_IPHONE_SIMULATOR
+    return NO;
+#else
+    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wtautological-pointer-compare"
+    return (CVOpenGLESTextureCacheCreate != NULL);
+#pragma clang diagnostic pop
+    
+#endif
+}
+
 
 
 #pragma mark 音视频采集后输出处理代理
@@ -571,28 +624,7 @@ WBRtmpHandlerDelegate>
     }
 }
 
-- (uint64_t)getCurrentTimeStamp
-{
-    @synchronized (self)
-    {
-        uint64_t currentTimeStamp = 0;
-        if (self.isFirstFrame)
-        {
-            self.timeStamp = NOW;
-            self.isFirstFrame = NO;
-        }
-        else
-        {
-            currentTimeStamp = NOW - _timeStamp;
-        }
-        
-        return currentTimeStamp;
-    }
-}
-
-
-
-#pragma mark 视频前处理-滤镜渲染
+#pragma mark 视频前处理: 滤镜 + 人脸识别 + 贴纸
 #ifdef IMAGE_FILTER_ENABLE
 - (void)setVideoImageFilterValueInfoDic:(NSMutableDictionary *)valueDic
 {
@@ -638,7 +670,8 @@ WBRtmpHandlerDelegate>
 }
 #endif
 
-#pragma mark WBH264Encoder代理
+#pragma mark 直播模式相关函数
+//WBH264Encoder代理
 - (void)wbH264EncoderDidFinishEncodeWithWBVideoFrame:(WBVideoFrame *)videoFrame
 {
     
@@ -653,7 +686,7 @@ WBRtmpHandlerDelegate>
     }
 }
 
-#pragma mark WBAACEncoder代理
+//WBAACEncoder代理
 - (void)wbAACEncoderDidFinishEncodeWithWBAudioFrame:(WBAudioFrame *)audioFrame
 {
     if(self.isStartingLive)
@@ -665,7 +698,7 @@ WBRtmpHandlerDelegate>
     }
 }
 
-#pragma mark RTMPHandler代理
+//RTMPHandler代理
 - (void)socketStatus:(WBRtmpHandler *)rtmpHandler status:(WBLiveStateType)status
 {
     switch (status)
@@ -700,6 +733,48 @@ WBRtmpHandlerDelegate>
             break;
     }
 }
+
+//开始推流
+- (void)startRTMPSocketHandler
+{
+    [self destroyRTMPSocketHandler];
+    if (!self.rtmpHandler)
+    {
+        self.rtmpHandler = [[WBRtmpHandler alloc] initWithPushStreamURL:DEFAULT_PUSH_RTMP_STREAM];
+        self.rtmpHandler.delegate = self;
+        [self.rtmpHandler start];
+    }
+}
+
+//销毁推流实例
+- (void)destroyRTMPSocketHandler
+{
+    if (self.rtmpHandler)
+    {
+        [self.rtmpHandler stop];
+        self.rtmpHandler = nil;
+    }
+}
+
+- (uint64_t)getCurrentTimeStamp
+{
+    @synchronized (self)
+    {
+        uint64_t currentTimeStamp = 0;
+        if (self.isFirstFrame)
+        {
+            self.timeStamp = NOW;
+            self.isFirstFrame = NO;
+        }
+        else
+        {
+            currentTimeStamp = NOW - _timeStamp;
+        }        
+        return currentTimeStamp;
+    }
+}
+
+#pragma mark 录像模式相关函数
 
 
 @end

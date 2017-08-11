@@ -27,6 +27,12 @@
 
 @property (nonatomic, strong) NSMutableDictionary *videoImageFilterValueDic;//滤镜参数设置集合数组
 
+
+
+#ifdef FOCUS_EXPOSURE_AUTO_ADJUST_ENABLE
+@property (nonatomic, strong) UIImageView *focusCursor;//聚焦点图图标
+#endif
+
 #ifdef CIIMAGE_FILTER
 //美颜相关控件
 @property (nonatomic, strong) UILabel *saturationLabel;//饱和度
@@ -158,7 +164,7 @@
     self.startButton.frame = CGRectMake(WBScreenWidth/2 - 30*WBDeviceScale6, WBScreenHeight - 90*WBDeviceScale6, 60*WBDeviceScale6, 60*WBDeviceScale6);
     [self.startButton addTarget:self action:@selector(startRecord) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_startButton];
-    
+
     //onLiveImageView
     self.onLiveImageView = [[UIImageView alloc] init];
     if (self.recorderType == WBNativeRecorderTypeLive)
@@ -174,6 +180,16 @@
     self.onLiveImageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.view addSubview:_onLiveImageView];
     self.onLiveImageView.hidden = YES;
+    
+#ifdef FOCUS_EXPOSURE_AUTO_ADJUST_ENABLE
+    //focusCursor
+    self.focusCursor = [[UIImageView alloc] initWithFrame:CGRectMake(100*WBDeviceScale6, 100*WBDeviceScale6, 50*WBDeviceScale6, 50*WBDeviceScale6)];
+    self.focusCursor.image = [UIImage imageNamed:@"focus"];
+    self.focusCursor.alpha = 0;
+    [self.view bringSubviewToFront:_focusCursor];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapScreen:)];
+    [self.view addGestureRecognizer:tapGesture];
+#endif
     
     
     
@@ -297,6 +313,14 @@
     }
 }
 
+- (void)stopRecord
+{
+    if (self.nativeRecorder)
+    {
+        [self.nativeRecorder stopRecord];
+    }
+}
+
 - (void)startRecord
 {
     if (self.nativeRecorder)
@@ -332,14 +356,30 @@
     
 }
 
-- (void)stopRecord
-{
-    if (self.nativeRecorder)
-    {
-        [self.nativeRecorder stopRecord];
-    }
+#ifdef FOCUS_EXPOSURE_AUTO_ADJUST_ENABLE
+-(void)tapScreen:(UITapGestureRecognizer *)tapGesture
+{    
+    CGPoint point= [tapGesture locationInView:self.view];
+    [self.focusCursor removeFromSuperview];
+    self.focusCursor.frame = CGRectMake(point.x, point.y, 50*WBDeviceScale6, 50*WBDeviceScale6);
+    [self.view addSubview:_focusCursor];
+    [self setFocusCursorWithPoint:point];
+    [self.nativeRecorder setFocusWithMode:AVCaptureFocusModeAutoFocus exposureMode:AVCaptureExposureModeAutoExpose atScreenPoint:point];
 }
 
+-(void)setFocusCursorWithPoint:(CGPoint)point
+{
+    self.focusCursor.center=point;
+    self.focusCursor.transform=CGAffineTransformMakeScale(1.5, 1.5);
+    self.focusCursor.alpha=1.0;
+    [UIView animateWithDuration:1.0 animations:^{
+        self.focusCursor.transform=CGAffineTransformIdentity;
+    } completion:^(BOOL finished) {
+        self.focusCursor.alpha=0;
+        
+    }];
+}
+#endif
 
 #ifdef CIIMAGE_FILTER
 - (void)changeSaturation:(UISlider *)slider

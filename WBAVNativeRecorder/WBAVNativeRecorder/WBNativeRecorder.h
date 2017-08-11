@@ -18,22 +18,29 @@ typedef NS_ENUM(NSInteger,WBNativeRecorderType)
 
 @interface WBNativeRecorder : NSObject
 
+//初始化函数
 - (instancetype)initWithLivePreViewLayer:(UIView *)preViewLayer recorderType:(WBNativeRecorderType) recorderType;
 
-//开始直播
+//开始录播
 - (void)startRecord;
 
-//停止直播
+//停止录播
 - (void)stopRecord;
 
 //反转摄像头
 - (void)turnCamera;
 
-//切换手电状态
+//切换闪光灯状态
 - (void)turnTorchModeStatus;
 
-//设置滤镜渲染参数
+//设置当前采集设备聚焦点及对应聚焦点的聚焦模式及曝光模式
+- (void)setFocusWithMode:(AVCaptureFocusMode)focusMode exposureMode:(AVCaptureExposureMode)exposureMode atScreenPoint:(CGPoint)point;
+
+//设置录像器前处理滤镜渲染参数
 - (void)setVideoImageFilterValueInfoDic:(NSMutableDictionary *)valueDic;
+
+
+
 
 
 

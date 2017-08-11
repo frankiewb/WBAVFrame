@@ -15,6 +15,8 @@
 		2D03BCF71F3C68BF0074B0FD /* WBNativeRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D03BCF51F3C68BF0074B0FD /* WBNativeRecorder.m */; };
 		2D03BCFA1F3C68DE0074B0FD /* WBNativeRecorderViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D03BCF81F3C68DE0074B0FD /* WBNativeRecorderViewController.h */; };
 		2D03BCFB1F3C68DE0074B0FD /* WBNativeRecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D03BCF91F3C68DE0074B0FD /* WBNativeRecorderViewController.m */; };
+		2D03BCFF1F3C8FEE0074B0FD /* WBNativeVideoWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D03BCFD1F3C8FEE0074B0FD /* WBNativeVideoWriter.h */; };
+		2D03BD001F3C8FEE0074B0FD /* WBNativeVideoWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D03BCFE1F3C8FEE0074B0FD /* WBNativeVideoWriter.m */; };
 		2DC682F41F30315900D5E18C /* WBNativeRecorderBeautyFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DC682F21F30315900D5E18C /* WBNativeRecorderBeautyFilter.h */; };
 		2DC682F51F30315900D5E18C /* WBNativeRecorderBeautyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC682F31F30315900D5E18C /* WBNativeRecorderBeautyFilter.m */; };
 		2DC682F81F307B0900D5E18C /* WBNativeRecorderBeautyPreView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DC682F61F307B0900D5E18C /* WBNativeRecorderBeautyPreView.h */; };
@@ -45,6 +47,8 @@
 		2D03BCF51F3C68BF0074B0FD /* WBNativeRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNativeRecorder.m; sourceTree = "<group>"; };
 		2D03BCF81F3C68DE0074B0FD /* WBNativeRecorderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNativeRecorderViewController.h; sourceTree = "<group>"; };
 		2D03BCF91F3C68DE0074B0FD /* WBNativeRecorderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNativeRecorderViewController.m; sourceTree = "<group>"; };
+		2D03BCFD1F3C8FEE0074B0FD /* WBNativeVideoWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNativeVideoWriter.h; sourceTree = "<group>"; };
+		2D03BCFE1F3C8FEE0074B0FD /* WBNativeVideoWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNativeVideoWriter.m; sourceTree = "<group>"; };
 		2DC682F21F30315900D5E18C /* WBNativeRecorderBeautyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNativeRecorderBeautyFilter.h; sourceTree = "<group>"; };
 		2DC682F31F30315900D5E18C /* WBNativeRecorderBeautyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNativeRecorderBeautyFilter.m; sourceTree = "<group>"; };
 		2DC682F61F307B0900D5E18C /* WBNativeRecorderBeautyPreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNativeRecorderBeautyPreView.h; sourceTree = "<group>"; };
@@ -104,6 +108,15 @@
 			name = WBNativeRecorderPreview;
 			sourceTree = "<group>";
 		};
+		2D03BCFC1F3C8FB80074B0FD /* WBNativeVideoWriter */ = {
+			isa = PBXGroup;
+			children = (
+				2D03BCFD1F3C8FEE0074B0FD /* WBNativeVideoWriter.h */,
+				2D03BCFE1F3C8FEE0074B0FD /* WBNativeVideoWriter.m */,
+			);
+			name = WBNativeVideoWriter;
+			sourceTree = "<group>";
+		};
 		2DC682F11F30311C00D5E18C /* WBNativeRecorderBeautyFilter */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +167,7 @@
 		2DE9E4A01F0396E6001255F4 /* WBAVNativeRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				2D03BCFC1F3C8FB80074B0FD /* WBNativeVideoWriter */,
 				2D03BCED1F3C67DD0074B0FD /* WBNativeRecorder */,
 				2D03BCF21F3C682A0074B0FD /* WBNativeRecorderViewController */,
 				2D03BCF31F3C684A0074B0FD /* WBNativeRecorderPreview */,
@@ -186,6 +200,7 @@
 				2D03BCEB1F39CCCD0074B0FD /* WBNativeRecorderFaceDetector.h in Headers */,
 				2DC682F41F30315900D5E18C /* WBNativeRecorderBeautyFilter.h in Headers */,
 				2DC682F81F307B0900D5E18C /* WBNativeRecorderBeautyPreView.h in Headers */,
+				2D03BCFF1F3C8FEE0074B0FD /* WBNativeVideoWriter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +303,7 @@
 				2D03BCFB1F3C68DE0074B0FD /* WBNativeRecorderViewController.m in Sources */,
 				2D03BCE31F3844FC0074B0FD /* WBNativeRecorderGPUImageFilter.m in Sources */,
 				2DC682F91F307B0900D5E18C /* WBNativeRecorderBeautyPreView.m in Sources */,
+				2D03BD001F3C8FEE0074B0FD /* WBNativeVideoWriter.m in Sources */,
 				2DC682F51F30315900D5E18C /* WBNativeRecorderBeautyFilter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
