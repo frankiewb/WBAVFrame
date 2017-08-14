@@ -7,11 +7,13 @@
 //
 
 #import "WBNativeRecorder.h"
+#import "WBNativeVideoWriter.h"
 
 @interface WBNativeRecorder () <AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate,
 WBAACEncoderDelegate,
 WBH264EncoderDelegate,
-WBRtmpHandlerDelegate>
+WBRtmpHandlerDelegate,
+WBNativeVideoWtiterDelegate>
 
 
 #pragma mark 通用属性
@@ -62,7 +64,7 @@ WBRtmpHandlerDelegate>
 //是否开始直播
 @property (nonatomic, assign) BOOL isStartingLive;
 #pragma mark 录像模式属性
-
+@property (nonatomic, strong) WBNativeVideoWriter *recordWriter;
 
 @end
 
@@ -84,23 +86,42 @@ WBRtmpHandlerDelegate>
     return self;
 }
 
-
-- (void)dealloc
+- (void)destroy
 {
     [self stopRecord];
     [self.videoOutput setSampleBufferDelegate:nil queue:dispatch_get_main_queue()];
     [self.videoOutput setSampleBufferDelegate:nil queue:dispatch_get_main_queue()];
+}
+
+
+- (void)dealloc
+{
+    [self destroy];
     LOG_METHOD;
 }
 
 
 
 #pragma mark 初始化相关函数
-//初始化基本数据
+
 - (void)initVariousData
+{
+    [self initNormalVariousData];
+    [self initLiveVariousData];
+    [self initRecordVariousData];
+}
+
+
+//初始化通用基本数据
+- (void)initNormalVariousData
 {
     self.videoProcessingQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
     self.audioProcessingQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0);
+}
+
+//初始化直播相关实例
+- (void)initLiveVariousData
+{
     self.videoEncoder = [[WBH264Encoder alloc] init];
     self.videoEncoder.delegate = self;
     self.audioEncoder = [[WBAACEncoder alloc] init];
@@ -111,6 +132,13 @@ WBRtmpHandlerDelegate>
     self.timeStamp = 0;
 }
 
+//初始化录播相关实例
+- (void)initRecordVariousData
+{
+    //关于录制视频格式这里没有暴露接口，具体上层业务逻辑定夺吧，这里默认为4X3
+    self.recordWriter = [[WBNativeVideoWriter alloc] initWithVideoStoreURL:[self getRecordVideoFilePath] VideoAspectRationType:WBNativeVideoAspectRatioType4X3];
+    self.recordWriter.delegate = self;
+}
 
 
 //检查音视频设备使用权限
@@ -393,7 +421,6 @@ WBRtmpHandlerDelegate>
 
 - (void)startRecord
 {
-    
     //开启预览图
     if (![self.avSession isRunning])
     {
@@ -411,7 +438,7 @@ WBRtmpHandlerDelegate>
     }
     else if (self.recorderType == WBNativeRecorderTypeVideo)
     {
-        //To Do 开始录像处理流程
+        [self.recordWriter startWriter];
     }
 }
 
@@ -434,13 +461,12 @@ WBRtmpHandlerDelegate>
     }
     else if (self.recorderType == WBNativeRecorderTypeVideo)
     {
-        //To Do 停止录像处理流程
+        [self.recordWriter stopWriter];
     }
 }
 
 - (void)turnCamera
 {
-    
     //1.找寻待切换摄像头
     AVCaptureDevicePosition nowPosition = self.videoDevice.position;
     AVCaptureDevicePosition targetPosition;
@@ -565,10 +591,14 @@ WBRtmpHandlerDelegate>
         }
         else
         {
-            NSLog(@"设置设备属性过程发生错误，错误信息：%@",error.localizedDescription);
+            NSLog(@"WBRecord: 设置设备属性过程发生错误，错误信息：%@",error.localizedDescription);
         }
     }
-    NSLog(@"captureDeviceType 错误，无法找到对应的采集设备");
+    else
+    {
+        NSLog(@"WBRecord: captureDeviceType 错误，无法找到对应的采集设备");
+    }
+    
 }
 
 // 是否支持快速纹理更新
@@ -607,7 +637,7 @@ WBRtmpHandlerDelegate>
         }
         else if (self.recorderType == WBNativeRecorderTypeVideo)
         {
-            //本地视频合成并保存 TO DO ...
+            [self.recordWriter writeWithSampleBuffer:sampleBuffer MediaType:AVMediaTypeVideo];
         }
     }
     else //音频buffer帧处理
@@ -619,7 +649,7 @@ WBRtmpHandlerDelegate>
         }
         else if (self.recorderType == WBNativeRecorderTypeVideo)
         {
-            //本地音频合成并保存 TO DO...
+            [self.recordWriter writeWithSampleBuffer:sampleBuffer MediaType:AVMediaTypeAudio];
         }
     }
 }
@@ -704,14 +734,14 @@ WBRtmpHandlerDelegate>
     switch (status)
     {
         case WBLiveStateTypeReady:
-            NSLog(@"RTMP准备");
+            NSLog(@"WBRecord: RTMP准备");
             break;
         case WBLiveStateTypeConnecting:
-            NSLog(@"RTMP连接中");
+            NSLog(@"WBRecord: RTMP连接中");
             break;
         case WBLiveStateTypeConnected:
         {
-            NSLog(@"RTMP已连接");
+            NSLog(@"WBRecord: RTMP已连接");
             if (!self.isConnecting)
             {
                 self.isFirstFrame = YES;
@@ -722,11 +752,11 @@ WBRtmpHandlerDelegate>
         }
             break;
         case WBLiveStateTypeStop:
-            NSLog(@"RTMP已断开");
+            NSLog(@"WBRecord: RTMP已断开");
             break;
         case WBLiveStateTypeError:
         {
-            NSLog(@"RTMP连接错误");
+            NSLog(@"WBRecord: RTMP连接错误");
             self.isConnecting = NO;
             self.isFirstFrame = NO;
         }
@@ -776,5 +806,60 @@ WBRtmpHandlerDelegate>
 
 #pragma mark 录像模式相关函数
 
+//recordWriter 状态代理
+- (void)videoWriterStatus:(WBNativeVideoWriter *)videoWriter status:(WBNativeVideoWriterType)status
+{
+    switch (status)
+    {
+        case WBNativeVideoWriterTypeReady:
+            NSLog(@"WBRecord: 准备写入本地");
+            break;
+        case WBNativeVideoWriterTypeWriting:
+            NSLog(@"WBRecord: 正在写入本地");
+            break;
+        case WBNativeVideoWriterTypeStop:
+            NSLog(@"WBRecord: 停止写入本地");
+            break;
+        case WBNativeVideoWriterTypeComplete:
+            NSLog(@"WBRecord: 完成写入本地");
+            break;
+        case WBNativeVideoWriterTypeError:
+            NSLog(@"WBRecord: 写入本地错误");
+            break;
+        case WBNativeVideoWriterTypeNone:
+            NSLog(@"WBRecord: 如果你看到这个状态就见鬼了");
+            break;
+    }
+}
+
+//recordWriter 录制时间更新代理
+- (void)videoWtriterPorogressUpdate:(CGFloat)progress
+{
+    NSLog(@"WBRecord: 已经录制了 :%f秒",progress);
+}
+
+- (NSString *)getRecordVideoFilePath
+{
+    //获取文件名
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyyMMddHHmm"];
+    NSString *dateStr = [dateFormatter stringFromDate:date];
+    NSString *videoName = [NSString stringWithFormat:@"WBRecord%@.mp4",dateStr];
+    
+    //获取文件夹路径,直接存入Documents中，录像完成后需要删除
+    NSString *fileDir = [WBFileManager cachesDir];
+    NSString *fullRecordFolderDir = [fileDir stringByAppendingPathComponent:DEFAULT_VIDEO_STORE_FOLDER];
+    
+    if (![WBFileManager isExistsAtPath:fullRecordFolderDir])
+    {
+        [WBFileManager createFileAtPath:fullRecordFolderDir];
+    }
+    
+    //全文件路径 + 文件名 = 全路径
+    NSString *fullRecordStoreDir = [fullRecordFolderDir stringByAppendingPathComponent:videoName];
+
+    return fullRecordStoreDir;
+}
 
 @end

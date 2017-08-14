@@ -7,6 +7,7 @@
 //
 
 #import "WBNativeRecorderViewController.h"
+#import "WBRecordCircleProgressView.h"
 
 
 @interface WBNativeRecorderViewController ()
@@ -23,10 +24,17 @@
 
 @property (nonatomic, strong) UIButton *startButton;//开始录制
 
+@property (nonatomic, strong) WBRecordCircleProgressView *recordProgressView;//录制进度显示UI
+
 @property (nonatomic, strong) UIImageView *onLiveImageView;//直播中图标
 
 @property (nonatomic, strong) NSMutableDictionary *videoImageFilterValueDic;//滤镜参数设置集合数组
 
+@property (nonatomic, strong) NSTimer *recordTimer;//录制计时器
+
+@property (nonatomic, assign) CGFloat recordTime;//录制时间
+
+@property (nonatomic, assign) BOOL isRecording;//是否正在录制
 
 
 #ifdef FOCUS_EXPOSURE_AUTO_ADJUST_ENABLE
@@ -70,6 +78,7 @@
     if (self)
     {
         self.recorderType = type;
+        self.isRecording = NO;
     }
     
     return self;
@@ -103,7 +112,7 @@
 {
     [super viewDidLoad];
     [self setFilterVarious];
-    [self setLiveRecorder];
+    [self initRecorder];
     [self setSubview];
 }
 
@@ -126,7 +135,7 @@
     
 }
 
-- (void)setLiveRecorder
+- (void)initRecorder
 {
     self.nativeRecorder = [[WBNativeRecorder alloc] initWithLivePreViewLayer:self.view recorderType:_recorderType];
 #ifdef IMAGE_FILTER_ENABLE
@@ -156,14 +165,23 @@
     [self.torchButton setBackgroundImage:[UIImage imageNamed:@"torch"] forState:UIControlStateNormal];
     self.torchButton.frame = CGRectMake(WBScreenWidth/2 - 15*WBDeviceScale6, 10*WBDeviceScale6, 30*WBDeviceScale6, 30*WBDeviceScale6);
     [self.torchButton addTarget:self action:@selector(turnTorchModeStatus) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_torchButton];
+    
+    //recordProgressView
+    self.recordProgressView = [[WBRecordCircleProgressView alloc] initWithFrame:CGRectMake((WBScreenWidth - 62)/2, WBScreenHeight - 32 - 62, 62, 62)];
+    self.recordProgressView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:_recordProgressView];
+    [self.recordProgressView resetProgress];
+    [self.view addSubview:_recordProgressView];
     
     //startLiveButton
     self.startButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.startButton setBackgroundImage:[UIImage imageNamed:@"beginRecord"] forState:UIControlStateNormal];
-    self.startButton.frame = CGRectMake(WBScreenWidth/2 - 30*WBDeviceScale6, WBScreenHeight - 90*WBDeviceScale6, 60*WBDeviceScale6, 60*WBDeviceScale6);
-    [self.startButton addTarget:self action:@selector(startRecord) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_startButton];
+    self.startButton.frame = CGRectMake(5, 5, 52, 52);
+    self.startButton.backgroundColor = [UIColor redColor];
+    self.startButton.layer.cornerRadius = 26;
+    self.startButton.layer.masksToBounds = YES;
+    [self.startButton addTarget:self action:@selector(startButtonClickedHandler) forControlEvents:UIControlEventTouchUpInside];
+    [self.recordProgressView addSubview:_startButton];
+    
 
     //onLiveImageView
     self.onLiveImageView = [[UIImageView alloc] init];
@@ -175,11 +193,12 @@
     {
         [self.onLiveImageView setImage:[UIImage imageNamed:@"onRecord"]];
     }
-    
     self.onLiveImageView.frame = CGRectMake(15*WBDeviceScale6, 80*WBDeviceScale6, 60*WBDeviceScale6, 30*WBDeviceScale6);
     self.onLiveImageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.view addSubview:_onLiveImageView];
     self.onLiveImageView.hidden = YES;
+    
+    
     
 #ifdef FOCUS_EXPOSURE_AUTO_ADJUST_ENABLE
     //focusCursor
@@ -313,11 +332,47 @@
     }
 }
 
+
+- (void)startButtonClickedHandler
+{
+    (self.isRecording == NO) ? (self.isRecording = YES) :(self.isRecording = NO);
+    [self updateStartButtonWhileRecording];
+    if (self.isRecording)
+    {
+        [self startRecord];
+    }
+    else
+    {
+        [self stopRecord];
+        if (self.recorderType == WBNativeRecorderTypeLive)
+        {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        else
+        {
+            //暂时这样处理，后期push出视频播放器
+            self.startButton.enabled = NO;
+        }
+    }
+}
+
 - (void)stopRecord
 {
+
     if (self.nativeRecorder)
     {
+        [self updateStartButtonWhileRecording];
+        [self.recordProgressView resetProgress];
+
+        if (self.recordTimer)
+        {
+            [self.recordTimer invalidate];
+            self.recordTimer = nil;
+            self.recordTime = 0;
+        }
+        
         [self.nativeRecorder stopRecord];
+        self.isRecording = NO;
     }
 }
 
@@ -326,11 +381,13 @@
     if (self.nativeRecorder)
     {
         [self.nativeRecorder startRecord];
+        if (!self.recordTimer)
+        {
+            self.recordTimer = [NSTimer scheduledTimerWithTimeInterval:RECORD_TIMER_INTERVAL target:self selector:@selector(updateRecordTimeProgress) userInfo:nil repeats:YES];
+        }
     }
-    
-    self.startButton.hidden = YES;
     self.onLiveImageView.hidden = NO;
-
+    
 #ifdef CIIMAGE_FILTER
     self.saturationLabel.hidden = YES;
     self.brightnessLabel.hidden = YES;
@@ -352,8 +409,53 @@
     self.pixellateLabel.hidden = YES;
     self.pixellateSwitch.hidden = YES;
 #endif
+}
+
+- (void)updateRecordTimeProgress
+{
     
+    self.recordTime += RECORD_TIMER_INTERVAL;
     
+    if (self.recorderType == WBNativeRecorderTypeVideo)
+    {
+        [self.recordProgressView updateProgressWithValue:_recordTime/RECORD_MAX_TIME*1.0];
+        if (self.recordTime >= RECORD_MAX_TIME )
+        {
+            [self stopRecord];
+        }
+    }
+    else if (self.recorderType == WBNativeRecorderTypeLive)
+    {
+        //更新直播时间
+    }
+}
+
+- (void)updateStartButtonWhileRecording
+{
+    [self.recordProgressView resetProgress];
+    
+    if (self.isRecording)
+    {
+        [UIView animateWithDuration:0.2 animations:^{
+            CGPoint center = self.startButton.center;
+            CGRect rect = self.startButton.frame;
+            rect.size = CGSizeMake(28, 28);
+            self.startButton.frame = rect;
+            self.startButton.layer.cornerRadius = 4;
+            self.startButton.center = center;
+        }];
+    }
+    else
+    {
+        [UIView animateWithDuration:0.2 animations:^{
+            CGPoint center = self.startButton.center;
+            CGRect rect = self.startButton.frame;
+            rect.size = CGSizeMake(52, 52);
+            self.startButton.frame = rect;
+            self.startButton.layer.cornerRadius = 26;
+            self.startButton.center = center;
+        }];
+    }
 }
 
 #ifdef FOCUS_EXPOSURE_AUTO_ADJUST_ENABLE

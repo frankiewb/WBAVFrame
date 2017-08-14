@@ -13,6 +13,7 @@
 #import "WBSettingMacros.h"
 #import "WBSingletonDef.h"
 #import "WBMacros.h"
+#import "WBFileManager.h"
 #import "WBH264Encoder.h"
 #import "WBAACEncoder.h"
 #import "WBRtmpHandler.h"
@@ -21,6 +22,7 @@
 #import "WBNativeRecorderGPUImageFilter.h"
 #import "WBNativeRecorderBeautyPreView.h"
 #import "WBNativeRecorderFaceDetector.h"
+
 
 #import "GPUImage.h"
 

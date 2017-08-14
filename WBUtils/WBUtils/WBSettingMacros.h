@@ -8,16 +8,25 @@
 
 #import <Foundation/Foundation.h>
 
+
+#pragma mark 通用宏定义
+
 //默认推流路径
-#define DEFAULT_PUSH_RTMP_STREAM @"rtmp://push.ksyun.kuwo.cn/voicelive/251495263?opstr=publish&tm=1502362911&uid=251495263&roomid=251495263&Md5=154d5930ab36a73b0b30e835e034a822"
+#define DEFAULT_PUSH_RTMP_STREAM @"rtmp://push.ksyun.kuwo.cn/voicelive/251495263?opstr=publish&tm=1502711696&uid=251495263&roomid=251495263&Md5=10756ae29960a97501c676d14c399bbb"
 //默认拉流路径
 #define DEFAULT_GET_RTMP_STREAM @""
-//默认视频存储路径
-#define DEFAULT_VIDEO_STORE_PATH @""
+//默认视频存储文件夹 (默认存入APPDocument路径下)
+#define DEFAULT_VIDEO_STORE_FOLDER @"videoFolder"
 //默认视频播放路径
-#define DEFAULT_VIDEO_PLAY_PATH @""
+#define DEFAULT_VIDEO_PLAY_FOLDER @""
+
+//计时器刷新频率
+#define RECORD_TIMER_INTERVAL 0.05
+//单次录像最大时长
+#define RECORD_MAX_TIME 10
 
 
+#pragma mark 原生录像器宏定义
 
 //启用人脸检测
 #define FACE_DETECTOR_ENABLE
@@ -30,11 +39,6 @@
 
 //启用CIImage美颜
 //#define CIIMAGE_BEAUTY_ENABLE
-
-
-
-
-
 
 //是否开启原生采集CIIMAGE美颜功能
 #ifdef CIIMAGE_BEAUTY_ENABLE
@@ -60,6 +64,8 @@
     //启用人脸检测
     #define FACE_DETECTOR
 #endif
+
+#pragma mark GPUImage录像器宏定义
 
 
 

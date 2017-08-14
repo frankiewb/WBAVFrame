@@ -21,6 +21,9 @@ typedef NS_ENUM(NSInteger,WBNativeRecorderType)
 //初始化函数
 - (instancetype)initWithLivePreViewLayer:(UIView *)preViewLayer recorderType:(WBNativeRecorderType) recorderType;
 
+//销毁函数
+- (void)destroy;
+
 //开始录播
 - (void)startRecord;
 

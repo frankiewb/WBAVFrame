@@ -167,9 +167,9 @@
 		2DE9E4A01F0396E6001255F4 /* WBAVNativeRecorder */ = {
 			isa = PBXGroup;
 			children = (
-				2D03BCFC1F3C8FB80074B0FD /* WBNativeVideoWriter */,
 				2D03BCED1F3C67DD0074B0FD /* WBNativeRecorder */,
 				2D03BCF21F3C682A0074B0FD /* WBNativeRecorderViewController */,
+				2D03BCFC1F3C8FB80074B0FD /* WBNativeVideoWriter */,
 				2D03BCF31F3C684A0074B0FD /* WBNativeRecorderPreview */,
 				2DC682F11F30311C00D5E18C /* WBNativeRecorderBeautyFilter */,
 				2D03BCE81F39CC900074B0FD /* WBNativeRecorderFaceDetector */,

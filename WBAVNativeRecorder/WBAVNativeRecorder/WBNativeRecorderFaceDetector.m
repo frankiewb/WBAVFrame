@@ -44,10 +44,10 @@ SingletonM(WBNativeRecorderFaceDetector)
     CIImage *faceDetectImage = [CIImage imageWithCVPixelBuffer:(CVPixelBufferRef)imageBufferRef];
     
     //人脸检测
-    CFAbsoluteTime start = CFAbsoluteTimeGetCurrent();
+    //CFAbsoluteTime start = CFAbsoluteTimeGetCurrent();
     NSArray *faceDetectResult = [faceDetector featuresInImage:faceDetectImage];
-    CFAbsoluteTime end = CFAbsoluteTimeGetCurrent();
-    NSLog(@"WBFaceDetecttime cost: %0.3f秒", end - start);
+    //CFAbsoluteTime end = CFAbsoluteTimeGetCurrent();
+    //NSLog(@"WBFaceDetecttime cost: %0.3f秒", end - start);
     CIImage *faceDetectedImage = faceDetectImage;
     UIImage *faceRenderedImage = nil;
     
@@ -56,8 +56,6 @@ SingletonM(WBNativeRecorderFaceDetector)
     {
         //加快绘制性能，一次展开画板全部绘制进去
         UIImage *faceDrawImage = [[UIImage alloc] initWithCIImage:faceDetectedImage];
-        NSLog(@"WB:%@", NSStringFromCGSize(faceDrawImage.size));
-        
         
         //开启CG图形上下文，展开画板
         //不许动这个配置，不要添加也不要更改，否则极大影响性能
