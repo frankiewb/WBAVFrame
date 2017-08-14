@@ -16,7 +16,46 @@ typedef NS_ENUM(NSInteger,WBNativeRecorderType)
     WBNativeRecorderTypeVideo = 2,//录像模式 = 采集 + 前处理 + 音频视频合成到指定位置存储
 };
 
+
+//直播模式状态
+typedef NS_ENUM(NSInteger,WBNativeLiveRecorderStatusType)
+{
+    WBNativeLiveRecorderStatusTypeInit = 1,
+    WBNativeLiveRecorderStatusTypeReady,
+    WBNativeLiveRecorderStatusTypePrepareConnect,
+    WBNativeLiveRecorderStatusTypeConnecting,
+    WBNativeLiveRecorderStatusTypeConnected,
+    WBNativeLiveRecorderStatusTypeStop,
+    WBNativeLiveRecorderStatusTypeError,
+};
+
+//录播模式状态
+typedef NS_ENUM(NSInteger,WBNativeVideoRecorderStatusType)
+{
+    WBNativeVideoRecorderStatusTypeInit = 1,
+    WBNativeVideoRecorderStatusTypeReady,
+    WBNativeVideoRecorderStatusTypePrepareWrite,
+    WBNativeVideoRecorderStatusTypeWriting,
+    WBNativeVideoRecorderStatusTypeComplete,
+    WBNativeVideoRecorderStatusTypeStop,
+    WBNativeVideoRecorderStatusTypeError,
+};
+
+@class WBNativeRecorder;
+
+@protocol WBNativeRecorderDelegate <NSObject>
+
+//录像器直播模式状态代理
+- (void)liveRecord:(WBNativeRecorder *)recorder liveStatus:(WBNativeLiveRecorderStatusType)liveStatusType;
+
+//录像器录像模式状态代理
+- (void)videoRecord:(WBNativeRecorder *)recorder videoStatus:(WBNativeVideoRecorderStatusType)videoStatusType;
+
+@end
+
 @interface WBNativeRecorder : NSObject
+
+@property (nonatomic,weak) id<WBNativeRecorderDelegate> delegate;
 
 //初始化函数
 - (instancetype)initWithLivePreViewLayer:(UIView *)preViewLayer recorderType:(WBNativeRecorderType) recorderType;

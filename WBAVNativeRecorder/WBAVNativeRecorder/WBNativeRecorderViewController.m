@@ -10,7 +10,7 @@
 #import "WBRecordCircleProgressView.h"
 
 
-@interface WBNativeRecorderViewController ()
+@interface WBNativeRecorderViewController ()<WBNativeRecorderDelegate>
 
 @property (nonatomic, assign) WBNativeRecorderType recorderType;//播放器类型
 
@@ -138,6 +138,7 @@
 - (void)initRecorder
 {
     self.nativeRecorder = [[WBNativeRecorder alloc] initWithLivePreViewLayer:self.view recorderType:_recorderType];
+    self.nativeRecorder.delegate = self;
 #ifdef IMAGE_FILTER_ENABLE
     [self.nativeRecorder setVideoImageFilterValueInfoDic:_videoImageFilterValueDic];
 #endif
@@ -585,6 +586,73 @@
 }
 
 #endif
+
+
+#pragma mark NativeRecord 代理函数
+
+- (void)liveRecord:(WBNativeRecorder *)recorder liveStatus:(WBNativeLiveRecorderStatusType)liveStatusType
+{
+    switch (liveStatusType)
+    {
+        case WBNativeLiveRecorderStatusTypeInit:
+            NSLog(@"WBRecord: 直播录像器初始化完成");
+            break;
+        case WBNativeLiveRecorderStatusTypeReady:
+            NSLog(@"WBRecord: 直播录像器RTMP初始化完成");
+            break;
+        case WBNativeLiveRecorderStatusTypePrepareConnect:
+            NSLog(@"WBRecord: 直播录像器RTMP推流准备");
+            break;
+        case WBNativeLiveRecorderStatusTypeConnecting:
+            NSLog(@"WBRecord: 直播录像器RTMP推流连接中");
+            break;
+        case WBNativeLiveRecorderStatusTypeConnected:
+            NSLog(@"WBRecord: 直播录像器RTMP连接成功，推流中");
+            break;
+        case WBNativeLiveRecorderStatusTypeStop:
+            NSLog(@"WBRecord: 直播录像器RTMP停止推流");
+            break;
+        case WBNativeLiveRecorderStatusTypeError:
+            NSLog(@"WBRecord: 直播录像器RTMP推流错误");
+            break;
+    }
+}
+
+- (void)videoRecord:(WBNativeRecorder *)recorder videoStatus:(WBNativeVideoRecorderStatusType)videoStatusType
+{
+    switch (videoStatusType)
+    {
+        case WBNativeVideoRecorderStatusTypeInit:
+            NSLog(@"WBRecord: 视频录像器初始化完成");
+            break;
+        case WBNativeVideoRecorderStatusTypeReady:
+            NSLog(@"WBRecord: 视频录像器本地Writer初始化完成");
+            break;
+        case WBNativeVideoRecorderStatusTypePrepareWrite:
+            NSLog(@"WBRecord: 视频录像器本地Writer准备写入");
+            break;
+        case WBNativeVideoRecorderStatusTypeWriting:
+            NSLog(@"WBRecord: 视频录像器本地Writer写入中");
+            break;
+        case WBNativeVideoRecorderStatusTypeComplete:
+            NSLog(@"WBRecord: 视频录像器本地Writer写入完成");
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.navigationController popViewControllerAnimated:YES];
+            });
+        }
+            break;
+        case WBNativeVideoRecorderStatusTypeStop:
+            NSLog(@"WBRecord: 视频录像器本地Writer停止写入");
+            break;
+        case WBNativeVideoRecorderStatusTypeError:
+            NSLog(@"WBRecord: 视频录像器本地Writer写入错误");
+            break;        
+    }
+}
+
+
+
 
 
 

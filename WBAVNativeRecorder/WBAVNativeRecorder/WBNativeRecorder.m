@@ -19,6 +19,10 @@ WBNativeVideoWtiterDelegate>
 #pragma mark 通用属性
 //播放器类型:直播 or 本地录像
 @property (nonatomic, assign) WBNativeRecorderType recorderType;
+//直播状态
+@property (nonatomic, assign) WBNativeLiveRecorderStatusType liveRecordStatus;
+//录像状态
+@property (nonatomic, assign) WBNativeVideoRecorderStatusType videoRecordStatus;
 //音视频输入输出设备及数据管理器
 @property (nonatomic, strong) AVCaptureSession *avSession;
 //视频管理器：前后摄像头，闪光灯，聚焦，摄像头切换
@@ -100,7 +104,27 @@ WBNativeVideoWtiterDelegate>
     LOG_METHOD;
 }
 
+#pragma mark 代理函数处理
 
+- (void)updateLiveRecordStatus:(WBNativeLiveRecorderStatusType)liveStatus
+{
+    self.liveRecordStatus = liveStatus;
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(liveRecord:liveStatus:)])
+    {
+        [self.delegate liveRecord:self liveStatus:liveStatus];
+    }
+}
+
+- (void)updateVideoRecordStatus:(WBNativeVideoRecorderStatusType)videoStatus
+{
+    self.videoRecordStatus = videoStatus;
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(videoRecord:videoStatus:)])
+    {
+        [self.delegate videoRecord:self videoStatus:videoStatus];
+    }
+}
 
 #pragma mark 初始化相关函数
 
@@ -197,6 +221,9 @@ WBNativeVideoWtiterDelegate>
     {
         [self.avSession startRunning];
     }
+    //9.更新状态
+    [self updateLiveRecordStatus:WBNativeLiveRecorderStatusTypeInit];
+    [self updateVideoRecordStatus:WBNativeVideoRecorderStatusTypeInit];
 }
 
 
@@ -734,14 +761,17 @@ WBNativeVideoWtiterDelegate>
     switch (status)
     {
         case WBLiveStateTypeReady:
-            NSLog(@"WBRecord: RTMP准备");
+            NSLog(@"RecordLive: RTMP准备");
+            [self updateLiveRecordStatus:WBNativeLiveRecorderStatusTypeReady];
             break;
         case WBLiveStateTypeConnecting:
-            NSLog(@"WBRecord: RTMP连接中");
+            NSLog(@"RecordLive: RTMP连接中");
+            [self updateLiveRecordStatus:WBNativeLiveRecorderStatusTypeConnecting];
             break;
         case WBLiveStateTypeConnected:
         {
-            NSLog(@"WBRecord: RTMP已连接");
+            NSLog(@"RecordLive: RTMP已连接");
+            [self updateLiveRecordStatus:WBNativeLiveRecorderStatusTypeConnected];
             if (!self.isConnecting)
             {
                 self.isFirstFrame = YES;
@@ -752,11 +782,13 @@ WBNativeVideoWtiterDelegate>
         }
             break;
         case WBLiveStateTypeStop:
-            NSLog(@"WBRecord: RTMP已断开");
+            [self updateLiveRecordStatus:WBNativeLiveRecorderStatusTypeStop];
+            NSLog(@"RecordLive: RTMP已断开");
             break;
         case WBLiveStateTypeError:
         {
-            NSLog(@"WBRecord: RTMP连接错误");
+            [self updateLiveRecordStatus:WBNativeLiveRecorderStatusTypeError];
+            NSLog(@"RecordLive: RTMP连接错误");
             self.isConnecting = NO;
             self.isFirstFrame = NO;
         }
@@ -812,30 +844,29 @@ WBNativeVideoWtiterDelegate>
     switch (status)
     {
         case WBNativeVideoWriterTypeReady:
-            NSLog(@"WBRecord: 准备写入本地");
+            [self updateVideoRecordStatus:WBNativeVideoRecorderStatusTypeReady];
+            NSLog(@"RecordWriter: 准备写入本地");
             break;
         case WBNativeVideoWriterTypeWriting:
-            NSLog(@"WBRecord: 正在写入本地");
+            [self updateVideoRecordStatus:WBNativeVideoRecorderStatusTypeWriting];
+            NSLog(@"RecordWriter: 正在写入本地");
             break;
         case WBNativeVideoWriterTypeStop:
-            NSLog(@"WBRecord: 停止写入本地");
+            [self updateVideoRecordStatus:WBNativeVideoRecorderStatusTypeStop];
+            NSLog(@"RecordWriter: 停止写入本地");
             break;
         case WBNativeVideoWriterTypeComplete:
-            NSLog(@"WBRecord: 完成写入本地");
+            [self updateVideoRecordStatus:WBNativeVideoRecorderStatusTypeComplete];
+            NSLog(@"RecordWriter: 完成写入本地");
             break;
         case WBNativeVideoWriterTypeError:
-            NSLog(@"WBRecord: 写入本地错误");
+            [self updateVideoRecordStatus:WBNativeVideoRecorderStatusTypeError];
+            NSLog(@"RecordWriter: 写入本地错误");
             break;
         case WBNativeVideoWriterTypeNone:
-            NSLog(@"WBRecord: 如果你看到这个状态就见鬼了");
+            NSLog(@"RecordWriter: 如果你看到这个状态就见鬼了");
             break;
     }
-}
-
-//recordWriter 录制时间更新代理
-- (void)videoWtriterPorogressUpdate:(CGFloat)progress
-{
-    NSLog(@"WBRecord: 已经录制了 :%f秒",progress);
 }
 
 - (NSString *)getRecordVideoFilePath
