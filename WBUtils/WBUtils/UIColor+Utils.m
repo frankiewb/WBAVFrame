@@ -81,6 +81,20 @@
                            alpha:alpha];
 }
 
++(UIColor*)colorWithRGB:(NSUInteger)hex
+                  alpha:(CGFloat)alpha
+{
+    float r, g, b, a;
+    a = alpha;
+    b = hex & 0x0000FF;
+    hex = hex >> 8;
+    g = hex & 0x0000FF;
+    hex = hex >> 8;
+    r = hex;
+    
+    return [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a];
+}
+
 
 //十进制转十六进制
 -(NSString *)ToHex:(int)tmpid

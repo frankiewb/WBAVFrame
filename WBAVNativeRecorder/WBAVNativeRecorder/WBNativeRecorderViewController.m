@@ -8,6 +8,7 @@
 
 #import "WBNativeRecorderViewController.h"
 #import "WBRecordCircleProgressView.h"
+#import "WBTimeShowView.h"
 
 
 @interface WBNativeRecorderViewController ()<WBNativeRecorderDelegate>
@@ -30,9 +31,12 @@
 
 @property (nonatomic, strong) NSMutableDictionary *videoImageFilterValueDic;//滤镜参数设置集合数组
 
+@property (nonatomic, strong) WBTimeShowView *timeShowView;//录制时间显示器
+
 @property (nonatomic, strong) NSTimer *recordTimer;//录制计时器
 
 @property (nonatomic, assign) CGFloat recordTime;//录制时间
+
 
 @property (nonatomic, assign) BOOL isRecording;//是否正在录制
 
@@ -198,6 +202,11 @@
     self.onLiveImageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.view addSubview:_onLiveImageView];
     self.onLiveImageView.hidden = YES;
+    
+    //timeShowView
+    self.timeShowView = [[WBTimeShowView alloc] initWithFrame:CGRectMake((WBScreenWidth - 100)/2, 16, 100, 34)];
+    [self.view addSubview:_timeShowView];
+    self.timeShowView.hidden = YES;
     
     
     
@@ -420,6 +429,7 @@
     if (self.recorderType == WBNativeRecorderTypeVideo)
     {
         [self.recordProgressView updateProgressWithValue:_recordTime/RECORD_MAX_TIME*1.0];
+        [self.timeShowView updateTimeText:_recordTime];
         if (self.recordTime >= RECORD_MAX_TIME )
         {
             [self stopRecord];
@@ -435,8 +445,10 @@
 {
     [self.recordProgressView resetProgress];
     
+    
     if (self.isRecording)
     {
+        self.timeShowView.hidden = NO;
         [UIView animateWithDuration:0.2 animations:^{
             CGPoint center = self.startButton.center;
             CGRect rect = self.startButton.frame;
@@ -448,6 +460,7 @@
     }
     else
     {
+        self.timeShowView.hidden = YES;
         [UIView animateWithDuration:0.2 animations:^{
             CGPoint center = self.startButton.center;
             CGRect rect = self.startButton.frame;

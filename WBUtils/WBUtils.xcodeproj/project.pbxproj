@@ -12,6 +12,8 @@
 		2D1DCAC81F41788900368A9E /* WBFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCAC61F41788900368A9E /* WBFileManager.m */; };
 		2D1DCACF1F41AB4D00368A9E /* WBRecordCircleProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D1DCACD1F41AB4D00368A9E /* WBRecordCircleProgressView.h */; };
 		2D1DCAD01F41AB4D00368A9E /* WBRecordCircleProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCACE1F41AB4D00368A9E /* WBRecordCircleProgressView.m */; };
+		2D1DCAD31F41DD0C00368A9E /* WBTimeShowView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D1DCAD11F41DD0C00368A9E /* WBTimeShowView.h */; };
+		2D1DCAD41F41DD0D00368A9E /* WBTimeShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCAD21F41DD0C00368A9E /* WBTimeShowView.m */; };
 		2D32361A1F31D75700AE340D /* WBSingletonDef.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D3236181F31D75700AE340D /* WBSingletonDef.h */; };
 		2DDF0A941F0627A1002C032C /* MBProgressHUD+Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DDF0A921F0627A1002C032C /* MBProgressHUD+Utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2DDF0A951F0627A1002C032C /* MBProgressHUD+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDF0A931F0627A1002C032C /* MBProgressHUD+Utils.m */; };
@@ -42,6 +44,8 @@
 		2D1DCAC61F41788900368A9E /* WBFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBFileManager.m; sourceTree = "<group>"; };
 		2D1DCACD1F41AB4D00368A9E /* WBRecordCircleProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBRecordCircleProgressView.h; sourceTree = "<group>"; };
 		2D1DCACE1F41AB4D00368A9E /* WBRecordCircleProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBRecordCircleProgressView.m; sourceTree = "<group>"; };
+		2D1DCAD11F41DD0C00368A9E /* WBTimeShowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTimeShowView.h; sourceTree = "<group>"; };
+		2D1DCAD21F41DD0C00368A9E /* WBTimeShowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTimeShowView.m; sourceTree = "<group>"; };
 		2D3236181F31D75700AE340D /* WBSingletonDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSingletonDef.h; sourceTree = "<group>"; };
 		2DDF0A921F0627A1002C032C /* MBProgressHUD+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Utils.h"; sourceTree = "<group>"; };
 		2DDF0A931F0627A1002C032C /* MBProgressHUD+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Utils.m"; sourceTree = "<group>"; };
@@ -112,6 +116,8 @@
 				2D1DCAC61F41788900368A9E /* WBFileManager.m */,
 				2D1DCACD1F41AB4D00368A9E /* WBRecordCircleProgressView.h */,
 				2D1DCACE1F41AB4D00368A9E /* WBRecordCircleProgressView.m */,
+				2D1DCAD11F41DD0C00368A9E /* WBTimeShowView.h */,
+				2D1DCAD21F41DD0C00368A9E /* WBTimeShowView.m */,
 			);
 			path = WBUtils;
 			sourceTree = "<group>";
@@ -133,6 +139,7 @@
 			files = (
 				2DE9E4791F02577B001255F4 /* WBUtils.h in Headers */,
 				2DE9E47D1F0267AA001255F4 /* UIColor+Utils.h in Headers */,
+				2D1DCAD31F41DD0C00368A9E /* WBTimeShowView.h in Headers */,
 				2D1DCAC71F41788900368A9E /* WBFileManager.h in Headers */,
 				2DDF0A941F0627A1002C032C /* MBProgressHUD+Utils.h in Headers */,
 				2D1DCACF1F41AB4D00368A9E /* WBRecordCircleProgressView.h in Headers */,
@@ -239,6 +246,7 @@
 				2DDF0A951F0627A1002C032C /* MBProgressHUD+Utils.m in Sources */,
 				2DE9E4231F02328B001255F4 /* WBUtils.m in Sources */,
 				2D1DCAC81F41788900368A9E /* WBFileManager.m in Sources */,
+				2D1DCAD41F41DD0D00368A9E /* WBTimeShowView.m in Sources */,
 				2D1DCAD01F41AB4D00368A9E /* WBRecordCircleProgressView.m in Sources */,
 				2DE9E47E1F0267AA001255F4 /* UIColor+Utils.m in Sources */,
 			);
