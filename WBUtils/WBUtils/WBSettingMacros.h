@@ -12,7 +12,7 @@
 #pragma mark 通用宏定义
 
 //默认推流路径
-#define DEFAULT_PUSH_RTMP_STREAM @"rtmp://push.ksyun.kuwo.cn/voicelive/251495263?opstr=publish&tm=1502716776&uid=251495263&roomid=251495263&Md5=5ba68cac454b0f61a2294ada6e37da95"
+#define DEFAULT_PUSH_RTMP_STREAM @"rtmp://push.ksyun.kuwo.cn/voicelive/251495263?opstr=publish&tm=1502761235&uid=251495263&roomid=251495263&Md5=a9a5c56f2859ff16f1e72d8f72c4ec8e"
 //默认拉流路径
 #define DEFAULT_GET_RTMP_STREAM @""
 //默认视频存储文件夹 (默认存入APPDocument路径下)

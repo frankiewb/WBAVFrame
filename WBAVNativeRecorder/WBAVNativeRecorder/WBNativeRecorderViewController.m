@@ -423,21 +423,15 @@
 
 - (void)updateRecordTimeProgress
 {
-    
     self.recordTime += RECORD_TIMER_INTERVAL;
-    
+    [self.timeShowView updateTimeText:_recordTime];
     if (self.recorderType == WBNativeRecorderTypeVideo)
     {
         [self.recordProgressView updateProgressWithValue:_recordTime/RECORD_MAX_TIME*1.0];
-        [self.timeShowView updateTimeText:_recordTime];
         if (self.recordTime >= RECORD_MAX_TIME )
         {
             [self stopRecord];
         }
-    }
-    else if (self.recorderType == WBNativeRecorderTypeLive)
-    {
-        //更新直播时间
     }
 }
 
