@@ -877,14 +877,15 @@ WBNativeVideoWtiterDelegate>
     [dateFormatter setDateFormat:@"yyyyMMddHHmm"];
     NSString *dateStr = [dateFormatter stringFromDate:date];
     NSString *videoName = [NSString stringWithFormat:@"WBRecord%@.mp4",dateStr];
+
     
     //获取文件夹路径,直接存入Documents中，录像完成后需要删除
-    NSString *fileDir = [WBFileManager cachesDir];
+    NSString *fileDir = [WBFileManager documentsDir];
     NSString *fullRecordFolderDir = [fileDir stringByAppendingPathComponent:DEFAULT_VIDEO_STORE_FOLDER];
-    
+
     if (![WBFileManager isExistsAtPath:fullRecordFolderDir])
     {
-        [WBFileManager createFileAtPath:fullRecordFolderDir];
+        [WBFileManager createDirectoryAtPath:fullRecordFolderDir];
     }
     
     //全文件路径 + 文件名 = 全路径

@@ -155,8 +155,8 @@
 		2D9B28171F01F61600D3EAEB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2D9B281B1F01F61600D3EAEB /* AppDelegate.m */,
 				2D9B281A1F01F61600D3EAEB /* AppDelegate.h */,
+				2D9B281B1F01F61600D3EAEB /* AppDelegate.m */,
 				2D9B28181F01F61600D3EAEB /* main.m */,
 				2D9B28251F01F61600D3EAEB /* LaunchScreen.storyboard */,
 				2D9B28281F01F61600D3EAEB /* Info.plist */,

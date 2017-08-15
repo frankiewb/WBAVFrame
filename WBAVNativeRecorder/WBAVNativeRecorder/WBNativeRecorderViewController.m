@@ -654,6 +654,7 @@
             break;
         case WBNativeVideoRecorderStatusTypeError:
             NSLog(@"WBRecord: 视频录像器本地Writer写入错误");
+            [self.nativeRecorder stopRecord];
             break;        
     }
 }

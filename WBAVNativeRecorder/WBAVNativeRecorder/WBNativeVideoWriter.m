@@ -8,6 +8,7 @@
 
 #import "WBNativeVideoWriter.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <Photos/Photos.h>
 
 @interface WBNativeVideoWriter ()
 
@@ -105,16 +106,34 @@
     WEAK_SELF;
     if (self.recordWriter && self.recordWriter.status == AVAssetWriterStatusWriting)
     {
+        STRONG_SELF;
         //将写入的视频纳入进iOS的相册管理器中去
+        
         dispatch_async(self.writerWorkingQueue, ^{
-            [weakSelf.recordWriter finishWritingWithCompletionHandler:^{
+            [strongSelf.recordWriter finishWritingWithCompletionHandler:^{
                 ALAssetsLibrary *assetslib = [[ALAssetsLibrary alloc] init];
-                [assetslib writeVideoAtPathToSavedPhotosAlbum:weakSelf.videoURL completionBlock:nil];
+                [assetslib writeVideoAtPathToSavedPhotosAlbum:strongSelf.videoURL completionBlock:nil];
                 [weakSelf updateRecordWriterStatus:WBNativeVideoWriterTypeComplete];
             }];
         });
+        
+//            [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+//                [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:strongSelf.videoURL];
+//            } completionHandler:^(BOOL success, NSError * _Nullable error) {
+//                
+//                if (success)
+//                {
+//                    [strongSelf updateRecordWriterStatus:WBNativeVideoWriterTypeComplete];
+//                }
+//                else
+//                {
+//                    [strongSelf updateRecordWriterStatus:WBNativeVideoWriterTypeError];
+//                    NSLog(@"AVAssetWriter写入失败: %@",error.description);
+//                }
+//            }];
     }
 }
+
 
 - (void)destroyWriter
 {
@@ -206,7 +225,6 @@
             return;
         }
     }
-    
     CFRetain(sampleBuffer);
     WEAK_SELF;
     dispatch_async(self.writerWorkingQueue, ^{
@@ -225,6 +243,14 @@
         {
             [weakSelf.recordWriter startWriting];
             [weakSelf.recordWriter startSessionAtSourceTime:CMSampleBufferGetPresentationTimeStamp(sampleBuffer)];
+            
+            AVAssetWriterStatus status = self.recordWriter.status;
+            if (status == AVAssetWriterStatusFailed)
+            {
+                NSLog(@"recordWriter start Failed :%@",self.recordWriter.error.description);
+                [self updateRecordWriterStatus:WBNativeVideoWriterTypeError];
+                return;
+            }
         }
         //处理视频sampleBuffer数据
         if (mediaType == AVMediaTypeVideo)
@@ -241,7 +267,6 @@
                     }
                 }
             }
-            
         }
         //处理音频sampleBuffer数据
         if (mediaType == AVMediaTypeAudio)
