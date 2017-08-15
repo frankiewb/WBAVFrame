@@ -108,29 +108,7 @@
     {
         STRONG_SELF;
         //将写入的视频纳入进iOS的相册管理器中去
-        
-        dispatch_async(self.writerWorkingQueue, ^{
-            [strongSelf.recordWriter finishWritingWithCompletionHandler:^{
-                ALAssetsLibrary *assetslib = [[ALAssetsLibrary alloc] init];
-                [assetslib writeVideoAtPathToSavedPhotosAlbum:strongSelf.videoURL completionBlock:nil];
-                [weakSelf updateRecordWriterStatus:WBNativeVideoWriterTypeComplete];
-            }];
-        });
-        
-//            [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-//                [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:strongSelf.videoURL];
-//            } completionHandler:^(BOOL success, NSError * _Nullable error) {
-//                
-//                if (success)
-//                {
-//                    [strongSelf updateRecordWriterStatus:WBNativeVideoWriterTypeComplete];
-//                }
-//                else
-//                {
-//                    [strongSelf updateRecordWriterStatus:WBNativeVideoWriterTypeError];
-//                    NSLog(@"AVAssetWriter写入失败: %@",error.description);
-//                }
-//            }];
+        [strongSelf saveRecordToLocal];
     }
 }
 
@@ -292,12 +270,85 @@
     });
 }
 
+- (void)saveRecordToLocal
+{
+    dispatch_async(_writerWorkingQueue, ^{
+        
+        //iOS8 及其以下推荐使用
+        //if ([UIDevice currentDevice].systemVersion.doubleValue < 9.0)
+        if (TRUE)
+        {
+            [self.recordWriter finishWritingWithCompletionHandler:^
+            {
+                ALAssetsLibrary *assetslib = [[ALAssetsLibrary alloc] init];
+                [assetslib writeVideoAtPathToSavedPhotosAlbum:_videoURL completionBlock:nil];
+                [self updateRecordWriterStatus:WBNativeVideoWriterTypeComplete];
+            }];
+        }
+        else//iOS8 及以上推荐使用
+        {
+            NSError * error = nil;
+            // 用来抓取PHAsset的字符串标识
+            __block NSString *assetId = nil;
+            // 用来抓取PHAssetCollectin的字符串标识符
+            __block NSString *assetCollectionId = nil;
+            PHPhotoLibrary * library = [PHPhotoLibrary sharedPhotoLibrary];
+            //保存视频到相机胶卷
+            [library performChangesAndWait:^{
+                assetId = [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:_videoURL].placeholderForCreatedAsset.localIdentifier;
+            } error:&error];
+            //提示信息
+            if (error)
+            {
+                [self updateRecordWriterStatus:WBNativeVideoWriterTypeError];
+                NSLog(@"PHAssetChangeRequest写入失败: %@",error.description);
+                return;
+            }
+            // 获取曾经创建过的自定义视频相册名字
+            PHAssetCollection  * createdAssetCollection = nil;
+            PHFetchResult< PHAssetCollection *>* assetCollections = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
+            for (PHAssetCollection * assetCollection in assetCollections)
+            {
+                if ([assetCollection.localizedTitle isEqualToString: VIDEO_FOLDER_NAME])
+                {
+                    createdAssetCollection = assetCollection;
+                    break;
+                }
+            }
+            
+            //如果这个自定义框架没有创建过
+            if (createdAssetCollection == nil) {
+                //创建新的[自定义的 Album](相簿\相册)
+                [library performChangesAndWait:^
+                {
+                    assetCollectionId = [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:VIDEO_FOLDER_NAME].placeholderForCreatedAssetCollection.localIdentifier;
+                } error:&error];
+                //抓取刚创建完的视频相册对象
+                createdAssetCollection = [PHAssetCollection fetchAssetCollectionsWithLocalIdentifiers:@[assetCollectionId] options:nil].firstObject;
+            }
+            
+            // 将【Camera Roll】(相机胶卷)的视频 添加到 【自定义Album】(相簿\相册)中
+            [library performChangesAndWait:^
+            {
+                PHAssetCollectionChangeRequest *request = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:createdAssetCollection];
+                // 视频
+                [request addAssets:[PHAsset fetchAssetsWithLocalIdentifiers:@[assetId] options:nil]];
+            } error:&error];
+            // 提示信息
+            if (error)
+            {
+                [self updateRecordWriterStatus:WBNativeVideoWriterTypeError];
+                NSLog(@"PHAssetCollectionChangeRequest写入失败: %@",error.description);
+                return;
 
+            } else {
+                [self updateRecordWriterStatus:WBNativeVideoWriterTypeComplete];
 
-
-
-
-
+            }
+        }
+  
+    });
+}
 
 
 

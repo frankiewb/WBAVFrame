@@ -92,7 +92,7 @@ WBNativeVideoWtiterDelegate>
 
 - (void)destroy
 {
-    [self stopRecord];
+    //[self stopRecord];
     [self.videoOutput setSampleBufferDelegate:nil queue:dispatch_get_main_queue()];
     [self.videoOutput setSampleBufferDelegate:nil queue:dispatch_get_main_queue()];
 }
@@ -880,7 +880,7 @@ WBNativeVideoWtiterDelegate>
 
     
     //获取文件夹路径,直接存入Documents中，录像完成后需要删除
-    NSString *fileDir = [WBFileManager documentsDir];
+    NSString *fileDir = [WBFileManager tmpDir];
     NSString *fullRecordFolderDir = [fileDir stringByAppendingPathComponent:DEFAULT_VIDEO_STORE_FOLDER];
 
     if (![WBFileManager isExistsAtPath:fullRecordFolderDir])
