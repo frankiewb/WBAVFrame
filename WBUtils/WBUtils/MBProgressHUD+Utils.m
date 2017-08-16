@@ -46,9 +46,15 @@
     hud.label.text = message;
     // 隐藏时候从父控件中移除
     hud.removeFromSuperViewOnHide = YES;
+    
+#warning 忽略特定警告方法
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     // YES代表需要蒙版效果
     hud.dimBackground = YES;
-    return hud;
+#pragma clang diagnostic pop
+    
+        return hud;
 }
 
 + (void)showSuccess:(NSString *)success

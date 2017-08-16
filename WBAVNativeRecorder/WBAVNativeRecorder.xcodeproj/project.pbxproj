@@ -17,11 +17,11 @@
 		2D03BCFB1F3C68DE0074B0FD /* WBNativeRecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D03BCF91F3C68DE0074B0FD /* WBNativeRecorderViewController.m */; };
 		2D03BCFF1F3C8FEE0074B0FD /* WBNativeVideoWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D03BCFD1F3C8FEE0074B0FD /* WBNativeVideoWriter.h */; };
 		2D03BD001F3C8FEE0074B0FD /* WBNativeVideoWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D03BCFE1F3C8FEE0074B0FD /* WBNativeVideoWriter.m */; };
+		2D1DCADF1F4405BF00368A9E /* WBAVNativeRecorder_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 2D1DCADE1F4405BF00368A9E /* WBAVNativeRecorder_Prefix.pch */; };
 		2DC682F41F30315900D5E18C /* WBNativeRecorderBeautyFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DC682F21F30315900D5E18C /* WBNativeRecorderBeautyFilter.h */; };
 		2DC682F51F30315900D5E18C /* WBNativeRecorderBeautyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC682F31F30315900D5E18C /* WBNativeRecorderBeautyFilter.m */; };
 		2DC682F81F307B0900D5E18C /* WBNativeRecorderBeautyPreView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DC682F61F307B0900D5E18C /* WBNativeRecorderBeautyPreView.h */; };
 		2DC682F91F307B0900D5E18C /* WBNativeRecorderBeautyPreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC682F71F307B0900D5E18C /* WBNativeRecorderBeautyPreView.m */; };
-		2DDF0A901F04D4C2002C032C /* WBAVNativeRecorder_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 2DDF0A8F1F04D4C2002C032C /* WBAVNativeRecorder_Prefix.pch */; };
 		B42DA9E0A9B6296F63822C45 /* libPods-WBAVNativeRecorder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C447FA7833B57AFF10EC12E7 /* libPods-WBAVNativeRecorder.a */; };
 /* End PBXBuildFile section */
 
@@ -49,12 +49,12 @@
 		2D03BCF91F3C68DE0074B0FD /* WBNativeRecorderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNativeRecorderViewController.m; sourceTree = "<group>"; };
 		2D03BCFD1F3C8FEE0074B0FD /* WBNativeVideoWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNativeVideoWriter.h; sourceTree = "<group>"; };
 		2D03BCFE1F3C8FEE0074B0FD /* WBNativeVideoWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNativeVideoWriter.m; sourceTree = "<group>"; };
+		2D1DCADE1F4405BF00368A9E /* WBAVNativeRecorder_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBAVNativeRecorder_Prefix.pch; path = WBAVNativeRecorder/WBAVNativeRecorder_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		2DC682F21F30315900D5E18C /* WBNativeRecorderBeautyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNativeRecorderBeautyFilter.h; sourceTree = "<group>"; };
 		2DC682F31F30315900D5E18C /* WBNativeRecorderBeautyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNativeRecorderBeautyFilter.m; sourceTree = "<group>"; };
 		2DC682F61F307B0900D5E18C /* WBNativeRecorderBeautyPreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNativeRecorderBeautyPreView.h; sourceTree = "<group>"; };
 		2DC682F71F307B0900D5E18C /* WBNativeRecorderBeautyPreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNativeRecorderBeautyPreView.m; sourceTree = "<group>"; };
 		2DDF0A821F04A65C002C032C /* libMBProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMBProgressHUD.a; path = "/Users/wangbo/workspace/WBAVFrame/Pods/../build/Debug-iphoneos/MBProgressHUD/libMBProgressHUD.a"; sourceTree = "<absolute>"; };
-		2DDF0A8F1F04D4C2002C032C /* WBAVNativeRecorder_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBAVNativeRecorder_Prefix.pch; sourceTree = "<group>"; };
 		2DE9E49E1F0396E6001255F4 /* libWBAVNativeRecorder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWBAVNativeRecorder.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BFFFDBEF823666ED885F366 /* Pods-WBAVNativeRecorder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBAVNativeRecorder.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WBAVNativeRecorder/Pods-WBAVNativeRecorder.debug.xcconfig"; sourceTree = "<group>"; };
 		C447FA7833B57AFF10EC12E7 /* libPods-WBAVNativeRecorder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WBAVNativeRecorder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,7 +140,7 @@
 		2DDF0A8E1F04D4A0002C032C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2DDF0A8F1F04D4C2002C032C /* WBAVNativeRecorder_Prefix.pch */,
+				2D1DCADE1F4405BF00368A9E /* WBAVNativeRecorder_Prefix.pch */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -193,7 +193,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DDF0A901F04D4C2002C032C /* WBAVNativeRecorder_Prefix.pch in Headers */,
+				2D1DCADF1F4405BF00368A9E /* WBAVNativeRecorder_Prefix.pch in Headers */,
 				2D03BCF61F3C68BF0074B0FD /* WBNativeRecorder.h in Headers */,
 				2D03BCE21F3844FC0074B0FD /* WBNativeRecorderGPUImageFilter.h in Headers */,
 				2D03BCFA1F3C68DE0074B0FD /* WBNativeRecorderViewController.h in Headers */,
@@ -408,7 +408,7 @@
 			baseConfigurationReference = 8BFFFDBEF823666ED885F366 /* Pods-WBAVNativeRecorder.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/Supporting Files/WBAVNativeRecorder_prefix.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/WBAVNativeRecorder/WBAVNativeRecorder_prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../WBUtils/WBUtils",
@@ -427,7 +427,7 @@
 			baseConfigurationReference = 2794677F8912918BBB6B98C8 /* Pods-WBAVNativeRecorder.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/Supporting Files/WBAVNativeRecorder_prefix.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/WBAVNativeRecorder/WBAVNativeRecorder_prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../WBUtils/WBUtils",
