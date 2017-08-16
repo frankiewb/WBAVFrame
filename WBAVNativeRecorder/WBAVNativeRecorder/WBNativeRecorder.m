@@ -880,7 +880,7 @@ WBNativeVideoWtiterDelegate>
 
     
     //获取文件夹路径,直接存入Documents中，录像完成后需要删除
-    NSString *fileDir = [WBFileManager tmpDir];
+    NSString *fileDir = [WBFileManager cachesDir];
     NSString *fullRecordFolderDir = [fileDir stringByAppendingPathComponent:DEFAULT_VIDEO_STORE_FOLDER];
 
     if (![WBFileManager isExistsAtPath:fullRecordFolderDir])

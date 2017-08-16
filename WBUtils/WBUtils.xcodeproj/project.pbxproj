@@ -14,14 +14,13 @@
 		2D1DCAD01F41AB4D00368A9E /* WBRecordCircleProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCACE1F41AB4D00368A9E /* WBRecordCircleProgressView.m */; };
 		2D1DCAD31F41DD0C00368A9E /* WBTimeShowView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D1DCAD11F41DD0C00368A9E /* WBTimeShowView.h */; };
 		2D1DCAD41F41DD0D00368A9E /* WBTimeShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCAD21F41DD0C00368A9E /* WBTimeShowView.m */; };
+		2D1DCADC1F43E2D800368A9E /* ALAssetsLibrary+CustomPhotoAlbum.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D1DCADA1F43E2D800368A9E /* ALAssetsLibrary+CustomPhotoAlbum.h */; };
+		2D1DCADD1F43E2D800368A9E /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCADB1F43E2D800368A9E /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
 		2D32361A1F31D75700AE340D /* WBSingletonDef.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D3236181F31D75700AE340D /* WBSingletonDef.h */; };
 		2DDF0A941F0627A1002C032C /* MBProgressHUD+Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DDF0A921F0627A1002C032C /* MBProgressHUD+Utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2DDF0A951F0627A1002C032C /* MBProgressHUD+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDF0A931F0627A1002C032C /* MBProgressHUD+Utils.m */; };
 		2DDF0A9C1F0B3000002C032C /* WBSettingMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DDF0A9A1F0B3000002C032C /* WBSettingMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2DE9E4231F02328B001255F4 /* WBUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E4221F02328B001255F4 /* WBUtils.m */; };
-		2DE9E4241F02328B001255F4 /* WBUtils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DE9E4211F02328B001255F4 /* WBUtils.h */; };
 		2DE9E4781F025778001255F4 /* WBMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DE9E4741F0256F9001255F4 /* WBMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2DE9E4791F02577B001255F4 /* WBUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DE9E4211F02328B001255F4 /* WBUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2DE9E47D1F0267AA001255F4 /* UIColor+Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DE9E47B1F0267AA001255F4 /* UIColor+Utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2DE9E47E1F0267AA001255F4 /* UIColor+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E47C1F0267AA001255F4 /* UIColor+Utils.m */; settings = {COMPILER_FLAGS = "-ObjC"; }; };
 /* End PBXBuildFile section */
@@ -33,7 +32,6 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				2DE9E4241F02328B001255F4 /* WBUtils.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,13 +44,13 @@
 		2D1DCACE1F41AB4D00368A9E /* WBRecordCircleProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBRecordCircleProgressView.m; sourceTree = "<group>"; };
 		2D1DCAD11F41DD0C00368A9E /* WBTimeShowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTimeShowView.h; sourceTree = "<group>"; };
 		2D1DCAD21F41DD0C00368A9E /* WBTimeShowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTimeShowView.m; sourceTree = "<group>"; };
+		2D1DCADA1F43E2D800368A9E /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
+		2D1DCADB1F43E2D800368A9E /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
 		2D3236181F31D75700AE340D /* WBSingletonDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSingletonDef.h; sourceTree = "<group>"; };
 		2DDF0A921F0627A1002C032C /* MBProgressHUD+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Utils.h"; sourceTree = "<group>"; };
 		2DDF0A931F0627A1002C032C /* MBProgressHUD+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Utils.m"; sourceTree = "<group>"; };
 		2DDF0A9A1F0B3000002C032C /* WBSettingMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSettingMacros.h; sourceTree = "<group>"; };
 		2DE9E41E1F02328B001255F4 /* libWBUtils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWBUtils.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2DE9E4211F02328B001255F4 /* WBUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBUtils.h; sourceTree = "<group>"; };
-		2DE9E4221F02328B001255F4 /* WBUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBUtils.m; sourceTree = "<group>"; };
 		2DE9E4741F0256F9001255F4 /* WBMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBMacros.h; sourceTree = "<group>"; };
 		2DE9E47B1F0267AA001255F4 /* UIColor+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Utils.h"; sourceTree = "<group>"; };
 		2DE9E47C1F0267AA001255F4 /* UIColor+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Utils.m"; sourceTree = "<group>"; };
@@ -82,6 +80,53 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		2D1DCAD51F43E12200368A9E /* WBRecordCircleProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				2D1DCACE1F41AB4D00368A9E /* WBRecordCircleProgressView.m */,
+				2D1DCACD1F41AB4D00368A9E /* WBRecordCircleProgressView.h */,
+			);
+			name = WBRecordCircleProgressView;
+			sourceTree = "<group>";
+		};
+		2D1DCAD61F43E14000368A9E /* WBTimeShowView */ = {
+			isa = PBXGroup;
+			children = (
+				2D1DCAD11F41DD0C00368A9E /* WBTimeShowView.h */,
+				2D1DCAD21F41DD0C00368A9E /* WBTimeShowView.m */,
+			);
+			name = WBTimeShowView;
+			sourceTree = "<group>";
+		};
+		2D1DCAD71F43E17C00368A9E /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				2DE9E47B1F0267AA001255F4 /* UIColor+Utils.h */,
+				2DE9E47C1F0267AA001255F4 /* UIColor+Utils.m */,
+				2DDF0A921F0627A1002C032C /* MBProgressHUD+Utils.h */,
+				2DDF0A931F0627A1002C032C /* MBProgressHUD+Utils.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		2D1DCAD81F43E19400368A9E /* WBFileManager */ = {
+			isa = PBXGroup;
+			children = (
+				2D1DCAC51F41788900368A9E /* WBFileManager.h */,
+				2D1DCAC61F41788900368A9E /* WBFileManager.m */,
+			);
+			name = WBFileManager;
+			sourceTree = "<group>";
+		};
+		2D1DCAD91F43E1CB00368A9E /* WBVideoSaveManager */ = {
+			isa = PBXGroup;
+			children = (
+				2D1DCADA1F43E2D800368A9E /* ALAssetsLibrary+CustomPhotoAlbum.h */,
+				2D1DCADB1F43E2D800368A9E /* ALAssetsLibrary+CustomPhotoAlbum.m */,
+			);
+			name = WBVideoSaveManager;
+			sourceTree = "<group>";
+		};
 		2DE9E4151F02328B001255F4 = {
 			isa = PBXGroup;
 			children = (
@@ -104,20 +149,13 @@
 			isa = PBXGroup;
 			children = (
 				2DDF0A9A1F0B3000002C032C /* WBSettingMacros.h */,
-				2DE9E4211F02328B001255F4 /* WBUtils.h */,
-				2DE9E4221F02328B001255F4 /* WBUtils.m */,
 				2DE9E4741F0256F9001255F4 /* WBMacros.h */,
-				2DE9E47B1F0267AA001255F4 /* UIColor+Utils.h */,
-				2DE9E47C1F0267AA001255F4 /* UIColor+Utils.m */,
-				2DDF0A921F0627A1002C032C /* MBProgressHUD+Utils.h */,
-				2DDF0A931F0627A1002C032C /* MBProgressHUD+Utils.m */,
 				2D3236181F31D75700AE340D /* WBSingletonDef.h */,
-				2D1DCAC51F41788900368A9E /* WBFileManager.h */,
-				2D1DCAC61F41788900368A9E /* WBFileManager.m */,
-				2D1DCACD1F41AB4D00368A9E /* WBRecordCircleProgressView.h */,
-				2D1DCACE1F41AB4D00368A9E /* WBRecordCircleProgressView.m */,
-				2D1DCAD11F41DD0C00368A9E /* WBTimeShowView.h */,
-				2D1DCAD21F41DD0C00368A9E /* WBTimeShowView.m */,
+				2D1DCAD91F43E1CB00368A9E /* WBVideoSaveManager */,
+				2D1DCAD81F43E19400368A9E /* WBFileManager */,
+				2D1DCAD71F43E17C00368A9E /* Category */,
+				2D1DCAD61F43E14000368A9E /* WBTimeShowView */,
+				2D1DCAD51F43E12200368A9E /* WBRecordCircleProgressView */,
 			);
 			path = WBUtils;
 			sourceTree = "<group>";
@@ -137,8 +175,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DE9E4791F02577B001255F4 /* WBUtils.h in Headers */,
 				2DE9E47D1F0267AA001255F4 /* UIColor+Utils.h in Headers */,
+				2D1DCADC1F43E2D800368A9E /* ALAssetsLibrary+CustomPhotoAlbum.h in Headers */,
 				2D1DCAD31F41DD0C00368A9E /* WBTimeShowView.h in Headers */,
 				2D1DCAC71F41788900368A9E /* WBFileManager.h in Headers */,
 				2DDF0A941F0627A1002C032C /* MBProgressHUD+Utils.h in Headers */,
@@ -244,11 +282,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DDF0A951F0627A1002C032C /* MBProgressHUD+Utils.m in Sources */,
-				2DE9E4231F02328B001255F4 /* WBUtils.m in Sources */,
 				2D1DCAC81F41788900368A9E /* WBFileManager.m in Sources */,
 				2D1DCAD41F41DD0D00368A9E /* WBTimeShowView.m in Sources */,
 				2D1DCAD01F41AB4D00368A9E /* WBRecordCircleProgressView.m in Sources */,
 				2DE9E47E1F0267AA001255F4 /* UIColor+Utils.m in Sources */,
+				2D1DCADD1F43E2D800368A9E /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

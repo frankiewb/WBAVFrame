@@ -17,6 +17,7 @@
 #import "WBH264Encoder.h"
 #import "WBAACEncoder.h"
 #import "WBRtmpHandler.h"
+#import "ALAssetsLibrary+CustomPhotoAlbum.h"
 
 #import "WBNativeRecorderBeautyFilter.h"
 #import "WBNativeRecorderGPUImageFilter.h"

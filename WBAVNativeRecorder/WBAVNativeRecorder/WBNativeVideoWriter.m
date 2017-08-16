@@ -32,6 +32,8 @@
 @property (nonatomic, strong) NSDictionary *videoCompressionSettings;
 //音频压缩设置集合
 @property (nonatomic, strong) NSDictionary *audioCompressionSettings;
+//视频本地相册存储管理器
+@property (nonatomic, strong) ALAssetsLibrary *localVideoManager;
 
 @end
 
@@ -71,6 +73,7 @@
 {
     self.writerWorkingQueue = dispatch_queue_create("WBAVFrame.NativeVideoWriter.workingQueue", DISPATCH_QUEUE_SERIAL);
     self.writerStatus = WBNativeVideoWriterTypeNone;
+    self.localVideoManager = [[ALAssetsLibrary alloc] init];
     switch (_videoAspectRatioType)
     {
         case WBNativeVideoAspectRatioType1x1:
@@ -106,9 +109,13 @@
     WEAK_SELF;
     if (self.recordWriter && self.recordWriter.status == AVAssetWriterStatusWriting)
     {
-        STRONG_SELF;
-        //将写入的视频纳入进iOS的相册管理器中去
-        [strongSelf saveRecordToLocal];
+#warning 一定要停止写入器！！！否则以流的形式是无法存入手机相册的！切记！！！
+        //首先停止Writer
+        [self.recordWriter finishWritingWithCompletionHandler:^{
+            STRONG_SELF;
+            //将写入的视频纳入进iOS的相册管理器中去
+            [strongSelf saveRecordToLocal];
+        }];
     }
 }
 
@@ -272,82 +279,25 @@
 
 - (void)saveRecordToLocal
 {
-    dispatch_async(_writerWorkingQueue, ^{
-        
-        //iOS8 及其以下推荐使用
-        //if ([UIDevice currentDevice].systemVersion.doubleValue < 9.0)
-        if (TRUE)
+    WEAK_SELF;
+    [self.localVideoManager saveVideo:_videoURL toAlbum:VIDEO_FOLDER_NAME completion:^(NSURL *assetURL, NSError *error)
+    {
+        if (error)
         {
-            [self.recordWriter finishWritingWithCompletionHandler:^
-            {
-                ALAssetsLibrary *assetslib = [[ALAssetsLibrary alloc] init];
-                [assetslib writeVideoAtPathToSavedPhotosAlbum:_videoURL completionBlock:nil];
-                [self updateRecordWriterStatus:WBNativeVideoWriterTypeComplete];
-            }];
+            NSLog(@"录制视频保存本地相册失败 : %@",error.description);
+            [weakSelf updateRecordWriterStatus:WBNativeVideoWriterTypeError];
         }
-        else//iOS8 及以上推荐使用
+        else
         {
-            NSError * error = nil;
-            // 用来抓取PHAsset的字符串标识
-            __block NSString *assetId = nil;
-            // 用来抓取PHAssetCollectin的字符串标识符
-            __block NSString *assetCollectionId = nil;
-            PHPhotoLibrary * library = [PHPhotoLibrary sharedPhotoLibrary];
-            //保存视频到相机胶卷
-            [library performChangesAndWait:^{
-                assetId = [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:_videoURL].placeholderForCreatedAsset.localIdentifier;
-            } error:&error];
-            //提示信息
-            if (error)
-            {
-                [self updateRecordWriterStatus:WBNativeVideoWriterTypeError];
-                NSLog(@"PHAssetChangeRequest写入失败: %@",error.description);
-                return;
-            }
-            // 获取曾经创建过的自定义视频相册名字
-            PHAssetCollection  * createdAssetCollection = nil;
-            PHFetchResult< PHAssetCollection *>* assetCollections = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
-            for (PHAssetCollection * assetCollection in assetCollections)
-            {
-                if ([assetCollection.localizedTitle isEqualToString: VIDEO_FOLDER_NAME])
-                {
-                    createdAssetCollection = assetCollection;
-                    break;
-                }
-            }
-            
-            //如果这个自定义框架没有创建过
-            if (createdAssetCollection == nil) {
-                //创建新的[自定义的 Album](相簿\相册)
-                [library performChangesAndWait:^
-                {
-                    assetCollectionId = [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:VIDEO_FOLDER_NAME].placeholderForCreatedAssetCollection.localIdentifier;
-                } error:&error];
-                //抓取刚创建完的视频相册对象
-                createdAssetCollection = [PHAssetCollection fetchAssetCollectionsWithLocalIdentifiers:@[assetCollectionId] options:nil].firstObject;
-            }
-            
-            // 将【Camera Roll】(相机胶卷)的视频 添加到 【自定义Album】(相簿\相册)中
-            [library performChangesAndWait:^
-            {
-                PHAssetCollectionChangeRequest *request = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:createdAssetCollection];
-                // 视频
-                [request addAssets:[PHAsset fetchAssetsWithLocalIdentifiers:@[assetId] options:nil]];
-            } error:&error];
-            // 提示信息
-            if (error)
-            {
-                [self updateRecordWriterStatus:WBNativeVideoWriterTypeError];
-                NSLog(@"PHAssetCollectionChangeRequest写入失败: %@",error.description);
-                return;
-
-            } else {
-                [self updateRecordWriterStatus:WBNativeVideoWriterTypeComplete];
-
-            }
+            NSLog(@"录制视频保存本地相册成功");
+            [weakSelf updateRecordWriterStatus:WBNativeVideoWriterTypeComplete];
         }
-  
-    });
+      
+    } failure:^(NSError *error)
+    {
+        NSLog(@"录制视频保存本地相册失败 : %@",error.description);
+        [weakSelf updateRecordWriterStatus:WBNativeVideoWriterTypeError];
+    }];
 }
 
 

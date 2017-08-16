@@ -16,7 +16,7 @@
 //默认拉流路径
 #define DEFAULT_GET_RTMP_STREAM @""
 //默认视频存储文件夹 (默认存入APPDocument路径下)
-#define DEFAULT_VIDEO_STORE_FOLDER @"videos"
+#define DEFAULT_VIDEO_STORE_FOLDER @"videoFolder"
 //默认视频播放路径
 #define DEFAULT_VIDEO_PLAY_FOLDER @""
 
@@ -26,7 +26,7 @@
 #define RECORD_MAX_TIME 10
 
 //视频保存相册名称
-#define VIDEO_FOLDER_NAME @"WBRecordVideoFolder"
+#define VIDEO_FOLDER_NAME @"WBRecord视频相册"
 
 
 #pragma mark 原生录像器宏定义
