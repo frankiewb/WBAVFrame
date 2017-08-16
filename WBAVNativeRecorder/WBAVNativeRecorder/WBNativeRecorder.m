@@ -567,7 +567,7 @@ WBNativeVideoWtiterDelegate>
 //设置当前采集设备聚焦点及对应聚焦点的聚焦模式及曝光模式
 - (void)setFocusWithMode:(AVCaptureFocusMode)focusMode exposureMode:(AVCaptureExposureMode)exposureMode atScreenPoint:(CGPoint)point
 {
-#warning 遗留问题，自定义采集预览View如何正确转换坐标？？
+#warning WB_WARNING 遗留问题，自定义采集预览页面如何正确转换坐标？？
     //此处传来的坐标是屏幕坐标需要调整为合适的摄像头采集坐标
     // point 需要转换为正确的CGPoint
     

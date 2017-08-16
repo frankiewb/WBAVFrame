@@ -408,7 +408,7 @@
 			baseConfigurationReference = 8BFFFDBEF823666ED885F366 /* Pods-WBAVNativeRecorder.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/WBAVNativeRecorder/WBAVNativeRecorder_prefix.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/../WBAVNativeRecorder/WBAVNativeRecorder/WBAVNativeRecorder_Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../WBUtils/WBUtils",
@@ -427,7 +427,7 @@
 			baseConfigurationReference = 2794677F8912918BBB6B98C8 /* Pods-WBAVNativeRecorder.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/WBAVNativeRecorder/WBAVNativeRecorder_prefix.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/../WBAVNativeRecorder/WBAVNativeRecorder/WBAVNativeRecorder_Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../WBUtils/WBUtils",

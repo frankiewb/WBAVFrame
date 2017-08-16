@@ -109,7 +109,7 @@
     WEAK_SELF;
     if (self.recordWriter && self.recordWriter.status == AVAssetWriterStatusWriting)
     {
-#warning 一定要停止写入器！！！否则以流的形式是无法存入手机相册的！切记！！！
+#warning WB_WARNING 一定要停止写入器！！！否则以流的形式是无法存入手机相册的！切记！！！
         //首先停止Writer
         [self.recordWriter finishWritingWithCompletionHandler:^{
             STRONG_SELF;
