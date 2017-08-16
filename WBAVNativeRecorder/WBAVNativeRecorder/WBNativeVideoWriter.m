@@ -32,8 +32,6 @@
 @property (nonatomic, strong) NSDictionary *videoCompressionSettings;
 //音频压缩设置集合
 @property (nonatomic, strong) NSDictionary *audioCompressionSettings;
-//视频本地相册存储管理器
-@property (nonatomic, strong) ALAssetsLibrary *localVideoManager;
 
 @end
 
@@ -73,7 +71,6 @@
 {
     self.writerWorkingQueue = dispatch_queue_create("WBAVFrame.NativeVideoWriter.workingQueue", DISPATCH_QUEUE_SERIAL);
     self.writerStatus = WBNativeVideoWriterTypeNone;
-    self.localVideoManager = [[ALAssetsLibrary alloc] init];
     switch (_videoAspectRatioType)
     {
         case WBNativeVideoAspectRatioType1x1:
@@ -280,7 +277,7 @@
 - (void)saveRecordToLocal
 {
     WEAK_SELF;
-    [self.localVideoManager saveVideo:_videoURL toAlbum:VIDEO_FOLDER_NAME completion:^(NSURL *assetURL, NSError *error)
+    [[WBPhotoManager defaultManager] saveVideoToCustomAlbumWithURL:_videoURL albumName:VIDEO_FOLDER_NAME completionBlcok:^(PHAsset *asset, NSString *error)
     {
         if (error)
         {
@@ -292,11 +289,6 @@
             NSLog(@"录制视频保存本地相册成功");
             [weakSelf updateRecordWriterStatus:WBNativeVideoWriterTypeComplete];
         }
-      
-    } failure:^(NSError *error)
-    {
-        NSLog(@"录制视频保存本地相册失败 : %@",error.description);
-        [weakSelf updateRecordWriterStatus:WBNativeVideoWriterTypeError];
     }];
 }
 

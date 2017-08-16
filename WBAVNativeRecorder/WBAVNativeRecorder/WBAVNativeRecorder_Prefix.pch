@@ -17,15 +17,13 @@
 #import "WBH264Encoder.h"
 #import "WBAACEncoder.h"
 #import "WBRtmpHandler.h"
-#import "ALAssetsLibrary+CustomPhotoAlbum.h"
 
 #import "WBNativeRecorderBeautyFilter.h"
 #import "WBNativeRecorderGPUImageFilter.h"
 #import "WBNativeRecorderBeautyPreView.h"
 #import "WBNativeRecorderFaceDetector.h"
-
-
+#import "WBPhotoManagerHeader.h"
+#import "ALAssetsLibrary+CustomPhotoAlbum.h"
 #import "GPUImage.h"
-
 
 #endif /* WBAVNativeRecorder_Prefix_pch */
