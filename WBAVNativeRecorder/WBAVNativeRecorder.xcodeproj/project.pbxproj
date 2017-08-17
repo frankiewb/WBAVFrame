@@ -411,7 +411,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/../WBAVNativeRecorder/WBAVNativeRecorder/WBAVNativeRecorder_Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../WBUtils/WBUtils",
+					"$(SRCROOT)/../WBUtils/WBUtils/**",
 					"$(SRCROOT)/../WBCodec/WBCodec",
 					"$(SRCROOT)/../WBRtmpHandler/WBRtmpHandler",
 				);
@@ -430,7 +430,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/../WBAVNativeRecorder/WBAVNativeRecorder/WBAVNativeRecorder_Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../WBUtils/WBUtils",
+					"$(SRCROOT)/../WBUtils/WBUtils/**",
 					"$(SRCROOT)/../WBCodec/WBCodec",
 					"$(SRCROOT)/../WBRtmpHandler/WBRtmpHandler",
 				);
