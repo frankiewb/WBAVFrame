@@ -25,6 +25,5 @@
 
 #import "ALAssetsLibrary+CustomPhotoAlbum.h"
 #import "GPUImage.h"
-#import "WBPhotoManagerHeader.h"
 
 #endif /* WBAVNativeRecorder_Prefix_pch */

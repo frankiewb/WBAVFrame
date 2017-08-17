@@ -2,14 +2,12 @@
 //  WBUtils_prefix.pch
 //  WBUtils
 //
-//  Created by WangBo on 2017/8/16.
+//  Created by 王博 on 2017/8/16.
 //  Copyright © 2017年 王博. All rights reserved.
 //
 
 #ifndef WBUtils_prefix_pch
 #define WBUtils_prefix_pch
 
-#import <Photos/Photos.h>
-#import "WBPhotoManagerHeader.h"
 
 #endif /* WBUtils_prefix_pch */

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <Photos/Photos.h>
+#import "WBAssetModel.h"
+#import "WBPhotoManager.h"
 
 @interface WBAlbumModel : NSObject
 

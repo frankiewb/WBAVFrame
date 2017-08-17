@@ -1,0 +1,20 @@
+//
+//  PrefixHeader.pch
+//  WBPhotoManager
+//
+//  Created by WangBo on 2017/8/17.
+//  Copyright © 2017年 王博. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+#import "WBPhotoManagerHeader.h"
+#import "UIImage+WBUtiles.h"
+#import "WBMoment.h"
+#import "WBAssetModel.h"
+#import "WBAlbumModel.h"
+#import "WBPhotoManagerEnumeration.h"
+
+#endif /* PrefixHeader_pch */

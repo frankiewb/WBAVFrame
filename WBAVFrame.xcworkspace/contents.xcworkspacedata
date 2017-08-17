@@ -8,6 +8,9 @@
       location = "group:WBService/WBService.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:WBPhotoManager/WBPhotoManager.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:WBRtmpHandler/WBRtmpHandler.xcodeproj">
    </FileRef>
    <FileRef

@@ -9,13 +9,8 @@
 #ifndef WBPHTOMANAGERHEADER_H
 #define WBPHTOMANAGERHEADER_H
 
-#import "WBPhotoManagerEnumeration.h"
-#import "WBMoment.h"
-#import "WBAssetModel.h"
-
-#import "WBAlbumModel.h"
-#import "UIImage+Utils.h"
 #import "WBPhotoManager.h"
+
 
 
 #endif

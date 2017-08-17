@@ -1,0 +1,529 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2052A8DBE3BFCDFF3674CD5A /* libPods-WBPhotoManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B89C888463675F3C50F352A /* libPods-WBPhotoManager.a */; };
+		2D1DCB911F45B95000368A9E /* WBPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCB8E1F45B95000368A9E /* WBPhotoManager.m */; };
+		2D1DCB9D1F45B95B00368A9E /* WBAlbumListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCB941F45B95B00368A9E /* WBAlbumListController.m */; };
+		2D1DCB9E1F45B95B00368A9E /* WBImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCB961F45B95B00368A9E /* WBImagePickerController.m */; };
+		2D1DCB9F1F45B95B00368A9E /* WBPhotoGridController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCB981F45B95B00368A9E /* WBPhotoGridController.m */; };
+		2D1DCBA01F45B95B00368A9E /* WBPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCB9A1F45B95B00368A9E /* WBPhotoPreviewController.m */; };
+		2D1DCBA11F45B95B00368A9E /* WBVideoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCB9C1F45B95B00368A9E /* WBVideoPreviewController.m */; };
+		2D1DCBAF1F45B96500368A9E /* WBAlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCBA41F45B96500368A9E /* WBAlbumModel.m */; };
+		2D1DCBB01F45B96500368A9E /* WBAssetBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCBA61F45B96500368A9E /* WBAssetBaseModel.m */; };
+		2D1DCBB11F45B96500368A9E /* WBAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCBA81F45B96500368A9E /* WBAssetModel.m */; };
+		2D1DCBB21F45B96500368A9E /* WBMoment.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCBAA1F45B96500368A9E /* WBMoment.m */; };
+		2D1DCBB31F45B96500368A9E /* WBPhotoConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCBAC1F45B96500368A9E /* WBPhotoConfiguration.m */; };
+		2D1DCBB41F45B96500368A9E /* WBPickingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCBAE1F45B96500368A9E /* WBPickingModel.m */; };
+		2D1DCBC11F45B96D00368A9E /* WBAlbumListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCBB71F45B96C00368A9E /* WBAlbumListCell.m */; };
+		2D1DCBC21F45B96D00368A9E /* WBCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCBB91F45B96D00368A9E /* WBCameraView.m */; };
+		2D1DCBC31F45B96D00368A9E /* WBPhotoGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCBBB1F45B96D00368A9E /* WBPhotoGridCell.m */; };
+		2D1DCBC41F45B96D00368A9E /* WBPhotoGridHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCBBD1F45B96D00368A9E /* WBPhotoGridHeaderView.m */; };
+		2D1DCBC51F45B96D00368A9E /* WBPhotoPreviewImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCBC01F45B96D00368A9E /* WBPhotoPreviewImageCell.m */; };
+		2D1DCBD31F45B97400368A9E /* NSDate+WBUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCBC81F45B97400368A9E /* NSDate+WBUtils.m */; };
+		2D1DCBD41F45B97400368A9E /* NSIndexSet+WBUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCBCA1F45B97400368A9E /* NSIndexSet+WBUtils.m */; };
+		2D1DCBD51F45B97400368A9E /* UICollectionView+WBUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCBCC1F45B97400368A9E /* UICollectionView+WBUtils.m */; };
+		2D1DCBD61F45B97400368A9E /* UIImage+WBUtiles.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCBCE1F45B97400368A9E /* UIImage+WBUtiles.m */; };
+		2D1DCBD71F45B97400368A9E /* UIView+WBUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCBD01F45B97400368A9E /* UIView+WBUtils.m */; };
+		2D1DCBD81F45B97400368A9E /* UIViewController+WBUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCBD21F45B97400368A9E /* UIViewController+WBUtils.m */; };
+		2D1DCBDA1F45BA4900368A9E /* WBPhotoManagerHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D1DCB901F45B95000368A9E /* WBPhotoManagerHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2D1DCBDD1F45BB8100368A9E /* WBPhotoManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D1DCB8D1F45B95000368A9E /* WBPhotoManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2D1DCB7E1F45B3A900368A9E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		13337E39768B25D8F4B70529 /* Pods-WBPhotoManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBPhotoManager.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WBPhotoManager/Pods-WBPhotoManager.release.xcconfig"; sourceTree = "<group>"; };
+		2D1DCB801F45B3A900368A9E /* libWBPhotoManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWBPhotoManager.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D1DCB8D1F45B95000368A9E /* WBPhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBPhotoManager.h; sourceTree = "<group>"; };
+		2D1DCB8E1F45B95000368A9E /* WBPhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBPhotoManager.m; sourceTree = "<group>"; };
+		2D1DCB8F1F45B95000368A9E /* WBPhotoManagerEnumeration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBPhotoManagerEnumeration.h; sourceTree = "<group>"; };
+		2D1DCB901F45B95000368A9E /* WBPhotoManagerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBPhotoManagerHeader.h; sourceTree = "<group>"; };
+		2D1DCB931F45B95B00368A9E /* WBAlbumListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBAlbumListController.h; sourceTree = "<group>"; };
+		2D1DCB941F45B95B00368A9E /* WBAlbumListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBAlbumListController.m; sourceTree = "<group>"; };
+		2D1DCB951F45B95B00368A9E /* WBImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBImagePickerController.h; sourceTree = "<group>"; };
+		2D1DCB961F45B95B00368A9E /* WBImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBImagePickerController.m; sourceTree = "<group>"; };
+		2D1DCB971F45B95B00368A9E /* WBPhotoGridController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBPhotoGridController.h; sourceTree = "<group>"; };
+		2D1DCB981F45B95B00368A9E /* WBPhotoGridController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBPhotoGridController.m; sourceTree = "<group>"; };
+		2D1DCB991F45B95B00368A9E /* WBPhotoPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBPhotoPreviewController.h; sourceTree = "<group>"; };
+		2D1DCB9A1F45B95B00368A9E /* WBPhotoPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBPhotoPreviewController.m; sourceTree = "<group>"; };
+		2D1DCB9B1F45B95B00368A9E /* WBVideoPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBVideoPreviewController.h; sourceTree = "<group>"; };
+		2D1DCB9C1F45B95B00368A9E /* WBVideoPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBVideoPreviewController.m; sourceTree = "<group>"; };
+		2D1DCBA31F45B96500368A9E /* WBAlbumModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBAlbumModel.h; sourceTree = "<group>"; };
+		2D1DCBA41F45B96500368A9E /* WBAlbumModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBAlbumModel.m; sourceTree = "<group>"; };
+		2D1DCBA51F45B96500368A9E /* WBAssetBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBAssetBaseModel.h; sourceTree = "<group>"; };
+		2D1DCBA61F45B96500368A9E /* WBAssetBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBAssetBaseModel.m; sourceTree = "<group>"; };
+		2D1DCBA71F45B96500368A9E /* WBAssetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBAssetModel.h; sourceTree = "<group>"; };
+		2D1DCBA81F45B96500368A9E /* WBAssetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBAssetModel.m; sourceTree = "<group>"; };
+		2D1DCBA91F45B96500368A9E /* WBMoment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBMoment.h; sourceTree = "<group>"; };
+		2D1DCBAA1F45B96500368A9E /* WBMoment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBMoment.m; sourceTree = "<group>"; };
+		2D1DCBAB1F45B96500368A9E /* WBPhotoConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBPhotoConfiguration.h; sourceTree = "<group>"; };
+		2D1DCBAC1F45B96500368A9E /* WBPhotoConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBPhotoConfiguration.m; sourceTree = "<group>"; };
+		2D1DCBAD1F45B96500368A9E /* WBPickingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBPickingModel.h; sourceTree = "<group>"; };
+		2D1DCBAE1F45B96500368A9E /* WBPickingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBPickingModel.m; sourceTree = "<group>"; };
+		2D1DCBB61F45B96C00368A9E /* WBAlbumListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBAlbumListCell.h; sourceTree = "<group>"; };
+		2D1DCBB71F45B96C00368A9E /* WBAlbumListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBAlbumListCell.m; sourceTree = "<group>"; };
+		2D1DCBB81F45B96C00368A9E /* WBCameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCameraView.h; sourceTree = "<group>"; };
+		2D1DCBB91F45B96D00368A9E /* WBCameraView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCameraView.m; sourceTree = "<group>"; };
+		2D1DCBBA1F45B96D00368A9E /* WBPhotoGridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBPhotoGridCell.h; sourceTree = "<group>"; };
+		2D1DCBBB1F45B96D00368A9E /* WBPhotoGridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBPhotoGridCell.m; sourceTree = "<group>"; };
+		2D1DCBBC1F45B96D00368A9E /* WBPhotoGridHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBPhotoGridHeaderView.h; sourceTree = "<group>"; };
+		2D1DCBBD1F45B96D00368A9E /* WBPhotoGridHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBPhotoGridHeaderView.m; sourceTree = "<group>"; };
+		2D1DCBBE1F45B96D00368A9E /* WBPhotoPreviewCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBPhotoPreviewCellDelegate.h; sourceTree = "<group>"; };
+		2D1DCBBF1F45B96D00368A9E /* WBPhotoPreviewImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBPhotoPreviewImageCell.h; sourceTree = "<group>"; };
+		2D1DCBC01F45B96D00368A9E /* WBPhotoPreviewImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBPhotoPreviewImageCell.m; sourceTree = "<group>"; };
+		2D1DCBC71F45B97400368A9E /* NSDate+WBUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+WBUtils.h"; sourceTree = "<group>"; };
+		2D1DCBC81F45B97400368A9E /* NSDate+WBUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+WBUtils.m"; sourceTree = "<group>"; };
+		2D1DCBC91F45B97400368A9E /* NSIndexSet+WBUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+WBUtils.h"; sourceTree = "<group>"; };
+		2D1DCBCA1F45B97400368A9E /* NSIndexSet+WBUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+WBUtils.m"; sourceTree = "<group>"; };
+		2D1DCBCB1F45B97400368A9E /* UICollectionView+WBUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+WBUtils.h"; sourceTree = "<group>"; };
+		2D1DCBCC1F45B97400368A9E /* UICollectionView+WBUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+WBUtils.m"; sourceTree = "<group>"; };
+		2D1DCBCD1F45B97400368A9E /* UIImage+WBUtiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WBUtiles.h"; sourceTree = "<group>"; };
+		2D1DCBCE1F45B97400368A9E /* UIImage+WBUtiles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WBUtiles.m"; sourceTree = "<group>"; };
+		2D1DCBCF1F45B97400368A9E /* UIView+WBUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WBUtils.h"; sourceTree = "<group>"; };
+		2D1DCBD01F45B97400368A9E /* UIView+WBUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WBUtils.m"; sourceTree = "<group>"; };
+		2D1DCBD11F45B97400368A9E /* UIViewController+WBUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WBUtils.h"; sourceTree = "<group>"; };
+		2D1DCBD21F45B97400368A9E /* UIViewController+WBUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WBUtils.m"; sourceTree = "<group>"; };
+		2D1DCBE41F45BE9600368A9E /* WBPhotoManager_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WBPhotoManager_Prefix.pch; path = WBPhotoManager/WBPhotoManager/WBPhotoManager_Prefix.pch; sourceTree = "<group>"; };
+		34E4F26BE1421975432BC1AD /* Pods-WBPhotoManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBPhotoManager.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WBPhotoManager/Pods-WBPhotoManager.debug.xcconfig"; sourceTree = "<group>"; };
+		6B89C888463675F3C50F352A /* libPods-WBPhotoManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WBPhotoManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2D1DCB7D1F45B3A900368A9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2052A8DBE3BFCDFF3674CD5A /* libPods-WBPhotoManager.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2D1DCB771F45B3A900368A9E = {
+			isa = PBXGroup;
+			children = (
+				2D1DCB8C1F45B95000368A9E /* WBPhotoManager */,
+				2D1DCB921F45B95B00368A9E /* Controller */,
+				2D1DCBA21F45B96500368A9E /* Model */,
+				2D1DCBB51F45B96C00368A9E /* View */,
+				2D1DCBC61F45B97400368A9E /* Utils */,
+				2D1DCB811F45B3A900368A9E /* Products */,
+				2D1DCBE31F45BE7C00368A9E /* Supporting Files */,
+				3DDFDC70DA30C42F07FF7F00 /* Pods */,
+				9647CB016A581513A812D00A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2D1DCB811F45B3A900368A9E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2D1DCB801F45B3A900368A9E /* libWBPhotoManager.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2D1DCB8C1F45B95000368A9E /* WBPhotoManager */ = {
+			isa = PBXGroup;
+			children = (
+				2D1DCB8D1F45B95000368A9E /* WBPhotoManager.h */,
+				2D1DCB8E1F45B95000368A9E /* WBPhotoManager.m */,
+				2D1DCB8F1F45B95000368A9E /* WBPhotoManagerEnumeration.h */,
+				2D1DCB901F45B95000368A9E /* WBPhotoManagerHeader.h */,
+			);
+			name = WBPhotoManager;
+			path = WBPhotoManager/WBPhotoManager;
+			sourceTree = "<group>";
+		};
+		2D1DCB921F45B95B00368A9E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2D1DCB931F45B95B00368A9E /* WBAlbumListController.h */,
+				2D1DCB941F45B95B00368A9E /* WBAlbumListController.m */,
+				2D1DCB951F45B95B00368A9E /* WBImagePickerController.h */,
+				2D1DCB961F45B95B00368A9E /* WBImagePickerController.m */,
+				2D1DCB971F45B95B00368A9E /* WBPhotoGridController.h */,
+				2D1DCB981F45B95B00368A9E /* WBPhotoGridController.m */,
+				2D1DCB991F45B95B00368A9E /* WBPhotoPreviewController.h */,
+				2D1DCB9A1F45B95B00368A9E /* WBPhotoPreviewController.m */,
+				2D1DCB9B1F45B95B00368A9E /* WBVideoPreviewController.h */,
+				2D1DCB9C1F45B95B00368A9E /* WBVideoPreviewController.m */,
+			);
+			name = Controller;
+			path = WBPhotoManager/Controller;
+			sourceTree = "<group>";
+		};
+		2D1DCBA21F45B96500368A9E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2D1DCBA31F45B96500368A9E /* WBAlbumModel.h */,
+				2D1DCBA41F45B96500368A9E /* WBAlbumModel.m */,
+				2D1DCBA51F45B96500368A9E /* WBAssetBaseModel.h */,
+				2D1DCBA61F45B96500368A9E /* WBAssetBaseModel.m */,
+				2D1DCBA71F45B96500368A9E /* WBAssetModel.h */,
+				2D1DCBA81F45B96500368A9E /* WBAssetModel.m */,
+				2D1DCBA91F45B96500368A9E /* WBMoment.h */,
+				2D1DCBAA1F45B96500368A9E /* WBMoment.m */,
+				2D1DCBAB1F45B96500368A9E /* WBPhotoConfiguration.h */,
+				2D1DCBAC1F45B96500368A9E /* WBPhotoConfiguration.m */,
+				2D1DCBAD1F45B96500368A9E /* WBPickingModel.h */,
+				2D1DCBAE1F45B96500368A9E /* WBPickingModel.m */,
+			);
+			name = Model;
+			path = WBPhotoManager/Model;
+			sourceTree = "<group>";
+		};
+		2D1DCBB51F45B96C00368A9E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D1DCBB61F45B96C00368A9E /* WBAlbumListCell.h */,
+				2D1DCBB71F45B96C00368A9E /* WBAlbumListCell.m */,
+				2D1DCBB81F45B96C00368A9E /* WBCameraView.h */,
+				2D1DCBB91F45B96D00368A9E /* WBCameraView.m */,
+				2D1DCBBA1F45B96D00368A9E /* WBPhotoGridCell.h */,
+				2D1DCBBB1F45B96D00368A9E /* WBPhotoGridCell.m */,
+				2D1DCBBC1F45B96D00368A9E /* WBPhotoGridHeaderView.h */,
+				2D1DCBBD1F45B96D00368A9E /* WBPhotoGridHeaderView.m */,
+				2D1DCBBE1F45B96D00368A9E /* WBPhotoPreviewCellDelegate.h */,
+				2D1DCBBF1F45B96D00368A9E /* WBPhotoPreviewImageCell.h */,
+				2D1DCBC01F45B96D00368A9E /* WBPhotoPreviewImageCell.m */,
+			);
+			name = View;
+			path = WBPhotoManager/View;
+			sourceTree = "<group>";
+		};
+		2D1DCBC61F45B97400368A9E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2D1DCBC71F45B97400368A9E /* NSDate+WBUtils.h */,
+				2D1DCBC81F45B97400368A9E /* NSDate+WBUtils.m */,
+				2D1DCBC91F45B97400368A9E /* NSIndexSet+WBUtils.h */,
+				2D1DCBCA1F45B97400368A9E /* NSIndexSet+WBUtils.m */,
+				2D1DCBCB1F45B97400368A9E /* UICollectionView+WBUtils.h */,
+				2D1DCBCC1F45B97400368A9E /* UICollectionView+WBUtils.m */,
+				2D1DCBCD1F45B97400368A9E /* UIImage+WBUtiles.h */,
+				2D1DCBCE1F45B97400368A9E /* UIImage+WBUtiles.m */,
+				2D1DCBCF1F45B97400368A9E /* UIView+WBUtils.h */,
+				2D1DCBD01F45B97400368A9E /* UIView+WBUtils.m */,
+				2D1DCBD11F45B97400368A9E /* UIViewController+WBUtils.h */,
+				2D1DCBD21F45B97400368A9E /* UIViewController+WBUtils.m */,
+			);
+			name = Utils;
+			path = WBPhotoManager/Utils;
+			sourceTree = "<group>";
+		};
+		2D1DCBE31F45BE7C00368A9E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2D1DCBE41F45BE9600368A9E /* WBPhotoManager_Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3DDFDC70DA30C42F07FF7F00 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				34E4F26BE1421975432BC1AD /* Pods-WBPhotoManager.debug.xcconfig */,
+				13337E39768B25D8F4B70529 /* Pods-WBPhotoManager.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9647CB016A581513A812D00A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6B89C888463675F3C50F352A /* libPods-WBPhotoManager.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2D1DCBD91F45BA3B00368A9E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D1DCBDA1F45BA4900368A9E /* WBPhotoManagerHeader.h in Headers */,
+				2D1DCBDD1F45BB8100368A9E /* WBPhotoManager.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2D1DCB7F1F45B3A900368A9E /* WBPhotoManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D1DCB891F45B3A900368A9E /* Build configuration list for PBXNativeTarget "WBPhotoManager" */;
+			buildPhases = (
+				A534F2533EA964AB83F395AC /* [CP] Check Pods Manifest.lock */,
+				2D1DCB7C1F45B3A900368A9E /* Sources */,
+				2D1DCBD91F45BA3B00368A9E /* Headers */,
+				2D1DCB7D1F45B3A900368A9E /* Frameworks */,
+				2D1DCB7E1F45B3A900368A9E /* CopyFiles */,
+				302EDD2F4135AFE986EA965F /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WBPhotoManager;
+			productName = WBPhotoManager;
+			productReference = 2D1DCB801F45B3A900368A9E /* libWBPhotoManager.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2D1DCB781F45B3A900368A9E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "王博";
+				TargetAttributes = {
+					2D1DCB7F1F45B3A900368A9E = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 8D7826FKHD;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 2D1DCB7B1F45B3A900368A9E /* Build configuration list for PBXProject "WBPhotoManager" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2D1DCB771F45B3A900368A9E;
+			productRefGroup = 2D1DCB811F45B3A900368A9E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2D1DCB7F1F45B3A900368A9E /* WBPhotoManager */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		302EDD2F4135AFE986EA965F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-WBPhotoManager/Pods-WBPhotoManager-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A534F2533EA964AB83F395AC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2D1DCB7C1F45B3A900368A9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D1DCB911F45B95000368A9E /* WBPhotoManager.m in Sources */,
+				2D1DCBC51F45B96D00368A9E /* WBPhotoPreviewImageCell.m in Sources */,
+				2D1DCBC11F45B96D00368A9E /* WBAlbumListCell.m in Sources */,
+				2D1DCBB11F45B96500368A9E /* WBAssetModel.m in Sources */,
+				2D1DCBD81F45B97400368A9E /* UIViewController+WBUtils.m in Sources */,
+				2D1DCBD31F45B97400368A9E /* NSDate+WBUtils.m in Sources */,
+				2D1DCBAF1F45B96500368A9E /* WBAlbumModel.m in Sources */,
+				2D1DCB9E1F45B95B00368A9E /* WBImagePickerController.m in Sources */,
+				2D1DCBC21F45B96D00368A9E /* WBCameraView.m in Sources */,
+				2D1DCBD51F45B97400368A9E /* UICollectionView+WBUtils.m in Sources */,
+				2D1DCBB01F45B96500368A9E /* WBAssetBaseModel.m in Sources */,
+				2D1DCBB31F45B96500368A9E /* WBPhotoConfiguration.m in Sources */,
+				2D1DCBD41F45B97400368A9E /* NSIndexSet+WBUtils.m in Sources */,
+				2D1DCB9D1F45B95B00368A9E /* WBAlbumListController.m in Sources */,
+				2D1DCBB21F45B96500368A9E /* WBMoment.m in Sources */,
+				2D1DCBD61F45B97400368A9E /* UIImage+WBUtiles.m in Sources */,
+				2D1DCBA01F45B95B00368A9E /* WBPhotoPreviewController.m in Sources */,
+				2D1DCB9F1F45B95B00368A9E /* WBPhotoGridController.m in Sources */,
+				2D1DCBB41F45B96500368A9E /* WBPickingModel.m in Sources */,
+				2D1DCBC31F45B96D00368A9E /* WBPhotoGridCell.m in Sources */,
+				2D1DCBA11F45B95B00368A9E /* WBVideoPreviewController.m in Sources */,
+				2D1DCBC41F45B96D00368A9E /* WBPhotoGridHeaderView.m in Sources */,
+				2D1DCBD71F45B97400368A9E /* UIView+WBUtils.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2D1DCB871F45B3A900368A9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2D1DCB881F45B3A900368A9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2D1DCB8A1F45B3A900368A9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34E4F26BE1421975432BC1AD /* Pods-WBPhotoManager.debug.xcconfig */;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 8D7826FKHD;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/../WBPhotoManager/WBPhotoManager/WBPhotoManager/WBPhotoManager_Prefix.pch";
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		2D1DCB8B1F45B3A900368A9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13337E39768B25D8F4B70529 /* Pods-WBPhotoManager.release.xcconfig */;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 8D7826FKHD;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/../WBPhotoManager/WBPhotoManager/WBPhotoManager/WBPhotoManager_Prefix.pch";
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D1DCB7B1F45B3A900368A9E /* Build configuration list for PBXProject "WBPhotoManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D1DCB871F45B3A900368A9E /* Debug */,
+				2D1DCB881F45B3A900368A9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D1DCB891F45B3A900368A9E /* Build configuration list for PBXNativeTarget "WBPhotoManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D1DCB8A1F45B3A900368A9E /* Debug */,
+				2D1DCB8B1F45B3A900368A9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2D1DCB781F45B3A900368A9E /* Project object */;
+}

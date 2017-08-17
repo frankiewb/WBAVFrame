@@ -9,6 +9,7 @@
 #import "WBNativeVideoWriter.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <Photos/Photos.h>
+#import "WBPhotoManager.h"
 
 @interface WBNativeVideoWriter ()
 

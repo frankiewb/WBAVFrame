@@ -49,6 +49,13 @@ target 'WBRtmpHandler' do
   project 'WBRtmpHandler/WBRtmpHandler.project'
 end
 
+
+target 'WBPhotoManager' do
+  platform:ios, '8.0'
+  project 'WBPhotoManager/WBPhotoManager.project'
+end
+
+
 target 'WBService' do
   platform:ios, '8.0'
   project 'WBService/WBService.project'

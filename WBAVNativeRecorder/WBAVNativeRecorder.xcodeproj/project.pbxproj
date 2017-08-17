@@ -18,11 +18,11 @@
 		2D03BCFF1F3C8FEE0074B0FD /* WBNativeVideoWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D03BCFD1F3C8FEE0074B0FD /* WBNativeVideoWriter.h */; };
 		2D03BD001F3C8FEE0074B0FD /* WBNativeVideoWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D03BCFE1F3C8FEE0074B0FD /* WBNativeVideoWriter.m */; };
 		2D1DCADF1F4405BF00368A9E /* WBAVNativeRecorder_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 2D1DCADE1F4405BF00368A9E /* WBAVNativeRecorder_Prefix.pch */; };
+		2D1DCBE21F45BC9C00368A9E /* libPods-WBAVNativeRecorder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C447FA7833B57AFF10EC12E7 /* libPods-WBAVNativeRecorder.a */; };
 		2DC682F41F30315900D5E18C /* WBNativeRecorderBeautyFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DC682F21F30315900D5E18C /* WBNativeRecorderBeautyFilter.h */; };
 		2DC682F51F30315900D5E18C /* WBNativeRecorderBeautyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC682F31F30315900D5E18C /* WBNativeRecorderBeautyFilter.m */; };
 		2DC682F81F307B0900D5E18C /* WBNativeRecorderBeautyPreView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DC682F61F307B0900D5E18C /* WBNativeRecorderBeautyPreView.h */; };
 		2DC682F91F307B0900D5E18C /* WBNativeRecorderBeautyPreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC682F71F307B0900D5E18C /* WBNativeRecorderBeautyPreView.m */; };
-		B42DA9E0A9B6296F63822C45 /* libPods-WBAVNativeRecorder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C447FA7833B57AFF10EC12E7 /* libPods-WBAVNativeRecorder.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,6 +50,7 @@
 		2D03BCFD1F3C8FEE0074B0FD /* WBNativeVideoWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNativeVideoWriter.h; sourceTree = "<group>"; };
 		2D03BCFE1F3C8FEE0074B0FD /* WBNativeVideoWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNativeVideoWriter.m; sourceTree = "<group>"; };
 		2D1DCADE1F4405BF00368A9E /* WBAVNativeRecorder_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBAVNativeRecorder_Prefix.pch; path = WBAVNativeRecorder/WBAVNativeRecorder_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		2D1DCBDB1F45BAD700368A9E /* libPods-WBPhotoManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-WBPhotoManager.a"; path = "/Users/wangbo/workspace/WBAVFrame/Pods/../build/Debug-iphoneos/libPods-WBPhotoManager.a"; sourceTree = "<absolute>"; };
 		2DC682F21F30315900D5E18C /* WBNativeRecorderBeautyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNativeRecorderBeautyFilter.h; sourceTree = "<group>"; };
 		2DC682F31F30315900D5E18C /* WBNativeRecorderBeautyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNativeRecorderBeautyFilter.m; sourceTree = "<group>"; };
 		2DC682F61F307B0900D5E18C /* WBNativeRecorderBeautyPreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNativeRecorderBeautyPreView.h; sourceTree = "<group>"; };
@@ -65,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B42DA9E0A9B6296F63822C45 /* libPods-WBAVNativeRecorder.a in Frameworks */,
+				2D1DCBE21F45BC9C00368A9E /* libPods-WBAVNativeRecorder.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +132,7 @@
 		2DDF0A811F04A65C002C032C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D1DCBDB1F45BAD700368A9E /* libPods-WBPhotoManager.a */,
 				2DDF0A821F04A65C002C032C /* libMBProgressHUD.a */,
 				C447FA7833B57AFF10EC12E7 /* libPods-WBAVNativeRecorder.a */,
 			);
@@ -411,9 +413,15 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/../WBAVNativeRecorder/WBAVNativeRecorder/WBAVNativeRecorder_Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../WBUtils/WBUtils/**",
+					"$(SRCROOT)/../WBUtils/WBUtils",
 					"$(SRCROOT)/../WBCodec/WBCodec",
 					"$(SRCROOT)/../WBRtmpHandler/WBRtmpHandler",
+					"$(SRCROOT)/../WBPhotoManager/WBPhotoManager/**",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/GPUImage\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MBProgressHUD\"",
 				);
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -430,9 +438,15 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/../WBAVNativeRecorder/WBAVNativeRecorder/WBAVNativeRecorder_Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../WBUtils/WBUtils/**",
+					"$(SRCROOT)/../WBUtils/WBUtils",
 					"$(SRCROOT)/../WBCodec/WBCodec",
 					"$(SRCROOT)/../WBRtmpHandler/WBRtmpHandler",
+					"$(SRCROOT)/../WBPhotoManager/WBPhotoManager/**",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/GPUImage\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MBProgressHUD\"",
 				);
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

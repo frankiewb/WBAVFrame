@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <Photos/Photos.h>
+#import "WBPhotoManagerEnumeration.h"
 
 
+@class WBAlbumModel,WBMoment,WBAssetModel;
 @interface WBPhotoManager : NSObject
 
 /** 单例 */
