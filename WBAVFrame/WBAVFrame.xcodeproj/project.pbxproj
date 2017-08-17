@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2D1DCBE61F45C2CC00368A9E /* libWBPhotoManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1DCBE51F45C2CC00368A9E /* libWBPhotoManager.a */; };
+		2D1DCC021F45C56B00368A9E /* libWBGPUImageRecorder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1DCC011F45C56B00368A9E /* libWBGPUImageRecorder.a */; };
 		2D81A9581F289C0000380F61 /* libbz2.1.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D81A9511F289B9100380F61 /* libbz2.1.0.tbd */; };
 		2D81A9591F289C0700380F61 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D81A9531F289B9C00380F61 /* libz.tbd */; };
 		2D9B28191F01F61600D3EAEB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B28181F01F61600D3EAEB /* main.m */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		2D1DCBE51F45C2CC00368A9E /* libWBPhotoManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWBPhotoManager.a; path = "../../../Library/Developer/Xcode/DerivedData/WBAVFrame-blzsmgzkiwbdofaquhmahjmjukxd/Build/Products/Debug-iphoneos/libWBPhotoManager.a"; sourceTree = "<group>"; };
+		2D1DCC011F45C56B00368A9E /* libWBGPUImageRecorder.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWBGPUImageRecorder.a; path = "../WBGPUImageRecorder/build/Debug-iphoneos/libWBGPUImageRecorder.a"; sourceTree = "<group>"; };
 		2D81A9511F289B9100380F61 /* libbz2.1.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.1.0.tbd; path = usr/lib/libbz2.1.0.tbd; sourceTree = SDKROOT; };
 		2D81A9531F289B9C00380F61 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		2D9B28141F01F61600D3EAEB /* WBAVFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WBAVFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D1DCC021F45C56B00368A9E /* libWBGPUImageRecorder.a in Frameworks */,
 				2D1DCBE61F45C2CC00368A9E /* libWBPhotoManager.a in Frameworks */,
 				2D81A9591F289C0700380F61 /* libz.tbd in Frameworks */,
 				2D81A9581F289C0000380F61 /* libbz2.1.0.tbd in Frameworks */,
@@ -270,6 +273,7 @@
 		DF3B252ECF10013123CBD0F2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D1DCC011F45C56B00368A9E /* libWBGPUImageRecorder.a */,
 				2D1DCBE51F45C2CC00368A9E /* libWBPhotoManager.a */,
 				2D81A9531F289B9C00380F61 /* libz.tbd */,
 				2D81A9511F289B9100380F61 /* libbz2.1.0.tbd */,

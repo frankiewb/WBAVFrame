@@ -33,6 +33,8 @@
 		2D1DCBD81F45B97400368A9E /* UIViewController+WBUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCBD21F45B97400368A9E /* UIViewController+WBUtils.m */; };
 		2D1DCBDA1F45BA4900368A9E /* WBPhotoManagerHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D1DCB901F45B95000368A9E /* WBPhotoManagerHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2D1DCBDD1F45BB8100368A9E /* WBPhotoManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D1DCB8D1F45B95000368A9E /* WBPhotoManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2D1DCBEA1F45C3C900368A9E /* ALAssetsLibrary+CustomPhotoAlbum.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D1DCBE81F45C3C900368A9E /* ALAssetsLibrary+CustomPhotoAlbum.h */; };
+		2D1DCBEB1F45C3C900368A9E /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCBE91F45C3C900368A9E /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -100,6 +102,8 @@
 		2D1DCBD11F45B97400368A9E /* UIViewController+WBUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WBUtils.h"; sourceTree = "<group>"; };
 		2D1DCBD21F45B97400368A9E /* UIViewController+WBUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WBUtils.m"; sourceTree = "<group>"; };
 		2D1DCBE41F45BE9600368A9E /* WBPhotoManager_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WBPhotoManager_Prefix.pch; path = WBPhotoManager/WBPhotoManager/WBPhotoManager_Prefix.pch; sourceTree = "<group>"; };
+		2D1DCBE81F45C3C900368A9E /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
+		2D1DCBE91F45C3C900368A9E /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
 		34E4F26BE1421975432BC1AD /* Pods-WBPhotoManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBPhotoManager.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WBPhotoManager/Pods-WBPhotoManager.debug.xcconfig"; sourceTree = "<group>"; };
 		6B89C888463675F3C50F352A /* libPods-WBPhotoManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WBPhotoManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -124,6 +128,7 @@
 				2D1DCBA21F45B96500368A9E /* Model */,
 				2D1DCBB51F45B96C00368A9E /* View */,
 				2D1DCBC61F45B97400368A9E /* Utils */,
+				2D1DCBE71F45C3C900368A9E /* ALAssetsLibrary */,
 				2D1DCB811F45B3A900368A9E /* Products */,
 				2D1DCBE31F45BE7C00368A9E /* Supporting Files */,
 				3DDFDC70DA30C42F07FF7F00 /* Pods */,
@@ -236,6 +241,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2D1DCBE71F45C3C900368A9E /* ALAssetsLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				2D1DCBE81F45C3C900368A9E /* ALAssetsLibrary+CustomPhotoAlbum.h */,
+				2D1DCBE91F45C3C900368A9E /* ALAssetsLibrary+CustomPhotoAlbum.m */,
+			);
+			name = ALAssetsLibrary;
+			path = WBPhotoManager/ALAssetsLibrary;
+			sourceTree = "<group>";
+		};
 		3DDFDC70DA30C42F07FF7F00 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D1DCBDA1F45BA4900368A9E /* WBPhotoManagerHeader.h in Headers */,
+				2D1DCBEA1F45C3C900368A9E /* ALAssetsLibrary+CustomPhotoAlbum.h in Headers */,
 				2D1DCBDD1F45BB8100368A9E /* WBPhotoManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,6 +398,7 @@
 				2D1DCBA11F45B95B00368A9E /* WBVideoPreviewController.m in Sources */,
 				2D1DCBC41F45B96D00368A9E /* WBPhotoGridHeaderView.m in Sources */,
 				2D1DCBD71F45B97400368A9E /* UIView+WBUtils.m in Sources */,
+				2D1DCBEB1F45C3C900368A9E /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

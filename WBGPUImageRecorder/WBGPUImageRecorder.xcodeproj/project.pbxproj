@@ -7,146 +7,161 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2DE9E4381F0232DA001255F4 /* WBService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E4371F0232DA001255F4 /* WBService.m */; };
-		2DE9E4391F0232DA001255F4 /* WBService.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DE9E4361F0232DA001255F4 /* WBService.h */; };
-		46F261D8639178F938FC486B /* libPods-WBService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D3200A425F19D86240AA5E /* libPods-WBService.a */; };
+		2D1DCBFA1F45C48C00368A9E /* WBGPUImageRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCBF91F45C48C00368A9E /* WBGPUImageRecorder.m */; };
+		2D1DCBFB1F45C48C00368A9E /* WBGPUImageRecorder.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D1DCBF81F45C48C00368A9E /* WBGPUImageRecorder.h */; };
+		D6F85540087835BD84BBA73E /* libPods-WBGPUImageRecorder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDE681FC3D59113F0A1391F3 /* libPods-WBGPUImageRecorder.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		2DE9E4311F0232DA001255F4 /* CopyFiles */ = {
+		2D1DCBF31F45C48C00368A9E /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				2DE9E4391F0232DA001255F4 /* WBService.h in CopyFiles */,
+				2D1DCBFB1F45C48C00368A9E /* WBGPUImageRecorder.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2DE9E4331F0232DA001255F4 /* libWBService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWBService.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2DE9E4361F0232DA001255F4 /* WBService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBService.h; sourceTree = "<group>"; };
-		2DE9E4371F0232DA001255F4 /* WBService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBService.m; sourceTree = "<group>"; };
-		31D3200A425F19D86240AA5E /* libPods-WBService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WBService.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7072222239687AB3AE0FDD26 /* Pods-WBService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBService.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WBService/Pods-WBService.debug.xcconfig"; sourceTree = "<group>"; };
-		A732BE6B82F07F66A0A2275D /* Pods-WBService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBService.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WBService/Pods-WBService.release.xcconfig"; sourceTree = "<group>"; };
+		2D1DCBF51F45C48C00368A9E /* libWBGPUImageRecorder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWBGPUImageRecorder.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D1DCBF81F45C48C00368A9E /* WBGPUImageRecorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBGPUImageRecorder.h; sourceTree = "<group>"; };
+		2D1DCBF91F45C48C00368A9E /* WBGPUImageRecorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBGPUImageRecorder.m; sourceTree = "<group>"; };
+		3DAF8A6A19A67F6CCE584122 /* Pods-WBGPUImageRecorder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBGPUImageRecorder.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WBGPUImageRecorder/Pods-WBGPUImageRecorder.release.xcconfig"; sourceTree = "<group>"; };
+		C90B09224C985903AE6E0CA1 /* Pods-WBGPUImageRecorder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBGPUImageRecorder.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WBGPUImageRecorder/Pods-WBGPUImageRecorder.debug.xcconfig"; sourceTree = "<group>"; };
+		EDE681FC3D59113F0A1391F3 /* libPods-WBGPUImageRecorder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WBGPUImageRecorder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2DE9E4301F0232DA001255F4 /* Frameworks */ = {
+		2D1DCBF21F45C48C00368A9E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46F261D8639178F938FC486B /* libPods-WBService.a in Frameworks */,
+				D6F85540087835BD84BBA73E /* libPods-WBGPUImageRecorder.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2DE9E42A1F0232DA001255F4 = {
+		2D1DCBEC1F45C48C00368A9E = {
 			isa = PBXGroup;
 			children = (
-				2DE9E4351F0232DA001255F4 /* WBService */,
-				2DE9E4341F0232DA001255F4 /* Products */,
-				CA776A68A3C80FBEC0EFCBE6 /* Pods */,
-				C81EF06D781E4179181CB51A /* Frameworks */,
+				2D1DCBF71F45C48C00368A9E /* WBGPUImageRecorder */,
+				2D1DCBF61F45C48C00368A9E /* Products */,
+				60902119D50397AF316260F3 /* Pods */,
+				B3C0933F8524D7228CB8F459 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		2DE9E4341F0232DA001255F4 /* Products */ = {
+		2D1DCBF61F45C48C00368A9E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2DE9E4331F0232DA001255F4 /* libWBService.a */,
+				2D1DCBF51F45C48C00368A9E /* libWBGPUImageRecorder.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2DE9E4351F0232DA001255F4 /* WBService */ = {
+		2D1DCBF71F45C48C00368A9E /* WBGPUImageRecorder */ = {
 			isa = PBXGroup;
 			children = (
-				2DE9E4361F0232DA001255F4 /* WBService.h */,
-				2DE9E4371F0232DA001255F4 /* WBService.m */,
+				2D1DCBF81F45C48C00368A9E /* WBGPUImageRecorder.h */,
+				2D1DCBF91F45C48C00368A9E /* WBGPUImageRecorder.m */,
 			);
-			path = WBService;
+			path = WBGPUImageRecorder;
 			sourceTree = "<group>";
 		};
-		C81EF06D781E4179181CB51A /* Frameworks */ = {
+		60902119D50397AF316260F3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				31D3200A425F19D86240AA5E /* libPods-WBService.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		CA776A68A3C80FBEC0EFCBE6 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7072222239687AB3AE0FDD26 /* Pods-WBService.debug.xcconfig */,
-				A732BE6B82F07F66A0A2275D /* Pods-WBService.release.xcconfig */,
+				C90B09224C985903AE6E0CA1 /* Pods-WBGPUImageRecorder.debug.xcconfig */,
+				3DAF8A6A19A67F6CCE584122 /* Pods-WBGPUImageRecorder.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		B3C0933F8524D7228CB8F459 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EDE681FC3D59113F0A1391F3 /* libPods-WBGPUImageRecorder.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2DE9E4321F0232DA001255F4 /* WBService */ = {
+		2D1DCBF41F45C48C00368A9E /* WBGPUImageRecorder */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2DE9E43C1F0232DA001255F4 /* Build configuration list for PBXNativeTarget "WBService" */;
+			buildConfigurationList = 2D1DCBFE1F45C48C00368A9E /* Build configuration list for PBXNativeTarget "WBGPUImageRecorder" */;
 			buildPhases = (
-				4F2E25B0B23C4E1B1E6A26C3 /* [CP] Check Pods Manifest.lock */,
-				2DE9E42F1F0232DA001255F4 /* Sources */,
-				2DE9E4301F0232DA001255F4 /* Frameworks */,
-				2DE9E4311F0232DA001255F4 /* CopyFiles */,
-				FFF8861B8C10BC9606D265DA /* [CP] Copy Pods Resources */,
+				8E7606E6FA0B2CDC336A6B56 /* [CP] Check Pods Manifest.lock */,
+				2D1DCBF11F45C48C00368A9E /* Sources */,
+				2D1DCBF21F45C48C00368A9E /* Frameworks */,
+				2D1DCBF31F45C48C00368A9E /* CopyFiles */,
+				39A191A6263FB87F1D4BE7C7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = WBService;
-			productName = WBService;
-			productReference = 2DE9E4331F0232DA001255F4 /* libWBService.a */;
+			name = WBGPUImageRecorder;
+			productName = WBGPUImageRecorder;
+			productReference = 2D1DCBF51F45C48C00368A9E /* libWBGPUImageRecorder.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		2DE9E42B1F0232DA001255F4 /* Project object */ = {
+		2D1DCBED1F45C48C00368A9E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "王博";
 				TargetAttributes = {
-					2DE9E4321F0232DA001255F4 = {
+					2D1DCBF41F45C48C00368A9E = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 8D7826FKHD;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 2DE9E42E1F0232DA001255F4 /* Build configuration list for PBXProject "WBService" */;
+			buildConfigurationList = 2D1DCBF01F45C48C00368A9E /* Build configuration list for PBXProject "WBGPUImageRecorder" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 2DE9E42A1F0232DA001255F4;
-			productRefGroup = 2DE9E4341F0232DA001255F4 /* Products */;
+			mainGroup = 2D1DCBEC1F45C48C00368A9E;
+			productRefGroup = 2D1DCBF61F45C48C00368A9E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2DE9E4321F0232DA001255F4 /* WBService */,
+				2D1DCBF41F45C48C00368A9E /* WBGPUImageRecorder */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4F2E25B0B23C4E1B1E6A26C3 /* [CP] Check Pods Manifest.lock */ = {
+		39A191A6263FB87F1D4BE7C7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-WBGPUImageRecorder/Pods-WBGPUImageRecorder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E7606E6FA0B2CDC336A6B56 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -161,36 +176,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		FFF8861B8C10BC9606D265DA /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-WBService/Pods-WBService-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2DE9E42F1F0232DA001255F4 /* Sources */ = {
+		2D1DCBF11F45C48C00368A9E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DE9E4381F0232DA001255F4 /* WBService.m in Sources */,
+				2D1DCBFA1F45C48C00368A9E /* WBGPUImageRecorder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		2DE9E43A1F0232DA001255F4 /* Debug */ = {
+		2D1DCBFC1F45C48C00368A9E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -231,14 +231,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
-		2DE9E43B1F0232DA001255F4 /* Release */ = {
+		2D1DCBFD1F45C48C00368A9E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -273,16 +273,16 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		2DE9E43D1F0232DA001255F4 /* Debug */ = {
+		2D1DCBFF1F45C48C00368A9E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7072222239687AB3AE0FDD26 /* Pods-WBService.debug.xcconfig */;
+			baseConfigurationReference = C90B09224C985903AE6E0CA1 /* Pods-WBGPUImageRecorder.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
 				OTHER_LDFLAGS = "$(inherited)";
@@ -291,9 +291,9 @@
 			};
 			name = Debug;
 		};
-		2DE9E43E1F0232DA001255F4 /* Release */ = {
+		2D1DCC001F45C48C00368A9E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A732BE6B82F07F66A0A2275D /* Pods-WBService.release.xcconfig */;
+			baseConfigurationReference = 3DAF8A6A19A67F6CCE584122 /* Pods-WBGPUImageRecorder.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
 				OTHER_LDFLAGS = "$(inherited)";
@@ -305,25 +305,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2DE9E42E1F0232DA001255F4 /* Build configuration list for PBXProject "WBService" */ = {
+		2D1DCBF01F45C48C00368A9E /* Build configuration list for PBXProject "WBGPUImageRecorder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2DE9E43A1F0232DA001255F4 /* Debug */,
-				2DE9E43B1F0232DA001255F4 /* Release */,
+				2D1DCBFC1F45C48C00368A9E /* Debug */,
+				2D1DCBFD1F45C48C00368A9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2DE9E43C1F0232DA001255F4 /* Build configuration list for PBXNativeTarget "WBService" */ = {
+		2D1DCBFE1F45C48C00368A9E /* Build configuration list for PBXNativeTarget "WBGPUImageRecorder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2DE9E43D1F0232DA001255F4 /* Debug */,
-				2DE9E43E1F0232DA001255F4 /* Release */,
+				2D1DCBFF1F45C48C00368A9E /* Debug */,
+				2D1DCC001F45C48C00368A9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 2DE9E42B1F0232DA001255F4 /* Project object */;
+	rootObject = 2D1DCBED1F45C48C00368A9E /* Project object */;
 }

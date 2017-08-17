@@ -28,6 +28,11 @@ target 'WBAVBeautyRecorder' do
   pod ‘GPUImage’
 end
 
+target 'WBGPUImageRecorder' do
+  platform:ios, '8.0'
+  project 'WBGPUImageRecorder/WBGPUImageRecorder.project'
+end
+
 target 'WBAVIJKPlayer' do
   platform:ios, '8.0'
   project 'WBAVIJKPlayer/WBAVIJKPlayer.project'
@@ -55,11 +60,6 @@ target 'WBPhotoManager' do
   project 'WBPhotoManager/WBPhotoManager.project'
 end
 
-
-target 'WBService' do
-  platform:ios, '8.0'
-  project 'WBService/WBService.project'
-end
 
 target 'WBUtils' do
   platform:ios, '8.0'
