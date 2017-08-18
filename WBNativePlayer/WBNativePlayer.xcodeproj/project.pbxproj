@@ -1,0 +1,335 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2D1DCC551F46D09100368A9E /* WBNativePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCC541F46D09100368A9E /* WBNativePlayer.m */; };
+		2D1DCC561F46D09100368A9E /* WBNativePlayer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D1DCC531F46D09100368A9E /* WBNativePlayer.h */; };
+		2D1DCC5E1F46D0D200368A9E /* WBNativePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCC5D1F46D0D200368A9E /* WBNativePlayerViewController.m */; };
+		5705031B4320FAACC56320AF /* libPods-WBNativePlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C48CAF7195A15E0111168DA4 /* libPods-WBNativePlayer.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2D1DCC4E1F46D09100368A9E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				2D1DCC561F46D09100368A9E /* WBNativePlayer.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0190A8509290F90C653ACE1A /* Pods-WBNativePlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBNativePlayer.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WBNativePlayer/Pods-WBNativePlayer.debug.xcconfig"; sourceTree = "<group>"; };
+		2D1DCC501F46D09100368A9E /* libWBNativePlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWBNativePlayer.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D1DCC531F46D09100368A9E /* WBNativePlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBNativePlayer.h; sourceTree = "<group>"; };
+		2D1DCC541F46D09100368A9E /* WBNativePlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBNativePlayer.m; sourceTree = "<group>"; };
+		2D1DCC5C1F46D0D200368A9E /* WBNativePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNativePlayerViewController.h; sourceTree = "<group>"; };
+		2D1DCC5D1F46D0D200368A9E /* WBNativePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNativePlayerViewController.m; sourceTree = "<group>"; };
+		C48CAF7195A15E0111168DA4 /* libPods-WBNativePlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WBNativePlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F43C39872E9AE7C5C1AC3B73 /* Pods-WBNativePlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBNativePlayer.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WBNativePlayer/Pods-WBNativePlayer.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2D1DCC4D1F46D09100368A9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5705031B4320FAACC56320AF /* libPods-WBNativePlayer.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2D1DCC471F46D09100368A9E = {
+			isa = PBXGroup;
+			children = (
+				2D1DCC521F46D09100368A9E /* WBNativePlayer */,
+				2D1DCC511F46D09100368A9E /* Products */,
+				898966295C598B03A4DC92DF /* Pods */,
+				9195518296F37968B87CAA30 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2D1DCC511F46D09100368A9E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2D1DCC501F46D09100368A9E /* libWBNativePlayer.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2D1DCC521F46D09100368A9E /* WBNativePlayer */ = {
+			isa = PBXGroup;
+			children = (
+				2D1DCC531F46D09100368A9E /* WBNativePlayer.h */,
+				2D1DCC541F46D09100368A9E /* WBNativePlayer.m */,
+				2D1DCC5C1F46D0D200368A9E /* WBNativePlayerViewController.h */,
+				2D1DCC5D1F46D0D200368A9E /* WBNativePlayerViewController.m */,
+			);
+			path = WBNativePlayer;
+			sourceTree = "<group>";
+		};
+		898966295C598B03A4DC92DF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0190A8509290F90C653ACE1A /* Pods-WBNativePlayer.debug.xcconfig */,
+				F43C39872E9AE7C5C1AC3B73 /* Pods-WBNativePlayer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9195518296F37968B87CAA30 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C48CAF7195A15E0111168DA4 /* libPods-WBNativePlayer.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2D1DCC4F1F46D09100368A9E /* WBNativePlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D1DCC591F46D09100368A9E /* Build configuration list for PBXNativeTarget "WBNativePlayer" */;
+			buildPhases = (
+				092051C9119385D35FE90211 /* [CP] Check Pods Manifest.lock */,
+				2D1DCC4C1F46D09100368A9E /* Sources */,
+				2D1DCC4D1F46D09100368A9E /* Frameworks */,
+				2D1DCC4E1F46D09100368A9E /* CopyFiles */,
+				47870995D0E71C8C676ABC02 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WBNativePlayer;
+			productName = WBNativePlayer;
+			productReference = 2D1DCC501F46D09100368A9E /* libWBNativePlayer.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2D1DCC481F46D09100368A9E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "王博";
+				TargetAttributes = {
+					2D1DCC4F1F46D09100368A9E = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 8D7826FKHD;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 2D1DCC4B1F46D09100368A9E /* Build configuration list for PBXProject "WBNativePlayer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2D1DCC471F46D09100368A9E;
+			productRefGroup = 2D1DCC511F46D09100368A9E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2D1DCC4F1F46D09100368A9E /* WBNativePlayer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		092051C9119385D35FE90211 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		47870995D0E71C8C676ABC02 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-WBNativePlayer/Pods-WBNativePlayer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2D1DCC4C1F46D09100368A9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D1DCC551F46D09100368A9E /* WBNativePlayer.m in Sources */,
+				2D1DCC5E1F46D0D200368A9E /* WBNativePlayerViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2D1DCC571F46D09100368A9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2D1DCC581F46D09100368A9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2D1DCC5A1F46D09100368A9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0190A8509290F90C653ACE1A /* Pods-WBNativePlayer.debug.xcconfig */;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 8D7826FKHD;
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		2D1DCC5B1F46D09100368A9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F43C39872E9AE7C5C1AC3B73 /* Pods-WBNativePlayer.release.xcconfig */;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 8D7826FKHD;
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D1DCC4B1F46D09100368A9E /* Build configuration list for PBXProject "WBNativePlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D1DCC571F46D09100368A9E /* Debug */,
+				2D1DCC581F46D09100368A9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D1DCC591F46D09100368A9E /* Build configuration list for PBXNativeTarget "WBNativePlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D1DCC5A1F46D09100368A9E /* Debug */,
+				2D1DCC5B1F46D09100368A9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2D1DCC481F46D09100368A9E /* Project object */;
+}

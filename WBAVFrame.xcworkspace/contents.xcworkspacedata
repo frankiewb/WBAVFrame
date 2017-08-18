@@ -14,7 +14,7 @@
       location = "group:WBPhotoManager/WBPhotoManager.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:WBAVNativePlayer/WBAVNativePlayer.xcodeproj">
+      location = "group:WBNativePlayer/WBNativePlayer.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:WBAVIJKPlayer/WBAVIJKPlayer.xcodeproj">

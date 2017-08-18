@@ -37,6 +37,12 @@ target 'WBAVNativePlayer' do
   project 'WBAVNativePlayer/WBAVNativePlayer.project'
 end
 
+target 'WBNativePlayer' do
+  platform:ios,'8.0'
+  project 'WBNativePlayer/WBNativePlayer.project'
+end
+
+
 target 'WBCodec' do
   platform:ios, '8.0'
   project 'WBCodec/WBCodec.project'
