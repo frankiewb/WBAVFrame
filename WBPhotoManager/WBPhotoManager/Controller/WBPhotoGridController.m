@@ -52,7 +52,7 @@ static NSString * const reuserIdentifier = @"WBPhotoGridCell";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-#warning waiting for updating 滚动到最下方，找到最佳方案
+#warning WB_WARNING waiting for updating 滚动到最下方，找到最佳方案
     if (!self.config.isPhotosDesc && _isFirstAppear) {
         [self mp_scrollToBottom];
         _isFirstAppear = NO;
@@ -79,7 +79,7 @@ static NSString * const reuserIdentifier = @"WBPhotoGridCell";
 #pragma mark - Instance Methods
 - (void)mp_initData {
     [[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
-#warning waiting for testing 在图片特别多的情况下，测试选中状态是否正常
+#warning WB_WARNING waiting for testing 在图片特别多的情况下，测试选中状态是否正常
     dispatch_async(dispatch_queue_create(nil, DISPATCH_QUEUE_CONCURRENT), ^{
         [self mp_checkSelectedStatus];
         
@@ -97,7 +97,7 @@ static NSString * const reuserIdentifier = @"WBPhotoGridCell";
     for (WBAssetModel *model in _album.models) {
         model.selected = [pickerCtrler containAssetModel:model];
     }
-#warning waiting for testing 这里不知道在图片特别多的情况下是不是需要刷新界面
+#warning WB_WARNING waiting for testing 这里不知道在图片特别多的情况下是不是需要刷新界面
 }
 
 - (void)mp_setupViews {
@@ -152,7 +152,7 @@ static NSString * const reuserIdentifier = @"WBPhotoGridCell";
 }
 
 - (void)mp_jumpToUIImagePickerController {
-#warning waiting for updating 判断照相机授权。视频拍摄情况，判断语音授权。
+#warning WB_WARNING waiting for updating 判断照相机授权。视频拍摄情况，判断语音授权。
     if ([UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera]) {
         UIImagePickerController *pickerCtrler = [[UIImagePickerController alloc] init];
         pickerCtrler.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -193,7 +193,7 @@ static NSString * const reuserIdentifier = @"WBPhotoGridCell";
     self.title = album.albumName;
     
     self.config.photoMomentGroupType == WBImageMomentGroupTypeNone ? _isMoment = NO : (_isMoment = YES);
-#warning waiting for updating 当显示照相机并且根据moment分组的时候，把照相机放在当前时间组，没有就创建一个分组。
+#warning WB_WARNING waiting for updating 当显示照相机并且根据moment分组的时候，把照相机放在当前时间组，没有就创建一个分组。
     _isShowCamera = self.config.isFirstCamera && self.album.isCameraRoll;
 }
 
@@ -238,7 +238,7 @@ static NSString * const reuserIdentifier = @"WBPhotoGridCell";
     WBAssetModel *model;
     //判断显示相机, 如果显示相机，里面的代码。。。尽量理解。。不要问。。。我写完了都不太理解。。=-=
     // Don't ask about the following codes.
-#warning !!!Waiting for updating 代码优化
+#warning WB_WARNING !!!Waiting for updating 代码优化
     if (_isShowCamera) {
         if (self.config.isPhotosDesc) {
             if (_isMoment) {
@@ -405,13 +405,13 @@ static NSString * const reuserIdentifier = @"WBPhotoGridCell";
         UICollectionView *collectionView = self.collectionView;
         
         if (_isMoment) {
-#warning waiting for updating 不想这么暴力 T^T
+#warning WB_WARNING waiting for updating 不想这么暴力 T^T
             [self mp_refreshMoments];
             [collectionView reloadData];
         } else {
             //http://stackoverflow.com/questions/29337765/crash-attempt-to-delete-and-reload-the-same-index-path
             //本人好像是看不到哈。。=-=    不过，非常感谢！！！
-#warning waiting for updating 虽然有一种方法搞定了。但是还是感觉会有更好的办法。
+#warning WB_WARNING waiting for updating 虽然有一种方法搞定了。但是还是感觉会有更好的办法。
             if ([collectionChanges hasIncrementalChanges]) {
                 BOOL isCamera = _isShowCamera && self.config.isPhotosDesc;
                 

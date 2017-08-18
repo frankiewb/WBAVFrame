@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2D1DCBFA1F45C48C00368A9E /* WBGPUImageRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCBF91F45C48C00368A9E /* WBGPUImageRecorder.m */; };
 		2D1DCBFB1F45C48C00368A9E /* WBGPUImageRecorder.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D1DCBF81F45C48C00368A9E /* WBGPUImageRecorder.h */; };
+		2D1DCC081F4689A100368A9E /* WBBeautyLiveRecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCC051F4689A100368A9E /* WBBeautyLiveRecorderViewController.m */; };
+		2D1DCC091F4689A100368A9E /* WBBeautyVideoRecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCC071F4689A100368A9E /* WBBeautyVideoRecorderViewController.m */; };
 		D6F85540087835BD84BBA73E /* libPods-WBGPUImageRecorder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDE681FC3D59113F0A1391F3 /* libPods-WBGPUImageRecorder.a */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +31,10 @@
 		2D1DCBF51F45C48C00368A9E /* libWBGPUImageRecorder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWBGPUImageRecorder.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D1DCBF81F45C48C00368A9E /* WBGPUImageRecorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBGPUImageRecorder.h; sourceTree = "<group>"; };
 		2D1DCBF91F45C48C00368A9E /* WBGPUImageRecorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBGPUImageRecorder.m; sourceTree = "<group>"; };
+		2D1DCC041F4689A100368A9E /* WBBeautyLiveRecorderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBBeautyLiveRecorderViewController.h; sourceTree = "<group>"; };
+		2D1DCC051F4689A100368A9E /* WBBeautyLiveRecorderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBBeautyLiveRecorderViewController.m; sourceTree = "<group>"; };
+		2D1DCC061F4689A100368A9E /* WBBeautyVideoRecorderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBBeautyVideoRecorderViewController.h; sourceTree = "<group>"; };
+		2D1DCC071F4689A100368A9E /* WBBeautyVideoRecorderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBBeautyVideoRecorderViewController.m; sourceTree = "<group>"; };
 		3DAF8A6A19A67F6CCE584122 /* Pods-WBGPUImageRecorder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBGPUImageRecorder.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WBGPUImageRecorder/Pods-WBGPUImageRecorder.release.xcconfig"; sourceTree = "<group>"; };
 		C90B09224C985903AE6E0CA1 /* Pods-WBGPUImageRecorder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBGPUImageRecorder.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WBGPUImageRecorder/Pods-WBGPUImageRecorder.debug.xcconfig"; sourceTree = "<group>"; };
 		EDE681FC3D59113F0A1391F3 /* libPods-WBGPUImageRecorder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WBGPUImageRecorder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +73,10 @@
 		2D1DCBF71F45C48C00368A9E /* WBGPUImageRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				2D1DCC041F4689A100368A9E /* WBBeautyLiveRecorderViewController.h */,
+				2D1DCC051F4689A100368A9E /* WBBeautyLiveRecorderViewController.m */,
+				2D1DCC061F4689A100368A9E /* WBBeautyVideoRecorderViewController.h */,
+				2D1DCC071F4689A100368A9E /* WBBeautyVideoRecorderViewController.m */,
 				2D1DCBF81F45C48C00368A9E /* WBGPUImageRecorder.h */,
 				2D1DCBF91F45C48C00368A9E /* WBGPUImageRecorder.m */,
 			);
@@ -184,6 +194,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D1DCBFA1F45C48C00368A9E /* WBGPUImageRecorder.m in Sources */,
+				2D1DCC091F4689A100368A9E /* WBBeautyVideoRecorderViewController.m in Sources */,
+				2D1DCC081F4689A100368A9E /* WBBeautyLiveRecorderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,7 +243,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -273,7 +285,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

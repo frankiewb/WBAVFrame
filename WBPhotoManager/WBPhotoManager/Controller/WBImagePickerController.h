@@ -130,25 +130,25 @@
 /**
  自定义相册名称，为空时保存到系统相册。不为空时，系统中没有该相册，则创建。
  */
-@property (copy, nonatomic) NSString *customAlbumName;
+@property (copy, nonatomic) NSString * _Nullable customAlbumName;
 
 /**
  照片选择时，未选择时图片
  */
-@property (strong, nonatomic) UIImage *photoNormal;
+@property (strong, nonatomic) UIImage *  _Nullable photoNormal;
 
 /**
  照片选择时，已选择时图片
  */
-@property (strong, nonatomic) UIImage *photoSelected;
+@property (strong, nonatomic) UIImage * _Nullable photoSelected;
 
 /**
  WBPhotoGridController 中，camera cell显示图片
  */
-@property (strong, nonatomic) UIImage *cameraImage;
+@property (strong, nonatomic) UIImage * _Nullable cameraImage;
 
 
-@property (weak, nonatomic) id<WBImagePickerControllerDelegate> WBDelegate;
+@property (weak, nonatomic, nullable) id <WBImagePickerControllerDelegate> WBDelegate;
 
 
 /**
@@ -158,7 +158,7 @@
  
  @return            实例
  */
-- (instancetype)initWithAccessType:(WBImagePickerAccessType)accessType;
+- (instancetype _Nullable )initWithAccessType:(WBImagePickerAccessType)accessType;
 
 /**
  构造器
@@ -167,7 +167,7 @@
  @param identifiers 已经选中过的图片的 identifier
  @return            实例
  */
-- (instancetype)initWithAccessType:(WBImagePickerAccessType)accessType identifiers:(NSArray <NSString *>*)identifiers;
+- (instancetype _Nullable )initWithAccessType:(WBImagePickerAccessType)accessType identifiers:(NSArray <NSString *>*_Nullable)identifiers;
 
 
 
@@ -178,7 +178,7 @@
 
  @return 是否添加成功
  */
-- (BOOL)addSelectedAsset:(WBAssetModel *)asset;
+- (BOOL)addSelectedAsset:(WBAssetModel *_Nullable)asset;
 
 /**
  移除选中
@@ -187,7 +187,7 @@
  
  @return 是否移除成功
  */
-- (BOOL)removeSelectedAsset:(WBAssetModel *)asset;
+- (BOOL)removeSelectedAsset:(WBAssetModel *_Nullable)asset;
 
 /**
  选中图片中是否包含该 model
@@ -195,7 +195,7 @@
  @param asset 需判断的 asset
  @return 是否选中
  */
-- (BOOL)containAssetModel:(WBAssetModel *)asset;
+- (BOOL)containAssetModel:(WBAssetModel *_Nullable)asset;
 
 /**
  已经选中了几张图片

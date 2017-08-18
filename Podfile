@@ -21,13 +21,6 @@ target 'WBAVNativeRecorder' do
   pod 'GPUImage'
 end
 
-target 'WBAVBeautyRecorder' do
-  platform:ios, '8.0'
-  project 'WBAVBeautyRecorder/WBAVBeautyRecorder.project'
-  inhibit_all_warnings!
-  pod ‘GPUImage’
-end
-
 target 'WBGPUImageRecorder' do
   platform:ios, '8.0'
   project 'WBGPUImageRecorder/WBGPUImageRecorder.project'

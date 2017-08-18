@@ -19,7 +19,6 @@
 		2D9B283D1F01F61600D3EAEB /* WBAVFrameUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B283C1F01F61600D3EAEB /* WBAVFrameUITests.m */; };
 		2DDB32921F03A88E00DBA59B /* libWBAVNativeRecorder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDB32911F03A88E00DBA59B /* libWBAVNativeRecorder.a */; };
 		2DDB32941F03A97A00DBA59B /* libWBUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDB32931F03A97A00DBA59B /* libWBUtils.a */; };
-		2DDB32A51F03B46800DBA59B /* libWBAVBeautyRecorder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDB32A41F03B46800DBA59B /* libWBAVBeautyRecorder.a */; };
 		2DDB32AB1F03B47300DBA59B /* libWBAVIJKPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDB32A61F03B47300DBA59B /* libWBAVIJKPlayer.a */; };
 		2DDB32AC1F03B47300DBA59B /* libWBAVNativePlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDB32A71F03B47300DBA59B /* libWBAVNativePlayer.a */; };
 		2DDB32AD1F03B47300DBA59B /* libWBCodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDB32A81F03B47300DBA59B /* libWBCodec.a */; };
@@ -109,7 +108,6 @@
 				2DDB32AD1F03B47300DBA59B /* libWBCodec.a in Frameworks */,
 				2DDB32AE1F03B47300DBA59B /* libWBRtmpHandler.a in Frameworks */,
 				2DDB32AF1F03B47300DBA59B /* libWBService.a in Frameworks */,
-				2DDB32A51F03B46800DBA59B /* libWBAVBeautyRecorder.a in Frameworks */,
 				2DDB32941F03A97A00DBA59B /* libWBUtils.a in Frameworks */,
 				2DDB32921F03A88E00DBA59B /* libWBAVNativeRecorder.a in Frameworks */,
 				D7FDE783BCAC39F6A4C2E202 /* libPods-WBAVFrame.a in Frameworks */,
@@ -292,6 +290,16 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		2D1DCC0A1F4689DC00368A9E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		2D9B28131F01F61600D3EAEB /* WBAVFrame */ = {
 			isa = PBXNativeTarget;
@@ -303,6 +311,7 @@
 				2D9B28121F01F61600D3EAEB /* Resources */,
 				EA25288DE102ACC984514D5F /* [CP] Embed Pods Frameworks */,
 				9F18E845E3FFFE16AC6C8C49 /* [CP] Copy Pods Resources */,
+				2D1DCC0A1F4689DC00368A9E /* Headers */,
 			);
 			buildRules = (
 			);
@@ -650,6 +659,7 @@
 					"$(SRCROOT)/../WBUtils/WBUtils/**",
 					"$(SRCROOT)/../WBAVNativeRecorder/WBAVNativeRecorder/**",
 					"$(SRCROOT)/../WBAVBeautyRecorder/WBAVBeautyRecorder/**",
+					"$(SRCROOT)/../WBGPUImageRecorder/WBGPUImageRecorder/**",
 					"$(SRCROOT)/../WBAVIJKPlayer/WBAVIJKPlayer/**",
 					"$(SRCROOT)/../WBAVNativePlayer/WBAVNativePlayer/**",
 				);
@@ -706,6 +716,7 @@
 					"$(SRCROOT)/../WBUtils/WBUtils/**",
 					"$(SRCROOT)/../WBAVNativeRecorder/WBAVNativeRecorder/**",
 					"$(SRCROOT)/../WBAVBeautyRecorder/WBAVBeautyRecorder/**",
+					"$(SRCROOT)/../WBGPUImageRecorder/WBGPUImageRecorder/**",
 					"$(SRCROOT)/../WBAVIJKPlayer/WBAVIJKPlayer/**",
 					"$(SRCROOT)/../WBAVNativePlayer/WBAVNativePlayer/**",
 				);

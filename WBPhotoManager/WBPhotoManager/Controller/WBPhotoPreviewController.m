@@ -403,7 +403,7 @@
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-#warning waiting for updating 确认哪个，不想循环，虽然最多只有2个。
+#warning WB_WARNING waiting for updating 确认哪个，不想循环，虽然最多只有2个。
     for (WBPhotoPreviewImageCell *cell in _myCollectionView.visibleCells) {
         [cell didDisplayed];
     }

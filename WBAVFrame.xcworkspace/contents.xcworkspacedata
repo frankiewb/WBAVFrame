@@ -5,9 +5,6 @@
       location = "group:WBUtils/WBUtils.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:WBPhotoManager/WBPhotoManager.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:WBRtmpHandler/WBRtmpHandler.xcodeproj">
    </FileRef>
    <FileRef
@@ -20,7 +17,7 @@
       location = "group:WBAVIJKPlayer/WBAVIJKPlayer.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:WBAVBeautyRecorder/WBAVBeautyRecorder.xcodeproj">
+      location = "group:WBPhotoManager/WBPhotoManager.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:WBAVNativeRecorder/WBAVNAtiveRecorder.xcodeproj">
