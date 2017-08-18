@@ -6,17 +6,17 @@
 //  Copyright © 2017年 王博. All rights reserved.
 //
 
-#import "WBNativeVideoWriter.h"
+#import "WBRecorderWriter.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <Photos/Photos.h>
 #import "WBPhotoManager.h"
 
-@interface WBNativeVideoWriter ()
+@interface WBRecorderWriter ()
 
 //写入器状态
-@property (nonatomic, assign) WBNativeVideoWriterType writerStatus;
+@property (nonatomic, assign) WBRecorderWriterType writerStatus;
 //指定写入长宽比类型
-@property (nonatomic, assign) WBNativeVideoAspectRatioType videoAspectRatioType;
+@property (nonatomic, assign) WBRecorderTypeAspectRatioType recordAspectRatioType;
 //写入器实例
 @property (nonatomic, strong) AVAssetWriter *recordWriter;
 //指定写入视频SIZE
@@ -37,15 +37,15 @@
 @end
 
 
-@implementation WBNativeVideoWriter
+@implementation WBRecorderWriter
 
-- (instancetype)initWithVideoStoreURL:(NSString *)Url VideoAspectRationType:(WBNativeVideoAspectRatioType)aspectRationType
+- (instancetype)initWithVideoStoreURL:(NSString *)Url VideoAspectRationType:(WBRecorderTypeAspectRatioType)aspectRationType
 {
     self = [super init];
     if (self)
     {
         self.videoURL = [[NSURL alloc] initFileURLWithPath:Url];
-        self.videoAspectRatioType = aspectRationType;
+        self.recordAspectRatioType = aspectRationType;
         [self initVariousData];
     }
     
@@ -58,32 +58,32 @@
 }
 
 
-- (void)updateRecordWriterStatus:(WBNativeVideoWriterType)writerType
+- (void)updateRecordWriterStatus:(WBRecorderWriterType)writerType
 {
     self.writerStatus = writerType;
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(videoWriterStatus:status:)])
+    if (self.delegate && [self.delegate respondsToSelector:@selector(recorderWriterStatus:status:)])
     {
-        [self.delegate videoWriterStatus:self status:writerType];
+        [self.delegate recorderWriterStatus:self status:writerType];
     }
 }
 
 - (void)initVariousData
 {
     self.writerWorkingQueue = dispatch_queue_create("WBAVFrame.NativeVideoWriter.workingQueue", DISPATCH_QUEUE_SERIAL);
-    self.writerStatus = WBNativeVideoWriterTypeNone;
-    switch (_videoAspectRatioType)
+    self.writerStatus = WBRecorderWriterTypeNone;
+    switch (_recordAspectRatioType)
     {
-        case WBNativeVideoAspectRatioType1x1:
+        case WBRecorderTypeAspectRatioType1x1:
             _videoOutPutSize = CGSizeMake(WBScreenWidth, WBScreenWidth);
             break;
-        case WBNativeVideoAspectRatioType4X3:
+        case WBRecorderTypeAspectRatioType4X3:
             _videoOutPutSize = CGSizeMake(WBScreenWidth, WBScreenWidth*4/3);
             break;
-        case WBNativeVideoAspectRatioType16x9:
+        case WBRecorderTypeAspectRatioType16x9:
             _videoOutPutSize = CGSizeMake(WBScreenWidth, WBScreenWidth*16/9);
             break;
-        case WBNativeVideoAspectRatioTypeFullScreen:
+        case WBRecorderTypeAspectRatioTypeFullScreen:
             _videoOutPutSize = CGSizeMake(WBScreenWidth, WBScreenWidth);
         default:
             _videoOutPutSize = CGSizeMake(WBScreenWidth, WBScreenHeight);//默认按照全屏比例录制
@@ -98,12 +98,12 @@
         [self initRecordWriter];
     }
     
-    [self updateRecordWriterStatus:WBNativeVideoWriterTypeWriting];
+    [self updateRecordWriterStatus:WBRecorderWriterTypeWriting];
 }
 
 - (void)stopWriter
 {
-    [self updateRecordWriterStatus:WBNativeVideoWriterTypeStop];
+    [self updateRecordWriterStatus:WBRecorderWriterTypeStop];
     WEAK_SELF;
     if (self.recordWriter && self.recordWriter.status == AVAssetWriterStatusWriting)
     {
@@ -134,7 +134,7 @@
     if (writerError)
     {
         NSLog(@"AVAssetWriter Error: %@",writerError.description);
-        [self updateRecordWriterStatus:WBNativeVideoWriterTypeError];
+        [self updateRecordWriterStatus:WBRecorderWriterTypeError];
         return;
     }
     
@@ -187,7 +187,7 @@
     }
     
     //设置当前写入器状态
-    [self updateRecordWriterStatus:WBNativeVideoWriterTypeReady];
+    [self updateRecordWriterStatus:WBRecorderWriterTypeReady];
     
 }
 
@@ -203,7 +203,7 @@
     
     @synchronized (self)
     {
-        if (self.writerStatus != WBNativeVideoWriterTypeWriting)
+        if (self.writerStatus != WBRecorderWriterTypeWriting)
         {
             return;
         }
@@ -214,7 +214,7 @@
         
         @synchronized (weakSelf)
         {
-            if (self.writerStatus != WBNativeVideoWriterTypeWriting)
+            if (self.writerStatus != WBRecorderWriterTypeWriting)
             {
                 NSLog(@"writer not ready yet");
                 CFRelease(sampleBuffer);
@@ -231,7 +231,7 @@
             if (status == AVAssetWriterStatusFailed)
             {
                 NSLog(@"recordWriter start Failed :%@",self.recordWriter.error.description);
-                [self updateRecordWriterStatus:WBNativeVideoWriterTypeError];
+                [self updateRecordWriterStatus:WBRecorderWriterTypeError];
                 return;
             }
         }
@@ -283,12 +283,12 @@
         if (error)
         {
             NSLog(@"录制视频保存本地相册失败 : %@",error.description);
-            [weakSelf updateRecordWriterStatus:WBNativeVideoWriterTypeError];
+            [weakSelf updateRecordWriterStatus:WBRecorderWriterTypeError];
         }
         else
         {
             NSLog(@"录制视频保存本地相册成功");
-            [weakSelf updateRecordWriterStatus:WBNativeVideoWriterTypeComplete];
+            [weakSelf updateRecordWriterStatus:WBRecorderWriterTypeComplete];
         }
     }];
 }

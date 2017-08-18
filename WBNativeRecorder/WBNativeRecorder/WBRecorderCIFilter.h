@@ -1,6 +1,6 @@
 //
-//  WBNativeRecorderBeautyFilter.h
-//  WBAVNAtiveRecorder
+//  WBRecorderCIFilter.h
+//  WBNAtiveRecorder
 //
 //  Created by 王博 on 2017/8/1.
 //  Copyright © 2017年 王博. All rights reserved.
@@ -12,9 +12,9 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface WBNativeRecorderBeautyFilter : NSObject
+@interface WBRecorderCIFilter : NSObject
 
-SingletonH(WBNativeRecorderBeautyFilter)
+SingletonH(WBRecorderCIFilter)
 
 
 @property (nonatomic, strong) CIContext *filterImageRenderingContext;//滤镜优化后渲染工作上下文
@@ -28,7 +28,7 @@ SingletonH(WBNativeRecorderBeautyFilter)
 
 
 #pragma mark 总渲染入口,集成指定渲染滤镜集合
-+ (CIImage *)getNativeBeautyFilterImageWithSmapleBuffer:(CMSampleBufferRef)sampleBuffer valueDic:(NSMutableDictionary *)dic;
++ (CIImage *)getRecorderCIFilterImageWithSmapleBuffer:(CMSampleBufferRef)sampleBuffer valueDic:(NSMutableDictionary *)dic;
 
 #pragma mark 需要单独设置的渲染滤镜
 //亮度+饱和度+对比度调整

@@ -1,6 +1,6 @@
 //
-//  WBNativeRecorderViewController.h
-//  WBAVNAtiveRecorder
+//  WBRecorderViewController.h
+//  WBNAtiveRecorder
 //
 //  Created by 王博 on 2017/8/10.
 //  Copyright © 2017年 王博. All rights reserved.
@@ -10,7 +10,7 @@
 #import "WBNativeRecorder.h"
 
 
-@interface WBNativeRecorderViewController : UIViewController
+@interface WBRecorderViewController : UIViewController
 
 //初始化时要指定录像器类型
 - (instancetype) initWithRecorderType:(WBNativeRecorderType)type;

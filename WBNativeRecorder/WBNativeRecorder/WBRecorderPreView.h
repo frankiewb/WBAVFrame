@@ -1,6 +1,6 @@
 //
-//  WBNativeRecorderBeautyPreView.h
-//  WBAVNAtiveRecorder
+//  WBRecorderPreView.h
+//  WBNAtiveRecorder
 //
 //  Created by 王博 on 2017/8/1.
 //  Copyright © 2017年 王博. All rights reserved.
@@ -12,7 +12,7 @@
 
 #import <GLKit/GLKit.h>
 
-@interface WBNativeRecorderBeautyPreView : GLKView
+@interface WBRecorderPreView : GLKView
 
 - (void)displayPreViewWithUpdatedImage:(CIImage *)filteredImage;
 

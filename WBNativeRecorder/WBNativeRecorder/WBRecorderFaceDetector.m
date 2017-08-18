@@ -1,14 +1,14 @@
 //
-//  WBNativeRecorderFaceDetector.m
-//  WBAVNAtiveRecorder
+//  WBRecorderFaceDetector.m
+//  WBNAtiveRecorder
 //
 //  Created by 王博 on 2017/8/8.
 //  Copyright © 2017年 王博. All rights reserved.
 //
 
-#import "WBNativeRecorderFaceDetector.h"
+#import "WBRecorderFaceDetector.h"
 
-@interface WBNativeRecorderFaceDetector ()
+@interface WBRecorderFaceDetector ()
 
 @property (nonatomic, strong) CIContext *faceDetectorContext;
 
@@ -16,9 +16,9 @@
 
 @end
 
-@implementation WBNativeRecorderFaceDetector
+@implementation WBRecorderFaceDetector
 
-SingletonM(WBNativeRecorderFaceDetector)
+SingletonM(WBRecorderFaceDetector)
 
 - (instancetype)init
 {
@@ -36,10 +36,10 @@ SingletonM(WBNativeRecorderFaceDetector)
 }
 
 
-+ (CIImage *)getNativeFaceDetectorRenderImageWithSmapleBuffer:(CMSampleBufferRef)sampleBuffer valueDic:(NSMutableDictionary *)dic
++ (CIImage *)getFaceDetectorRenderImageWithSmapleBuffer:(CMSampleBufferRef)sampleBuffer valueDic:(NSMutableDictionary *)dic
 {
    
-    CIDetector *faceDetector = [WBNativeRecorderFaceDetector sharedWBNativeRecorderFaceDetector].faceDetector;
+    CIDetector *faceDetector = [WBRecorderFaceDetector sharedWBRecorderFaceDetector].faceDetector;
     CVImageBufferRef imageBufferRef = CMSampleBufferGetImageBuffer(sampleBuffer);
     CIImage *faceDetectImage = [CIImage imageWithCVPixelBuffer:(CVPixelBufferRef)imageBufferRef];
     
@@ -153,7 +153,7 @@ SingletonM(WBNativeRecorderFaceDetector)
     }
     
     //渲染回frameBuffer
-    CIContext *faceImageContext = [WBNativeRecorderFaceDetector sharedWBNativeRecorderFaceDetector].faceDetectorContext;
+    CIContext *faceImageContext = [WBRecorderFaceDetector sharedWBRecorderFaceDetector].faceDetectorContext;
     [faceImageContext render:faceDetectedImage toCVPixelBuffer:imageBufferRef];
     return faceDetectedImage;
 }

@@ -2,12 +2,12 @@
 //  WBVideoRecorderSettingViewController.m
 //  WBAVFrame
 //
-//  Created by WangBo on 2017/6/27.
+//  Created by 王博 on 2017/6/27.
 //  Copyright © 2017年 WangBo. All rights reserved.
 //
 
 #import "WBVideoRecorderSettingViewController.h"
-#import "WBNativeRecorderViewController.h"
+#import "WBRecorderViewController.h"
 #import "WBBeautyVideoRecorderViewController.h"
 
 @interface WBVideoRecorderSettingViewController ()
@@ -71,7 +71,7 @@
 {
     if (recorderButton.tag == 1)
     {
-        WBNativeRecorderViewController *nativeRecorderVC = [[WBNativeRecorderViewController alloc] initWithRecorderType:WBNativeRecorderTypeVideo];
+        WBRecorderViewController *nativeRecorderVC = [[WBRecorderViewController alloc] initWithRecorderType:WBNativeRecorderTypeVideo];
         [self.navigationController pushViewController:nativeRecorderVC animated:YES];
     }
     else if (recorderButton.tag == 2)

@@ -33,7 +33,7 @@
 		2D1DCBD81F45B97400368A9E /* UIViewController+WBUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCBD21F45B97400368A9E /* UIViewController+WBUtils.m */; };
 		2D1DCBDA1F45BA4900368A9E /* WBPhotoManagerHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D1DCB901F45B95000368A9E /* WBPhotoManagerHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2D1DCBDD1F45BB8100368A9E /* WBPhotoManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D1DCB8D1F45B95000368A9E /* WBPhotoManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2D1DCBEA1F45C3C900368A9E /* ALAssetsLibrary+CustomPhotoAlbum.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D1DCBE81F45C3C900368A9E /* ALAssetsLibrary+CustomPhotoAlbum.h */; };
+		2D1DCBEA1F45C3C900368A9E /* ALAssetsLibrary+CustomPhotoAlbum.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D1DCBE81F45C3C900368A9E /* ALAssetsLibrary+CustomPhotoAlbum.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2D1DCBEB1F45C3C900368A9E /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCBE91F45C3C900368A9E /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
 /* End PBXBuildFile section */
 

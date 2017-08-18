@@ -1,17 +1,17 @@
 //
-//  WBNativeRecorderViewController.m
-//  WBAVNAtiveRecorder
+//  WBRecorderViewController.m
+//  WBNAtiveRecorder
 //
 //  Created by 王博 on 2017/8/10.
 //  Copyright © 2017年 王博. All rights reserved.
 //
 
-#import "WBNativeRecorderViewController.h"
+#import "WBRecorderViewController.h"
 #import "WBRecordCircleProgressView.h"
 #import "WBTimeShowView.h"
 
 
-@interface WBNativeRecorderViewController ()<WBNativeRecorderDelegate>
+@interface WBRecorderViewController ()<WBNativeRecorderDelegate>
 
 @property (nonatomic, assign) WBNativeRecorderType recorderType;//播放器类型
 
@@ -73,7 +73,7 @@
 
 @end
 
-@implementation WBNativeRecorderViewController
+@implementation WBRecorderViewController
 
 
 - (instancetype)initWithRecorderType:(WBNativeRecorderType)type

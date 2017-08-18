@@ -1,12 +1,12 @@
 //
-//  WBNativeRecorderBeautyFilter.m
-//  WBAVNAtiveRecorder
+//  WBRecorderCIFilter.m
+//  WBNAtiveRecorder
 //
 //  Created by 王博 on 2017/8/1.
 //  Copyright © 2017年 王博. All rights reserved.
 //
 
-#import "WBNativeRecorderBeautyFilter.h"
+#import "WBRecorderCIFilter.h"
 
 
 #pragma mark 常用的自动滤镜
@@ -17,9 +17,9 @@
 //CIHighlightShadowAdjust：改善阴影细节
 
 
-@implementation WBNativeRecorderBeautyFilter
+@implementation WBRecorderCIFilter
 
-SingletonM(WBNativeRecorderBeautyFilter)
+SingletonM(WBRecorderCIFilter)
 
 
 - (instancetype)init
@@ -51,7 +51,7 @@ SingletonM(WBNativeRecorderBeautyFilter)
 
 +(CIImage *)getAdjustFilterImageWithCIImage:(CIImage *)image FilterName:(NSString *)filterName
 {
-    return [WBNativeRecorderBeautyFilter getAdjustFilterImageWithCIImage:image FilterName:filterName FilterValueName:nil FilterValue:9999];
+    return [WBRecorderCIFilter getAdjustFilterImageWithCIImage:image FilterName:filterName FilterValueName:nil FilterValue:9999];
 }
 
 
@@ -75,7 +75,7 @@ SingletonM(WBNativeRecorderBeautyFilter)
 
 
 
-+ (CIImage *)getNativeBeautyFilterImageWithSmapleBuffer:(CMSampleBufferRef)sampleBuffer valueDic:(NSMutableDictionary *)dic
++ (CIImage *)getRecorderCIFilterImageWithSmapleBuffer:(CMSampleBufferRef)sampleBuffer valueDic:(NSMutableDictionary *)dic
 {
     //获取滤镜参数
     NSNumber * saturationValue = [dic valueForKey:@"saturationValue"];
@@ -105,40 +105,40 @@ SingletonM(WBNativeRecorderBeautyFilter)
     
     //依次进行滤镜组过滤
     //阴影过滤
-    finalFilterImage = [WBNativeRecorderBeautyFilter getAdjustFilterImageWithCIImage:finalFilterImage
+    finalFilterImage = [WBRecorderCIFilter getAdjustFilterImageWithCIImage:finalFilterImage
                                                                           FilterName:@"CIHighlightShadowAdjust"
                                                                      FilterValueName:@"inputShadowAmount"
                                                                          FilterValue:-1];
     
     //灰度过滤
-    finalFilterImage = [WBNativeRecorderBeautyFilter getAdjustFilterImageWithCIImage:finalFilterImage
+    finalFilterImage = [WBRecorderCIFilter getAdjustFilterImageWithCIImage:finalFilterImage
                                                                           FilterName:@"CIGammaAdjust"
                                                                      FilterValueName:@"inputPower"
                                                                          FilterValue:1.2];
     
     //白平衡
-    finalFilterImage = [WBNativeRecorderBeautyFilter getAdjustFilterImageWithCIImage:finalFilterImage
+    finalFilterImage = [WBRecorderCIFilter getAdjustFilterImageWithCIImage:finalFilterImage
                                                                           FilterName:@"CIWhitePointAdjust"];
     
     //曝光
-    finalFilterImage = [WBNativeRecorderBeautyFilter getAdjustFilterImageWithCIImage:finalFilterImage
+    finalFilterImage = [WBRecorderCIFilter getAdjustFilterImageWithCIImage:finalFilterImage
                                                                           FilterName:@"CIExposureAdjust"
                                                                      FilterValueName:@"inputEV"
                                                                          FilterValue:0.5];
     
     //高斯模糊
-    finalFilterImage = [WBNativeRecorderBeautyFilter getAdjustFilterImageWithCIImage:finalFilterImage
+    finalFilterImage = [WBRecorderCIFilter getAdjustFilterImageWithCIImage:finalFilterImage
                                                                           FilterName:@"CIGaussianBlur"
                                                                      FilterValueName:@"inputRadius"
                                                                          FilterValue:gaussianBlurValue.floatValue];
     
     //亮度+饱和度+对比度调整
-    finalFilterImage = [WBNativeRecorderBeautyFilter getColorControlsAdjustFilterImageWithCIImage:finalFilterImage
+    finalFilterImage = [WBRecorderCIFilter getColorControlsAdjustFilterImageWithCIImage:finalFilterImage
                                                                                   saturationValue:saturationValue.floatValue
                                                                                   brightnessValue:brightnessValue.floatValue
                                                                                     contrastValue:contrastValue.floatValue];
     
-    CIContext *filterImageContext = [WBNativeRecorderBeautyFilter sharedWBNativeRecorderBeautyFilter].filterImageRenderingContext;
+    CIContext *filterImageContext = [WBRecorderCIFilter sharedWBRecorderCIFilter].filterImageRenderingContext;
     [filterImageContext render:finalFilterImage toCVPixelBuffer:imageBuffer];
 
     return finalFilterImage;

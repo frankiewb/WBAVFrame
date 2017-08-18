@@ -1,0 +1,448 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2D1DCC2E1F4699DB00368A9E /* WBNativeRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCC2D1F4699DB00368A9E /* WBNativeRecorder.m */; };
+		2D1DCC311F4699E800368A9E /* WBRecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCC301F4699E800368A9E /* WBRecorderViewController.m */; };
+		2D1DCC341F4699F000368A9E /* WBRecorderWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCC331F4699F000368A9E /* WBRecorderWriter.m */; };
+		2D1DCC371F469A0700368A9E /* WBRecorderPreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCC361F469A0700368A9E /* WBRecorderPreView.m */; };
+		2D1DCC3A1F469A2A00368A9E /* WBRecorderGPUImageFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCC391F469A2A00368A9E /* WBRecorderGPUImageFilter.m */; };
+		2D1DCC3D1F469AC200368A9E /* WBRecorderFaceDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCC3C1F469AC200368A9E /* WBRecorderFaceDetector.m */; };
+		2D1DCC411F46A9E900368A9E /* WBRecorderViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D1DCC2F1F4699E800368A9E /* WBRecorderViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2D1DCC451F46C4AF00368A9E /* WBRecorderCIFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D1DCC431F46C4AF00368A9E /* WBRecorderCIFilter.h */; };
+		2D1DCC461F46C4AF00368A9E /* WBRecorderCIFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCC441F46C4AF00368A9E /* WBRecorderCIFilter.m */; };
+		A5A1D64B656F2BA98F547F5C /* libPods-WBNativeRecorder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6270B6424C947B060FFB16A5 /* libPods-WBNativeRecorder.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2D1DCC161F46957B00368A9E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2D1DCC181F46957B00368A9E /* libWBNativeRecorder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWBNativeRecorder.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D1DCC2B1F46992700368A9E /* WBNativeRecorder_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBNativeRecorder_Prefix.pch; path = WBNativeRecorder/WBNativeRecorder_Prefix.pch; sourceTree = "<group>"; };
+		2D1DCC2C1F4699DB00368A9E /* WBNativeRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNativeRecorder.h; sourceTree = "<group>"; };
+		2D1DCC2D1F4699DB00368A9E /* WBNativeRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNativeRecorder.m; sourceTree = "<group>"; };
+		2D1DCC2F1F4699E800368A9E /* WBRecorderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBRecorderViewController.h; path = WBNativeRecorder/WBRecorderViewController.h; sourceTree = "<group>"; };
+		2D1DCC301F4699E800368A9E /* WBRecorderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBRecorderViewController.m; path = WBNativeRecorder/WBRecorderViewController.m; sourceTree = "<group>"; };
+		2D1DCC321F4699F000368A9E /* WBRecorderWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBRecorderWriter.h; path = WBNativeRecorder/WBRecorderWriter.h; sourceTree = "<group>"; };
+		2D1DCC331F4699F000368A9E /* WBRecorderWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBRecorderWriter.m; path = WBNativeRecorder/WBRecorderWriter.m; sourceTree = "<group>"; };
+		2D1DCC351F469A0700368A9E /* WBRecorderPreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBRecorderPreView.h; path = WBNativeRecorder/WBRecorderPreView.h; sourceTree = "<group>"; };
+		2D1DCC361F469A0700368A9E /* WBRecorderPreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBRecorderPreView.m; path = WBNativeRecorder/WBRecorderPreView.m; sourceTree = "<group>"; };
+		2D1DCC381F469A2A00368A9E /* WBRecorderGPUImageFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBRecorderGPUImageFilter.h; path = WBNativeRecorder/WBRecorderGPUImageFilter.h; sourceTree = "<group>"; };
+		2D1DCC391F469A2A00368A9E /* WBRecorderGPUImageFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBRecorderGPUImageFilter.m; path = WBNativeRecorder/WBRecorderGPUImageFilter.m; sourceTree = "<group>"; };
+		2D1DCC3B1F469AC200368A9E /* WBRecorderFaceDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBRecorderFaceDetector.h; path = WBNativeRecorder/WBRecorderFaceDetector.h; sourceTree = "<group>"; };
+		2D1DCC3C1F469AC200368A9E /* WBRecorderFaceDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBRecorderFaceDetector.m; path = WBNativeRecorder/WBRecorderFaceDetector.m; sourceTree = "<group>"; };
+		2D1DCC431F46C4AF00368A9E /* WBRecorderCIFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBRecorderCIFilter.h; path = WBNativeRecorder/WBRecorderCIFilter.h; sourceTree = "<group>"; };
+		2D1DCC441F46C4AF00368A9E /* WBRecorderCIFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBRecorderCIFilter.m; path = WBNativeRecorder/WBRecorderCIFilter.m; sourceTree = "<group>"; };
+		46AC23EE624DC8909FE660BF /* Pods-WBNativeRecorder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBNativeRecorder.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WBNativeRecorder/Pods-WBNativeRecorder.release.xcconfig"; sourceTree = "<group>"; };
+		6270B6424C947B060FFB16A5 /* libPods-WBNativeRecorder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WBNativeRecorder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A803C66AAC61D2C0F9BFFC22 /* Pods-WBNativeRecorder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBNativeRecorder.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WBNativeRecorder/Pods-WBNativeRecorder.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2D1DCC151F46957B00368A9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5A1D64B656F2BA98F547F5C /* libPods-WBNativeRecorder.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2D1DCC0F1F46957B00368A9E = {
+			isa = PBXGroup;
+			children = (
+				2D1DCC251F4695EB00368A9E /* WBRecoderViewController */,
+				2D1DCC1A1F46957B00368A9E /* WBNativeRecorder */,
+				2D1DCC261F46960700368A9E /* WBRecorderWriter */,
+				2D1DCC271F46964400368A9E /* WBRecorderPreview */,
+				2D1DCC281F46966100368A9E /* WBRecorderFilter */,
+				2D1DCC291F46967600368A9E /* WBRecorderFaceDetector */,
+				2D1DCC2A1F46970500368A9E /* Supporting Files */,
+				2D1DCC191F46957B00368A9E /* Products */,
+				6C3002D29287D4B989879D9F /* Pods */,
+				79C3F4A2EAF812B0252BAD57 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2D1DCC191F46957B00368A9E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2D1DCC181F46957B00368A9E /* libWBNativeRecorder.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2D1DCC1A1F46957B00368A9E /* WBNativeRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				2D1DCC2C1F4699DB00368A9E /* WBNativeRecorder.h */,
+				2D1DCC2D1F4699DB00368A9E /* WBNativeRecorder.m */,
+			);
+			path = WBNativeRecorder;
+			sourceTree = "<group>";
+		};
+		2D1DCC251F4695EB00368A9E /* WBRecoderViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2D1DCC2F1F4699E800368A9E /* WBRecorderViewController.h */,
+				2D1DCC301F4699E800368A9E /* WBRecorderViewController.m */,
+			);
+			name = WBRecoderViewController;
+			sourceTree = "<group>";
+		};
+		2D1DCC261F46960700368A9E /* WBRecorderWriter */ = {
+			isa = PBXGroup;
+			children = (
+				2D1DCC321F4699F000368A9E /* WBRecorderWriter.h */,
+				2D1DCC331F4699F000368A9E /* WBRecorderWriter.m */,
+			);
+			name = WBRecorderWriter;
+			sourceTree = "<group>";
+		};
+		2D1DCC271F46964400368A9E /* WBRecorderPreview */ = {
+			isa = PBXGroup;
+			children = (
+				2D1DCC351F469A0700368A9E /* WBRecorderPreView.h */,
+				2D1DCC361F469A0700368A9E /* WBRecorderPreView.m */,
+			);
+			name = WBRecorderPreview;
+			sourceTree = "<group>";
+		};
+		2D1DCC281F46966100368A9E /* WBRecorderFilter */ = {
+			isa = PBXGroup;
+			children = (
+				2D1DCC431F46C4AF00368A9E /* WBRecorderCIFilter.h */,
+				2D1DCC441F46C4AF00368A9E /* WBRecorderCIFilter.m */,
+				2D1DCC381F469A2A00368A9E /* WBRecorderGPUImageFilter.h */,
+				2D1DCC391F469A2A00368A9E /* WBRecorderGPUImageFilter.m */,
+			);
+			name = WBRecorderFilter;
+			sourceTree = "<group>";
+		};
+		2D1DCC291F46967600368A9E /* WBRecorderFaceDetector */ = {
+			isa = PBXGroup;
+			children = (
+				2D1DCC3B1F469AC200368A9E /* WBRecorderFaceDetector.h */,
+				2D1DCC3C1F469AC200368A9E /* WBRecorderFaceDetector.m */,
+			);
+			name = WBRecorderFaceDetector;
+			sourceTree = "<group>";
+		};
+		2D1DCC2A1F46970500368A9E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2D1DCC2B1F46992700368A9E /* WBNativeRecorder_Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6C3002D29287D4B989879D9F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A803C66AAC61D2C0F9BFFC22 /* Pods-WBNativeRecorder.debug.xcconfig */,
+				46AC23EE624DC8909FE660BF /* Pods-WBNativeRecorder.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		79C3F4A2EAF812B0252BAD57 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6270B6424C947B060FFB16A5 /* libPods-WBNativeRecorder.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2D1DCC401F46A9E200368A9E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D1DCC451F46C4AF00368A9E /* WBRecorderCIFilter.h in Headers */,
+				2D1DCC411F46A9E900368A9E /* WBRecorderViewController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2D1DCC171F46957B00368A9E /* WBNativeRecorder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D1DCC211F46957B00368A9E /* Build configuration list for PBXNativeTarget "WBNativeRecorder" */;
+			buildPhases = (
+				3014BED946139ED80376E998 /* [CP] Check Pods Manifest.lock */,
+				2D1DCC141F46957B00368A9E /* Sources */,
+				2D1DCC151F46957B00368A9E /* Frameworks */,
+				2D1DCC161F46957B00368A9E /* CopyFiles */,
+				2D1DCC401F46A9E200368A9E /* Headers */,
+				8027F3C9AD12A7AABCD18551 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WBNativeRecorder;
+			productName = WBNativeRecorder;
+			productReference = 2D1DCC181F46957B00368A9E /* libWBNativeRecorder.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2D1DCC101F46957B00368A9E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "王博";
+				TargetAttributes = {
+					2D1DCC171F46957B00368A9E = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 8D7826FKHD;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 2D1DCC131F46957B00368A9E /* Build configuration list for PBXProject "WBNativeRecorder" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2D1DCC0F1F46957B00368A9E;
+			productRefGroup = 2D1DCC191F46957B00368A9E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2D1DCC171F46957B00368A9E /* WBNativeRecorder */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3014BED946139ED80376E998 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8027F3C9AD12A7AABCD18551 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-WBNativeRecorder/Pods-WBNativeRecorder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2D1DCC141F46957B00368A9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D1DCC371F469A0700368A9E /* WBRecorderPreView.m in Sources */,
+				2D1DCC341F4699F000368A9E /* WBRecorderWriter.m in Sources */,
+				2D1DCC311F4699E800368A9E /* WBRecorderViewController.m in Sources */,
+				2D1DCC3A1F469A2A00368A9E /* WBRecorderGPUImageFilter.m in Sources */,
+				2D1DCC461F46C4AF00368A9E /* WBRecorderCIFilter.m in Sources */,
+				2D1DCC3D1F469AC200368A9E /* WBRecorderFaceDetector.m in Sources */,
+				2D1DCC2E1F4699DB00368A9E /* WBNativeRecorder.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2D1DCC1F1F46957B00368A9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/WBNativeRecorder/WBNative_Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../WBUtils/WBUtils",
+					"$(SRCROOT)/../WBCodec/WBCodec",
+					"$(SRCROOT)/../WBRtmpHandler/WBRtmpHandler",
+					"$(SRCROOT)/../WBPhotoManager/WBPhotoManager/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "$(inherited)";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2D1DCC201F46957B00368A9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/WBNativeRecorder/WBNative_Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../WBUtils/WBUtils",
+					"$(SRCROOT)/../WBCodec/WBCodec",
+					"$(SRCROOT)/../WBRtmpHandler/WBRtmpHandler",
+					"$(SRCROOT)/../WBPhotoManager/WBPhotoManager/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "$(inherited)";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2D1DCC221F46957B00368A9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A803C66AAC61D2C0F9BFFC22 /* Pods-WBNativeRecorder.debug.xcconfig */;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 8D7826FKHD;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/WBNativeRecorder/WBNativeRecorder_Prefix.pch";
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		2D1DCC231F46957B00368A9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46AC23EE624DC8909FE660BF /* Pods-WBNativeRecorder.release.xcconfig */;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 8D7826FKHD;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/WBNativeRecorder/WBNativeRecorder_Prefix.pch";
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D1DCC131F46957B00368A9E /* Build configuration list for PBXProject "WBNativeRecorder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D1DCC1F1F46957B00368A9E /* Debug */,
+				2D1DCC201F46957B00368A9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D1DCC211F46957B00368A9E /* Build configuration list for PBXNativeTarget "WBNativeRecorder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D1DCC221F46957B00368A9E /* Debug */,
+				2D1DCC231F46957B00368A9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2D1DCC101F46957B00368A9E /* Project object */;
+}

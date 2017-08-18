@@ -11,16 +11,16 @@
       location = "group:WBCodec/WBCodec.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:WBPhotoManager/WBPhotoManager.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:WBAVNativePlayer/WBAVNativePlayer.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:WBAVIJKPlayer/WBAVIJKPlayer.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:WBPhotoManager/WBPhotoManager.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:WBAVNativeRecorder/WBAVNAtiveRecorder.xcodeproj">
+      location = "group:WBNativeRecorder/WBNativeRecorder.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:WBGPUImageRecorder/WBGPUImageRecorder.xcodeproj">

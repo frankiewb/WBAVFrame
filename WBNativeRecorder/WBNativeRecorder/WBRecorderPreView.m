@@ -1,15 +1,15 @@
 //
-//  WBNativeRecorderBeautyPreView.m
+//  WBRecorderPreView.m
 //  WBAVNAtiveRecorder
 //
 //  Created by 王博 on 2017/8/1.
 //  Copyright © 2017年 王博. All rights reserved.
 //
 
-#import "WBNativeRecorderBeautyPreView.h"
+#import "WBRecorderPreView.h"
 
 
-@interface WBNativeRecorderBeautyPreView ()
+@interface WBRecorderPreView ()
 
 @property (nonatomic, strong) CIContext *preViewImageRenderingContext;//滤镜优化后渲染工作上下文
 
@@ -19,7 +19,7 @@
 
 
 
-@implementation WBNativeRecorderBeautyPreView
+@implementation WBRecorderPreView
 
 - (instancetype)initWithFrame:(CGRect)frame
 {

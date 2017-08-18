@@ -1,14 +1,14 @@
 //
-//  WBNativeRecorderGPUImageFilter.m
-//  WBAVNAtiveRecorder
+//  WBRecorderGPUImageFilter.m
+//  WBNAtiveRecorder
 //
 //  Created by 王博 on 2017/8/7.
 //  Copyright © 2017年 王博. All rights reserved.
 //
 
-#import "WBNativeRecorderGPUImageFilter.h"
+#import "WBRecorderGPUImageFilter.h"
 
-@interface WBNativeRecorderGPUImageFilter ()
+@interface WBRecorderGPUImageFilter ()
 
 //美颜滤镜
 @property (nonatomic, strong) GPUImageBeautifyFilter *beautyFilter;
@@ -22,9 +22,9 @@
 @end
 
 
-@implementation WBNativeRecorderGPUImageFilter
+@implementation WBRecorderGPUImageFilter
 
-SingletonM(WBNativeRecorderGPUImageFilter)
+SingletonM(WBRecorderGPUImageFilter)
 
 
 - (instancetype)init
@@ -47,9 +47,9 @@ SingletonM(WBNativeRecorderGPUImageFilter)
 
 
 
-+ (CIImage *)getNativeGPUImageFilterWithSmapleBuffer:(CMSampleBufferRef)sampleBuffer valueDic:(NSMutableDictionary *)dic
++ (CIImage *)getRecorderGPUImageFilterWithSmapleBuffer:(CMSampleBufferRef)sampleBuffer valueDic:(NSMutableDictionary *)dic
 {
-    WBNativeRecorderGPUImageFilter *gpuImageFilter = [WBNativeRecorderGPUImageFilter sharedWBNativeRecorderGPUImageFilter];
+    WBRecorderGPUImageFilter *gpuImageFilter = [WBRecorderGPUImageFilter sharedWBRecorderGPUImageFilter];
     
     //美颜滤镜 beautifyFilterEnable
     NSNumber *beautifyFilterEnable = [dic valueForKey:@"beautifyFilterEnable"];
@@ -73,7 +73,7 @@ SingletonM(WBNativeRecorderGPUImageFilter)
     }
     
     //CMSampleBuffer转换为GPUImagePicture
-    CGImageRef imageBuffer = [WBNativeRecorderGPUImageFilter cgImageRefConverterWithCVImageBufferRef:imageBufferRef];
+    CGImageRef imageBuffer = [WBRecorderGPUImageFilter cgImageRefConverterWithCVImageBufferRef:imageBufferRef];
     GPUImagePicture *imagePic = [[GPUImagePicture alloc] initWithCGImage:imageBuffer];
     GPUImageOutput *finalFilter = nil;
     
@@ -109,7 +109,7 @@ SingletonM(WBNativeRecorderGPUImageFilter)
     //GPUImagePicture 转换为CIImage
     UIImage *filteredUIImage = [ finalFilter imageFromCurrentFramebuffer];
     CIImage *filteredCIImage = [[CIImage alloc] initWithImage:filteredUIImage];
-    CIContext *filterImageContext = [WBNativeRecorderGPUImageFilter sharedWBNativeRecorderGPUImageFilter].filterImageRenderingContext;
+    CIContext *filterImageContext = [WBRecorderGPUImageFilter sharedWBRecorderGPUImageFilter].filterImageRenderingContext;
     [filterImageContext render:filteredCIImage toCVPixelBuffer:imageBufferRef];
     CFRelease(imageBuffer);
     return filteredCIImage;

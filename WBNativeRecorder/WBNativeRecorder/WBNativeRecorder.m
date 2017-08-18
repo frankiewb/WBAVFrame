@@ -1,19 +1,19 @@
 //
 //  WBNativeRecorder.m
-//  WBAVNAtiveRecorder
+//  WBNAtiveRecorder
 //
 //  Created by 王博 on 2017/8/10.
 //  Copyright © 2017年 王博. All rights reserved.
 //
 
 #import "WBNativeRecorder.h"
-#import "WBNativeVideoWriter.h"
+#import "WBRecorderWriter.h"
 
 @interface WBNativeRecorder () <AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate,
 WBAACEncoderDelegate,
 WBH264EncoderDelegate,
 WBRtmpHandlerDelegate,
-WBNativeVideoWtiterDelegate>
+WBRecorderWtiterDelegate>
 
 
 #pragma mark 通用属性
@@ -45,7 +45,7 @@ WBNativeVideoWtiterDelegate>
 @property (nonatomic, weak) UIView *livePreViewLayer;
 //预采集界面
 #ifdef IMAGE_FILTER_ENABLE
-@property (nonatomic, strong) WBNativeRecorderBeautyPreView *videoPreViewLayer;
+@property (nonatomic, strong) WBRecorderPreView *videoPreViewLayer;
 @property (nonatomic, strong) NSMutableDictionary *videoImageFilterValueDic;//视频图像滤镜参数
 #else
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreViewLayer;
@@ -68,7 +68,7 @@ WBNativeVideoWtiterDelegate>
 //是否开始直播
 @property (nonatomic, assign) BOOL isStartingLive;
 #pragma mark 录像模式属性
-@property (nonatomic, strong) WBNativeVideoWriter *recordWriter;
+@property (nonatomic, strong) WBRecorderWriter *recordWriter;
 
 @end
 
@@ -160,7 +160,7 @@ WBNativeVideoWtiterDelegate>
 - (void)initRecordVariousData
 {
     //关于录制视频格式这里没有暴露接口，具体上层业务逻辑定夺吧，这里默认为4X3
-    self.recordWriter = [[WBNativeVideoWriter alloc] initWithVideoStoreURL:[self getRecordVideoFilePath] VideoAspectRationType:WBNativeVideoAspectRatioType4X3];
+    self.recordWriter = [[WBRecorderWriter alloc] initWithVideoStoreURL:[self getRecordVideoFilePath] VideoAspectRationType:WBRecorderTypeAspectRatioType4X3];
     self.recordWriter.delegate = self;
 }
 
@@ -422,7 +422,7 @@ WBNativeVideoWtiterDelegate>
 #ifdef IMAGE_FILTER_ENABLE
     if (!self.videoPreViewLayer)
     {
-        self.videoPreViewLayer = [[WBNativeRecorderBeautyPreView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        self.videoPreViewLayer = [[WBRecorderPreView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     }
     [self.livePreViewLayer addSubview:_videoPreViewLayer];
 #else
@@ -715,13 +715,13 @@ WBNativeVideoWtiterDelegate>
     
     CIImage *renderedImage = nil;
 #ifdef CIIMAGE_FILTER
-    renderedImage = [WBNativeRecorderBeautyFilter getNativeBeautyFilterImageWithSmapleBuffer:sampleBuffer valueDic:_videoImageFilterValueDic];
+    renderedImage = [WBRecorderCIFilter getRecorderCIFilterImageWithSmapleBuffer:sampleBuffer valueDic:_videoImageFilterValueDic];
 #endif
 #ifdef GPUIMAGE_FILTER
-    renderedImage = [WBNativeRecorderGPUImageFilter getNativeGPUImageFilterWithSmapleBuffer:sampleBuffer valueDic:_videoImageFilterValueDic];
+    renderedImage = [WBRecorderGPUImageFilter getRecorderGPUImageFilterWithSmapleBuffer:sampleBuffer valueDic:_videoImageFilterValueDic];
 #endif
 #ifdef FACE_DETECTOR
-    renderedImage = [WBNativeRecorderFaceDetector getNativeFaceDetectorRenderImageWithSmapleBuffer:sampleBuffer valueDic:nil];
+    renderedImage = [WBRecorderFaceDetector getFaceDetectorRenderImageWithSmapleBuffer:sampleBuffer valueDic:nil];
 #endif
     [self.videoPreViewLayer displayPreViewWithUpdatedImage:renderedImage];
 }
@@ -839,31 +839,31 @@ WBNativeVideoWtiterDelegate>
 #pragma mark 录像模式相关函数
 
 //recordWriter 状态代理
-- (void)videoWriterStatus:(WBNativeVideoWriter *)videoWriter status:(WBNativeVideoWriterType)status
+- (void)recorderWriterStatus:(WBRecorderWriter *)recorderWriter status:(WBRecorderWriterType)status
 {
     switch (status)
     {
-        case WBNativeVideoWriterTypeReady:
+        case WBRecorderWriterTypeReady:
             [self updateVideoRecordStatus:WBNativeVideoRecorderStatusTypeReady];
             NSLog(@"RecordWriter: 准备写入本地");
             break;
-        case WBNativeVideoWriterTypeWriting:
+        case WBRecorderWriterTypeWriting:
             [self updateVideoRecordStatus:WBNativeVideoRecorderStatusTypeWriting];
             NSLog(@"RecordWriter: 正在写入本地");
             break;
-        case WBNativeVideoWriterTypeStop:
+        case WBRecorderWriterTypeStop:
             [self updateVideoRecordStatus:WBNativeVideoRecorderStatusTypeStop];
             NSLog(@"RecordWriter: 停止写入本地");
             break;
-        case WBNativeVideoWriterTypeComplete:
+        case WBRecorderWriterTypeComplete:
             [self updateVideoRecordStatus:WBNativeVideoRecorderStatusTypeComplete];
             NSLog(@"RecordWriter: 完成写入本地");
             break;
-        case WBNativeVideoWriterTypeError:
+        case WBRecorderWriterTypeError:
             [self updateVideoRecordStatus:WBNativeVideoRecorderStatusTypeError];
             NSLog(@"RecordWriter: 写入本地错误");
             break;
-        case WBNativeVideoWriterTypeNone:
+        case WBRecorderWriterTypeNone:
             NSLog(@"RecordWriter: 如果你看到这个状态就见鬼了");
             break;
     }

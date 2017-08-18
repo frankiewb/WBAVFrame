@@ -7,7 +7,7 @@
 //
 
 #import "WBLiveRecorderSettingViewController.h"
-#import "WBNativeRecorderViewController.h"
+#import "WBRecorderViewController.h"
 #import "WBBeautyLiveRecorderViewController.h"
 
 
@@ -73,7 +73,7 @@
 {
     if (recorderButton.tag == 1)
     {
-        WBNativeRecorderViewController *nativeRecorderVC = [[WBNativeRecorderViewController alloc] initWithRecorderType:WBNativeRecorderTypeLive];
+        WBRecorderViewController *nativeRecorderVC = [[WBRecorderViewController alloc] initWithRecorderType:WBNativeRecorderTypeLive];
         [self.navigationController pushViewController:nativeRecorderVC animated:YES];
     }
     else if (recorderButton.tag == 2)

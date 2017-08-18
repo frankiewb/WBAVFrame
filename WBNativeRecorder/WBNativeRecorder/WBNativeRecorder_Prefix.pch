@@ -6,8 +6,8 @@
 //  Copyright © 2017年 王博. All rights reserved.
 //
 
-#ifndef WBAVNativeRecorder_Prefix_pch
-#define WBAVNativeRecorder_Prefix_pch
+#ifndef WBNativeRecorder_Prefix_pch
+#define WBNativeRecorder_Prefix_pch
 
 #import "MBProgressHUD+Utils.h"
 #import "WBSettingMacros.h"
@@ -18,12 +18,12 @@
 #import "WBAACEncoder.h"
 #import "WBRtmpHandler.h"
 
-#import "WBNativeRecorderBeautyFilter.h"
-#import "WBNativeRecorderGPUImageFilter.h"
-#import "WBNativeRecorderBeautyPreView.h"
-#import "WBNativeRecorderFaceDetector.h"
+#import "WBRecorderCIFilter.h"
+#import "WBRecorderGPUImageFilter.h"
+#import "WBRecorderPreView.h"
+#import "WBRecorderFaceDetector.h"
 
 #import "ALAssetsLibrary+CustomPhotoAlbum.h"
 #import "GPUImage.h"
 
-#endif /* WBAVNativeRecorder_Prefix_pch */
+#endif /* WBNativeRecorder_Prefix_pch */
