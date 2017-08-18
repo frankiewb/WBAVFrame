@@ -26,22 +26,15 @@ target 'WBGPUImageRecorder' do
   project 'WBGPUImageRecorder/WBGPUImageRecorder.project'
 end
 
-target 'WBAVIJKPlayer' do
-  platform:ios, '8.0'
-  project 'WBAVIJKPlayer/WBAVIJKPlayer.project'
-end
-
-
-target 'WBAVNativePlayer' do
-  platform:ios ,'8.0'
-  project 'WBAVNativePlayer/WBAVNativePlayer.project'
+target 'WBIJKPlayer' do
+  platform:ios,'8.0'
+  project 'WBIJKPlayer/WBIJKPlayer.project'
 end
 
 target 'WBNativePlayer' do
   platform:ios,'8.0'
   project 'WBNativePlayer/WBNativePlayer.project'
 end
-
 
 target 'WBCodec' do
   platform:ios, '8.0'
@@ -52,7 +45,6 @@ target 'WBRtmpHandler' do
   platform:ios, '8.0'
   project 'WBRtmpHandler/WBRtmpHandler.project'
 end
-
 
 target 'WBPhotoManager' do
   platform:ios, '8.0'

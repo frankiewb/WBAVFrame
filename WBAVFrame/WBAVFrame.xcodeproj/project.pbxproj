@@ -11,6 +11,7 @@
 		2D1DCC021F45C56B00368A9E /* libWBGPUImageRecorder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1DCC011F45C56B00368A9E /* libWBGPUImageRecorder.a */; };
 		2D1DCC3F1F469DED00368A9E /* libWBNativeRecorder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1DCC3E1F469DED00368A9E /* libWBNativeRecorder.a */; };
 		2D1DCC601F46D32C00368A9E /* libWBNativePlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1DCC5F1F46D32C00368A9E /* libWBNativePlayer.a */; };
+		2D1DCC7A1F46DB2900368A9E /* libWBIJKPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1DCC791F46DB2900368A9E /* libWBIJKPlayer.a */; };
 		2D81A9581F289C0000380F61 /* libbz2.1.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D81A9511F289B9100380F61 /* libbz2.1.0.tbd */; };
 		2D81A9591F289C0700380F61 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D81A9531F289B9C00380F61 /* libz.tbd */; };
 		2D9B28191F01F61600D3EAEB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B28181F01F61600D3EAEB /* main.m */; };
@@ -20,7 +21,6 @@
 		2D9B28321F01F61600D3EAEB /* WBAVFrameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B28311F01F61600D3EAEB /* WBAVFrameTests.m */; };
 		2D9B283D1F01F61600D3EAEB /* WBAVFrameUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B283C1F01F61600D3EAEB /* WBAVFrameUITests.m */; };
 		2DDB32941F03A97A00DBA59B /* libWBUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDB32931F03A97A00DBA59B /* libWBUtils.a */; };
-		2DDB32AB1F03B47300DBA59B /* libWBAVIJKPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDB32A61F03B47300DBA59B /* libWBAVIJKPlayer.a */; };
 		2DDB32AD1F03B47300DBA59B /* libWBCodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDB32A81F03B47300DBA59B /* libWBCodec.a */; };
 		2DDB32AE1F03B47300DBA59B /* libWBRtmpHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDB32A91F03B47300DBA59B /* libWBRtmpHandler.a */; };
 		2DE9E4641F023A0A001255F4 /* WBAVRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E4631F023A0A001255F4 /* WBAVRootViewController.m */; };
@@ -54,6 +54,7 @@
 		2D1DCC011F45C56B00368A9E /* libWBGPUImageRecorder.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWBGPUImageRecorder.a; path = "../WBGPUImageRecorder/build/Debug-iphoneos/libWBGPUImageRecorder.a"; sourceTree = "<group>"; };
 		2D1DCC3E1F469DED00368A9E /* libWBNativeRecorder.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWBNativeRecorder.a; path = "../WBNativeRecorder/build/Debug-iphoneos/libWBNativeRecorder.a"; sourceTree = "<group>"; };
 		2D1DCC5F1F46D32C00368A9E /* libWBNativePlayer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWBNativePlayer.a; path = "../WBNativePlayer/build/Debug-iphoneos/libWBNativePlayer.a"; sourceTree = "<group>"; };
+		2D1DCC791F46DB2900368A9E /* libWBIJKPlayer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWBIJKPlayer.a; path = "../WBIJKPlayer/build/Debug-iphoneos/libWBIJKPlayer.a"; sourceTree = "<group>"; };
 		2D81A9511F289B9100380F61 /* libbz2.1.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.1.0.tbd; path = usr/lib/libbz2.1.0.tbd; sourceTree = SDKROOT; };
 		2D81A9531F289B9C00380F61 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		2D9B28141F01F61600D3EAEB /* WBAVFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WBAVFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,13 +101,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D1DCC7A1F46DB2900368A9E /* libWBIJKPlayer.a in Frameworks */,
 				2D1DCC601F46D32C00368A9E /* libWBNativePlayer.a in Frameworks */,
 				2D1DCC3F1F469DED00368A9E /* libWBNativeRecorder.a in Frameworks */,
 				2D1DCC021F45C56B00368A9E /* libWBGPUImageRecorder.a in Frameworks */,
 				2D1DCBE61F45C2CC00368A9E /* libWBPhotoManager.a in Frameworks */,
 				2D81A9591F289C0700380F61 /* libz.tbd in Frameworks */,
 				2D81A9581F289C0000380F61 /* libbz2.1.0.tbd in Frameworks */,
-				2DDB32AB1F03B47300DBA59B /* libWBAVIJKPlayer.a in Frameworks */,
 				2DDB32AD1F03B47300DBA59B /* libWBCodec.a in Frameworks */,
 				2DDB32AE1F03B47300DBA59B /* libWBRtmpHandler.a in Frameworks */,
 				2DDB32941F03A97A00DBA59B /* libWBUtils.a in Frameworks */,
@@ -271,6 +272,7 @@
 		DF3B252ECF10013123CBD0F2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D1DCC791F46DB2900368A9E /* libWBIJKPlayer.a */,
 				2D1DCC5F1F46D32C00368A9E /* libWBNativePlayer.a */,
 				2D1DCC3E1F469DED00368A9E /* libWBNativeRecorder.a */,
 				2D1DCC011F45C56B00368A9E /* libWBGPUImageRecorder.a */,
@@ -660,10 +662,9 @@
 					"$(SRCROOT)/../WBPhotoManager/WBPhotoManager/**",
 					"$(SRCROOT)/../WBUtils/WBUtils/**",
 					"$(SRCROOT)/../WBNativeRecorder/WBNativeRecorder/**",
-					"$(SRCROOT)/../WBAVBeautyRecorder/WBAVBeautyRecorder/**",
 					"$(SRCROOT)/../WBGPUImageRecorder/WBGPUImageRecorder/**",
-					"$(SRCROOT)/../WBAVIJKPlayer/WBAVIJKPlayer/**",
-					"$(SRCROOT)/../WBAVNativePlayer/WBAVNativePlayer/**",
+					"$(SRCROOT)/../WBIJKPlayer/WBIJKPlayer/**",
+					"$(SRCROOT)/../WBNativePlayer/WBNativePlayer/**",
 				);
 				INFOPLIST_FILE = WBAVFrame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -717,10 +718,9 @@
 					"$(SRCROOT)/../WBPhotoManager/WBPhotoManager/**",
 					"$(SRCROOT)/../WBUtils/WBUtils/**",
 					"$(SRCROOT)/../WBNativeRecorder/WBNativeRecorder/**",
-					"$(SRCROOT)/../WBAVBeautyRecorder/WBAVBeautyRecorder/**",
 					"$(SRCROOT)/../WBGPUImageRecorder/WBGPUImageRecorder/**",
-					"$(SRCROOT)/../WBAVIJKPlayer/WBAVIJKPlayer/**",
-					"$(SRCROOT)/../WBAVNativePlayer/WBAVNativePlayer/**",
+					"$(SRCROOT)/../WBIJKPlayer/WBIJKPlayer/**",
+					"$(SRCROOT)/../WBNativePlayer/WBNativePlayer/**",
 				);
 				INFOPLIST_FILE = WBAVFrame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

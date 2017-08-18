@@ -390,7 +390,7 @@
 				DEVELOPMENT_TEAM = 8D7826FKHD;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_LIBTOOLFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -403,7 +403,7 @@
 				DEVELOPMENT_TEAM = 8D7826FKHD;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_LIBTOOLFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
