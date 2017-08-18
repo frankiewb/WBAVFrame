@@ -11,7 +11,7 @@
 @implementation UIViewController (WBUtils)
 
 - (void)addNavigationRightCancelButton {
-    UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(mp_cancelButtonDidClicked)];
+    UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(mp_cancelButtonDidClicked)];
     self.navigationItem.rightBarButtonItem = right;
 }
 

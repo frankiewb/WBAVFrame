@@ -47,7 +47,7 @@
     [self mp_setupNavigationBar];
     [self mp_setupToolBar];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
 
 }
 
@@ -55,7 +55,8 @@
 - (instancetype)initWithAccessType:(WBImagePickerAccessType)accessType{
     if (self = [super init]) {
         self.accessType = accessType;
-        self.albumTitle = NSLocalizedStringFromTable(@"str_photos", @"WBImagePicker", @"相册");
+        self.albumTitle = @"相册";
+
         [self mp_checkAuthorizationStatus];
     }
     return self;
@@ -73,7 +74,7 @@
 - (BOOL)addSelectedAsset:(WBAssetModel *)asset {
     if (self.pickedModelIdentifiers.count == self.config.maxSelectCount) {
         
-        [self presentViewController:[self addAlertControllerWithTitle:[NSString stringWithFormat:NSLocalizedStringFromTable(@"str_get_to_maximum_selected", @"WBImagePicker", @"最大选择数量提示"), self.config.maxSelectCount] actionTitle:NSLocalizedStringFromTable(@"str_i_see", @"WBImagePicker", @"我知道了")] animated:YES completion:nil];
+        [self presentViewController:[self addAlertControllerWithTitle:[NSString stringWithFormat:@"最大选择数量提示:%d", self.config.maxSelectCount] actionTitle:@"我知道了"] animated:YES completion:nil];
         
         return NO;
     }
@@ -340,7 +341,7 @@
 
 - (UIButton *)previewButton {
     if (!_previewButton) {
-        NSString *string = NSLocalizedStringFromTable(@"str_preview", @"WBImagePicker", @"预览");
+        NSString *string =  @"预览";
 
         self.previewButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _previewButton.frame = CGRectMake(0, 0, [self mp_calculateWidthWithString:string textSize:17] + 20, 44);
@@ -374,7 +375,7 @@
 
 - (UIButton *)originalTextButton {
     if (!_originalTextButton) {
-        NSString *string = NSLocalizedStringFromTable(@"str_original", @"WBImagePicker", @"原图");
+        NSString *string =  @"原图";
         
         self.originalTextButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _originalTextButton.frame = CGRectMake(self.originalImageButton.WB_right, 0, [self mp_calculateWidthWithString:string textSize:15], 44);
@@ -392,7 +393,7 @@
 
 - (UIButton *)doneButton {
     if (!_doneButton) {
-        NSString *string = NSLocalizedStringFromTable(@"str_done", @"WBImagePicker", @"完成");
+        NSString *string =  @"完成";
         
         self.doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _doneButton.frame = CGRectMake(self.toolbar.WB_width-[self mp_calculateWidthWithString:string textSize:17]-20, 0, [self mp_calculateWidthWithString:string textSize:17] + 20, 44);

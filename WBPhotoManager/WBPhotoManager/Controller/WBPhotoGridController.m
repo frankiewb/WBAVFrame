@@ -374,7 +374,7 @@ static NSString * const reuserIdentifier = @"WBPhotoGridCell";
         if (model.type == WBAssetModelMediaTypeVideo) {
             WBImagePickerController *pickerCtrler = (WBImagePickerController *)self.navigationController;
             if ([pickerCtrler hasSelected]) {
-                [self presentViewController:[self addAlertControllerWithTitle:NSLocalizedStringFromTable(@"str_both_video_photo", @"WBImagePicker", @"不能同时选择视频和照片") actionTitle:NSLocalizedStringFromTable(@"str_i_see", @"WBImagePicker", @"我知道了")] animated:YES completion:nil];
+                [self presentViewController:[self addAlertControllerWithTitle:@"不能同时选择视频和照片" actionTitle: @"我知道了"] animated:YES completion:nil];
             } else {
                 WBVideoPreviewController *vpc = [[WBVideoPreviewController alloc] initWithAsset:model.asset];
                 vpc.hidesBottomBarWhenPushed = YES;

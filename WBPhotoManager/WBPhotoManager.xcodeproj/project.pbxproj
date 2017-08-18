@@ -35,6 +35,7 @@
 		2D1DCBDD1F45BB8100368A9E /* WBPhotoManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D1DCB8D1F45B95000368A9E /* WBPhotoManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2D1DCBEA1F45C3C900368A9E /* ALAssetsLibrary+CustomPhotoAlbum.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D1DCBE81F45C3C900368A9E /* ALAssetsLibrary+CustomPhotoAlbum.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2D1DCBEB1F45C3C900368A9E /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCBE91F45C3C900368A9E /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
+		2D1DCC7C1F46E92B00368A9E /* WBImagePickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D1DCB951F45B95B00368A9E /* WBImagePickerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -275,6 +276,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D1DCC7C1F46E92B00368A9E /* WBImagePickerController.h in Headers */,
 				2D1DCBDA1F45BA4900368A9E /* WBPhotoManagerHeader.h in Headers */,
 				2D1DCBEA1F45C3C900368A9E /* ALAssetsLibrary+CustomPhotoAlbum.h in Headers */,
 				2D1DCBDD1F45BB8100368A9E /* WBPhotoManager.h in Headers */,
@@ -326,6 +328,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = 2D1DCB771F45B3A900368A9E;
 			productRefGroup = 2D1DCB811F45B3A900368A9E /* Products */;

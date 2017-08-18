@@ -321,7 +321,7 @@
 
 - (UIButton *)originalTextButton {
     if (!_originalTextButton) {
-        NSString *string = NSLocalizedStringFromTable(@"str_original", @"WBImagePicker", @"原图");
+        NSString *string = @"原图";
         
         self.originalTextButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _originalTextButton.frame = CGRectMake(self.originalImageButton.WB_right, 0, [self mp_calculateWidthWithString:string textSize:15], 44);
@@ -335,7 +335,7 @@
 
 - (UIButton *)doneButton {
     if (!_doneButton) {
-        NSString *string = NSLocalizedStringFromTable(@"str_done", @"WBImagePicker", @"完成");
+        NSString *string = @"完成";
         
         self.doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _doneButton.frame = CGRectMake(kScreenWidth-60, 0, 60, 44);

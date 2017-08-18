@@ -33,6 +33,7 @@
 		2D1DCC541F46D09100368A9E /* WBNativePlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBNativePlayer.m; sourceTree = "<group>"; };
 		2D1DCC5C1F46D0D200368A9E /* WBNativePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNativePlayerViewController.h; sourceTree = "<group>"; };
 		2D1DCC5D1F46D0D200368A9E /* WBNativePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNativePlayerViewController.m; sourceTree = "<group>"; };
+		2D1DCC7D1F46E9CF00368A9E /* libPods-WBPhotoManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-WBPhotoManager.a"; path = "../../../Library/Developer/Xcode/DerivedData/WBAVFrame-blzsmgzkiwbdofaquhmahjmjukxd/Build/Products/Debug-iphoneos/libPods-WBPhotoManager.a"; sourceTree = "<group>"; };
 		C48CAF7195A15E0111168DA4 /* libPods-WBNativePlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WBNativePlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F43C39872E9AE7C5C1AC3B73 /* Pods-WBNativePlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBNativePlayer.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WBNativePlayer/Pods-WBNativePlayer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +91,7 @@
 		9195518296F37968B87CAA30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D1DCC7D1F46E9CF00368A9E /* libPods-WBPhotoManager.a */,
 				C48CAF7195A15E0111168DA4 /* libPods-WBNativePlayer.a */,
 			);
 			name = Frameworks;
@@ -291,6 +293,18 @@
 			baseConfigurationReference = 0190A8509290F90C653ACE1A /* Pods-WBNativePlayer.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/GPUImage\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MJExtension\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/WMDebugAssistant\"",
+					"$(SRCROOT)/../WBPhotoManager/WBPhotoManager/**",
+				);
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -302,6 +316,18 @@
 			baseConfigurationReference = F43C39872E9AE7C5C1AC3B73 /* Pods-WBNativePlayer.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/GPUImage\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MJExtension\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/WMDebugAssistant\"",
+					"$(SRCROOT)/../WBPhotoManager/WBPhotoManager/**",
+				);
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

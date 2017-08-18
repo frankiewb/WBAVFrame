@@ -67,7 +67,7 @@
                 label.textAlignment = NSTextAlignmentCenter;
                 NSString *name = [NSBundle mainBundle].infoDictionary[@"CFBundleDisplayName"];
                 if (!name) name = [NSBundle mainBundle].infoDictionary[@"CFBundleName"];
-                label.text = [NSString stringWithFormat:NSLocalizedStringFromTable(@"str_access_photo", @"WBImagePicker", @"访问相册"), name];
+                label.text = [NSString stringWithFormat:@"访问相册%@", name];
                 label.translatesAutoresizingMaskIntoConstraints = NO;
                 
                 [self.view addSubview:label];
@@ -79,7 +79,7 @@
                 [self.view addConstraints:@[centerX, top, width]];
                 
                 UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
-                [btn setTitle:NSLocalizedStringFromTable(@"str_setting", @"WBImagePicker", @"设置") forState:UIControlStateNormal];
+                [btn setTitle: @"设置" forState:UIControlStateNormal];
                 btn.titleLabel.font = [UIFont systemFontOfSize:18];
                 btn.translatesAutoresizingMaskIntoConstraints = NO;
                 [btn addTarget:self action:@selector(mp_jumpToSettings) forControlEvents:UIControlEventTouchUpInside];

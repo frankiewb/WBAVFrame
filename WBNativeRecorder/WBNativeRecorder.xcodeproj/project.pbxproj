@@ -48,6 +48,7 @@
 		2D1DCC3C1F469AC200368A9E /* WBRecorderFaceDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBRecorderFaceDetector.m; path = WBNativeRecorder/WBRecorderFaceDetector.m; sourceTree = "<group>"; };
 		2D1DCC431F46C4AF00368A9E /* WBRecorderCIFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBRecorderCIFilter.h; path = WBNativeRecorder/WBRecorderCIFilter.h; sourceTree = "<group>"; };
 		2D1DCC441F46C4AF00368A9E /* WBRecorderCIFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBRecorderCIFilter.m; path = WBNativeRecorder/WBRecorderCIFilter.m; sourceTree = "<group>"; };
+		2D1DCC7F1F46EA5400368A9E /* libPods-WBPhotoManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-WBPhotoManager.a"; path = "../../../Library/Developer/Xcode/DerivedData/WBAVFrame-blzsmgzkiwbdofaquhmahjmjukxd/Build/Products/Debug-iphoneos/libPods-WBPhotoManager.a"; sourceTree = "<group>"; };
 		46AC23EE624DC8909FE660BF /* Pods-WBNativeRecorder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBNativeRecorder.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WBNativeRecorder/Pods-WBNativeRecorder.release.xcconfig"; sourceTree = "<group>"; };
 		6270B6424C947B060FFB16A5 /* libPods-WBNativeRecorder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WBNativeRecorder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A803C66AAC61D2C0F9BFFC22 /* Pods-WBNativeRecorder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBNativeRecorder.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WBNativeRecorder/Pods-WBNativeRecorder.debug.xcconfig"; sourceTree = "<group>"; };
@@ -165,6 +166,7 @@
 		79C3F4A2EAF812B0252BAD57 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D1DCC7F1F46EA5400368A9E /* libPods-WBPhotoManager.a */,
 				6270B6424C947B060FFB16A5 /* libPods-WBNativeRecorder.a */,
 			);
 			name = Frameworks;
@@ -403,6 +405,17 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WBNativeRecorder/WBNativeRecorder_Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/GPUImage\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MJExtension\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/WMDebugAssistant\"",
+				);
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -415,6 +428,17 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8D7826FKHD;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WBNativeRecorder/WBNativeRecorder_Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/GPUImage\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MJExtension\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/WMDebugAssistant\"",
+				);
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
