@@ -226,6 +226,7 @@
 
 - (void)WBImagePickerController:(nonnull WBImagePickerController *)picker didFinishPickingMediaWithArray:(nonnull NSArray <WBPickingModel *>*)array;
 - (void)WBImagePickerController:(nonnull WBImagePickerController *)picker didFinishPickingVideoWithURL:(nonnull NSURL *)videoURL identifier:(nullable NSString *)localIdentifier;
+- (void)WBImagePickerController:(nonnull WBImagePickerController *)picker didPlayingVideoWithURL:(nonnull NSURL *)videoURL identifier:(nullable NSString *)localIdentifier;
 
 - (void)WBImagePickerControllerDidCancel:(nonnull WBImagePickerController *)picker;
 

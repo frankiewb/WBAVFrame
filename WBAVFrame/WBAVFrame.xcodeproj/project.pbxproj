@@ -13,6 +13,7 @@
 		2D1DCC601F46D32C00368A9E /* libWBNativePlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1DCC5F1F46D32C00368A9E /* libWBNativePlayer.a */; };
 		2D1DCC7A1F46DB2900368A9E /* libWBIJKPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1DCC791F46DB2900368A9E /* libWBIJKPlayer.a */; };
 		2D1DCC891F46F70500368A9E /* WBPhotoManagerAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D1DCC881F46F70500368A9E /* WBPhotoManagerAsset.xcassets */; };
+		2D1DCCBD1F4C55B300368A9E /* ZFPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2D1DCCBC1F4C55B300368A9E /* ZFPlayer.bundle */; };
 		2D81A9581F289C0000380F61 /* libbz2.1.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D81A9511F289B9100380F61 /* libbz2.1.0.tbd */; };
 		2D81A9591F289C0700380F61 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D81A9531F289B9C00380F61 /* libz.tbd */; };
 		2D9B28191F01F61600D3EAEB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B28181F01F61600D3EAEB /* main.m */; };
@@ -57,6 +58,7 @@
 		2D1DCC5F1F46D32C00368A9E /* libWBNativePlayer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWBNativePlayer.a; path = "../WBNativePlayer/build/Debug-iphoneos/libWBNativePlayer.a"; sourceTree = "<group>"; };
 		2D1DCC791F46DB2900368A9E /* libWBIJKPlayer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWBIJKPlayer.a; path = "../WBIJKPlayer/build/Debug-iphoneos/libWBIJKPlayer.a"; sourceTree = "<group>"; };
 		2D1DCC881F46F70500368A9E /* WBPhotoManagerAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = WBPhotoManagerAsset.xcassets; path = ../WBPhotoManager/WBPhotoManager/WBPhotoManagerAsset.xcassets; sourceTree = "<group>"; };
+		2D1DCCBC1F4C55B300368A9E /* ZFPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZFPlayer.bundle; path = ../WBNativePlayer/WBNativePlayer/ZFPlayer/ZFPlayer.bundle; sourceTree = "<group>"; };
 		2D81A9511F289B9100380F61 /* libbz2.1.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.1.0.tbd; path = usr/lib/libbz2.1.0.tbd; sourceTree = SDKROOT; };
 		2D81A9531F289B9C00380F61 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		2D9B28141F01F61600D3EAEB /* WBAVFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WBAVFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +196,7 @@
 		2DE9E4401F023338001255F4 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				2D1DCCBC1F4C55B300368A9E /* ZFPlayer.bundle */,
 				2D1DCC881F46F70500368A9E /* WBPhotoManagerAsset.xcassets */,
 				2D9B28231F01F61600D3EAEB /* Assets.xcassets */,
 			);
@@ -418,6 +421,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D1DCCBD1F4C55B300368A9E /* ZFPlayer.bundle in Resources */,
 				2D1DCC891F46F70500368A9E /* WBPhotoManagerAsset.xcassets in Resources */,
 				2D9B28271F01F61600D3EAEB /* LaunchScreen.storyboard in Resources */,
 				2D9B28241F01F61600D3EAEB /* Assets.xcassets in Resources */,

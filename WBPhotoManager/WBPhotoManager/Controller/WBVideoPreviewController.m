@@ -106,9 +106,23 @@
         [sender setImage:nil forState:UIControlStateNormal];
         [sender setImage:nil forState:UIControlStateHighlighted];
         
-        [self mp_showBars:NO];
         
-        [self.player play];
+        
+#warning WB_WARNING 内置播放逻辑修改
+        //不做内置播放，改为代理出视频URL用指定播放器播放
+        [self dismissViewControllerAnimated:YES completion:nil];
+        WBImagePickerController *pickerCtrler = (WBImagePickerController *)self.navigationController;
+        
+        if ([pickerCtrler.WBDelegate respondsToSelector:@selector(WBImagePickerController:didPlayingVideoWithURL:identifier:)]) {
+            [[PHImageManager defaultManager] requestAVAssetForVideo:_asset options:nil resultHandler:^(AVAsset * _Nullable asset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
+                AVURLAsset *urlAsset = (AVURLAsset *)asset;
+                [pickerCtrler.WBDelegate WBImagePickerController:pickerCtrler didPlayingVideoWithURL:urlAsset.URL identifier:_asset.localIdentifier];
+            }];
+        }
+        [self mp_showBars:YES];
+        [self.navigationController popToRootViewControllerAnimated:NO];
+
+        //[self.player play];
     } else {
         _isPlay = NO;
         [_playButton setImage:[UIImage imageNamed:@"icon_preview_video_play"] forState:UIControlStateNormal];
@@ -116,7 +130,7 @@
         
         [self mp_showBars:YES];
         
-        [self.player pause];
+        //[self.player pause];
     }
 }
 
@@ -131,6 +145,7 @@
             [pickerCtrler.WBDelegate WBImagePickerController:pickerCtrler didFinishPickingVideoWithURL:urlAsset.URL identifier:_asset.localIdentifier];
         }];
     }
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 - (void)mp_endPlaying {

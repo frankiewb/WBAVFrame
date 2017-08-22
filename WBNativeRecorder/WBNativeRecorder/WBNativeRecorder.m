@@ -560,7 +560,7 @@ WBRecorderWtiterDelegate>
     }
     else
     {
-        [MBProgressHUD showError:@"前置摄像头不支持手电" toView:_videoPreViewLayer];
+        [MBProgressHUD showError:@"前置摄像头不支持手电" toView:(UIView *)_videoPreViewLayer];
     }
 }
 

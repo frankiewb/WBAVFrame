@@ -28,17 +28,20 @@
 //视频保存相册名称
 #define VIDEO_FOLDER_NAME @"WBRecord视频相册"
 
+//视频名称
+#define VIDEO_TITILE @"WBRecord录像"
+
 
 #pragma mark 原生录像器宏定义
 
 //启用人脸检测
-#define FACE_DETECTOR_ENABLE
+//#define FACE_DETECTOR_ENABLE
 
 //启用GPUImage美颜
-#define GPUIMAGE_BEAUTY_ENABLE
+//#define GPUIMAGE_BEAUTY_ENABLE
 
 //启用点击对焦自动调整对焦点白平衡功能
-#define FOCUS_EXPOSURE_AUTO_ADJUST_ENABLE
+//#define FOCUS_EXPOSURE_AUTO_ADJUST_ENABLE
 
 //启用CIImage美颜
 //#define CIIMAGE_BEAUTY_ENABLE

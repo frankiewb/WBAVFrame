@@ -7,8 +7,7 @@
 //
 
 #import "WBVideoPlayerSettingViewController.h"
-#import "WBIJKPlayerViewController.h"
-#import "WBNativePlayerViewController.h"
+#import "WBPlayerViewController.h"
 
 @interface WBVideoPlayerSettingViewController ()
 
@@ -69,12 +68,12 @@
 {
     if (recorderButton.tag == 1)
     {
-        WBIJKPlayerViewController *ijkPlayerVC = [[WBIJKPlayerViewController alloc] init];
+        WBPlayerViewController *ijkPlayerVC = [[WBPlayerViewController alloc] initWithPlayerType:WBPlayerTypeIJKPlayer];
         [self.navigationController pushViewController:ijkPlayerVC animated:YES];
     }
     else if (recorderButton.tag == 2)
     {
-        WBNativePlayerViewController *nativePlayerVC = [[WBNativePlayerViewController alloc] init];
+        WBPlayerViewController *nativePlayerVC = [[WBPlayerViewController alloc] initWithPlayerType:WBPlayerTypeNativePlayer];
         [self.navigationController pushViewController:nativePlayerVC animated:YES];
     }
 }
