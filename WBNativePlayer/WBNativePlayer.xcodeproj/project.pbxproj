@@ -22,7 +22,7 @@
 		2D1DCCB91F4C503200368A9E /* ZFPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCCA81F4C503200368A9E /* ZFPlayerControlView.m */; };
 		2D1DCCBA1F4C503200368A9E /* ZFPlayerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCCAB1F4C503200368A9E /* ZFPlayerModel.m */; };
 		2D1DCCBB1F4C503200368A9E /* ZFPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCCAD1F4C503200368A9E /* ZFPlayerView.m */; };
-		2D1DCCC11F4C5A2800368A9E /* MoviePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1DCCC01F4C5A2800368A9E /* MoviePlayerViewController.m */; };
+		2D41CB891F4D468B00064AAB /* WBNativePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D41CB881F4D468B00064AAB /* WBNativePlayerViewController.m */; };
 		5705031B4320FAACC56320AF /* libPods-WBNativePlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C48CAF7195A15E0111168DA4 /* libPods-WBNativePlayer.a */; };
 /* End PBXBuildFile section */
 
@@ -74,8 +74,8 @@
 		2D1DCCAB1F4C503200368A9E /* ZFPlayerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFPlayerModel.m; sourceTree = "<group>"; };
 		2D1DCCAC1F4C503200368A9E /* ZFPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFPlayerView.h; sourceTree = "<group>"; };
 		2D1DCCAD1F4C503200368A9E /* ZFPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFPlayerView.m; sourceTree = "<group>"; };
-		2D1DCCBF1F4C5A2800368A9E /* MoviePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoviePlayerViewController.h; path = WBNativePlayer/MoviePlayerViewController.h; sourceTree = "<group>"; };
-		2D1DCCC01F4C5A2800368A9E /* MoviePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoviePlayerViewController.m; path = WBNativePlayer/MoviePlayerViewController.m; sourceTree = "<group>"; };
+		2D41CB871F4D468B00064AAB /* WBNativePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBNativePlayerViewController.h; path = WBNativePlayer/WBNativePlayerViewController.h; sourceTree = "<group>"; };
+		2D41CB881F4D468B00064AAB /* WBNativePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBNativePlayerViewController.m; path = WBNativePlayer/WBNativePlayerViewController.m; sourceTree = "<group>"; };
 		C48CAF7195A15E0111168DA4 /* libPods-WBNativePlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WBNativePlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F43C39872E9AE7C5C1AC3B73 /* Pods-WBNativePlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBNativePlayer.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WBNativePlayer/Pods-WBNativePlayer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,7 +95,7 @@
 		2D1DCC471F46D09100368A9E = {
 			isa = PBXGroup;
 			children = (
-				2D1DCCBE1F4C5A1100368A9E /* WBMoviePlayerViewController */,
+				2D41CB861F4D465F00064AAB /* WBNativePlayerViewController */,
 				2D1DCC8D1F4C503200368A9E /* ZFPlayer */,
 				2D1DCC8A1F4ACB4800368A9E /* WBPlayerViewController */,
 				2D1DCC511F46D09100368A9E /* Products */,
@@ -167,13 +167,13 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
-		2D1DCCBE1F4C5A1100368A9E /* WBMoviePlayerViewController */ = {
+		2D41CB861F4D465F00064AAB /* WBNativePlayerViewController */ = {
 			isa = PBXGroup;
 			children = (
-				2D1DCCBF1F4C5A2800368A9E /* MoviePlayerViewController.h */,
-				2D1DCCC01F4C5A2800368A9E /* MoviePlayerViewController.m */,
+				2D41CB871F4D468B00064AAB /* WBNativePlayerViewController.h */,
+				2D41CB881F4D468B00064AAB /* WBNativePlayerViewController.m */,
 			);
-			name = WBMoviePlayerViewController;
+			name = WBNativePlayerViewController;
 			sourceTree = "<group>";
 		};
 		898966295C598B03A4DC92DF /* Pods */ = {
@@ -289,10 +289,10 @@
 			files = (
 				2D1DCCB41F4C503200368A9E /* UIView+CustomControlView.m in Sources */,
 				2D1DCCB51F4C503200368A9E /* UIViewController+ZFPlayerRotation.m in Sources */,
-				2D1DCCC11F4C5A2800368A9E /* MoviePlayerViewController.m in Sources */,
 				2D1DCC5E1F46D0D200368A9E /* WBPlayerViewController.m in Sources */,
 				2D1DCCB01F4C503200368A9E /* UIAlertController+ZFPlayerRotation.m in Sources */,
 				2D1DCCB11F4C503200368A9E /* UIImageView+ZFCache.m in Sources */,
+				2D41CB891F4D468B00064AAB /* WBNativePlayerViewController.m in Sources */,
 				2D1DCCB91F4C503200368A9E /* ZFPlayerControlView.m in Sources */,
 				2D1DCCAE1F4C503200368A9E /* ASValuePopUpView.m in Sources */,
 				2D1DCCB21F4C503200368A9E /* UINavigationController+ZFPlayerRotation.m in Sources */,

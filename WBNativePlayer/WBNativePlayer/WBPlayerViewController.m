@@ -9,21 +9,15 @@
 #import "WBPlayerViewController.h"
 #import "WBImagePickerController.h"
 #import "WBSettingMacros.h"
-#import "ZFPlayer.h"
+#import "WBNativePlayerViewController.h"
 #import "WBMacros.h"
-#import "MoviePlayerViewController.h"
 
 
-@interface WBPlayerViewController ()<WBImagePickerControllerDelegate,ZFPlayerDelegate>
+@interface WBPlayerViewController ()<WBImagePickerControllerDelegate>
 
 @property (nonatomic, assign) WBPlayerType playerType;//播放器类型
 @property (nonatomic, strong) WBImagePickerController *imagePickerController;//相册VC
-@property (nonatomic, strong) UIButton *backButton;//返回按钮
-@property (nonatomic, strong) UIButton *photoAblumButton;//打开相册按钮
-
-@property (nonatomic,strong) MoviePlayerViewController *movieVC;
-
-
+@property (nonatomic, strong) WBNativePlayerViewController *nativePlayerViewController;//原生播放器VC
 
 @end
 
@@ -41,61 +35,20 @@
     return self;
 }
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    [self setSubView];
+    self.nativePlayerViewController = [[WBNativePlayerViewController alloc] init];
     [self setupImagePickerController];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-
 }
 
-- (void)setPlayer
-{
-    switch (_playerType)
-    {
-        case WBPlayerTypeNativePlayer:
-            [self setNativePlayer];
-            break;
-        case WBPlayerTypeIJKPlayer:
-            [self setIJKPlayer];
-            break;
-    }
-}
-
-- (void)setNativePlayer
-{
-    
-}
-
-
-- (void)setIJKPlayer
-{
-    
-}
-
-- (void)setSubView
-{
-    //backButton
-    self.backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.backButton setBackgroundImage:[UIImage imageNamed:@"backLive"] forState:UIControlStateNormal];
-    self.backButton.frame = CGRectMake(15*WBDeviceScale6, 25*WBDeviceScale6, 30*WBDeviceScale6, 30*WBDeviceScale6);
-    [self.backButton addTarget:self action:@selector(backToParent) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_backButton];
-    
-    //photoAblumButton
-    self.photoAblumButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.photoAblumButton setBackgroundImage:[UIImage imageNamed:@"turnCamera"] forState:UIControlStateNormal];
-    self.photoAblumButton.frame = CGRectMake(WBScreenWidth - 45*WBDeviceScale6, 25*WBDeviceScale6, 30*WBDeviceScale6, 30*WBDeviceScale6);
-    [self.photoAblumButton addTarget:self action:@selector(openPhotoAblum) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_photoAblumButton];
-}
+#pragma mark ImagePicker相关
 
 - (void)setupImagePickerController
 {
@@ -140,51 +93,34 @@
     //自定义相册名称
     self.imagePickerController.customAlbumName = VIDEO_FOLDER_NAME;
     
-    [self presentViewController:_imagePickerController animated:YES completion:nil];
+    //[self presentViewController:_imagePickerController animated:YES completion:nil];
+    [self.view addSubview:_imagePickerController.view];
 
 }
 
-#pragma mark WBImagePickerControllerDelegate
-
-- (void)WBImagePickerController:(WBImagePickerController *)picker didFinishPickingMediaWithArray:(NSArray<WBPickingModel *> *)array
-{
-    NSLog(@"选择了一组视频或者图片啦");
-}
-
-- (void)WBImagePickerController:(WBImagePickerController *)picker didFinishPickingVideoWithURL:(NSURL *)videoURL identifier:(NSString *)localIdentifier
-{
-    NSLog(@"选择视频啦");
-}
-
+//WBImagePickerControllerDelegate
 - (void)WBImagePickerController:(WBImagePickerController *)picker didPlayingVideoWithURL:(NSURL *)videoURL identifier:(NSString *)localIdentifier
 {
     NSLog(@"将要播放视频了，快快播放吧");
-    self.movieVC = [[MoviePlayerViewController alloc] init];
-    self.movieVC.videoURL = videoURL;
-    [self.navigationController pushViewController:_movieVC animated:YES];
+    if (self.nativePlayerViewController)
+    {
+        [self.nativePlayerViewController setVideoViewTitle:localIdentifier];
+        [self.nativePlayerViewController setVideoViewURL:videoURL];
+        [self.nativePlayerViewController setVideoViewPlaceholder:nil];
+    }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        //放到主线程去push，否则影响效率
+        [self.navigationController pushViewController:_nativePlayerViewController animated:YES];
+    });
     
 }
 
 - (void)WBImagePickerControllerDidCancel:(WBImagePickerController *)picker
 {
     NSLog(@"取消相册点选");
-}
-
-- (void)WBImagePickerController:(WBImagePickerController *)picker authorizeWithSourceType:(WBImagePickerSourceType)sourceType authorizationStatus:(WBAuthorizationStatus)status
-{
-    NSLog(@"授权代理");
-}
-
-- (void)backToParent
-{
     [self.navigationController popViewControllerAnimated:YES];
 }
-
-- (void)openPhotoAblum
-{
-    [self presentViewController:_imagePickerController animated:YES completion:nil];
-}
-
 
 
 @end
